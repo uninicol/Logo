@@ -5,7 +5,7 @@ import java.awt.*;
 /**
  * Interfaccia usata per rappresentare un cursore in un piano
  */
-public interface Cursor {
+public interface Cursor {//TODO forse da rimuovere
 
     /**
      * Restituisce la posizione corrente del cursore

@@ -4,24 +4,21 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d470bcfa-26cf-40c7-b95f-2bc7f98722c7" name="Changes" comment="init commit">
-      <change afterPath="$PROJECT_DIR$/list/src/main/java/bho/TwoDimCoordinate.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/list/src/main/java/bho/TwoDimCursor.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/list/src/main/java/it/unicam/cs/pa/logo/Coordinate.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/list/src/main/java/it/unicam/cs/pa/logo/Cursor.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/list/src/main/java/it/unicam/cs/pa/logo/Direction.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/list/src/main/java/it/unicam/cs/pa/logo/Environment.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/list/src/main/java/it/unicam/cs/pa/logo/Instruction.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/list/src/main/java/it/unicam/cs/pa/logo/Segment.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/list/src/main/java/it/unicam/cs/pa/logo/Shape.java" afterDir="false" />
+    <list default="true" id="d470bcfa-26cf-40c7-b95f-2bc7f98722c7" name="Changes" comment="Progettazione base dei concetti">
+      <change afterPath="$PROJECT_DIR$/list/src/main/java/it/unicam/cs/pa/logo/AbstractCursor.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/list/src/main/java/it/unicam/cs/pa/logo/TwoDimCoordinate.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/list/src/main/java/it/unicam/cs/pa/logo/TwoDimEnvironment.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/list/src/main/java/it/unicam/cs/pa/logo/TwoDimSegment.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/list/src/main/java/it/unicam/cs/pa/logo/instructions/AbstractInstruction.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/list/src/main/java/it/unicam/cs/pa/logo/instructions/ForwardInstruction.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/list/src/main/java/it/unicam/cs/pa/logo/list/Coordinates.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/list/src/main/java/it/unicam/cs/pa/logo/list/Environment.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/list/src/main/java/it/unicam/cs/pa/logo/list/Instruction.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/list/src/main/java/it/unicam/cs/pa/logo/list/Shape.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/list/src/main/java/it/unicam/cs/pa/logo/list/Tag.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/list/src/main/java/it/unicam/cs/pa/logo/list/TwoDimCoordinates.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/list/src/main/java/it/unicam/cs/pa/logo/list/TwoDimEnvironment.java" beforeDir="false" afterPath="$PROJECT_DIR$/list/src/main/java/bho/TwoDimEnvironment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/list/src/main/java/bho/TwoDimCoordinate.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/list/src/main/java/bho/TwoDimCursor.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/list/src/main/java/bho/TwoDimEnvironment.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/list/src/main/java/it/unicam/cs/pa/logo/Cursor.java" beforeDir="false" afterPath="$PROJECT_DIR$/list/src/main/java/it/unicam/cs/pa/logo/Cursor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/list/src/main/java/it/unicam/cs/pa/logo/Environment.java" beforeDir="false" afterPath="$PROJECT_DIR$/list/src/main/java/it/unicam/cs/pa/logo/Environment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/list/src/main/java/it/unicam/cs/pa/logo/Instruction.java" beforeDir="false" afterPath="$PROJECT_DIR$/list/src/main/java/it/unicam/cs/pa/logo/instructions/Instruction.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/list/src/main/java/it/unicam/cs/pa/logo/Segment.java" beforeDir="false" afterPath="$PROJECT_DIR$/list/src/main/java/it/unicam/cs/pa/logo/Segment.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -80,21 +77,22 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "C:/Users/nicki/IdeaProjects/Logo",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.0",
-    "run.code.analysis.last.selected.profile": "pProject Default",
-    "settings.editor.selected.configurable": "preferences.keymap"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/nicki/IdeaProjects/Logo&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
+    &quot;run.code.analysis.last.selected.profile&quot;: &quot;pProject Default&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.keymap&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
+      <recent name="it.unicam.cs.pa.logo" />
       <recent name="it.unicam.cs.pa.logo.list" />
     </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
@@ -116,7 +114,8 @@
       <workItem from="1652523245593" duration="7574000" />
       <workItem from="1652552874324" duration="2234000" />
       <workItem from="1652621593219" duration="219000" />
-      <workItem from="1652621837003" duration="14538000" />
+      <workItem from="1652621837003" duration="15028000" />
+      <workItem from="1652687564795" duration="9054000" />
     </task>
     <task id="LOCAL-00001" summary="init commit">
       <created>1652373969498</created>
@@ -125,7 +124,14 @@
       <option name="project" value="LOCAL" />
       <updated>1652373969498</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Progettazione base dei concetti">
+      <created>1652638655557</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1652638655557</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -141,6 +147,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="init commit" />
-    <option name="LAST_COMMIT_MESSAGE" value="init commit" />
+    <MESSAGE value="Progettazione base dei concetti" />
+    <option name="LAST_COMMIT_MESSAGE" value="Progettazione base dei concetti" />
   </component>
 </project>
