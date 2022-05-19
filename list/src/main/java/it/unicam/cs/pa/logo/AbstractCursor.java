@@ -3,7 +3,7 @@ package it.unicam.cs.pa.logo;
 import java.awt.*;
 
 /**
- * Classe usata per rappresentare un cursore in un piano
+ * Classe usata per rappresentare un cursore in un piano, formatta le linee che traccia
  */
 public abstract class AbstractCursor<C extends Coordinate, D extends Direction> {
     private C position;

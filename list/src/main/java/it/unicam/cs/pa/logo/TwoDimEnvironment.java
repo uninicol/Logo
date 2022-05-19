@@ -3,13 +3,16 @@ package it.unicam.cs.pa.logo;
 import java.awt.*;
 import java.util.List;
 
+/**
+ * Rappresenta un ambiente a due dimensioni
+ */
 public class TwoDimEnvironment implements Environment<TwoDimCoordinate> {
 
     private final int length;
     private final int height;
     private final List<Segment<TwoDimCoordinate>> segments;
     private Color backgroundColor = Color.WHITE;
-    private final TwoDimCursor<TwoDimCoordinate, TwoDimDirection> cursor = this.getCursor();
+    private final TwoDimCursor cursor = this.getCursor();
 
     public TwoDimEnvironment(List<Segment<TwoDimCoordinate>> segments, int length, int height) {
         this.length = length;
@@ -23,7 +26,7 @@ public class TwoDimEnvironment implements Environment<TwoDimCoordinate> {
     }
 
     @Override
-    public TwoDimCursor<TwoDimCoordinate, TwoDimDirection> getCursor() {
+    public TwoDimCursor getCursor() {
         return cursor;
     }
 

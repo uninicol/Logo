@@ -5,7 +5,7 @@ package it.unicam.cs.pa.logo;
  */
 public interface Coordinate {
 
-    /**
+    /**TODO probabilmente eliminero il metodo
      * Verifica se la posizione è valida per il piano
      *
      * @return true se la posizione è valida
