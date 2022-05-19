@@ -1,38 +1,91 @@
 package it.unicam.cs.pa.logo;
 
-import java.util.List;
+import java.awt.*;
+import java.util.Collection;
 
 /**
- * Classe usata per tenere traccia delle linee disegnate
+ * Classe usata per rappresentare l'ambiente della tavola di disegno
  *
- * @param <C> le coordinate
+ * @param <C> le coordinate usate dal piano
  */
 public interface Environment<C extends Coordinate> {
     /**
-     * Restituisce la lista di tutti i segmenti nell'ambiente
+     * Restituisce una collezione di tutti i segmenti nell'ambiente
      *
-     * @return la lista di segmenti nell'ambiente
+     * @return la collezione dei segmenti nell'ambiente
      */
-    List<Segment<C>> getSegments();
+    Collection<Segment<C>> getSegments();
 
     /**
-     * Disegna una linea nell'ambiente
+     * Restituisce il cursore utilizzato
      *
-     * @param cursor il cursore
-     * @param c1     la coordinata di partenza
-     * @param c2     la coordinata di arrivo
+     * @return il cursore
      */
-    void drawSegment(Cursor cursor, C c1, C c2);
+    AbstractCursor<C, ? extends Direction> getCursor();
 
     /**
-     * Restituisce il punto home
+     * Restituisce la coordinata del punto home nel piano
      *
-     * @return il punto home
+     * @return la coordinata del punto home
      */
-    C getHomePoint();
+    C getHome();
 
     /**
-     * Elimina i tratti disegnati
+     * Restituice il colore dello sfondo
+     *
+     * @return il colore dello sfondo
      */
-    void clear();
+    Color getBackgroundColor();
+
+    /**
+     * Elimina tutti i tratti disegnati nel piano
+     */
+    void clearAll();
+
+    /**
+     * Traccia una linea nel piano
+     *
+     * @param segment la linea da inserire
+     */
+
+    void drawLine(Segment<C> segment);
+
+
+//
+//
+//    /**
+//     * Restituisce il cursore usato nell'ambiente
+//     *
+//     * @return il cursore dell'ambiente
+//     */
+//    AbstractCursor getCursor();
+//
+//    /**
+//     * Disegna una linea nell'ambiente
+//     *
+//     * @param cursor il cursore
+//     * @param c1     la coordinata di partenza
+//     * @param c2     la coordinata di arrivo
+//     */
+//    void drawSegment(Cursor cursor, C c1, C c2);
+//
+//    /**
+//     * Restituisce il punto home
+//     *
+//     * @return il punto home
+//     */
+//    C getHomePoint();
+//
+//    /**
+//     * Elimina i tratti disegnati
+//     */
+//    void clear();
+//
+//    /**
+//     * Restituisce la coordinata dove il cursore finirà di disegnare
+//     *
+//     * @param sourcePoint il punto di partenza
+//     * @return il punto di arrivo
+//     */
+//    Coordinate getPointOfArrival(Coordinate sourcePoint);
 }

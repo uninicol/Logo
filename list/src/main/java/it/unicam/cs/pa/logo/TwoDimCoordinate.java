@@ -6,12 +6,12 @@ public record TwoDimCoordinate(int xAxis, int yAxis) implements Coordinate {
     }
 
     @Override
-    public Coordinate defaultCoordinate() {
-        return new TwoDimCoordinate(0, 0);
+    public boolean isValid() {
+        return xAxis >= 0 && yAxis >= 0;
     }
 
     @Override
-    public boolean isValid() {
-        return xAxis >= 0 && yAxis >= 0;
+    public int getDistanceFrom(Coordinate c2) {
+        return 0;
     }
 }

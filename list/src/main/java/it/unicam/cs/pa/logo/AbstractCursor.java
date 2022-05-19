@@ -5,30 +5,31 @@ import java.awt.*;
 /**
  * Classe usata per rappresentare un cursore in un piano
  */
-public class AbstractCursor {
-    private Coordinate position;
-    private Direction direction = new Direction(0);
+public abstract class AbstractCursor<C extends Coordinate, D extends Direction> {
+    private C position;
+    private D direction;
     private Color lineColor = Color.BLACK;
     private Color areaColor = Color.WHITE;
     private boolean plot = false;
 
-    public AbstractCursor(Coordinate position) {
+    public AbstractCursor(C position, D direction) {
         this.position = position;
+        this.direction = direction;
     }
 
-    public Coordinate getPosition() {
+    public C getPosition() {
         return position;
     }
 
-    public void setPosition(Coordinate position) {
+    public void setPosition(C position) {
         this.position = position;
     }
 
-    public Direction getDirection() {
+    public D getDirection() {
         return direction;
     }
 
-    public void setDirection(Direction direction) {
+    public void setDirection(D direction) {
         this.direction = direction;
     }
 

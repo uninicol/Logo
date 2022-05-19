@@ -1,31 +1,29 @@
 package it.unicam.cs.pa.logo;
 
+import java.util.function.BiFunction;
+
 /**
- * Un segmento rappresenta una linea da un punto di partenza a un punto di arrivo
+ * Classe usata per rappresentare una linea su un piano avente un punto di partenza ed un punto di arrivo
  *
  * @param <C> le coordinate
  */
-public abstract class Segment<C extends Coordinate> {//TODO: forse da fare extends Function
-
-    private final C c1;
-    private final C c2;
-
-    public Segment(C c1, C c2) {
-        this.c1 = c1;
-        this.c2 = c2;
-    }
+public interface Segment<C extends Coordinate> {
 
     /**
-     * punto di partenza di un segmento
+     * Ritorna il punto di partenza di un segmento
+     * @return il punto di partenza
      */
-    C getPoint1() {
-        return c1;
-    }
+    C getPoint1();
 
     /**
-     * punto di arrivo di un segmento
+     * Ritorna il punto di arrivo di un segmento
+     * @return il punto di arrivo
      */
-    C getPoint2() {
-        return c2;
-    }
+    C getPoint2();
+
+    /**
+     * Restituisce la funzione che rappresenta la linea
+     * @return la funzione che rappresenta la linea
+     */
+    BiFunction<Integer, Integer, Integer> getShape();
 }

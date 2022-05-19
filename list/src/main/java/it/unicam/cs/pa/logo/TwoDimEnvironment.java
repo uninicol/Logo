@@ -9,6 +9,7 @@ public class TwoDimEnvironment implements Environment<TwoDimCoordinate> {
     private final int height;
     private final List<Segment<TwoDimCoordinate>> segments;
     private Color backgroundColor = Color.WHITE;
+    private final TwoDimCursor<TwoDimCoordinate, TwoDimDirection> cursor = this.getCursor();
 
     public TwoDimEnvironment(List<Segment<TwoDimCoordinate>> segments, int length, int height) {
         this.length = length;
@@ -22,18 +23,13 @@ public class TwoDimEnvironment implements Environment<TwoDimCoordinate> {
     }
 
     @Override
-    public void drawSegment(Cursor cursor, TwoDimCoordinate c1, TwoDimCoordinate c2) {
-        segments.add(new TwoDimSegment(c1, c2));
+    public TwoDimCursor<TwoDimCoordinate, TwoDimDirection> getCursor() {
+        return cursor;
     }
 
     @Override
-    public TwoDimCoordinate getHomePoint() {
+    public TwoDimCoordinate getHome() {
         return new TwoDimCoordinate(length / 2, height / 2);
-    }
-
-    @Override
-    public void clear() {
-        segments.clear();
     }
 
     public int getLength() {
@@ -46,6 +42,16 @@ public class TwoDimEnvironment implements Environment<TwoDimCoordinate> {
 
     public Color getBackgroundColor() {
         return backgroundColor;
+    }
+
+    @Override
+    public void clearAll() {
+        segments.clear();
+    }
+
+    @Override
+    public void drawLine(Segment<TwoDimCoordinate> segment) {
+        segments.add(segment);
     }
 
     public void setBackgroundColor(Color backgroundColor) {

@@ -1,16 +1,9 @@
 package it.unicam.cs.pa.logo;
 
 /**
- * Rappresenta un generico punto nello spazio
+ * Classe usata per modellare un punto di <code>Environment</code>
  */
 public interface Coordinate {
-
-    /**
-     * Restituisce le coordinate dell'home
-     *
-     * @return le coordinate dell'home
-     */
-    Coordinate defaultCoordinate();
 
     /**
      * Verifica se la posizione è valida per il piano
@@ -18,4 +11,21 @@ public interface Coordinate {
      * @return true se la posizione è valida
      */
     boolean isValid();
+
+    /**
+     * Restituisce la distaza tra un punto e un'altro
+     *
+     * @param c2 la coordinata
+     * @return la distanza tra i due punti
+     */
+    int getDistanceFrom(Coordinate c2);
+
+
+//    /**
+//     * Restituisce la distanza tra un punto e un'altro secondo una funzione
+//     * @param c2 la coordinata
+//     * @param function la funzione che passa per i punti
+//     * @return la distanza tra i due punti
+//     */
+//    int getDistanceFrom(Coordinate c2, BiFunction<Integer, Integer,Integer> function);
 }

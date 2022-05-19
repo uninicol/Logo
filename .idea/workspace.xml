@@ -5,20 +5,22 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d470bcfa-26cf-40c7-b95f-2bc7f98722c7" name="Changes" comment="Progettazione base dei concetti">
-      <change afterPath="$PROJECT_DIR$/list/src/main/java/it/unicam/cs/pa/logo/AbstractCursor.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/list/src/main/java/it/unicam/cs/pa/logo/TwoDimCoordinate.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/list/src/main/java/it/unicam/cs/pa/logo/TwoDimEnvironment.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/list/src/main/java/it/unicam/cs/pa/logo/TwoDimSegment.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/list/src/main/java/it/unicam/cs/pa/logo/instructions/AbstractInstruction.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/list/src/main/java/it/unicam/cs/pa/logo/instructions/ForwardInstruction.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/list/src/main/java/it/unicam/cs/pa/logo/TwoDimCursor.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/list/src/main/java/it/unicam/cs/pa/logo/TwoDimDirection.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/list/src/main/java/bho/TwoDimCoordinate.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/list/src/main/java/bho/TwoDimCursor.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/list/src/main/java/bho/TwoDimEnvironment.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/list/src/main/java/it/unicam/cs/pa/logo/Cursor.java" beforeDir="false" afterPath="$PROJECT_DIR$/list/src/main/java/it/unicam/cs/pa/logo/Cursor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/list/src/main/java/it/unicam/cs/pa/logo/AbstractCursor.java" beforeDir="false" afterPath="$PROJECT_DIR$/list/src/main/java/it/unicam/cs/pa/logo/AbstractCursor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/list/src/main/java/it/unicam/cs/pa/logo/Coordinate.java" beforeDir="false" afterPath="$PROJECT_DIR$/list/src/main/java/it/unicam/cs/pa/logo/Coordinate.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/list/src/main/java/it/unicam/cs/pa/logo/Cursor.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/list/src/main/java/it/unicam/cs/pa/logo/Direction.java" beforeDir="false" afterPath="$PROJECT_DIR$/list/src/main/java/it/unicam/cs/pa/logo/Direction.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/list/src/main/java/it/unicam/cs/pa/logo/Environment.java" beforeDir="false" afterPath="$PROJECT_DIR$/list/src/main/java/it/unicam/cs/pa/logo/Environment.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/list/src/main/java/it/unicam/cs/pa/logo/Instruction.java" beforeDir="false" afterPath="$PROJECT_DIR$/list/src/main/java/it/unicam/cs/pa/logo/instructions/Instruction.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/list/src/main/java/it/unicam/cs/pa/logo/Segment.java" beforeDir="false" afterPath="$PROJECT_DIR$/list/src/main/java/it/unicam/cs/pa/logo/Segment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/list/src/main/java/it/unicam/cs/pa/logo/Shape.java" beforeDir="false" afterPath="$PROJECT_DIR$/list/src/main/java/it/unicam/cs/pa/logo/forse_da_rimuovere/Shape.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/list/src/main/java/it/unicam/cs/pa/logo/TwoDimCoordinate.java" beforeDir="false" afterPath="$PROJECT_DIR$/list/src/main/java/it/unicam/cs/pa/logo/TwoDimCoordinate.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/list/src/main/java/it/unicam/cs/pa/logo/TwoDimEnvironment.java" beforeDir="false" afterPath="$PROJECT_DIR$/list/src/main/java/it/unicam/cs/pa/logo/TwoDimEnvironment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/list/src/main/java/it/unicam/cs/pa/logo/TwoDimSegment.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/list/src/main/java/it/unicam/cs/pa/logo/instructions/AbstractInstruction.java" beforeDir="false" afterPath="$PROJECT_DIR$/list/src/main/java/it/unicam/cs/pa/logo/instructions/AbstractInstruction.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/list/src/main/java/it/unicam/cs/pa/logo/instructions/ForwardInstruction.java" beforeDir="false" afterPath="$PROJECT_DIR$/list/src/main/java/it/unicam/cs/pa/logo/instructions/ForwardInstruction.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/list/src/main/java/it/unicam/cs/pa/logo/instructions/Instruction.java" beforeDir="false" afterPath="$PROJECT_DIR$/list/src/main/java/it/unicam/cs/pa/logo/instructions/Instruction.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -50,8 +52,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Interface" />
         <option value="Record" />
+        <option value="Interface" />
         <option value="Class" />
       </list>
     </option>
@@ -63,7 +65,9 @@
     <option name="defaultAccountId" value="437b335f-a2e0-4858-8177-ee3a8438309e" />
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/list/src/main/java/it/unicam/cs/pa/logo/Cursor.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/list/src/main/java/it/unicam/cs/pa/logo/Coordinate.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/list/src/main/java/it/unicam/cs/pa/logo/Environment.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/list/src/main/java/it/unicam/cs/pa/logo/Segment.java" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -116,6 +120,13 @@
       <workItem from="1652621593219" duration="219000" />
       <workItem from="1652621837003" duration="15028000" />
       <workItem from="1652687564795" duration="9054000" />
+      <workItem from="1652712792699" duration="234000" />
+      <workItem from="1652713245596" duration="58000" />
+      <workItem from="1652719681320" duration="3162000" />
+      <workItem from="1652796420612" duration="1431000" />
+      <workItem from="1652799556023" duration="13000" />
+      <workItem from="1652799961450" duration="1715000" />
+      <workItem from="1652970387109" duration="8451000" />
     </task>
     <task id="LOCAL-00001" summary="init commit">
       <created>1652373969498</created>
@@ -131,7 +142,14 @@
       <option name="project" value="LOCAL" />
       <updated>1652638655557</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Progettazione base dei concetti">
+      <created>1652712835168</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1652712835168</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
