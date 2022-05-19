@@ -47,45 +47,13 @@ public interface Environment<C extends Coordinate> {
      *
      * @param segment la linea da inserire
      */
-
     void drawLine(Segment<C> segment);
 
-
-//
-//
-//    /**
-//     * Restituisce il cursore usato nell'ambiente
-//     *
-//     * @return il cursore dell'ambiente
-//     */
-//    AbstractCursor getCursor();
-//
-//    /**
-//     * Disegna una linea nell'ambiente
-//     *
-//     * @param cursor il cursore
-//     * @param c1     la coordinata di partenza
-//     * @param c2     la coordinata di arrivo
-//     */
-//    void drawSegment(Cursor cursor, C c1, C c2);
-//
-//    /**
-//     * Restituisce il punto home
-//     *
-//     * @return il punto home
-//     */
-//    C getHomePoint();
-//
-//    /**
-//     * Elimina i tratti disegnati
-//     */
-//    void clear();
-//
-//    /**
-//     * Restituisce la coordinata dove il cursore finirà di disegnare
-//     *
-//     * @param sourcePoint il punto di partenza
-//     * @return il punto di arrivo
-//     */
-//    Coordinate getPointOfArrival(Coordinate sourcePoint);
+    /**
+     * Restituisce il punto di arrivo del segmento
+     * @param sourcePoint il punto di partenza
+     * @param segment il segmento
+     * @return il punto di arrivo
+     */
+    C getEndPoint(Coordinate sourcePoint,  Segment<C> segment);
 }

@@ -7,9 +7,11 @@ import java.util.List;
  * Rappresenta un ambiente a due dimensioni
  */
 public class TwoDimEnvironment implements Environment<TwoDimCoordinate> {
-
     private final int length;
     private final int height;
+    /**
+     * La lista di segmenti disegnati
+     */
     private final List<Segment<TwoDimCoordinate>> segments;
     private Color backgroundColor = Color.WHITE;
     private final TwoDimCursor cursor = this.getCursor();
@@ -18,6 +20,26 @@ public class TwoDimEnvironment implements Environment<TwoDimCoordinate> {
         this.length = length;
         this.height = height;
         this.segments = segments;
+    }
+
+    public int getLength() {
+        return length;
+    }
+
+    public int getHeight() {
+        return height;
+    }
+
+    public Color getBackgroundColor() {
+        return backgroundColor;
+    }
+
+    public void setBackgroundColor(int r, int g, int b) {
+        this.backgroundColor = new Color(r, g, b);
+    }
+
+    public void setBackgroundColor(Color backgroundColor) {
+        this.backgroundColor = backgroundColor;
     }
 
     @Override
@@ -35,18 +57,6 @@ public class TwoDimEnvironment implements Environment<TwoDimCoordinate> {
         return new TwoDimCoordinate(length / 2, height / 2);
     }
 
-    public int getLength() {
-        return length;
-    }
-
-    public int getHeight() {
-        return height;
-    }
-
-    public Color getBackgroundColor() {
-        return backgroundColor;
-    }
-
     @Override
     public void clearAll() {
         segments.clear();
@@ -57,7 +67,8 @@ public class TwoDimEnvironment implements Environment<TwoDimCoordinate> {
         segments.add(segment);
     }
 
-    public void setBackgroundColor(Color backgroundColor) {
-        this.backgroundColor = backgroundColor;
+    @Override
+    public TwoDimCoordinate getEndPoint(Coordinate sourcePoint, Segment<TwoDimCoordinate> segment) {
+        return null;
     }
 }
