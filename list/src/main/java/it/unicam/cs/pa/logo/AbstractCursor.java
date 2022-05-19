@@ -1,6 +1,6 @@
 package it.unicam.cs.pa.logo;
 
-import java.awt.*;
+import java.awt.Color;
 
 /**
  * Classe usata per rappresentare un cursore in un piano, formatta le linee che traccia

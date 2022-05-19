@@ -1,6 +1,6 @@
 package it.unicam.cs.pa.logo;
 
-import java.awt.*;
+import java.awt.Color;
 import java.util.Collection;
 
 /**
