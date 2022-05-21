@@ -1,6 +1,7 @@
 package it.unicam.cs.pa.logo;
 
 import java.awt.Color;
+import java.util.Objects;
 
 /**
  * Classe usata per rappresentare un cursore in un piano, formatta le linee che traccia
@@ -10,11 +11,11 @@ public abstract class AbstractCursor<C extends Coordinate, D extends Direction> 
     private D direction;
     private Color lineColor = Color.BLACK;
     private Color areaColor = Color.WHITE;
-    private boolean plot = false;
+    private boolean plot = true;
 
     public AbstractCursor(C position, D direction) {
-        this.position = position;
-        this.direction = direction;
+        this.position = Objects.requireNonNull(position);
+        this.direction = Objects.requireNonNull(direction);
     }
 
     public C getPosition() {

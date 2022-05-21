@@ -1,7 +1,8 @@
 package it.unicam.cs.pa.logo;
 
-import java.awt.Color;
+import java.awt.*;
 import java.util.List;
+import java.util.Objects;
 
 /**
  * Rappresenta un ambiente a due dimensioni
@@ -16,10 +17,10 @@ public class TwoDimEnvironment implements Environment<TwoDimCoordinate> {
     private Color backgroundColor = Color.WHITE;
     private final TwoDimCursor cursor = this.getCursor();
 
-    public TwoDimEnvironment(List<Segment<TwoDimCoordinate>> segments, int length, int height) {
+    public TwoDimEnvironment(int length, int height, List<Segment<TwoDimCoordinate>> segments) {
         this.length = length;
         this.height = height;
-        this.segments = segments;
+        this.segments = Objects.requireNonNull(segments);
     }
 
     public int getLength() {
@@ -35,7 +36,7 @@ public class TwoDimEnvironment implements Environment<TwoDimCoordinate> {
     }
 
     public void setBackgroundColor(int r, int g, int b) {
-        this.backgroundColor = new Color(r, g, b);
+        setBackgroundColor(new Color(r, g, b));
     }
 
     public void setBackgroundColor(Color backgroundColor) {

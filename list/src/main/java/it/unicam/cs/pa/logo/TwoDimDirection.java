@@ -1,21 +1,25 @@
 package it.unicam.cs.pa.logo;
 
+import java.util.Collections;
+import java.util.LinkedList;
+import java.util.List;
+
 /**
  * Rappresenta una direzione in un piano a due dimensioni
  */
 public class TwoDimDirection implements Direction {
-    private int direction;
+    private int angle;
 
     public TwoDimDirection(int direction) {
-        this.direction = direction % 360;
+        this.angle = direction % 360;
     }
 
     public TwoDimDirection() {
-        this.direction = 0;
+        this.angle = 0;
     }
 
-    public int getDirection() {
-        return direction;
+    public int getAngle() {
+        return angle;
     }
 
     /**
@@ -23,7 +27,7 @@ public class TwoDimDirection implements Direction {
      * @param num i gradi da girare
      */
     public void increaseDirection(int num) {
-        direction = (direction + num) % 360;
+        angle = (angle + num) % 360;
     }
 
     /**
@@ -34,6 +38,11 @@ public class TwoDimDirection implements Direction {
         increaseDirection(-num);
     }
 
+    @Override
+    public Direction getDirection() {
+        return new TwoDimDirection(this.angle);
+    }
+
     /**
      * Restituisce la direzione di default
      * @return la direzione di default
@@ -41,5 +50,10 @@ public class TwoDimDirection implements Direction {
     @Override
     public Direction defaultDirection() {
         return new TwoDimDirection();
+    }
+
+    @Override
+    public List<Integer> getDirectionValues() {
+        return List.of(angle);
     }
 }
