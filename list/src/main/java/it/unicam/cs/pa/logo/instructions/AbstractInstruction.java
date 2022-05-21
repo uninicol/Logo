@@ -1,29 +1,39 @@
 package it.unicam.cs.pa.logo.instructions;
 
-import it.unicam.cs.pa.logo.AbstractCursor;
 import it.unicam.cs.pa.logo.Coordinate;
 import it.unicam.cs.pa.logo.Environment;
 
-import java.util.Queue;
+import java.util.Objects;
 
-public abstract class AbstractInstruction<E extends Environment<? extends Coordinate>>
-        implements Instruction<Queue<String>, E> {
+/**
+ * Classe astratta che contiene gli attributi di un istruzione
+ *
+ * @param <E> l'ambiente su cui l'istruzione opera
+ */
+public abstract class AbstractInstruction<E extends Environment<? extends Coordinate>> implements Instruction<E> {
 
-    final String name;
-    final int numAttributes;
+    private final String name;
+    private final int numAttributes;
+    private final E environment;
 
-    protected AbstractInstruction(String name, int numAttributes) {
-        this.name = name;
+    public AbstractInstruction(String name, int numAttributes, E environment) {
+        this.name = Objects.requireNonNull(name.toUpperCase());
         this.numAttributes = numAttributes;
+        this.environment = Objects.requireNonNull(environment);
     }
 
     @Override
-    public String getInstructionName() {
+    public String getName() {
         return name;
     }
 
     @Override
     public int getRequiredAttributesNumber() {
         return numAttributes;
+    }
+
+    @Override
+    public E getEnvironment(){
+        return environment;
     }
 }
