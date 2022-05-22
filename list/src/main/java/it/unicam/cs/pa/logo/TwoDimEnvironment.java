@@ -1,8 +1,8 @@
 package it.unicam.cs.pa.logo;
 
 import java.awt.*;
+import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
 
 /**
  * Rappresenta un ambiente a due dimensioni
@@ -15,12 +15,20 @@ public class TwoDimEnvironment implements Environment<TwoDimCoordinate> {
      */
     private final List<Segment<TwoDimCoordinate>> segments;
     private Color backgroundColor = Color.WHITE;
-    private final TwoDimCursor cursor = this.getCursor();
+    private final TwoDimCursor cursor;
 
     public TwoDimEnvironment(int length, int height, List<Segment<TwoDimCoordinate>> segments) {
         this.length = length;
         this.height = height;
-        this.segments = Objects.requireNonNull(segments);
+        this.segments = new ArrayList<>(segments);
+        cursor = new TwoDimCursor(getHome(), new TwoDimDirection());
+    }
+
+    public TwoDimEnvironment(int length, int height) {
+        this.length = length;
+        this.height = height;
+        this.segments = new ArrayList<>();
+        cursor = new TwoDimCursor(getHome(), new TwoDimDirection());
     }
 
     public int getLength() {

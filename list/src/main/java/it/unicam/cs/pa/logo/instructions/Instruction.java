@@ -3,8 +3,9 @@ package it.unicam.cs.pa.logo.instructions;
 import it.unicam.cs.pa.logo.Coordinate;
 import it.unicam.cs.pa.logo.Environment;
 
-import java.util.*;
-import java.util.stream.Collectors;
+import java.util.List;
+import java.util.Objects;
+import java.util.Queue;
 import java.util.stream.Stream;
 
 /**
@@ -13,12 +14,6 @@ import java.util.stream.Stream;
  * @param <E> l'ambiente
  */
 public interface Instruction<E extends Environment<? extends Coordinate>> {
-    /**
-     * Restituisce il nome del comando
-     *
-     * @return il nome del comando
-     */
-    String getName();
 
     /**
      * Restituisce il numero di attributi che l'istruzione necessita
@@ -29,11 +24,13 @@ public interface Instruction<E extends Environment<? extends Coordinate>> {
 
     /**
      * Restituisce l'ambiente su cui opera l'istruzione
+     *
      * @return l'ambiente su cui opera l'istruzione
      */
     E getEnvironment();
 
     /**
+     * TODO da spostare nell'interprete
      * Restituisce gli attributi necessari per eseguire il comando
      *
      * @return gli attributi necessari per eseguire il comando

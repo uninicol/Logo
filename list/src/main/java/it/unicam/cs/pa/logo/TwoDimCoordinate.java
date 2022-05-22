@@ -48,4 +48,9 @@ public record TwoDimCoordinate(int xAxis, int yAxis) implements Coordinate {
         );
         return new TwoDimCoordinate(x, y);
     }
+
+    @Override
+    public Coordinate getCoordinateFromDistance(int distance, Environment<? extends Coordinate> environment) {
+        return null;
+    }
 }

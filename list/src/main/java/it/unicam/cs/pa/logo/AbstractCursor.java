@@ -1,13 +1,17 @@
 package it.unicam.cs.pa.logo;
 
-import java.awt.Color;
+import java.awt.*;
 import java.util.Objects;
 
 /**
  * Classe usata per rappresentare un cursore in un piano, formatta le linee che traccia
  */
 public abstract class AbstractCursor<C extends Coordinate, D extends Direction> {
+
+    private int size = 1;
+
     private C position;
+
     private D direction;
     private Color lineColor = Color.BLACK;
     private Color areaColor = Color.WHITE;
@@ -56,5 +60,14 @@ public abstract class AbstractCursor<C extends Coordinate, D extends Direction> 
 
     public void setPlot(boolean plot) {
         this.plot = plot;
+    }
+
+    public int getSize() {
+        return size;
+    }
+
+    public void setSize(int size) {
+        if (size < 1) return;
+        this.size = size;
     }
 }

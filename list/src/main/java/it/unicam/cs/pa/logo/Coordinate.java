@@ -33,4 +33,7 @@ public interface Coordinate {
      */
     Coordinate getCoordinateFromDistance(int distance,
                                          AbstractCursor<? extends Coordinate, ? extends Direction> cursor);
+
+    Coordinate getCoordinateFromDistance(int distance,
+                                         Environment<? extends Coordinate> environment);
 }
