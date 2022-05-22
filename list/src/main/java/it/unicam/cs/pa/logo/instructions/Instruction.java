@@ -3,6 +3,7 @@ package it.unicam.cs.pa.logo.instructions;
 import it.unicam.cs.pa.logo.Coordinate;
 import it.unicam.cs.pa.logo.Environment;
 
+import java.util.Deque;
 import java.util.List;
 import java.util.Objects;
 import java.util.Queue;
@@ -46,5 +47,9 @@ public interface Instruction<E extends Environment<? extends Coordinate>> {
     /**
      * Esegue il comando
      */
-    void execute(List<Integer> instruction);
+    void execute(Deque<String> instruction);
+
+    default Integer getAttribute(Deque<String> instructions){
+        return Integer.parseInt(Objects.requireNonNull(instructions.poll()));
+    }
 }

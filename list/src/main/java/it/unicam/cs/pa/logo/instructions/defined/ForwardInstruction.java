@@ -5,7 +5,7 @@ import it.unicam.cs.pa.logo.TwoDimCoordinate;
 import it.unicam.cs.pa.logo.TwoDimEnvironment;
 import it.unicam.cs.pa.logo.instructions.AbstractInstruction;
 
-import java.util.List;
+import java.util.Deque;
 
 public final class ForwardInstruction extends AbstractInstruction<TwoDimEnvironment> {
 
@@ -14,8 +14,8 @@ public final class ForwardInstruction extends AbstractInstruction<TwoDimEnvironm
     }
 
     @Override
-    public void execute(List<Integer> instruction) {
-        int distance = instruction.get(0);
+    public void execute(Deque<String> instruction) {
+        int distance = getAttribute(instruction);
         //determino il punto di arrivo con dovuti limiti
         TwoDimCoordinate endPoint = (TwoDimCoordinate) getEnvironment().getCursor().getPosition()
                 .getCoordinateFromDistance(distance, getEnvironment().getCursor());

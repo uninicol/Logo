@@ -2,8 +2,9 @@ package it.unicam.cs.pa.logo.instructions.defined;
 
 import it.unicam.cs.pa.logo.TwoDimEnvironment;
 import it.unicam.cs.pa.logo.instructions.AbstractInstruction;
+import it.unicam.cs.pa.logo.instructions.TwoDimInstructionFactory;
 
-import java.util.List;
+import java.util.Deque;
 
 public final class RepeatInstruction extends AbstractInstruction<TwoDimEnvironment> {
 
@@ -12,8 +13,10 @@ public final class RepeatInstruction extends AbstractInstruction<TwoDimEnvironme
     }
 
     @Override
-    public void execute(List<Integer> instruction) {
-        int num = instruction.get(0);
-        //TwoDimInstructionFactory factory = new TwoDimInstructionFactory(getEnvironment()).execute(instruction);
+    public void execute(Deque<String> instruction) {
+        int num = getAttribute(instruction);
+        for (int i = 0; i < num; i++) {
+            new TwoDimInstructionFactory(getEnvironment()).execute(instruction);
+        }
     }
 }
