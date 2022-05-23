@@ -10,10 +10,13 @@ public class TwoDimCoordinateTest {
     TwoDimCoordinate point;
     AbstractCursor<TwoDimCoordinate, TwoDimDirection> cursor;
 
+    TwoDimEnvironment environment;
+
     @BeforeEach
     void build() {
         point = new TwoDimCoordinate(100, 100);
-        cursor = new TwoDimCursor(point, new TwoDimDirection());
+        environment = new TwoDimEnvironment(1000, 1000);
+        cursor = environment.getCursor();
     }
 
     @Test
@@ -57,14 +60,14 @@ public class TwoDimCoordinateTest {
         TwoDimCoordinate Left = new TwoDimCoordinate(100 - 50, 100);
         TwoDimCoordinate Up = new TwoDimCoordinate(100, 100 + 50);
 
-        assertEquals(Right, point.getCoordinateFromDistance(50, cursor));
+        assertEquals(Right, cursor.getCoordinateFromDistance(50));
         cursor.getDirection().increaseDirection(90);
-        assertEquals(Down, point.getCoordinateFromDistance(50, cursor));
+        assertEquals(Down, cursor.getCoordinateFromDistance(50));
 
         cursor.getDirection().increaseDirection(90);
-        assertEquals(Left, point.getCoordinateFromDistance(50, cursor));
+        assertEquals(Left, cursor.getCoordinateFromDistance(50));
 
         cursor.getDirection().increaseDirection(90);
-        assertEquals(Up, point.getCoordinateFromDistance(50, cursor));
+        assertEquals(Up, cursor.getCoordinateFromDistance(50));
     }
 }

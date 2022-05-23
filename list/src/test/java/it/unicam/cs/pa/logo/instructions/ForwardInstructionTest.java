@@ -8,9 +8,6 @@ import org.junit.jupiter.api.Test;
 
 import java.util.LinkedList;
 import java.util.List;
-import java.util.Objects;
-import java.util.Queue;
-import java.util.stream.Stream;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -27,7 +24,7 @@ public class ForwardInstructionTest {
 
     @Test
     public void executeDrawSegmentTest() {
-        command.execute(List.of(50));
+        command.execute(new LinkedList<>(List.of("50")));
         assertEquals(new TwoDimCoordinate(550, 500), env.getCursor().getPosition());
     }
 }

@@ -1,6 +1,7 @@
 package it.unicam.cs.pa.logo.instructions;
 
 import it.unicam.cs.pa.logo.Coordinate;
+import it.unicam.cs.pa.logo.Direction;
 import it.unicam.cs.pa.logo.Environment;
 
 import java.util.Deque;
@@ -14,7 +15,7 @@ import java.util.stream.Stream;
  *
  * @param <E> l'ambiente
  */
-public interface Instruction<E extends Environment<? extends Coordinate>> {
+public interface Instruction<E extends Environment<? extends Coordinate,? extends Direction>> {
 
     /**
      * Restituisce il numero di attributi che l'istruzione necessita
@@ -31,7 +32,7 @@ public interface Instruction<E extends Environment<? extends Coordinate>> {
     E getEnvironment();
 
     /**
-     * TODO da spostare nell'interprete
+     * TODO da eliminare
      * Restituisce gli attributi necessari per eseguire il comando
      *
      * @return gli attributi necessari per eseguire il comando

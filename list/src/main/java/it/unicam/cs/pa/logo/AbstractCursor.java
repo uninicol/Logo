@@ -9,9 +9,7 @@ import java.util.Objects;
 public abstract class AbstractCursor<C extends Coordinate, D extends Direction> {
 
     private int size = 1;
-
     private C position;
-
     private D direction;
     private Color lineColor = Color.BLACK;
     private Color areaColor = Color.WHITE;
@@ -70,4 +68,12 @@ public abstract class AbstractCursor<C extends Coordinate, D extends Direction> 
         if (size < 1) return;
         this.size = size;
     }
+
+    /**
+     * Restituisce il punto di arrivo data una distanza e un cursore
+     *
+     * @param distance    la distanza da percorrere
+     * @return il punto di arrivo
+     */
+    public abstract C getCoordinateFromDistance(int distance);
 }

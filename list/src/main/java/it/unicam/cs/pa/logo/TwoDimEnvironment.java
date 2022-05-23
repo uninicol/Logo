@@ -7,7 +7,7 @@ import java.util.List;
 /**
  * Rappresenta un ambiente a due dimensioni
  */
-public class TwoDimEnvironment implements Environment<TwoDimCoordinate> {
+public class TwoDimEnvironment implements Environment<TwoDimCoordinate, TwoDimDirection> {
     private final int length;
     private final int height;
     /**
@@ -77,7 +77,7 @@ public class TwoDimEnvironment implements Environment<TwoDimCoordinate> {
     }
 
     @Override
-    public TwoDimCoordinate getEndPoint(Coordinate sourcePoint, Segment<TwoDimCoordinate> segment) {
+    public TwoDimCoordinate getEndPoint(TwoDimCoordinate sourcePoint, Segment<TwoDimCoordinate> segment) {
         return null;
     }
 }

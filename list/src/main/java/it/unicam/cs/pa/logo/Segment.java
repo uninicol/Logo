@@ -11,18 +11,21 @@ public interface Segment<C extends Coordinate> {
 
     /**
      * Ritorna il punto di partenza di un segmento
+     *
      * @return il punto di partenza
      */
     C getPoint1();
 
     /**
      * Ritorna il punto di arrivo di un segmento
+     *
      * @return il punto di arrivo
      */
     C getPoint2();
 
     /**
      * Restituisce la funzione che rappresenta la linea
+     *
      * @return la funzione che rappresenta la linea
      */
     BiFunction<Integer, Integer, Integer> getShape();

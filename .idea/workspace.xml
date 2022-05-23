@@ -4,17 +4,22 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d470bcfa-26cf-40c7-b95f-2bc7f98722c7" name="Changes" comment="Implementazione istruzioni, factory e test">
+    <list default="true" id="d470bcfa-26cf-40c7-b95f-2bc7f98722c7" name="Changes" comment="Cambiato il tipo di parametro passato per Instruction.execute da List a Deque">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/list/src/main/java/it/unicam/cs/pa/logo/AbstractCursor.java" beforeDir="false" afterPath="$PROJECT_DIR$/list/src/main/java/it/unicam/cs/pa/logo/AbstractCursor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/list/src/main/java/it/unicam/cs/pa/logo/Coordinate.java" beforeDir="false" afterPath="$PROJECT_DIR$/list/src/main/java/it/unicam/cs/pa/logo/Coordinate.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/list/src/main/java/it/unicam/cs/pa/logo/Direction.java" beforeDir="false" afterPath="$PROJECT_DIR$/list/src/main/java/it/unicam/cs/pa/logo/Direction.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/list/src/main/java/it/unicam/cs/pa/logo/Environment.java" beforeDir="false" afterPath="$PROJECT_DIR$/list/src/main/java/it/unicam/cs/pa/logo/Environment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/list/src/main/java/it/unicam/cs/pa/logo/TwoDimCoordinate.java" beforeDir="false" afterPath="$PROJECT_DIR$/list/src/main/java/it/unicam/cs/pa/logo/TwoDimCoordinate.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/list/src/main/java/it/unicam/cs/pa/logo/TwoDimEnvironment.java" beforeDir="false" afterPath="$PROJECT_DIR$/list/src/main/java/it/unicam/cs/pa/logo/TwoDimEnvironment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/list/src/main/java/it/unicam/cs/pa/logo/instructions/AbstractInstruction.java" beforeDir="false" afterPath="$PROJECT_DIR$/list/src/main/java/it/unicam/cs/pa/logo/instructions/AbstractInstruction.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/list/src/main/java/it/unicam/cs/pa/logo/instructions/Instruction.java" beforeDir="false" afterPath="$PROJECT_DIR$/list/src/main/java/it/unicam/cs/pa/logo/instructions/Instruction.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/list/src/main/java/it/unicam/cs/pa/logo/instructions/InstructionFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/list/src/main/java/it/unicam/cs/pa/logo/instructions/InstructionFactory.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/list/src/main/java/it/unicam/cs/pa/logo/instructions/defined/BackwardInstruction.java" beforeDir="false" afterPath="$PROJECT_DIR$/list/src/main/java/it/unicam/cs/pa/logo/instructions/defined/BackwardInstruction.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/list/src/main/java/it/unicam/cs/pa/logo/instructions/defined/ClearscreenInstruction.java" beforeDir="false" afterPath="$PROJECT_DIR$/list/src/main/java/it/unicam/cs/pa/logo/instructions/defined/ClearscreenInstruction.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/list/src/main/java/it/unicam/cs/pa/logo/instructions/defined/ForwardInstruction.java" beforeDir="false" afterPath="$PROJECT_DIR$/list/src/main/java/it/unicam/cs/pa/logo/instructions/defined/ForwardInstruction.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/list/src/main/java/it/unicam/cs/pa/logo/instructions/defined/HomeInstruction.java" beforeDir="false" afterPath="$PROJECT_DIR$/list/src/main/java/it/unicam/cs/pa/logo/instructions/defined/HomeInstruction.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/list/src/main/java/it/unicam/cs/pa/logo/instructions/defined/LeftInstruction.java" beforeDir="false" afterPath="$PROJECT_DIR$/list/src/main/java/it/unicam/cs/pa/logo/instructions/defined/LeftInstruction.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/list/src/main/java/it/unicam/cs/pa/logo/instructions/defined/PendownInstruction.java" beforeDir="false" afterPath="$PROJECT_DIR$/list/src/main/java/it/unicam/cs/pa/logo/instructions/defined/PendownInstruction.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/list/src/main/java/it/unicam/cs/pa/logo/instructions/defined/RightInstruction.java" beforeDir="false" afterPath="$PROJECT_DIR$/list/src/main/java/it/unicam/cs/pa/logo/instructions/defined/RightInstruction.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/list/src/main/java/it/unicam/cs/pa/logo/instructions/defined/RepeatInstruction.java" beforeDir="false" afterPath="$PROJECT_DIR$/list/src/main/java/it/unicam/cs/pa/logo/instructions/defined/RepeatInstruction.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/list/src/test/java/it/unicam/cs/pa/logo/instructions/BackwardInstructionTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/list/src/test/java/it/unicam/cs/pa/logo/instructions/BackwardInstructionTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/list/src/test/java/it/unicam/cs/pa/logo/instructions/ForwardInstructionTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/list/src/test/java/it/unicam/cs/pa/logo/instructions/ForwardInstructionTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -54,14 +59,15 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Record" />
         <option value="Interface" />
+        <option value="Record" />
         <option value="Class" />
       </list>
     </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RESET_MODE" value="MIXED" />
   </component>
   <component name="GithubDefaultAccount">
     <option name="defaultAccountId" value="437b335f-a2e0-4858-8177-ee3a8438309e" />
@@ -75,7 +81,7 @@
     <option name="stateVersion" value="1" />
   </component>
   <component name="ProblemsViewState">
-    <option name="selectedTabId" value="CurrentFile" />
+    <option name="selectedTabId" value="ProjectErrors" />
   </component>
   <component name="ProjectId" id="294HsNkCyU2kN18OFFSQHdJPgBy" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -88,6 +94,7 @@
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;extract.method.default.visibility&quot;: &quot;private&quot;,
     &quot;last_opened_file_path&quot;: &quot;C:/Users/nicki/IdeaProjects/Logo&quot;,
     &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
     &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
@@ -105,7 +112,7 @@
       <recent name="it.unicam.cs.pa.logo" />
     </key>
   </component>
-  <component name="RunManager" selected="Gradle.ForwardInstructionTest.prova">
+  <component name="RunManager" selected="Gradle.RepeatInstructionTest.executeDrawSegmentTest">
     <configuration name="BackwardInstructionTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
@@ -175,29 +182,6 @@
       <DebugAllEnabled>false</DebugAllEnabled>
       <method v="2" />
     </configuration>
-    <configuration name="ForwardInstructionTest.executeDrawSegmentTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
-      <ExternalSystemSettings>
-        <option name="executionName" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$" />
-        <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" value="" />
-        <option name="taskDescriptions">
-          <list />
-        </option>
-        <option name="taskNames">
-          <list>
-            <option value=":list:test" />
-            <option value="--tests" />
-            <option value="&quot;it.unicam.cs.pa.logo.instructions.ForwardInstructionTest.executeDrawSegmentTest&quot;" />
-          </list>
-        </option>
-        <option name="vmOptions" />
-      </ExternalSystemSettings>
-      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
-      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
-      <DebugAllEnabled>false</DebugAllEnabled>
-      <method v="2" />
-    </configuration>
     <configuration name="ForwardInstructionTest.prova" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
@@ -221,13 +205,36 @@
       <DebugAllEnabled>false</DebugAllEnabled>
       <method v="2" />
     </configuration>
+    <configuration name="RepeatInstructionTest.executeDrawSegmentTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":list:test" />
+            <option value="--tests" />
+            <option value="&quot;it.unicam.cs.pa.logo.instructions.RepeatInstructionTest.executeDrawSegmentTest&quot;" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <method v="2" />
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Gradle.RepeatInstructionTest.executeDrawSegmentTest" />
         <item itemvalue="Gradle.ForwardInstructionTest.prova" />
         <item itemvalue="Gradle.ForwardInstructionTest" />
         <item itemvalue="Gradle.BackwardInstructionTest.executeDrawSegmentTest" />
         <item itemvalue="Gradle.BackwardInstructionTest" />
-        <item itemvalue="Gradle.ForwardInstructionTest.executeDrawSegmentTest" />
       </list>
     </recent_temporary>
   </component>
@@ -260,7 +267,12 @@
       <workItem from="1653030903203" duration="15159000" />
       <workItem from="1653063583808" duration="4966000" />
       <workItem from="1653139439811" duration="25010000" />
-      <workItem from="1653229442698" duration="18409000" />
+      <workItem from="1653229442698" duration="21100000" />
+      <workItem from="1653292456342" duration="664000" />
+      <workItem from="1653293835219" duration="9471000" />
+      <workItem from="1653307820078" duration="1819000" />
+      <workItem from="1653311811490" duration="804000" />
+      <workItem from="1653314043444" duration="1753000" />
     </task>
     <task id="LOCAL-00001" summary="init commit">
       <created>1652373969498</created>
@@ -332,7 +344,14 @@
       <option name="project" value="LOCAL" />
       <updated>1653250777653</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="Cambiato il tipo di parametro passato per Instruction.execute da List a Deque">
+      <created>1653252659927</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1653252659927</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -354,6 +373,18 @@
     <MESSAGE value="Implementazione interprete e istruzioni" />
     <MESSAGE value="Implementazione metodi e strutturazione classi" />
     <MESSAGE value="Implementazione istruzioni, factory e test" />
-    <option name="LAST_COMMIT_MESSAGE" value="Implementazione istruzioni, factory e test" />
+    <MESSAGE value="Cambiato il tipo di parametro passato per Instruction.execute da List a Deque" />
+    <option name="LAST_COMMIT_MESSAGE" value="Cambiato il tipo di parametro passato per Instruction.execute da List a Deque" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/list/src/main/java/it/unicam/cs/pa/logo/instructions/defined/RepeatInstruction.java</url>
+          <line>26</line>
+          <option name="timeStamp" value="8" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

@@ -1,6 +1,7 @@
 package it.unicam.cs.pa.logo.instructions;
 
 import it.unicam.cs.pa.logo.Coordinate;
+import it.unicam.cs.pa.logo.Direction;
 import it.unicam.cs.pa.logo.Environment;
 
 import java.util.Objects;
@@ -10,7 +11,8 @@ import java.util.Objects;
  *
  * @param <E> l'ambiente su cui l'istruzione opera
  */
-public abstract class AbstractInstruction<E extends Environment<? extends Coordinate>> implements Instruction<E> {
+public abstract class AbstractInstruction<E extends Environment<? extends Coordinate, ? extends Direction>>
+        implements Instruction<E> {
     private final int numAttributes;
     private final E environment;
 

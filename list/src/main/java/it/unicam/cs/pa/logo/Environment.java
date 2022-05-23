@@ -1,6 +1,6 @@
 package it.unicam.cs.pa.logo;
 
-import java.awt.Color;
+import java.awt.*;
 import java.util.Collection;
 
 /**
@@ -8,7 +8,7 @@ import java.util.Collection;
  *
  * @param <C> le coordinate usate dal piano
  */
-public interface Environment<C extends Coordinate> {
+public interface Environment<C extends Coordinate, D extends Direction> {
     /**
      * Restituisce una collezione di tutti i segmenti nell'ambiente
      *
@@ -51,9 +51,10 @@ public interface Environment<C extends Coordinate> {
 
     /**
      * Restituisce il punto di arrivo del segmento
+     *
      * @param sourcePoint il punto di partenza
-     * @param segment il segmento
+     * @param segment     il segmento
      * @return il punto di arrivo
      */
-    C getEndPoint(Coordinate sourcePoint,  Segment<C> segment);
+    C getEndPoint(C sourcePoint, Segment<C> segment);
 }

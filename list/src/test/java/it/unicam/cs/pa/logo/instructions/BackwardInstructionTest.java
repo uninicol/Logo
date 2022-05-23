@@ -6,6 +6,7 @@ import it.unicam.cs.pa.logo.instructions.defined.BackwardInstruction;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import java.util.LinkedList;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -23,7 +24,7 @@ public class BackwardInstructionTest {
 
     @Test
     public void executeDrawSegmentTest() {
-        command.execute(List.of(50));
+        command.execute(new LinkedList<>(List.of("50")));
         assertEquals(new TwoDimCoordinate(450, 500), env.getCursor().getPosition());
     }
 }
