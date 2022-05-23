@@ -11,7 +11,7 @@ public final class SetpensizeInstruction extends AbstractInstruction<TwoDimEnvir
     }
 
     @Override
-    public void execute(Deque<String> instruction) {
+    public void accept(Deque<String> instruction) {
         getEnvironment().getCursor().setSize(getAttribute(instruction));
     }
 }

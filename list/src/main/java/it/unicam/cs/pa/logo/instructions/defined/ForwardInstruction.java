@@ -14,15 +14,16 @@ public final class ForwardInstruction extends AbstractInstruction<TwoDimEnvironm
     }
 
     @Override
-    public void execute(Deque<String> instruction) {
+    public void accept(Deque<String> instruction) {
         int distance = getAttribute(instruction);
         //determino il punto di arrivo con dovuti limiti
         TwoDimCoordinate endPoint = getEnvironment().getCursor()
                 .getCoordinateFromDistance(distance);
-        if (getEnvironment().getCursor().isPlot())
-            //inserisce il tratto nell'environment
+        if (getEnvironment().getCursor().isPlot()) {
             getEnvironment().drawLine(new LinearSegment(getEnvironment().getCursor().getPosition(), endPoint));
-        //altrimenti si sposta solo
+        } else {
+            getEnvironment().getCursor().setPosition(endPoint);
+        }
         getEnvironment().getCursor().setPosition(endPoint);
     }
 }

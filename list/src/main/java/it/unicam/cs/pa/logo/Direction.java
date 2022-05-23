@@ -6,6 +6,14 @@ import java.util.List;
  * Rappresenta la direzione del cursore nel piano
  */
 public interface Direction {
+
+    /**
+     * Restituisce una lista di elementi che caratterizzano la direzione
+     *
+     * @return una lista di elementi che caratterizzano la direzione
+     */
+    List<Integer> getDirectionValues();
+
     /**
      * Restituisce la direzione corrente
      *
@@ -19,11 +27,4 @@ public interface Direction {
      * @return la direzione di default
      */
     Direction defaultDirection();
-
-    /**
-     * Restituisce una lista di elementi che caratterizzano la direzione
-     *
-     * @return una lista di elementi che caratterizzano la direzione
-     */
-    List<Integer> getDirectionValues();
 }

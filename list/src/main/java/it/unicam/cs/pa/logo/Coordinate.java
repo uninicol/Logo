@@ -15,7 +15,7 @@ public interface Coordinate {
      */
     Map<String, Integer> getCoordinateValues();
 
-    /**
+    /**TODO da vedere se rimuovere o tenere su ENvironmentCalculator
      * Restituisce la distaza tra un punto e un'altro
      *
      * @param c2 la coordinata

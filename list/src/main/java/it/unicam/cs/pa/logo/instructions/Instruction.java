@@ -1,21 +1,18 @@
 package it.unicam.cs.pa.logo.instructions;
 
 import it.unicam.cs.pa.logo.Coordinate;
-import it.unicam.cs.pa.logo.Direction;
 import it.unicam.cs.pa.logo.Environment;
 
 import java.util.Deque;
-import java.util.List;
 import java.util.Objects;
-import java.util.Queue;
-import java.util.stream.Stream;
+import java.util.function.Consumer;
 
 /**
  * Questa interfaccia rappresenta un istruzione del linguaggio Logo
  *
  * @param <E> l'ambiente
  */
-public interface Instruction<E extends Environment<? extends Coordinate,? extends Direction>> {
+public interface Instruction<E extends Environment<? extends Coordinate>> extends Consumer<Deque<String>> {
 
     /**
      * Restituisce il numero di attributi che l'istruzione necessita
@@ -32,25 +29,11 @@ public interface Instruction<E extends Environment<? extends Coordinate,? extend
     E getEnvironment();
 
     /**
-     * TODO da eliminare
-     * Restituisce gli attributi necessari per eseguire il comando
-     *
-     * @return gli attributi necessari per eseguire il comando
-     */
-    default List<Integer> getAttributes(Queue<String> instruction) {
-        return Stream.generate(instruction::poll)
-                .limit(getRequiredAttributesNumber())
-                .filter(Objects::nonNull)
-                .map(Integer::parseInt)
-                .toList();
-    }
-
-    /**
      * Esegue il comando
      */
-    void execute(Deque<String> instruction);
+    void accept(Deque<String> instruction);
 
-    default Integer getAttribute(Deque<String> instructions){
+    default Integer getAttribute(Deque<String> instructions) {
         return Integer.parseInt(Objects.requireNonNull(instructions.poll()));
     }
 }

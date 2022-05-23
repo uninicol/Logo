@@ -13,21 +13,16 @@ public final class BackwardInstruction extends AbstractInstruction<TwoDimEnviron
     }
 
     @Override
-    public void execute(Deque<String> instruction) {
+    public void accept(Deque<String> instruction) {
         int distance = -getAttribute(instruction);
         //determino il punto di arrivo con dovuti limiti
         TwoDimCoordinate endPoint = getEnvironment()
                 .getCursor()
-                .getPosition();/*
-                .getCoordinateFromDistance(
-                        distance
-                        , getEnvironment()
-                );
-                */
-        if (getEnvironment().getCursor().isPlot())
-            //inserisce il tratto nell'environment
+                .getCoordinateFromDistance(distance);
+        if (getEnvironment().getCursor().isPlot())  //disegna sul piano
             getEnvironment().drawLine(new LinearSegment(getEnvironment().getCursor().getPosition(), endPoint));
-        //altrimenti si sposta solo
+        else //non disegna sul piano
+            getEnvironment().getCursor().setPosition(endPoint);
         getEnvironment().getCursor().setPosition(endPoint);
     }
 }

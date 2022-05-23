@@ -12,7 +12,7 @@ public final class ClearscreenInstruction extends AbstractInstruction<TwoDimEnvi
     }
 
     @Override
-    public void execute(Deque<String> instruction) {
+    public void accept(Deque<String> instruction) {
         getEnvironment().clearAll();
     }
 }

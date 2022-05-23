@@ -12,7 +12,7 @@ public final class RightInstruction extends AbstractInstruction<TwoDimEnvironmen
     }
 
     @Override
-    public void execute(Deque<String> instruction) {
+    public void accept(Deque<String> instruction) {
         int grade = getAttribute(instruction);
         getEnvironment().getCursor().getDirection().increaseDirection(grade);
     }

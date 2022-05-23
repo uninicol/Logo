@@ -7,27 +7,27 @@ import java.util.List;
 /**
  * Rappresenta un ambiente a due dimensioni
  */
-public class TwoDimEnvironment implements Environment<TwoDimCoordinate, TwoDimDirection> {
+public class TwoDimEnvironment implements Environment<TwoDimCoordinate> {
     private final int length;
     private final int height;
     /**
      * La lista di segmenti disegnati
      */
-    private final List<Segment<TwoDimCoordinate>> segments;
+    private final List<Shape<TwoDimCoordinate>> shapes;
     private Color backgroundColor = Color.WHITE;
     private final TwoDimCursor cursor;
 
-    public TwoDimEnvironment(int length, int height, List<Segment<TwoDimCoordinate>> segments) {
+    public TwoDimEnvironment(int length, int height, List<Shape<TwoDimCoordinate>> shapes) {
         this.length = length;
         this.height = height;
-        this.segments = new ArrayList<>(segments);
+        this.shapes = new ArrayList<>(shapes);
         cursor = new TwoDimCursor(getHome(), new TwoDimDirection());
     }
 
     public TwoDimEnvironment(int length, int height) {
         this.length = length;
         this.height = height;
-        this.segments = new ArrayList<>();
+        this.shapes = new ArrayList<>();
         cursor = new TwoDimCursor(getHome(), new TwoDimDirection());
     }
 
@@ -39,21 +39,19 @@ public class TwoDimEnvironment implements Environment<TwoDimCoordinate, TwoDimDi
         return height;
     }
 
+    @Override
     public Color getBackgroundColor() {
         return backgroundColor;
     }
 
-    public void setBackgroundColor(int r, int g, int b) {
-        setBackgroundColor(new Color(r, g, b));
-    }
-
+    @Override
     public void setBackgroundColor(Color backgroundColor) {
         this.backgroundColor = backgroundColor;
     }
 
     @Override
-    public List<Segment<TwoDimCoordinate>> getSegments() {
-        return segments;
+    public List<Shape<TwoDimCoordinate>> getShapes() {
+        return shapes;
     }
 
     @Override
@@ -68,16 +66,14 @@ public class TwoDimEnvironment implements Environment<TwoDimCoordinate, TwoDimDi
 
     @Override
     public void clearAll() {
-        segments.clear();
+        shapes.clear();
     }
 
     @Override
     public void drawLine(Segment<TwoDimCoordinate> segment) {
-        segments.add(segment);
-    }
-
-    @Override
-    public TwoDimCoordinate getEndPoint(TwoDimCoordinate sourcePoint, Segment<TwoDimCoordinate> segment) {
-        return null;
+        if(cursor.isPlot())
+            shapes.get(shapes.size()-1).add(segment);
+        else
+            shapes.add(new TwoDimShape(cursor.getPosition()));
     }
 }

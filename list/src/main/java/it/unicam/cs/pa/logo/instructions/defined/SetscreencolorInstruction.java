@@ -12,7 +12,7 @@ public final class SetscreencolorInstruction extends AbstractInstruction<TwoDimE
     }
 
     @Override
-    public void execute(Deque<String> instruction) {
+    public void accept(Deque<String> instruction) {
         getEnvironment().setBackgroundColor(
                 getAttribute(instruction), getAttribute(instruction), getAttribute(instruction)
         );

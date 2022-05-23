@@ -20,7 +20,7 @@ public record TwoDimCoordinate(int xAxis, int yAxis) implements Coordinate {
         int y = c2.getCoordinateValues().get("y");
         int xDistance = this.xAxis() - Math.abs(x);
         int yDistance = this.yAxis() - Math.abs(y);
-        return (int) Math.floor(
+        return (int) Math.floor(//uso il teorema di pitagora
                 Math.sqrt(
                         Math.pow(xDistance, 2) + Math.pow(yDistance, 2)
                 )

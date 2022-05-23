@@ -24,7 +24,7 @@ public class ForwardInstructionTest {
 
     @Test
     public void executeDrawSegmentTest() {
-        command.execute(new LinkedList<>(List.of("50")));
+        command.accept(new LinkedList<>(List.of("50")));
         assertEquals(new TwoDimCoordinate(550, 500), env.getCursor().getPosition());
     }
 }

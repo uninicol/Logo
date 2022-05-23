@@ -14,11 +14,13 @@ public final class RepeatInstruction extends AbstractInstruction<TwoDimEnvironme
     }
 
     @Override
-    public void execute(Deque<String> instruction) {
+    public void accept(Deque<String> instruction) {
         int num = getAttribute(instruction);
         instruction.poll(); //elimino la prima parentesi quadrata
-        //creo una deque delle istruzioni da ripetere (a quanto pare non posso utilizzare stream con Deque)
+        //creo una Deque delle istruzioni da ripetere (a quanto pare non posso utilizzare stream con Deque)
         Deque<String> toRepeat = new LinkedList<>();
+        if (instruction.stream().noneMatch(str -> str.equals("]")))
+            throw new IllegalArgumentException("Mancata parentesi quadrata di chiusura");
         while (!instruction.peek().equals("]")) {
             toRepeat.add(instruction.poll());
         }

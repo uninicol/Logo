@@ -1,6 +1,6 @@
 package it.unicam.cs.pa.logo;
 
-import java.util.function.BiFunction;
+import java.util.function.Function;
 
 /**
  * Classe usata per rappresentare una linea su un piano avente un punto di partenza ed un punto di arrivo
@@ -28,5 +28,5 @@ public interface Segment<C extends Coordinate> {
      *
      * @return la funzione che rappresenta la linea
      */
-    BiFunction<Integer, Integer, Integer> getShape();
+    Function<Integer, Integer> getShape();
 }

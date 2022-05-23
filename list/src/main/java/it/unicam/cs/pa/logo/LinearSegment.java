@@ -1,6 +1,6 @@
 package it.unicam.cs.pa.logo;
 
-import java.util.function.BiFunction;
+import java.util.function.Function;
 
 public class LinearSegment implements Segment<TwoDimCoordinate> {
     private final TwoDimCoordinate startPoint;
@@ -22,9 +22,12 @@ public class LinearSegment implements Segment<TwoDimCoordinate> {
     }
 
     @Override
-    public BiFunction<Integer, Integer, Integer> getShape() {
-        return (x, y) ->
-                ((x - getPoint1().xAxis())) / (getPoint2().xAxis() - getPoint1().xAxis())
-                        - ((y - getPoint1().yAxis())) / (getPoint2().yAxis() - getPoint1().yAxis());
+    public Function<Integer, Integer> getShape() {
+        return
+                x -> (
+                        (x - startPoint.xAxis()) / (endPoint.xAxis() - startPoint.xAxis())
+                                * (endPoint.yAxis() - startPoint.yAxis())
+                )
+                        + startPoint.yAxis();
     }
 }

@@ -12,7 +12,7 @@ public final class PendownInstruction extends AbstractInstruction<TwoDimEnvironm
     }
     
     @Override
-    public void execute(Deque<String> instruction) {
+    public void accept(Deque<String> instruction) {
         getEnvironment().getCursor().setPlot(true);
     }
 }

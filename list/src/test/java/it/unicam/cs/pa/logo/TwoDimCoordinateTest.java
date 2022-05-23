@@ -15,7 +15,7 @@ public class TwoDimCoordinateTest {
     @BeforeEach
     void build() {
         point = new TwoDimCoordinate(100, 100);
-        environment = new TwoDimEnvironment(1000, 1000);
+        environment = new TwoDimEnvironment(200, 200);
         cursor = environment.getCursor();
     }
 
