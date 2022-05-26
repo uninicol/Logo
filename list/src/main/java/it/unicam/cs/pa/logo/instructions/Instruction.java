@@ -1,6 +1,7 @@
 package it.unicam.cs.pa.logo.instructions;
 
 import it.unicam.cs.pa.logo.Coordinate;
+import it.unicam.cs.pa.logo.Direction;
 import it.unicam.cs.pa.logo.Environment;
 
 import java.util.Deque;
@@ -12,7 +13,8 @@ import java.util.function.Consumer;
  *
  * @param <E> l'ambiente
  */
-public interface Instruction<E extends Environment<? extends Coordinate>> extends Consumer<Deque<String>> {
+public interface Instruction<E extends Environment<? extends Coordinate, ? extends Direction>>
+        extends Consumer<Deque<String>> {
 
     /**
      * Restituisce il numero di attributi che l'istruzione necessita

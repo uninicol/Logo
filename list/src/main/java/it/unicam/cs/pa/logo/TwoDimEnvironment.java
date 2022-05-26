@@ -7,7 +7,7 @@ import java.util.List;
 /**
  * Rappresenta un ambiente a due dimensioni
  */
-public class TwoDimEnvironment implements Environment<TwoDimCoordinate> {
+public class TwoDimEnvironment implements Environment<TwoDimCoordinate,TwoDimDirection> {
     private final int length;
     private final int height;
     /**
@@ -17,18 +17,11 @@ public class TwoDimEnvironment implements Environment<TwoDimCoordinate> {
     private Color backgroundColor = Color.WHITE;
     private final TwoDimCursor cursor;
 
-    public TwoDimEnvironment(int length, int height, List<Shape<TwoDimCoordinate>> shapes) {
-        this.length = length;
-        this.height = height;
-        this.shapes = new ArrayList<>(shapes);
-        cursor = new TwoDimCursor(getHome(), new TwoDimDirection());
-    }
-
     public TwoDimEnvironment(int length, int height) {
         this.length = length;
         this.height = height;
         this.shapes = new ArrayList<>();
-        cursor = new TwoDimCursor(getHome(), new TwoDimDirection());
+        cursor = new TwoDimCursor(getHome(), new TwoDimCoordinate(length, height), new TwoDimDirection());
     }
 
     public int getLength() {
@@ -68,12 +61,5 @@ public class TwoDimEnvironment implements Environment<TwoDimCoordinate> {
     public void clearAll() {
         shapes.clear();
     }
-
-    @Override
-    public void drawLine(Segment<TwoDimCoordinate> segment) {
-        if(cursor.isPlot())
-            shapes.get(shapes.size()-1).add(segment);
-        else
-            shapes.add(new TwoDimShape(cursor.getPosition()));
-    }
 }
+

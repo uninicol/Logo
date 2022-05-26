@@ -50,4 +50,10 @@ public interface Shape<C extends Coordinate> {
      * @return true se l'area è chiusa, false altrimenti
      */
     boolean isClosed();
+
+    /**
+     * Restituisce il numero di segmenti che compongono l'area
+     * @return il numero di segmenti che compongono l'area
+     */
+    int numSegments();
 }

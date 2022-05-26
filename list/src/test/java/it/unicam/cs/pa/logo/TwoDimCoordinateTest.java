@@ -8,7 +8,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 public class TwoDimCoordinateTest {
 
     TwoDimCoordinate point;
-    AbstractCursor<TwoDimCoordinate, TwoDimDirection> cursor;
+    Cursor<TwoDimCoordinate, TwoDimDirection> cursor;
 
     TwoDimEnvironment environment;
 
@@ -36,12 +36,12 @@ public class TwoDimCoordinateTest {
     void getDistanceFromDifferentAnglesTest() {
         TwoDimCoordinate UpRight1 = new TwoDimCoordinate(125, 150);
         TwoDimCoordinate UpRight2 = new TwoDimCoordinate(150, 125);
-        TwoDimCoordinate UpLeft1 = new TwoDimCoordinate(-125, 150);
-        TwoDimCoordinate UpLeft2 = new TwoDimCoordinate(-150, 125);
-        TwoDimCoordinate DownRight1 = new TwoDimCoordinate(125, -150);
-        TwoDimCoordinate DownRight2 = new TwoDimCoordinate(150, -125);
-        TwoDimCoordinate DownLeft1 = new TwoDimCoordinate(-125, -150);
-        TwoDimCoordinate DownLeft2 = new TwoDimCoordinate(-150, -125);
+        TwoDimCoordinate UpLeft1 = new TwoDimCoordinate(75, 150);
+        TwoDimCoordinate UpLeft2 = new TwoDimCoordinate(50, 125);
+        TwoDimCoordinate DownRight1 = new TwoDimCoordinate(125, 100-50);
+        TwoDimCoordinate DownRight2 = new TwoDimCoordinate(150, 100-25);
+        TwoDimCoordinate DownLeft1 = new TwoDimCoordinate(100-25, 100-50);
+        TwoDimCoordinate DownLeft2 = new TwoDimCoordinate(100-50, 100-25);
 
         assertEquals(55, point.getDistanceFrom(UpRight1));
         assertEquals(55, point.getDistanceFrom(UpRight2));
@@ -51,23 +51,5 @@ public class TwoDimCoordinateTest {
         assertEquals(55, point.getDistanceFrom(DownRight2));
         assertEquals(55, point.getDistanceFrom(DownLeft1));
         assertEquals(55, point.getDistanceFrom(DownLeft2));
-    }
-
-    @Test
-    void getCoordinateFromDistance() {
-        TwoDimCoordinate Right = new TwoDimCoordinate(100 + 50, 100);
-        TwoDimCoordinate Down = new TwoDimCoordinate(100, 100 - 50);
-        TwoDimCoordinate Left = new TwoDimCoordinate(100 - 50, 100);
-        TwoDimCoordinate Up = new TwoDimCoordinate(100, 100 + 50);
-
-        assertEquals(Right, cursor.getCoordinateFromDistance(50));
-        cursor.getDirection().increaseDirection(90);
-        assertEquals(Down, cursor.getCoordinateFromDistance(50));
-
-        cursor.getDirection().increaseDirection(90);
-        assertEquals(Left, cursor.getCoordinateFromDistance(50));
-
-        cursor.getDirection().increaseDirection(90);
-        assertEquals(Up, cursor.getCoordinateFromDistance(50));
     }
 }

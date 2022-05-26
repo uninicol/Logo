@@ -14,7 +14,7 @@ public interface Cursor<C extends Coordinate, D extends Direction> {
      */
     C getPosition();
 
-    void setPosition(C position);
+    void move(C position);
 
     D getDirection();
 
@@ -35,4 +35,6 @@ public interface Cursor<C extends Coordinate, D extends Direction> {
     int getSize();
 
     void setSize(int size);
+
+    C getAngleLimit();
 }

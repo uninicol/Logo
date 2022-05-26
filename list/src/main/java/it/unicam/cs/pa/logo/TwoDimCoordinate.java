@@ -15,15 +15,11 @@ public record TwoDimCoordinate(int xAxis, int yAxis) implements Coordinate {
     }
 
     @Override
-    public int getDistanceFrom(Coordinate c2) {
-        int x = c2.getCoordinateValues().get("x");
-        int y = c2.getCoordinateValues().get("y");
-        int xDistance = this.xAxis() - Math.abs(x);
-        int yDistance = this.yAxis() - Math.abs(y);
-        return (int) Math.floor(//uso il teorema di pitagora
-                Math.sqrt(
-                        Math.pow(xDistance, 2) + Math.pow(yDistance, 2)
-                )
+    public int getDistanceFrom(Coordinate c1) {
+        if (!(c1 instanceof TwoDimCoordinate)) throw new IllegalArgumentException();
+        return (int) Math.sqrt(
+                Math.pow(this.xAxis() - ((TwoDimCoordinate) c1).xAxis(), 2)
+                        + Math.pow(this.yAxis() - ((TwoDimCoordinate) c1).yAxis(), 2)
         );
     }
 }

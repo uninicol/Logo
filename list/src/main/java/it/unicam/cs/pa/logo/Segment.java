@@ -14,19 +14,19 @@ public interface Segment<C extends Coordinate> {
      *
      * @return il punto di partenza
      */
-    C getPoint1();
+    C getStartPoint();
 
     /**
      * Ritorna il punto di arrivo di un segmento
      *
      * @return il punto di arrivo
      */
-    C getPoint2();
+    C getEndPoint();
 
     /**
      * Restituisce la funzione che rappresenta la linea
      *
      * @return la funzione che rappresenta la linea
      */
-    Function<Integer, Integer> getShape();
+    Function<Integer, Integer> getFunction();
 }

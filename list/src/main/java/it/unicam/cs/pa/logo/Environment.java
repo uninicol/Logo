@@ -8,7 +8,7 @@ import java.util.List;
  *
  * @param <C> le coordinate usate dal piano
  */
-public interface Environment<C extends Coordinate> {
+public interface Environment<C extends Coordinate, D extends Direction> {
     /**
      * Restituisce una collezione di tutti i segmenti nell'ambiente
      *
@@ -21,7 +21,7 @@ public interface Environment<C extends Coordinate> {
      *
      * @return il cursore
      */
-    Cursor<C, ? extends Direction> getCursor();
+    Cursor<C, D > getCursor();
 
     /**
      * Restituisce la coordinata del punto home nel piano
@@ -52,11 +52,4 @@ public interface Environment<C extends Coordinate> {
      * Elimina tutti i tratti disegnati nel piano
      */
     void clearAll();
-
-    /**
-     * Traccia una linea nel piano
-     *
-     * @param segment la linea da inserire
-     */
-    void drawLine(Segment<C> segment);
 }

@@ -10,13 +10,15 @@ public abstract class AbstractCursor<C extends Coordinate, D extends Direction> 
 
     private int size = 1;
     private C position;
+    private final C angleLimit;
     private D direction;
     private Color lineColor = Color.BLACK;
     private Color areaColor = Color.WHITE;
     private boolean plot = true;
 
-    public AbstractCursor(C position, D direction) {
+    public AbstractCursor(C position, C angleLimit, D direction) {
         this.position = Objects.requireNonNull(position);
+        this.angleLimit=Objects.requireNonNull(angleLimit);
         this.direction = Objects.requireNonNull(direction);
     }
 
@@ -26,7 +28,7 @@ public abstract class AbstractCursor<C extends Coordinate, D extends Direction> 
     }
 
     @Override
-    public void setPosition(C position) {
+    public void move(C position) {
         this.position = position;
     }
 
@@ -80,12 +82,8 @@ public abstract class AbstractCursor<C extends Coordinate, D extends Direction> 
         if (size > 1) this.size = size;
     }
 
-    /**
-     * TODO viola single responsability
-     * Restituisce il punto di arrivo data una distanza e un cursore
-     *
-     * @param distance la distanza da percorrere
-     * @return il punto di arrivo
-     */
-    public abstract C getCoordinateFromDistance(int distance);
+    @Override
+    public C getAngleLimit() {
+        return angleLimit;
+    }
 }

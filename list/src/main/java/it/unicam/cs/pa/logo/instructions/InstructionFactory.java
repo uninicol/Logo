@@ -1,12 +1,12 @@
 package it.unicam.cs.pa.logo.instructions;
 
 import it.unicam.cs.pa.logo.Coordinate;
+import it.unicam.cs.pa.logo.Direction;
 import it.unicam.cs.pa.logo.Environment;
 
 import java.util.Deque;
 
-public abstract class InstructionFactory<E extends Environment<? extends Coordinate>> {
-
+public abstract class InstructionFactory<E extends Environment<? extends Coordinate, ? extends Direction>> {
     private final E environment;
 
     protected InstructionFactory(E environment) {

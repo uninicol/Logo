@@ -28,9 +28,11 @@ public class BackwardInstructionTest {
         Deque<String> command = new LinkedList<>(List.of("BACKWARD", "50"));
         factory.execute(command);
         assertEquals(new TwoDimCoordinate(450, 500), env.getCursor().getPosition());
+
         assertTrue(command.isEmpty());
         assertEquals(1, env.getShapes().size());
     }
+
     @Test
     public void executeDrawSegmentTest() {
         Deque<String> command = new LinkedList<>(List.of("BACKWARD", "-50"));
@@ -38,5 +40,14 @@ public class BackwardInstructionTest {
         assertEquals(new TwoDimCoordinate(550, 500), env.getCursor().getPosition());
         assertTrue(command.isEmpty());
         assertEquals(1, env.getShapes().size());
+    }
+
+    @Test
+    public void dontDrawOnlyMovesTest() {
+        env.getCursor().setPlot(false);
+        Deque<String> command = new LinkedList<>(List.of("BACKWARD", "50"));
+        factory.execute(command);
+        assertEquals(new TwoDimCoordinate(450, 500), env.getCursor().getPosition());
+        assertTrue(env.getShapes().isEmpty());
     }
 }

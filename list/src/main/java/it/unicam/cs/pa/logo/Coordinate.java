@@ -15,11 +15,11 @@ public interface Coordinate {
      */
     Map<String, Integer> getCoordinateValues();
 
-    /**TODO da vedere se rimuovere o tenere su ENvironmentCalculator
-     * Restituisce la distaza tra un punto e un'altro
+    /**
+     * Restituisce la distaza tra un due punti
      *
-     * @param c2 la coordinata
+     * @param c1 la coordinata di arrivo
      * @return la distanza tra i due punti
      */
-    int getDistanceFrom(Coordinate c2);
+    int getDistanceFrom(Coordinate c1);
 }

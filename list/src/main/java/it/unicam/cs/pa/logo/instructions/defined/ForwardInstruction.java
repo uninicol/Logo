@@ -1,6 +1,7 @@
 package it.unicam.cs.pa.logo.instructions.defined;
 
-import it.unicam.cs.pa.logo.LinearSegment;
+import it.unicam.cs.pa.logo.DrawerClass;
+import it.unicam.cs.pa.logo.TwoDimSegment;
 import it.unicam.cs.pa.logo.TwoDimCoordinate;
 import it.unicam.cs.pa.logo.TwoDimEnvironment;
 import it.unicam.cs.pa.logo.instructions.AbstractInstruction;
@@ -17,13 +18,7 @@ public final class ForwardInstruction extends AbstractInstruction<TwoDimEnvironm
     public void accept(Deque<String> instruction) {
         int distance = getAttribute(instruction);
         //determino il punto di arrivo con dovuti limiti
-        TwoDimCoordinate endPoint = getEnvironment().getCursor()
-                .getCoordinateFromDistance(distance);
-        if (getEnvironment().getCursor().isPlot()) {
-            getEnvironment().drawLine(new LinearSegment(getEnvironment().getCursor().getPosition(), endPoint));
-        } else {
-            getEnvironment().getCursor().setPosition(endPoint);
-        }
-        getEnvironment().getCursor().setPosition(endPoint);
+        DrawerClass drawer = new DrawerClass(getEnvironment());
+        drawer.drawLine(distance);
     }
 }

@@ -11,13 +11,9 @@ public class TwoDimShape implements Shape<TwoDimCoordinate> {
     private Color backgroundColor = Color.WHITE;
     private boolean isClosed = false;
 
-    public TwoDimShape(TwoDimCoordinate startPoint) {
-        this.startPoint=startPoint;
-    }
-
     public TwoDimShape(Segment<TwoDimCoordinate> segment) {
         this.segments.add(segment);
-        this.startPoint = segments.get(0).getPoint1();
+        this.startPoint = segments.get(0).getStartPoint();
     }
 
     @Override
@@ -28,7 +24,7 @@ public class TwoDimShape implements Shape<TwoDimCoordinate> {
     @Override
     public void add(Segment<TwoDimCoordinate> segment) {
         segments.add(segment);
-        if (segment.getPoint2().equals(startPoint)) isClosed=true;
+        if (segment.getEndPoint().equals(startPoint)) isClosed = true;
     }
 
     @Override
@@ -43,11 +39,16 @@ public class TwoDimShape implements Shape<TwoDimCoordinate> {
 
     @Override
     public void setBackgroundColor(Color color) {
-        this.backgroundColor=color;
+        this.backgroundColor = color;
     }
 
     @Override
     public boolean isClosed() {
         return isClosed;
+    }
+
+    @Override
+    public int numSegments() {
+        return segments.size();
     }
 }
