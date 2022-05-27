@@ -10,6 +10,7 @@ import java.util.LinkedList;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public class RepeatInstructionTest {
 
@@ -26,5 +27,12 @@ public class RepeatInstructionTest {
     public void executeDrawSegmentTest() {
         command.accept(new LinkedList<>(List.of("3", "[", "FORWARD", "50", "]")));
         assertEquals(new TwoDimCoordinate(650, 500), env.getCursor().getPosition());
+    }
+
+    @Test
+    public void commandWithoutParenthesis() {
+
+        assertThrows(IllegalArgumentException.class, () ->
+                command.accept(new LinkedList<>(List.of("3", "[", "FORWARD", "50"))));
     }
 }

@@ -35,6 +35,12 @@ public interface Instruction<E extends Environment<? extends Coordinate, ? exten
      */
     void accept(Deque<String> instruction);
 
+    /**
+     * Restituisce un attributo dall'istruzione
+     *
+     * @param instructions la coda di istruzioni
+     * @return un attributo dall'istruzione
+     */
     default Integer getAttribute(Deque<String> instructions) {
         return Integer.parseInt(Objects.requireNonNull(instructions.poll()));
     }

@@ -4,7 +4,6 @@ import it.unicam.cs.pa.logo.TwoDimEnvironment;
 import it.unicam.cs.pa.logo.instructions.AbstractInstruction;
 
 import java.util.Deque;
-import java.util.List;
 
 public final class ClearscreenInstruction extends AbstractInstruction<TwoDimEnvironment> {
     public ClearscreenInstruction(TwoDimEnvironment environment) {

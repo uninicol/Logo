@@ -1,9 +1,7 @@
 package it.unicam.cs.pa.logo.instructions.defined;
 
 import it.unicam.cs.pa.logo.DrawerClass;
-import it.unicam.cs.pa.logo.TwoDimCoordinate;
 import it.unicam.cs.pa.logo.TwoDimEnvironment;
-import it.unicam.cs.pa.logo.TwoDimSegment;
 import it.unicam.cs.pa.logo.instructions.AbstractInstruction;
 
 import java.util.Deque;

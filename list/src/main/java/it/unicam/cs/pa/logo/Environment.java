@@ -21,7 +21,7 @@ public interface Environment<C extends Coordinate, D extends Direction> {
      *
      * @return il cursore
      */
-    Cursor<C, D > getCursor();
+    Cursor<C, D> getCursor();
 
     /**
      * Restituisce la coordinata del punto home nel piano

@@ -18,7 +18,7 @@ public abstract class AbstractCursor<C extends Coordinate, D extends Direction> 
 
     public AbstractCursor(C position, C angleLimit, D direction) {
         this.position = Objects.requireNonNull(position);
-        this.angleLimit=Objects.requireNonNull(angleLimit);
+        this.angleLimit = Objects.requireNonNull(angleLimit);
         this.direction = Objects.requireNonNull(direction);
     }
 

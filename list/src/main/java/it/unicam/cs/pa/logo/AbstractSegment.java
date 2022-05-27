@@ -1,12 +1,11 @@
 package it.unicam.cs.pa.logo;
 
-import java.util.Objects;
 import java.util.function.Function;
 
-public abstract class AbstractSegment<C extends Coordinate> implements Segment<C>{
+public abstract class AbstractSegment<C extends Coordinate> implements Segment<C> {
     private final C startPoint;
     private final C endPoint;
-    private final Function<Integer,Integer> function;
+    private final Function<Integer, Integer> function;
 
     protected AbstractSegment(C startPoint, C endPoint, Function<Integer, Integer> function) {
         this.startPoint = startPoint;

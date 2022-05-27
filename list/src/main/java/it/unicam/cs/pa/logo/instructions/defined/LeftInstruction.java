@@ -4,11 +4,10 @@ import it.unicam.cs.pa.logo.TwoDimEnvironment;
 import it.unicam.cs.pa.logo.instructions.AbstractInstruction;
 
 import java.util.Deque;
-import java.util.List;
 
 public final class LeftInstruction extends AbstractInstruction<TwoDimEnvironment> {
     public LeftInstruction(TwoDimEnvironment environment) {
-        super( 1, environment);
+        super(1, environment);
     }
 
     @Override

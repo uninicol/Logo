@@ -7,7 +7,7 @@ import java.util.List;
 /**
  * Rappresenta un ambiente a due dimensioni
  */
-public class TwoDimEnvironment implements Environment<TwoDimCoordinate,TwoDimDirection> {
+public class TwoDimEnvironment implements Environment<TwoDimCoordinate, TwoDimDirection> {
     private final int length;
     private final int height;
     /**

@@ -16,6 +16,7 @@ public interface Drawer<E extends Environment<C, D>, C extends Coordinate, D ext
 
     /**
      * Se il cursore è giù traccia una linea altrimenti si sposta
+     *
      * @param function la funzione della linea
      * @param distance la distanza tra il punto di partenza e il punto di arrivo
      */

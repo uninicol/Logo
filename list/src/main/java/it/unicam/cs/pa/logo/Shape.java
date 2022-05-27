@@ -19,6 +19,7 @@ public interface Shape<C extends Coordinate> {
 
     /**
      * Aggiunge un segmento
+     *
      * @param segment un segmento
      */
     void add(Segment<C> segment);
@@ -53,6 +54,7 @@ public interface Shape<C extends Coordinate> {
 
     /**
      * Restituisce il numero di segmenti che compongono l'area
+     *
      * @return il numero di segmenti che compongono l'area
      */
     int numSegments();

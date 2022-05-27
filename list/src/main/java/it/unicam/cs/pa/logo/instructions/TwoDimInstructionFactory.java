@@ -34,11 +34,11 @@ public class TwoDimInstructionFactory extends InstructionFactory<TwoDimEnvironme
             case "PENUP" -> new PenupInstrucion(environment);
             case "PENDOWN" -> new PendownInstruction(environment);
             case "SETPENCOLOR" -> new SetpencolorInstruction(environment);
-            //case "SETFILLCOLOR"->
+            case "SETFILLCOLOR" -> new SetfillcolorInstruction(environment);
             case "SETSCREENCOLOR" -> new SetscreencolorInstruction(environment);
             case "SETPENSIZE" -> new SetpensizeInstruction(environment);
             case "RIPETI" -> new RepeatInstruction(environment);
-            default -> null;
+            default -> getAddedInstructionMap().get(instructionName);
         };
     }
 }
