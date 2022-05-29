@@ -1,10 +1,10 @@
 package it.unicam.cs.pa.logo.instructions.defined;
 
-import it.unicam.cs.pa.logo.DrawerClass;
+import it.unicam.cs.pa.logo.TwoDimDrawer;
 import it.unicam.cs.pa.logo.TwoDimEnvironment;
 import it.unicam.cs.pa.logo.instructions.AbstractInstruction;
 
-import java.util.Deque;
+import java.util.LinkedList;
 
 public final class ForwardInstruction extends AbstractInstruction<TwoDimEnvironment> {
 
@@ -13,10 +13,10 @@ public final class ForwardInstruction extends AbstractInstruction<TwoDimEnvironm
     }
 
     @Override
-    public void accept(Deque<String> instruction) {
+    public void accept(LinkedList<String> instruction) {
         int distance = getAttribute(instruction);
         //determino il punto di arrivo con dovuti limiti
-        DrawerClass drawer = new DrawerClass(getEnvironment());
+        TwoDimDrawer drawer = new TwoDimDrawer(getEnvironment());
         drawer.drawLine(distance);
     }
 }

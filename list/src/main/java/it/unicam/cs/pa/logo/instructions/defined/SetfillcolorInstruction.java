@@ -7,6 +7,7 @@ import it.unicam.cs.pa.logo.instructions.AbstractInstruction;
 
 import java.awt.*;
 import java.util.Deque;
+import java.util.LinkedList;
 
 public final class SetfillcolorInstruction extends AbstractInstruction<TwoDimEnvironment> {
 
@@ -15,7 +16,7 @@ public final class SetfillcolorInstruction extends AbstractInstruction<TwoDimEnv
     }
 
     @Override
-    public void accept(Deque<String> instruction) {
+    public void accept(LinkedList<String> instruction) {
         Shape<TwoDimCoordinate> lastShape = getEnvironment().getShapes().get(getEnvironment().getShapes().size() - 1);
         if (!lastShape.isClosed())
             throw new IllegalArgumentException("Impossibile colorare area non chiusa");

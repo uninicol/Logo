@@ -4,6 +4,7 @@ import it.unicam.cs.pa.logo.TwoDimEnvironment;
 import it.unicam.cs.pa.logo.instructions.AbstractInstruction;
 
 import java.util.Deque;
+import java.util.LinkedList;
 
 public final class LeftInstruction extends AbstractInstruction<TwoDimEnvironment> {
     public LeftInstruction(TwoDimEnvironment environment) {
@@ -11,7 +12,7 @@ public final class LeftInstruction extends AbstractInstruction<TwoDimEnvironment
     }
 
     @Override
-    public void accept(Deque<String> instruction) {
+    public void accept(LinkedList<String> instruction) {
         int grade = -getAttribute(instruction);
         getEnvironment().getCursor().getDirection().increaseDirection(grade);
     }

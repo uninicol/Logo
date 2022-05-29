@@ -13,8 +13,20 @@ import java.util.Objects;
  */
 public abstract class AbstractInstruction<E extends Environment<? extends Coordinate, ? extends Direction>>
         implements Instruction<E> {
-    private final int numAttributes;
     private final E environment;
+    private final int numAttributes;
+    private int countRequestedAttributes = 0;
+
+
+    @Override
+    public int getCountRequestedAttributes() {
+        return countRequestedAttributes;
+    }
+
+    @Override
+    public void setCountRequestedAttributes(int number) {
+        this.countRequestedAttributes = number;
+    }
 
     public AbstractInstruction(int numAttributes, E environment) {
         this.numAttributes = numAttributes;

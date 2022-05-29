@@ -4,6 +4,7 @@ import it.unicam.cs.pa.logo.TwoDimEnvironment;
 import it.unicam.cs.pa.logo.instructions.AbstractInstruction;
 
 import java.util.Deque;
+import java.util.LinkedList;
 
 public final class PendownInstruction extends AbstractInstruction<TwoDimEnvironment> {
     public PendownInstruction(TwoDimEnvironment environment) {
@@ -11,7 +12,7 @@ public final class PendownInstruction extends AbstractInstruction<TwoDimEnvironm
     }
 
     @Override
-    public void accept(Deque<String> instruction) {
+    public void accept(LinkedList<String> instruction) {
         getEnvironment().getCursor().setPlot(true);
     }
 }
