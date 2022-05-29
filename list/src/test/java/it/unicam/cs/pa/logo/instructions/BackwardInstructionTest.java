@@ -5,7 +5,6 @@ import it.unicam.cs.pa.logo.TwoDimEnvironment;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import java.util.Deque;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -25,7 +24,7 @@ public class BackwardInstructionTest {
 
     @Test
     public void executeSimpleDrawSegmentTest() {
-        Deque<String> command = new LinkedList<>(List.of("BACKWARD", "50"));
+        LinkedList<String> command = new LinkedList<>(List.of("BACKWARD", "50"));
         factory.execute(command);
         assertEquals(new TwoDimCoordinate(450, 500), env.getCursor().getPosition());
 
@@ -35,7 +34,7 @@ public class BackwardInstructionTest {
 
     @Test
     public void executeDrawSegmentTest() {
-        Deque<String> command = new LinkedList<>(List.of("BACKWARD", "-50"));
+        LinkedList<String> command = new LinkedList<>(List.of("BACKWARD", "-50"));
         factory.execute(command);
         assertEquals(new TwoDimCoordinate(550, 500), env.getCursor().getPosition());
         assertTrue(command.isEmpty());
@@ -45,7 +44,7 @@ public class BackwardInstructionTest {
     @Test
     public void dontDrawOnlyMovesTest() {
         env.getCursor().setPlot(false);
-        Deque<String> command = new LinkedList<>(List.of("BACKWARD", "50"));
+        LinkedList<String> command = new LinkedList<>(List.of("BACKWARD", "50"));
         factory.execute(command);
         assertEquals(new TwoDimCoordinate(450, 500), env.getCursor().getPosition());
         assertTrue(env.getShapes().isEmpty());

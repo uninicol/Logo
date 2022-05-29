@@ -31,7 +31,6 @@ public class RepeatInstructionTest {
 
     @Test
     public void commandWithoutParenthesis() {
-
         assertThrows(IllegalArgumentException.class, () ->
                 command.accept(new LinkedList<>(List.of("3", "[", "FORWARD", "50"))));
     }

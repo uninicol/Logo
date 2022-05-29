@@ -1,6 +1,5 @@
 package it.unicam.cs.pa.logo.instructions.defined;
 
-import it.unicam.cs.pa.logo.DrawerClass;
 import it.unicam.cs.pa.logo.TwoDimEnvironment;
 import it.unicam.cs.pa.logo.instructions.TwoDimInstructionFactory;
 import org.junit.jupiter.api.BeforeEach;
