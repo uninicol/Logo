@@ -8,6 +8,11 @@ import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.Map;
 
+/**
+ * Factory usata per interpretare ed eseguire istruzioni
+ *
+ * @param <E> l'environment su cui opera la factory
+ */
 public abstract class InstructionFactory<E extends Environment<? extends Coordinate, ? extends Direction>> {
     private final E environment;
     Map<String, Instruction<E>> addedInstructionMap;

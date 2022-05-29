@@ -10,15 +10,13 @@ public class TwoDimCursor implements Cursor<TwoDimCoordinate, TwoDimDirection> {
 
     private int size = 1;
     private TwoDimCoordinate position;
-    private final TwoDimCoordinate angleLimit;
     private TwoDimDirection direction;
     private Color lineColor = Color.BLACK;
     private Color areaColor = Color.WHITE;
     private boolean plot = true;
 
-    public TwoDimCursor(TwoDimCoordinate position, TwoDimCoordinate angleLimit, TwoDimDirection direction) {
+    public TwoDimCursor(TwoDimCoordinate position, TwoDimDirection direction) {
         this.position = Objects.requireNonNull(position);
-        this.angleLimit = Objects.requireNonNull(angleLimit);
         this.direction = Objects.requireNonNull(direction);
     }
 
@@ -80,10 +78,5 @@ public class TwoDimCursor implements Cursor<TwoDimCoordinate, TwoDimDirection> {
     @Override
     public void setSize(int size) {
         if (size > 1) this.size = size;
-    }
-
-    @Override
-    public TwoDimCoordinate getAngleLimit() {
-        return angleLimit;
     }
 }

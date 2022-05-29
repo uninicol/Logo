@@ -44,6 +44,12 @@ public interface Environment<C extends Coordinate, D extends Direction> {
      */
     void setBackgroundColor(Color backgroundColor);
 
+    /**
+     * Imposta il colore di background
+     * @param r il componente rosso
+     * @param g il componente giallo
+     * @param b il componente blu
+     */
     default void setBackgroundColor(int r, int g, int b) {
         setBackgroundColor(new Color(r, g, b));
     }

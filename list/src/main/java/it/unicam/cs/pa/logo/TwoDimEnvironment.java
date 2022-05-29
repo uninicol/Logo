@@ -21,7 +21,7 @@ public class TwoDimEnvironment implements Environment<TwoDimCoordinate, TwoDimDi
         this.length = length;
         this.height = height;
         this.shapes = new ArrayList<>();
-        cursor = new TwoDimCursor(getHome(), new TwoDimCoordinate(length, height), new TwoDimDirection());
+        cursor = new TwoDimCursor(getHome(), new TwoDimDirection());
     }
 
     public int getLength() {

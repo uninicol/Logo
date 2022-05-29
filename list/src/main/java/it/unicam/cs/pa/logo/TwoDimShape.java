@@ -4,9 +4,15 @@ import java.awt.*;
 import java.util.LinkedList;
 import java.util.List;
 
+/**
+ * Rappresenta una serie di segmenti bidimensionali che possono diventare un'area chiusa
+ */
 public class TwoDimShape implements Shape<TwoDimCoordinate> {
 
     private final List<Segment<TwoDimCoordinate>> segments = new LinkedList<>();
+    /**
+     * punto di partenza dell'area chiusa
+     */
     private final TwoDimCoordinate startPoint;
     private Color backgroundColor = Color.WHITE;
     private boolean isClosed = false;

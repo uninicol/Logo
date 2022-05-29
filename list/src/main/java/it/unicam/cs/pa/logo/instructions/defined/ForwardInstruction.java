@@ -6,6 +6,9 @@ import it.unicam.cs.pa.logo.instructions.AbstractInstruction;
 
 import java.util.LinkedList;
 
+/**
+ * Classe che rappresenta l'istruzione FORWARD
+ */
 public final class ForwardInstruction extends AbstractInstruction<TwoDimEnvironment> {
 
     public ForwardInstruction(TwoDimEnvironment environment) {

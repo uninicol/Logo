@@ -4,9 +4,11 @@ import it.unicam.cs.pa.logo.TwoDimEnvironment;
 import it.unicam.cs.pa.logo.instructions.AbstractInstruction;
 
 import java.awt.*;
-import java.util.Deque;
 import java.util.LinkedList;
 
+/**
+ * Classe che rappresenta l'istruzione SETPENCOLOR
+ */
 public final class SetpencolorInstruction extends AbstractInstruction<TwoDimEnvironment> {
     public SetpencolorInstruction(TwoDimEnvironment environment) {
         super(3, environment);

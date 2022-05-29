@@ -2,6 +2,9 @@ package it.unicam.cs.pa.logo;
 
 import java.util.function.Function;
 
+/**
+ * Questa classe rappresenta un disegnatore che disegna su un piano bidimensionale
+ */
 public class TwoDimDrawer implements Drawer<TwoDimEnvironment, TwoDimCoordinate, TwoDimDirection> {
     private final TwoDimEnvironment environment;
     /**

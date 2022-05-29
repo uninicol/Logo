@@ -6,9 +6,11 @@ import it.unicam.cs.pa.logo.TwoDimEnvironment;
 import it.unicam.cs.pa.logo.instructions.AbstractInstruction;
 
 import java.awt.*;
-import java.util.Deque;
 import java.util.LinkedList;
 
+/**
+ * Classe che rappresenta l'istruzione SETFILLCOLOR
+ */
 public final class SetfillcolorInstruction extends AbstractInstruction<TwoDimEnvironment> {
 
     public SetfillcolorInstruction(TwoDimEnvironment environment) {

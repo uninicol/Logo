@@ -3,6 +3,9 @@ package it.unicam.cs.pa.logo.instructions;
 import it.unicam.cs.pa.logo.TwoDimEnvironment;
 import it.unicam.cs.pa.logo.instructions.defined.*;
 
+/**
+ * Factory usata per interpretare ed eseguire istruzioni che operano in un ambiente bidimensionale
+ */
 public class TwoDimInstructionFactory extends InstructionFactory<TwoDimEnvironment> {
 
     public TwoDimInstructionFactory(TwoDimEnvironment environment) {

@@ -2,6 +2,11 @@ package it.unicam.cs.pa.logo;
 
 import java.util.function.Function;
 
+/**
+ * Classe astratta per rappresentare un segmento base
+ *
+ * @param <C> le coordinate che definiranno il segmento
+ */
 public abstract class AbstractSegment<C extends Coordinate> implements Segment<C> {
     private final C startPoint;
     private final C endPoint;

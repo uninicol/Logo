@@ -8,6 +8,9 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.stream.Collectors;
 
+/**
+ * Classe che rappresenta l'istruzione REPEAT
+ */
 public final class RepeatInstruction extends AbstractInstruction<TwoDimEnvironment> {
 
     public RepeatInstruction(TwoDimEnvironment environment) {

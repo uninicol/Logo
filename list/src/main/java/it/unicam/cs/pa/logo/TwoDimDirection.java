@@ -15,6 +15,11 @@ public class TwoDimDirection implements Direction {
     public TwoDimDirection() {
     }
 
+    /**
+     * Restituisce l'angolo a cui sta puntando
+     *
+     * @return l'angolo a cui sta puntando
+     */
     public int getAngle() {
         return angle;
     }
@@ -26,15 +31,6 @@ public class TwoDimDirection implements Direction {
      */
     public void increaseDirection(int num) {
         angle = (angle + num) % 360;
-    }
-
-    /**
-     * Gira la direzione in senso antiorario
-     *
-     * @param num i gradi da girare
-     */
-    public void decreaseDirection(int num) {
-        angle = (angle - num) % 360;
     }
 
     @Override
