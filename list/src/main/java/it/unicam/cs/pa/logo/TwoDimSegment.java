@@ -17,4 +17,8 @@ public class TwoDimSegment extends AbstractSegment<TwoDimCoordinate> {
     public TwoDimSegment(TwoDimCoordinate startPoint, TwoDimCoordinate endPoint, Function<Integer, Integer> function) {
         super(startPoint, endPoint, function);
     }
+
+    public TwoDimSegment(TwoDimCoordinate startPoint, TwoDimCoordinate endPoint, Function<Integer, Integer> function, int size) {
+        super(startPoint, endPoint, function, size);
+    }
 }

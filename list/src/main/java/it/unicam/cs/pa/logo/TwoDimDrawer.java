@@ -25,11 +25,14 @@ public class TwoDimDrawer implements Drawer<TwoDimEnvironment, TwoDimCoordinate,
     @Override
     public void drawLine(Function<Integer, Integer> function, int distance) {
         Segment<TwoDimCoordinate> segment = new TwoDimSegment(
-                environment.getCursor().getPosition(), getCoordinateFromDistance(distance), function);
+                environment.getCursor().getPosition(),
+                getCoordinateFromDistance(distance),
+                function,
+                environment.getCursor().getSize());
         if (environment.getCursor().isPlot()) {
             draw(segment);
         } else {
-            environment.getCursor().move(getCoordinateFromDistance(distance));
+            environment.getCursor().move(segment.getEndPoint());
             isLastLineDrawn = false;
         }
     }
@@ -41,7 +44,7 @@ public class TwoDimDrawer implements Drawer<TwoDimEnvironment, TwoDimCoordinate,
      */
     public void drawLine(int distance) {
         Segment<TwoDimCoordinate> segment = new TwoDimSegment(
-                environment.getCursor().getPosition(), getCoordinateFromDistance(distance));
+                new TwoDimCoordinate(0, 0), new TwoDimCoordinate(0, 0));
         drawLine(segment.getFunction(), distance);//utilizza la retta
     }
 
@@ -68,7 +71,9 @@ public class TwoDimDrawer implements Drawer<TwoDimEnvironment, TwoDimCoordinate,
         int y = (int) Math.ceil(
                 environment.getCursor().getPosition().yAxis() + distance * Math.sin(Math.toRadians(angle) * -1)
         );
-        return checkCoordinate(x, y, angle);
+        if (!(x < 0 || x > environment.getLength()) && !(y < 0 || y > environment.getHeight()))
+            return new TwoDimCoordinate(x, y);
+        else return checkCoordinate(x, y, angle, distance);
     }
 
     /**
@@ -79,18 +84,18 @@ public class TwoDimDrawer implements Drawer<TwoDimEnvironment, TwoDimCoordinate,
      * @param angle angolo del cursore
      * @return le coordinate corrette
      */
-    public TwoDimCoordinate checkCoordinate(int x, int y, int angle) {
-        if (x > environment.getLength()) {
-            y = (int) Math.ceil(
-                    y + (x - environment.getLength()) * Math.sin(Math.toRadians(angle))
-            );
-            x = environment.getLength();
-        } else if (y > environment.getHeight()) {
-            x = (int) Math.ceil(
-                    x + (y - environment.getHeight()) * Math.cos(Math.toRadians(angle) * -1)
-            );
-            y = environment.getHeight();
-        }
-        return new TwoDimCoordinate(x, y);
+    public TwoDimCoordinate checkCoordinate(int x, int y, int angle, int distance) {
+        int distanceDifference = 0;
+        if (x > environment.getLength())
+            distanceDifference = (int) ((x - environment.getLength()) / Math.cos(Math.toRadians(angle)));
+        else if (x < 0)
+            distanceDifference = (int) (Math.abs(x) / Math.cos(Math.toRadians(angle)));
+        else if (y > environment.getHeight())
+            if (angle == 270) distanceDifference = y - environment.getHeight();
+            else distanceDifference = (int) ((y - environment.getHeight()) / Math.cos(Math.toRadians(angle)));
+        else if (y < 0)
+            if (angle == 90) distanceDifference = Math.abs(y);
+            else distanceDifference = (int) (Math.abs(y) / Math.cos(Math.toRadians(angle)));
+        return getCoordinateFromDistance(distance-Math.abs(distanceDifference));
     }
 }

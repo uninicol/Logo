@@ -24,6 +24,13 @@ public interface Segment<C extends Coordinate> {
     C getEndPoint();
 
     /**
+     * Restituisce lo spessore del segmento
+     *
+     * @return lo spessore del segmento
+     */
+    int getSize();
+
+    /**
      * Restituisce la funzione che rappresenta la linea
      *
      * @return la funzione che rappresenta la linea

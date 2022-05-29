@@ -46,6 +46,7 @@ public interface Environment<C extends Coordinate, D extends Direction> {
 
     /**
      * Imposta il colore di background
+     *
      * @param r il componente rosso
      * @param g il componente giallo
      * @param b il componente blu

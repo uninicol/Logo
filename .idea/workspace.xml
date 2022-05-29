@@ -4,15 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d470bcfa-26cf-40c7-b95f-2bc7f98722c7" name="Changes" comment="implementata interfaccia Drawer">
-      <change afterPath="$PROJECT_DIR$/list/src/main/java/it/unicam/cs/pa/logo/instructions/defined/SetfillcolorInstruction.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/list/src/test/java/it/unicam/cs/pa/logo/instructions/defined/ClearscreenInstructionTest.java" afterDir="false" />
+    <list default="true" id="d470bcfa-26cf-40c7-b95f-2bc7f98722c7" name="Changes" comment="Spostato test nella cartella corretta">
+      <change afterPath="$PROJECT_DIR$/list/src/test/java/it/unicam/cs/pa/logo/TwoDimDrawerTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/list/src/main/java/it/unicam/cs/pa/logo/instructions/Instruction.java" beforeDir="false" afterPath="$PROJECT_DIR$/list/src/main/java/it/unicam/cs/pa/logo/instructions/Instruction.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/list/src/main/java/it/unicam/cs/pa/logo/instructions/InstructionFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/list/src/main/java/it/unicam/cs/pa/logo/instructions/InstructionFactory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/list/src/main/java/it/unicam/cs/pa/logo/instructions/TwoDimInstructionFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/list/src/main/java/it/unicam/cs/pa/logo/instructions/TwoDimInstructionFactory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/list/src/main/java/it/unicam/cs/pa/logo/instructions/defined/ClearscreenInstruction.java" beforeDir="false" afterPath="$PROJECT_DIR$/list/src/main/java/it/unicam/cs/pa/logo/instructions/defined/ClearscreenInstruction.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/list/src/test/java/it/unicam/cs/pa/logo/instructions/RepeatInstructionTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/list/src/test/java/it/unicam/cs/pa/logo/instructions/RepeatInstructionTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/list/src/main/java/it/unicam/cs/pa/logo/AbstractSegment.java" beforeDir="false" afterPath="$PROJECT_DIR$/list/src/main/java/it/unicam/cs/pa/logo/AbstractSegment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/list/src/main/java/it/unicam/cs/pa/logo/Environment.java" beforeDir="false" afterPath="$PROJECT_DIR$/list/src/main/java/it/unicam/cs/pa/logo/Environment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/list/src/main/java/it/unicam/cs/pa/logo/Segment.java" beforeDir="false" afterPath="$PROJECT_DIR$/list/src/main/java/it/unicam/cs/pa/logo/Segment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/list/src/main/java/it/unicam/cs/pa/logo/TwoDimDrawer.java" beforeDir="false" afterPath="$PROJECT_DIR$/list/src/main/java/it/unicam/cs/pa/logo/TwoDimDrawer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/list/src/main/java/it/unicam/cs/pa/logo/TwoDimSegment.java" beforeDir="false" afterPath="$PROJECT_DIR$/list/src/main/java/it/unicam/cs/pa/logo/TwoDimSegment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/list/src/main/java/it/unicam/cs/pa/logo/instructions/defined/SetfillcolorInstruction.java" beforeDir="false" afterPath="$PROJECT_DIR$/list/src/main/java/it/unicam/cs/pa/logo/instructions/defined/SetfillcolorInstruction.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -57,14 +58,14 @@
       <list>
         <option value="Record" />
         <option value="Interface" />
-        <option value="JUnit5 Test Class" />
         <option value="Class" />
+        <option value="JUnit5 Test Class" />
       </list>
     </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
-    <option name="RESET_MODE" value="MIXED" />
+    <option name="RESET_MODE" value="HARD" />
   </component>
   <component name="GithubDefaultAccount">
     <option name="defaultAccountId" value="437b335f-a2e0-4858-8177-ee3a8438309e" />
@@ -78,7 +79,7 @@
     <option name="stateVersion" value="1" />
   </component>
   <component name="ProblemsViewState">
-    <option name="selectedTabId" value="ProjectErrors" />
+    <option name="selectedTabId" value="CurrentFile" />
   </component>
   <component name="ProjectId" id="294HsNkCyU2kN18OFFSQHdJPgBy" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -114,38 +115,11 @@
       <recent name="it.unicam.cs.pa.logo" />
     </key>
     <key name="CreateTestDialog.RecentsKey">
-      <recent name="it.unicam.cs.pa.logo.instructions.defined" />
       <recent name="it.unicam.cs.pa.logo" />
+      <recent name="it.unicam.cs.pa.logo.instructions.defined" />
     </key>
   </component>
-  <component name="RunManager" selected="Gradle.Logo [test]">
-    <configuration name="BackwardInstructionTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
-      <selectedOptions>
-        <option name="coverage.include" />
-        <option name="coverage" />
-      </selectedOptions>
-      <ExternalSystemSettings>
-        <option name="executionName" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$" />
-        <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" value="" />
-        <option name="taskDescriptions">
-          <list />
-        </option>
-        <option name="taskNames">
-          <list>
-            <option value=":list:test" />
-            <option value="--tests" />
-            <option value="&quot;it.unicam.cs.pa.logo.instructions.BackwardInstructionTest&quot;" />
-          </list>
-        </option>
-        <option name="vmOptions" />
-      </ExternalSystemSettings>
-      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
-      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
-      <DebugAllEnabled>false</DebugAllEnabled>
-      <method v="2" />
-    </configuration>
+  <component name="RunManager" selected="Gradle.TwoDimDrawerTest">
     <configuration name="BackwardInstructionTest.executeSimpleDrawSegmentTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <selectedOptions>
         <option name="coverage.include" />
@@ -224,7 +198,7 @@
       <DebugAllEnabled>false</DebugAllEnabled>
       <method v="2" />
     </configuration>
-    <configuration name="TwoDimEnvironmentTest.drawLine" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="TwoDimDrawerTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <selectedOptions>
         <option name="coverage.include" />
         <option name="coverage" />
@@ -241,7 +215,34 @@
           <list>
             <option value=":list:test" />
             <option value="--tests" />
-            <option value="&quot;it.unicam.cs.pa.logo.TwoDimEnvironmentTest.drawLine&quot;" />
+            <option value="&quot;it.unicam.cs.pa.logo.TwoDimDrawerTest&quot;" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <method v="2" />
+    </configuration>
+    <configuration name="TwoDimDrawerTest.drawLineRight" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <selectedOptions>
+        <option name="coverage.include" />
+        <option name="coverage" />
+      </selectedOptions>
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":list:test" />
+            <option value="--tests" />
+            <option value="&quot;it.unicam.cs.pa.logo.TwoDimDrawerTest.drawLineRight&quot;" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -275,19 +276,19 @@
       <method v="2" />
     </configuration>
     <list>
-      <item itemvalue="Gradle.BackwardInstructionTest" />
+      <item itemvalue="Gradle.TwoDimDrawerTest" />
+      <item itemvalue="Gradle.TwoDimDrawerTest.drawLineRight" />
       <item itemvalue="Gradle.BackwardInstructionTest.executeSimpleDrawSegmentTest" />
       <item itemvalue="Gradle.TwoDimCoordinateTest.getDistanceFromDifferentAnglesTest" />
-      <item itemvalue="Gradle.TwoDimEnvironmentTest.drawLine" />
       <item itemvalue="Gradle.Logo [test]" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Gradle.TwoDimDrawerTest" />
+        <item itemvalue="Gradle.TwoDimDrawerTest.drawLineRight" />
         <item itemvalue="Gradle.Logo [test]" />
         <item itemvalue="Gradle.TwoDimCoordinateTest.getDistanceFromDifferentAnglesTest" />
         <item itemvalue="Gradle.BackwardInstructionTest.executeSimpleDrawSegmentTest" />
-        <item itemvalue="Gradle.BackwardInstructionTest" />
-        <item itemvalue="Gradle.TwoDimEnvironmentTest.drawLine" />
       </list>
     </recent_temporary>
   </component>
@@ -335,6 +336,11 @@
       <workItem from="1653572232817" duration="14867000" />
       <workItem from="1653640384122" duration="298000" />
       <workItem from="1653640729187" duration="5431000" />
+      <workItem from="1653833731111" duration="1749000" />
+      <workItem from="1653835743833" duration="811000" />
+      <workItem from="1653836842283" duration="7051000" />
+      <workItem from="1653848974874" duration="349000" />
+      <workItem from="1653853548495" duration="1009000" />
     </task>
     <task id="LOCAL-00001" summary="init commit">
       <created>1652373969498</created>
@@ -434,7 +440,35 @@
       <option name="project" value="LOCAL" />
       <updated>1653598834602</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="Sistemato il disegnatore Drawer">
+      <created>1653822075718</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1653822075718</updated>
+    </task>
+    <task id="LOCAL-00016" summary="Aggiunti JavaDoc mancanti">
+      <created>1653823381583</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1653823381583</updated>
+    </task>
+    <task id="LOCAL-00017" summary="Corretto il comando">
+      <created>1653834358251</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1653834358252</updated>
+    </task>
+    <task id="LOCAL-00018" summary="Spostato test nella cartella corretta">
+      <created>1653834394276</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1653834394276</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -460,30 +494,36 @@
     <MESSAGE value="Spostato getCoordinateFromDistance in AbstractCursor e modifiche varie" />
     <MESSAGE value="Riprogettazione interfacce e aggiunta Shape" />
     <MESSAGE value="implementata interfaccia Drawer" />
-    <option name="LAST_COMMIT_MESSAGE" value="implementata interfaccia Drawer" />
+    <MESSAGE value="Sistemato il disegnatore Drawer" />
+    <MESSAGE value="Aggiunti JavaDoc mancanti" />
+    <MESSAGE value="Corretto il comando" />
+    <MESSAGE value="Spostato test nella cartella corretta" />
+    <option name="LAST_COMMIT_MESSAGE" value="Spostato test nella cartella corretta" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/list/src/main/java/it/unicam/cs/pa/logo/instructions/defined/RepeatInstruction.java</url>
-          <line>28</line>
+          <line>31</line>
           <option name="timeStamp" value="8" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/list/src/test/java/it/unicam/cs/pa/logo/instructions/BackwardInstructionTest.java</url>
+          <url>file://$PROJECT_DIR$/list/src/test/java/it/unicam/cs/pa/logo/instructions/defined/BackwardInstructionTest.java</url>
           <line>46</line>
           <option name="timeStamp" value="15" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/list/src/main/java/it/unicam/cs/pa/logo/DrawerClass.java</url>
-          <line>34</line>
+          <url>file://$PROJECT_DIR$/list/src/main/java/it/unicam/cs/pa/logo/TwoDimDrawer.java</url>
+          <line>37</line>
           <option name="timeStamp" value="19" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/Logo$Logo__test_.ic" NAME="Logo [test] Coverage Results" MODIFIED="1653641700312" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="true" />
+    <SUITE FILE_PATH="coverage/Logo$Logo__test_.ic" NAME="Logo [test] Coverage Results" MODIFIED="1653808883760" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/Logo$DrawerClassTest__1_.ic" NAME="DrawerClassTest (1) Coverage Results" MODIFIED="1653747693908" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/Logo$DrawerClassTest_drawLine.ic" NAME="DrawerClassTest.drawLine Coverage Results" MODIFIED="1653648312247" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
   </component>
 </project>
