@@ -19,9 +19,10 @@ public final class SetfillcolorInstruction extends AbstractInstruction<TwoDimEnv
 
     @Override
     public void accept(LinkedList<String> instruction) {
-        Shape<TwoDimCoordinate> lastShape = getEnvironment().getShapes().get(getEnvironment().getShapes().size() - 1);
-        if (!lastShape.isClosed())
-            throw new IllegalArgumentException("Impossibile colorare area non chiusa");
-        lastShape.setBackgroundColor(new Color(getAttribute(instruction), getAttribute(instruction), getAttribute(instruction)));
+        getEnvironment().getCursor().setLineColor(
+                new Color(
+                        getAttribute(instruction), getAttribute(instruction), getAttribute(instruction)
+                )
+        );
     }
 }
