@@ -2,15 +2,15 @@ package it.unicam.cs.pa.logo;
 
 import java.util.function.Function;
 
-public class DrawerClass implements Drawer<TwoDimEnvironment, TwoDimCoordinate, TwoDimDirection> {
+public class TwoDimDrawer implements Drawer<TwoDimEnvironment, TwoDimCoordinate, TwoDimDirection> {
     private final TwoDimEnvironment environment;
     /**
      * Indica se l'ultima linea è stata disegnata oppure no
      */
-    private boolean isLastLineDrawed = true;
+    private boolean isLastLineDrawn = true;
 
 
-    public DrawerClass(TwoDimEnvironment environment) {
+    public TwoDimDrawer(TwoDimEnvironment environment) {
         this.environment = environment;
     }
 
@@ -21,25 +21,35 @@ public class DrawerClass implements Drawer<TwoDimEnvironment, TwoDimCoordinate, 
 
     @Override
     public void drawLine(Function<Integer, Integer> function, int distance) {
+        Segment<TwoDimCoordinate> segment = new TwoDimSegment(
+                environment.getCursor().getPosition(), getCoordinateFromDistance(distance), function);
         if (environment.getCursor().isPlot()) {
-            draw(distance, function);
+            draw(segment);
         } else {
             environment.getCursor().move(getCoordinateFromDistance(distance));
-            isLastLineDrawed = false;
+            isLastLineDrawn = false;
         }
     }
 
+    /**
+     * Prende come parametro la distanza e utilizza una retta "default" passante per due punti
+     *
+     * @param distance la distanza da percorrere
+     */
     public void drawLine(int distance) {
         Segment<TwoDimCoordinate> segment = new TwoDimSegment(
                 environment.getCursor().getPosition(), getCoordinateFromDistance(distance));
         drawLine(segment.getFunction(), distance);//utilizza la retta
     }
 
-    private void draw(int distance, Function<Integer, Integer> function) {
-        Segment<TwoDimCoordinate> segment = new TwoDimSegment(
-                environment.getCursor().getPosition(), getCoordinateFromDistance(distance), function);
-        isLastLineDrawed = true;
-        if (environment.getShapes().isEmpty() || !isLastLineDrawed)
+    /**
+     * Disegna il segmento nell'environment
+     *
+     * @param segment il segmento da disegnare
+     */
+    private void draw(Segment<TwoDimCoordinate> segment) {
+        isLastLineDrawn = true;
+        if (environment.getShapes().isEmpty() || !isLastLineDrawn)
             environment.getShapes().add(new TwoDimShape(segment));
         else
             environment.getShapes().get(environment.getShapes().size() - 1).add(segment);
@@ -48,7 +58,7 @@ public class DrawerClass implements Drawer<TwoDimEnvironment, TwoDimCoordinate, 
 
     @Override
     public TwoDimCoordinate getCoordinateFromDistance(int distance) {
-        int angle = environment.getCursor().getDirection().getDirectionValues().get(0);
+        int angle = environment.getCursor().getDirection().getAngle();
         int x = (int) Math.ceil(
                 environment.getCursor().getPosition().xAxis() + distance * Math.cos(Math.toRadians(angle))
         );
@@ -58,6 +68,14 @@ public class DrawerClass implements Drawer<TwoDimEnvironment, TwoDimCoordinate, 
         return checkCoordinate(x, y, angle);
     }
 
+    /**
+     * Controlla se le coordinate sono all'interno dell'environment, se non lo sono vengono corretti e ricalcolati
+     *
+     * @param x     x da controllare
+     * @param y     y da controllare
+     * @param angle angolo del cursore
+     * @return le coordinate corrette
+     */
     public TwoDimCoordinate checkCoordinate(int x, int y, int angle) {
         if (x > environment.getLength()) {
             y = (int) Math.ceil(
