@@ -1,19 +1,24 @@
 package it.unicam.cs.pa.logo;
 
 
-import java.util.Map;
-
 /**
  * Classe usata per modellare un punto di <code>Environment</code>
  */
-public interface Coordinate {
+public interface Coordinate<C extends Coordinate<C>> {
 
     /**
-     * Restituisce i valori che descrivono le coordinate
+     * Restituisce il punto dell'asse X
      *
-     * @return i valori che descrivono le coordinate
+     * @return il punto dell'asse X
      */
-    Map<String, Integer> getCoordinateValues();
+    int getX();
+
+    /**
+     * Restituisce il punto dell'asse Y
+     *
+     * @return il punto dell'asse Y
+     */
+    int getY();
 
     /**
      * Restituisce la distaza tra un due punti
@@ -21,5 +26,5 @@ public interface Coordinate {
      * @param c1 la coordinata di arrivo
      * @return la distanza tra i due punti
      */
-    int getDistanceFrom(Coordinate c1);
+    int getDistanceFrom(C c1);
 }
