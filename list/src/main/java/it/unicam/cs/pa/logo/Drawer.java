@@ -5,7 +5,7 @@ import java.util.function.Function;
 /**
  * Questa interfaccia rappresenta un disegnatore che disegna su un piano ricava punti di un Environment
  */
-public interface Drawer<E extends Environment<C, D>, C extends Coordinate, D extends Direction> {
+public interface Drawer<E extends Environment<C, D>, C extends Coordinate<C>, D extends Direction> {
 
     /**
      * Restituisce l'environment su cui disegna

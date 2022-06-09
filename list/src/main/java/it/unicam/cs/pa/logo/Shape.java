@@ -8,7 +8,7 @@ import java.util.List;
  *
  * @param <C> le coordinate
  */
-public interface Shape<C extends Coordinate> {
+public interface Shape<C extends Coordinate<C>> {
 
     /**
      * Restituisce i segmenti

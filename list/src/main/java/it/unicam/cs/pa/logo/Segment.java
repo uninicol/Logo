@@ -7,7 +7,7 @@ import java.util.function.Function;
  *
  * @param <C> le coordinate
  */
-public interface Segment<C extends Coordinate> {
+public interface Segment<C extends Coordinate<C>> {
 
     /**
      * Ritorna il punto di partenza di un segmento

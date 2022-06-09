@@ -7,7 +7,7 @@ import java.util.function.Function;
  *
  * @param <C> le coordinate che definiranno il segmento
  */
-public abstract class AbstractSegment<C extends Coordinate> implements Segment<C> {
+public abstract class AbstractSegment<C extends Coordinate<C>> implements Segment<C> {
     private final C startPoint;
     private final C endPoint;
     private final int size;
