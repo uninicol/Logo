@@ -11,7 +11,7 @@ import java.util.Objects;
  *
  * @param <E> l'ambiente su cui l'istruzione opera
  */
-public abstract class AbstractInstruction<E extends Environment<? extends Coordinate<?>, ? extends Direction>>
+public abstract class AbstractInstruction<E extends Environment<? extends Coordinate<?>, ? extends Direction<?>>>
         implements Instruction<E> {
     private final E environment;
     private final int numAttributes;

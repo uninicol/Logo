@@ -13,7 +13,7 @@ import java.util.function.Consumer;
  *
  * @param <E> l'ambiente
  */
-public interface Instruction<E extends Environment<? extends Coordinate<?>, ? extends Direction>>
+public interface Instruction<E extends Environment<? extends Coordinate<?>, ? extends Direction<?>>>
         extends Consumer<LinkedList<String>> {
 
     /**

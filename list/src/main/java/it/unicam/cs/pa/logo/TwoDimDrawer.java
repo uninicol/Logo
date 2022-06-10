@@ -64,7 +64,7 @@ public class TwoDimDrawer implements Drawer<TwoDimEnvironment, TwoDimCoordinate,
 
     @Override
     public TwoDimCoordinate getCoordinateFromDistance(int distance) {
-        int angle = environment.getCursor().getDirection().getAngle();
+        int angle = environment.getCursor().getDirection().getValue();
         int x = (int) Math.ceil(
                 environment.getCursor().getPosition().xAxis() + distance * Math.cos(Math.toRadians(angle))
         );
@@ -96,6 +96,6 @@ public class TwoDimDrawer implements Drawer<TwoDimEnvironment, TwoDimCoordinate,
         else if (y < 0)
             if (angle == 90) distanceDifference = Math.abs(y);
             else distanceDifference = (int) (Math.abs(y) / Math.cos(Math.toRadians(angle)));
-        return getCoordinateFromDistance(distance-Math.abs(distanceDifference));
+        return getCoordinateFromDistance(distance - Math.abs(distanceDifference));
     }
 }

@@ -11,7 +11,7 @@ import java.util.LinkedList;
  *
  * @param <E> l'environment su cui opera la factory
  */
-public abstract class InstructionFactory<E extends Environment<? extends Coordinate<?>, ? extends Direction>> {
+public abstract class InstructionFactory<E extends Environment<? extends Coordinate<?>, ? extends Direction<?>>> {
     private final E environment;
 
     protected InstructionFactory(E environment) {

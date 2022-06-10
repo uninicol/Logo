@@ -8,7 +8,9 @@ import org.junit.jupiter.api.Test;
 import java.util.LinkedList;
 import java.util.List;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
 class ClearscreenInstructionTest {
     ClearscreenInstruction instruction;
     TwoDimEnvironment env;
@@ -21,8 +23,8 @@ class ClearscreenInstructionTest {
 
     @Test
     void clearScreen() {
-        TwoDimInstructionFactory factory=new TwoDimInstructionFactory(env);
-        factory.execute(new LinkedList<>(List.of("FORWARD","50")));
+        TwoDimInstructionFactory factory = new TwoDimInstructionFactory(env);
+        factory.execute(new LinkedList<>(List.of("FORWARD", "50")));
         assertFalse(env.getShapes().isEmpty());
         factory.execute(new LinkedList<>(List.of("CLEARSCREEN")));
         assertTrue(env.getShapes().isEmpty());

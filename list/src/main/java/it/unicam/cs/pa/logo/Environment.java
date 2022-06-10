@@ -8,7 +8,7 @@ import java.util.List;
  *
  * @param <C> le coordinate usate dal piano
  */
-public interface Environment<C extends Coordinate<C>, D extends Direction> {
+public interface Environment<C extends Coordinate<C>, D extends Direction<D>> {
     /**
      * Restituisce una collezione di tutti i segmenti nell'ambiente
      *

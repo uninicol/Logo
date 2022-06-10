@@ -38,10 +38,10 @@ public class TwoDimCoordinateTest {
         TwoDimCoordinate UpRight2 = new TwoDimCoordinate(150, 125);
         TwoDimCoordinate UpLeft1 = new TwoDimCoordinate(75, 150);
         TwoDimCoordinate UpLeft2 = new TwoDimCoordinate(50, 125);
-        TwoDimCoordinate DownRight1 = new TwoDimCoordinate(125, 100-50);
-        TwoDimCoordinate DownRight2 = new TwoDimCoordinate(150, 100-25);
-        TwoDimCoordinate DownLeft1 = new TwoDimCoordinate(100-25, 100-50);
-        TwoDimCoordinate DownLeft2 = new TwoDimCoordinate(100-50, 100-25);
+        TwoDimCoordinate DownRight1 = new TwoDimCoordinate(125, 100 - 50);
+        TwoDimCoordinate DownRight2 = new TwoDimCoordinate(150, 100 - 25);
+        TwoDimCoordinate DownLeft1 = new TwoDimCoordinate(100 - 25, 100 - 50);
+        TwoDimCoordinate DownLeft2 = new TwoDimCoordinate(100 - 50, 100 - 25);
 
         assertEquals(55, point.getDistanceFrom(UpRight1));
         assertEquals(55, point.getDistanceFrom(UpRight2));
