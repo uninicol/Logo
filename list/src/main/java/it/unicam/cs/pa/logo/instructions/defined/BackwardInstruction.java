@@ -17,7 +17,6 @@ public final class BackwardInstruction extends AbstractInstruction<TwoDimEnviron
     @Override
     public void accept(LinkedList<String> instruction) {
         int distance = -getAttribute(instruction);
-        //determino il punto di arrivo con dovuti limiti
         TwoDimDrawer drawer = new TwoDimDrawer(getEnvironment());
         drawer.drawLine(distance);
     }

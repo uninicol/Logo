@@ -14,9 +14,7 @@ public class TwoDimInstructionFactory extends InstructionFactory<TwoDimEnvironme
 
     @Override
     public Instruction<TwoDimEnvironment> createInstruction(String instructionName, TwoDimEnvironment environment) {
-        Instruction<TwoDimEnvironment> instruction = nameMatch(instructionName, environment);
-        if (instruction == null) throw new IllegalArgumentException("Comando non trovato");
-        return instruction;
+        return nameMatch(instructionName, environment);
     }
 
     /**
@@ -41,7 +39,7 @@ public class TwoDimInstructionFactory extends InstructionFactory<TwoDimEnvironme
             case "SETSCREENCOLOR" -> new SetscreencolorInstruction(environment);
             case "SETPENSIZE" -> new SetpensizeInstruction(environment);
             case "RIPETI" -> new RepeatInstruction(environment);
-            default -> getAddedInstructionMap().get(instructionName);
+            default -> throw new IllegalArgumentException("Comando non trovato");
         };
     }
 }

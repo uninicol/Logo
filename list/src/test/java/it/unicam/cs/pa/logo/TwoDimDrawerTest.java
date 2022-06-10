@@ -71,6 +71,4 @@ class TwoDimDrawerTest {
         drawer.drawLine(500);
         assertEquals(new TwoDimCoordinate(200, 200), env.getCursor().getPosition());
     }
-
-
 }

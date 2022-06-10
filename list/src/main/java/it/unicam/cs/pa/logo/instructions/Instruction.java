@@ -13,7 +13,7 @@ import java.util.function.Consumer;
  *
  * @param <E> l'ambiente
  */
-public interface Instruction<E extends Environment<? extends Coordinate, ? extends Direction>>
+public interface Instruction<E extends Environment<? extends Coordinate<?>, ? extends Direction>>
         extends Consumer<LinkedList<String>> {
 
     /**
@@ -28,6 +28,11 @@ public interface Instruction<E extends Environment<? extends Coordinate, ? exten
      */
     int getCountRequestedAttributes();
 
+    /**
+     * Imposta il numero di attributi richiesti
+     *
+     * @param number il numero di attributi richiesti
+     */
     void setCountRequestedAttributes(int number);
 
     /**
@@ -43,7 +48,6 @@ public interface Instruction<E extends Environment<? extends Coordinate, ? exten
      * @return l'ambiente su cui opera l'istruzione
      */
     E getEnvironment();
-
 
     /**
      * Restituisce un attributo dall'istruzione
