@@ -1,5 +1,8 @@
 package it.unicam.cs.pa.logo;
 
+import it.unicam.cs.pa.logo.model.TwoDimCoordinate;
+import it.unicam.cs.pa.logo.model.TwoDimDrawer;
+import it.unicam.cs.pa.logo.model.TwoDimEnvironment;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 

@@ -4,16 +4,51 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d470bcfa-26cf-40c7-b95f-2bc7f98722c7" name="Changes" comment="Spostato test nella cartella corretta">
-      <change afterPath="$PROJECT_DIR$/list/src/test/java/it/unicam/cs/pa/logo/TwoDimDrawerTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="d470bcfa-26cf-40c7-b95f-2bc7f98722c7" name="Changes" comment="Definito meglio Direction">
+      <change afterPath="$PROJECT_DIR$/list/src/main/java/it/unicam/cs/pa/logo/Controller.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/list/src/main/java/it/unicam/cs/pa/logo/io/EnvironmentLoader.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/list/src/main/java/it/unicam/cs/pa/logo/io/EnvironmentWriter.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/list/src/main/java/it/unicam/cs/pa/logo/AbstractSegment.java" beforeDir="false" afterPath="$PROJECT_DIR$/list/src/main/java/it/unicam/cs/pa/logo/AbstractSegment.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/list/src/main/java/it/unicam/cs/pa/logo/Environment.java" beforeDir="false" afterPath="$PROJECT_DIR$/list/src/main/java/it/unicam/cs/pa/logo/Environment.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/list/src/main/java/it/unicam/cs/pa/logo/Segment.java" beforeDir="false" afterPath="$PROJECT_DIR$/list/src/main/java/it/unicam/cs/pa/logo/Segment.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/list/src/main/java/it/unicam/cs/pa/logo/TwoDimDrawer.java" beforeDir="false" afterPath="$PROJECT_DIR$/list/src/main/java/it/unicam/cs/pa/logo/TwoDimDrawer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/list/src/main/java/it/unicam/cs/pa/logo/TwoDimSegment.java" beforeDir="false" afterPath="$PROJECT_DIR$/list/src/main/java/it/unicam/cs/pa/logo/TwoDimSegment.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/list/src/main/java/it/unicam/cs/pa/logo/instructions/defined/SetfillcolorInstruction.java" beforeDir="false" afterPath="$PROJECT_DIR$/list/src/main/java/it/unicam/cs/pa/logo/instructions/defined/SetfillcolorInstruction.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/list/src/main/java/it/unicam/cs/pa/logo/AbstractSegment.java" beforeDir="false" afterPath="$PROJECT_DIR$/list/src/main/java/it/unicam/cs/pa/logo/model/AbstractSegment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/list/src/main/java/it/unicam/cs/pa/logo/Coordinate.java" beforeDir="false" afterPath="$PROJECT_DIR$/list/src/main/java/it/unicam/cs/pa/logo/model/Coordinate.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/list/src/main/java/it/unicam/cs/pa/logo/Cursor.java" beforeDir="false" afterPath="$PROJECT_DIR$/list/src/main/java/it/unicam/cs/pa/logo/model/Cursor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/list/src/main/java/it/unicam/cs/pa/logo/Direction.java" beforeDir="false" afterPath="$PROJECT_DIR$/list/src/main/java/it/unicam/cs/pa/logo/model/Direction.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/list/src/main/java/it/unicam/cs/pa/logo/Drawer.java" beforeDir="false" afterPath="$PROJECT_DIR$/list/src/main/java/it/unicam/cs/pa/logo/model/Drawer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/list/src/main/java/it/unicam/cs/pa/logo/Environment.java" beforeDir="false" afterPath="$PROJECT_DIR$/list/src/main/java/it/unicam/cs/pa/logo/model/Environment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/list/src/main/java/it/unicam/cs/pa/logo/Segment.java" beforeDir="false" afterPath="$PROJECT_DIR$/list/src/main/java/it/unicam/cs/pa/logo/model/Segment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/list/src/main/java/it/unicam/cs/pa/logo/Shape.java" beforeDir="false" afterPath="$PROJECT_DIR$/list/src/main/java/it/unicam/cs/pa/logo/model/Shape.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/list/src/main/java/it/unicam/cs/pa/logo/TwoDimCoordinate.java" beforeDir="false" afterPath="$PROJECT_DIR$/list/src/main/java/it/unicam/cs/pa/logo/model/TwoDimCoordinate.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/list/src/main/java/it/unicam/cs/pa/logo/TwoDimCursor.java" beforeDir="false" afterPath="$PROJECT_DIR$/list/src/main/java/it/unicam/cs/pa/logo/model/TwoDimCursor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/list/src/main/java/it/unicam/cs/pa/logo/TwoDimDirection.java" beforeDir="false" afterPath="$PROJECT_DIR$/list/src/main/java/it/unicam/cs/pa/logo/model/TwoDimDirection.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/list/src/main/java/it/unicam/cs/pa/logo/TwoDimDrawer.java" beforeDir="false" afterPath="$PROJECT_DIR$/list/src/main/java/it/unicam/cs/pa/logo/model/TwoDimDrawer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/list/src/main/java/it/unicam/cs/pa/logo/TwoDimEnvironment.java" beforeDir="false" afterPath="$PROJECT_DIR$/list/src/main/java/it/unicam/cs/pa/logo/model/TwoDimEnvironment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/list/src/main/java/it/unicam/cs/pa/logo/TwoDimSegment.java" beforeDir="false" afterPath="$PROJECT_DIR$/list/src/main/java/it/unicam/cs/pa/logo/model/TwoDimSegment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/list/src/main/java/it/unicam/cs/pa/logo/TwoDimShape.java" beforeDir="false" afterPath="$PROJECT_DIR$/list/src/main/java/it/unicam/cs/pa/logo/model/TwoDimShape.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/list/src/main/java/it/unicam/cs/pa/logo/instructions/AbstractInstruction.java" beforeDir="false" afterPath="$PROJECT_DIR$/list/src/main/java/it/unicam/cs/pa/logo/model/instructions/AbstractInstruction.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/list/src/main/java/it/unicam/cs/pa/logo/instructions/Instruction.java" beforeDir="false" afterPath="$PROJECT_DIR$/list/src/main/java/it/unicam/cs/pa/logo/model/instructions/Instruction.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/list/src/main/java/it/unicam/cs/pa/logo/instructions/InstructionFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/list/src/main/java/it/unicam/cs/pa/logo/model/instructions/InstructionFactory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/list/src/main/java/it/unicam/cs/pa/logo/instructions/TwoDimInstructionFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/list/src/main/java/it/unicam/cs/pa/logo/model/instructions/TwoDimInstructionFactory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/list/src/main/java/it/unicam/cs/pa/logo/instructions/defined/BackwardInstruction.java" beforeDir="false" afterPath="$PROJECT_DIR$/list/src/main/java/it/unicam/cs/pa/logo/model/instructions/defined/BackwardInstruction.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/list/src/main/java/it/unicam/cs/pa/logo/instructions/defined/ClearscreenInstruction.java" beforeDir="false" afterPath="$PROJECT_DIR$/list/src/main/java/it/unicam/cs/pa/logo/model/instructions/defined/ClearscreenInstruction.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/list/src/main/java/it/unicam/cs/pa/logo/instructions/defined/ForwardInstruction.java" beforeDir="false" afterPath="$PROJECT_DIR$/list/src/main/java/it/unicam/cs/pa/logo/model/instructions/defined/ForwardInstruction.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/list/src/main/java/it/unicam/cs/pa/logo/instructions/defined/HomeInstruction.java" beforeDir="false" afterPath="$PROJECT_DIR$/list/src/main/java/it/unicam/cs/pa/logo/model/instructions/defined/HomeInstruction.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/list/src/main/java/it/unicam/cs/pa/logo/instructions/defined/LeftInstruction.java" beforeDir="false" afterPath="$PROJECT_DIR$/list/src/main/java/it/unicam/cs/pa/logo/model/instructions/defined/LeftInstruction.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/list/src/main/java/it/unicam/cs/pa/logo/instructions/defined/PendownInstruction.java" beforeDir="false" afterPath="$PROJECT_DIR$/list/src/main/java/it/unicam/cs/pa/logo/model/instructions/defined/PendownInstruction.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/list/src/main/java/it/unicam/cs/pa/logo/instructions/defined/PenupInstrucion.java" beforeDir="false" afterPath="$PROJECT_DIR$/list/src/main/java/it/unicam/cs/pa/logo/model/instructions/defined/PenupInstrucion.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/list/src/main/java/it/unicam/cs/pa/logo/instructions/defined/RepeatInstruction.java" beforeDir="false" afterPath="$PROJECT_DIR$/list/src/main/java/it/unicam/cs/pa/logo/model/instructions/defined/RepeatInstruction.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/list/src/main/java/it/unicam/cs/pa/logo/instructions/defined/RightInstruction.java" beforeDir="false" afterPath="$PROJECT_DIR$/list/src/main/java/it/unicam/cs/pa/logo/model/instructions/defined/RightInstruction.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/list/src/main/java/it/unicam/cs/pa/logo/instructions/defined/SetfillcolorInstruction.java" beforeDir="false" afterPath="$PROJECT_DIR$/list/src/main/java/it/unicam/cs/pa/logo/model/instructions/defined/SetfillcolorInstruction.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/list/src/main/java/it/unicam/cs/pa/logo/instructions/defined/SetpencolorInstruction.java" beforeDir="false" afterPath="$PROJECT_DIR$/list/src/main/java/it/unicam/cs/pa/logo/model/instructions/defined/SetpencolorInstruction.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/list/src/main/java/it/unicam/cs/pa/logo/instructions/defined/SetpensizeInstruction.java" beforeDir="false" afterPath="$PROJECT_DIR$/list/src/main/java/it/unicam/cs/pa/logo/model/instructions/defined/SetpensizeInstruction.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/list/src/main/java/it/unicam/cs/pa/logo/instructions/defined/SetscreencolorInstruction.java" beforeDir="false" afterPath="$PROJECT_DIR$/list/src/main/java/it/unicam/cs/pa/logo/model/instructions/defined/SetscreencolorInstruction.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/list/src/test/java/it/unicam/cs/pa/logo/TwoDimCoordinateTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/list/src/test/java/it/unicam/cs/pa/logo/TwoDimCoordinateTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/list/src/test/java/it/unicam/cs/pa/logo/TwoDimDrawerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/list/src/test/java/it/unicam/cs/pa/logo/TwoDimDrawerTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/list/src/test/java/it/unicam/cs/pa/logo/TwoDimEnvironmentTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/list/src/test/java/it/unicam/cs/pa/logo/TwoDimEnvironmentTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/list/src/test/java/it/unicam/cs/pa/logo/TwoDimShapeTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/list/src/test/java/it/unicam/cs/pa/logo/TwoDimShapeTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/list/src/test/java/it/unicam/cs/pa/logo/instructions/defined/BackwardInstructionTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/list/src/test/java/it/unicam/cs/pa/logo/instructions/defined/BackwardInstructionTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/list/src/test/java/it/unicam/cs/pa/logo/instructions/defined/ClearscreenInstructionTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/list/src/test/java/it/unicam/cs/pa/logo/instructions/defined/ClearscreenInstructionTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/list/src/test/java/it/unicam/cs/pa/logo/instructions/defined/ForwardInstructionTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/list/src/test/java/it/unicam/cs/pa/logo/instructions/defined/ForwardInstructionTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/list/src/test/java/it/unicam/cs/pa/logo/instructions/defined/RepeatInstructionTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/list/src/test/java/it/unicam/cs/pa/logo/instructions/defined/RepeatInstructionTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -57,9 +92,9 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Record" />
-        <option value="Interface" />
-        <option value="Class" />
         <option value="JUnit5 Test Class" />
+        <option value="Class" />
+        <option value="Interface" />
       </list>
     </option>
   </component>
@@ -71,9 +106,9 @@
     <option name="defaultAccountId" value="437b335f-a2e0-4858-8177-ee3a8438309e" />
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/list/src/main/java/it/unicam/cs/pa/logo/Coordinate.java" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/list/src/main/java/it/unicam/cs/pa/logo/Environment.java" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/list/src/main/java/it/unicam/cs/pa/logo/Segment.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/list/src/main/java/it/unicam/cs/pa/logo/model/Coordinate.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/list/src/main/java/it/unicam/cs/pa/logo/model/Environment.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/list/src/main/java/it/unicam/cs/pa/logo/model/Segment.java" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -105,6 +140,7 @@
 }</component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
+      <recent name="it.unicam.cs.pa.logo.instructions" />
       <recent name="it.unicam.cs.pa.logo" />
       <recent name="it.unicam.cs.pa.logo.list" />
     </key>
@@ -120,33 +156,6 @@
     </key>
   </component>
   <component name="RunManager" selected="Gradle.TwoDimDrawerTest">
-    <configuration name="BackwardInstructionTest.executeSimpleDrawSegmentTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
-      <selectedOptions>
-        <option name="coverage.include" />
-        <option name="coverage" />
-      </selectedOptions>
-      <ExternalSystemSettings>
-        <option name="executionName" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$" />
-        <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" value="" />
-        <option name="taskDescriptions">
-          <list />
-        </option>
-        <option name="taskNames">
-          <list>
-            <option value=":list:test" />
-            <option value="--tests" />
-            <option value="&quot;it.unicam.cs.pa.logo.instructions.BackwardInstructionTest.executeSimpleDrawSegmentTest&quot;" />
-          </list>
-        </option>
-        <option name="vmOptions" />
-      </ExternalSystemSettings>
-      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
-      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
-      <DebugAllEnabled>false</DebugAllEnabled>
-      <method v="2" />
-    </configuration>
     <configuration name="Logo [test]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
@@ -225,6 +234,33 @@
       <DebugAllEnabled>false</DebugAllEnabled>
       <method v="2" />
     </configuration>
+    <configuration name="TwoDimDrawerTest.drawLineLeft" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <selectedOptions>
+        <option name="coverage.include" />
+        <option name="coverage" />
+      </selectedOptions>
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":list:test" />
+            <option value="--tests" />
+            <option value="&quot;it.unicam.cs.pa.logo.TwoDimDrawerTest.drawLineLeft&quot;" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <method v="2" />
+    </configuration>
     <configuration name="TwoDimDrawerTest.drawLineRight" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <selectedOptions>
         <option name="coverage.include" />
@@ -276,19 +312,19 @@
       <method v="2" />
     </configuration>
     <list>
+      <item itemvalue="Gradle.TwoDimDrawerTest.drawLineLeft" />
       <item itemvalue="Gradle.TwoDimDrawerTest" />
       <item itemvalue="Gradle.TwoDimDrawerTest.drawLineRight" />
-      <item itemvalue="Gradle.BackwardInstructionTest.executeSimpleDrawSegmentTest" />
       <item itemvalue="Gradle.TwoDimCoordinateTest.getDistanceFromDifferentAnglesTest" />
       <item itemvalue="Gradle.Logo [test]" />
     </list>
     <recent_temporary>
       <list>
         <item itemvalue="Gradle.TwoDimDrawerTest" />
+        <item itemvalue="Gradle.TwoDimDrawerTest.drawLineLeft" />
         <item itemvalue="Gradle.TwoDimDrawerTest.drawLineRight" />
         <item itemvalue="Gradle.Logo [test]" />
         <item itemvalue="Gradle.TwoDimCoordinateTest.getDistanceFromDifferentAnglesTest" />
-        <item itemvalue="Gradle.BackwardInstructionTest.executeSimpleDrawSegmentTest" />
       </list>
     </recent_temporary>
   </component>
@@ -340,7 +376,17 @@
       <workItem from="1653835743833" duration="811000" />
       <workItem from="1653836842283" duration="7051000" />
       <workItem from="1653848974874" duration="349000" />
-      <workItem from="1653853548495" duration="1009000" />
+      <workItem from="1653853548495" duration="2033000" />
+      <workItem from="1654355842461" duration="8000" />
+      <workItem from="1654675321101" duration="642000" />
+      <workItem from="1654675986966" duration="73000" />
+      <workItem from="1654693740733" duration="353000" />
+      <workItem from="1654704212591" duration="3000" />
+      <workItem from="1654793324163" duration="5851000" />
+      <workItem from="1654892009389" duration="52000" />
+      <workItem from="1654892089594" duration="1225000" />
+      <workItem from="1654949787506" duration="255000" />
+      <workItem from="1654951195402" duration="1992000" />
     </task>
     <task id="LOCAL-00001" summary="init commit">
       <created>1652373969498</created>
@@ -468,7 +514,42 @@
       <option name="project" value="LOCAL" />
       <updated>1653834394276</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="corretto checkcoordinate e fatto test">
+      <created>1653855866532</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1653855866532</updated>
+    </task>
+    <task id="LOCAL-00020" summary="Modificato comportamento coordinate: assumiamo che le coordinate abbiano due dimensioni">
+      <created>1654794011943</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1654794011944</updated>
+    </task>
+    <task id="LOCAL-00021" summary="Definito meglio coordinate">
+      <created>1654794669777</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1654794669777</updated>
+    </task>
+    <task id="LOCAL-00022" summary="Definito meglio coordinate">
+      <created>1654892340749</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1654892340749</updated>
+    </task>
+    <task id="LOCAL-00023" summary="Definito meglio Direction">
+      <created>1654893294259</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1654893294259</updated>
+    </task>
+    <option name="localTasksCounter" value="24" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -498,13 +579,17 @@
     <MESSAGE value="Aggiunti JavaDoc mancanti" />
     <MESSAGE value="Corretto il comando" />
     <MESSAGE value="Spostato test nella cartella corretta" />
-    <option name="LAST_COMMIT_MESSAGE" value="Spostato test nella cartella corretta" />
+    <MESSAGE value="corretto checkcoordinate e fatto test" />
+    <MESSAGE value="Modificato comportamento coordinate: assumiamo che le coordinate abbiano due dimensioni" />
+    <MESSAGE value="Definito meglio coordinate" />
+    <MESSAGE value="Definito meglio Direction" />
+    <option name="LAST_COMMIT_MESSAGE" value="Definito meglio Direction" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/list/src/main/java/it/unicam/cs/pa/logo/instructions/defined/RepeatInstruction.java</url>
+          <url>file://$PROJECT_DIR$/list/src/main/java/it/unicam/cs/pa/logo/model/instructions/defined/RepeatInstruction.java</url>
           <line>31</line>
           <option name="timeStamp" value="8" />
         </line-breakpoint>
@@ -514,9 +599,9 @@
           <option name="timeStamp" value="15" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/list/src/main/java/it/unicam/cs/pa/logo/TwoDimDrawer.java</url>
-          <line>37</line>
-          <option name="timeStamp" value="19" />
+          <url>file://$PROJECT_DIR$/list/src/main/java/it/unicam/cs/pa/logo/model/TwoDimDrawer.java</url>
+          <line>98</line>
+          <option name="timeStamp" value="21" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

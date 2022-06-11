@@ -1,0 +1,20 @@
+package it.unicam.cs.pa.logo.model.instructions.defined;
+
+import it.unicam.cs.pa.logo.model.TwoDimEnvironment;
+import it.unicam.cs.pa.logo.model.instructions.AbstractInstruction;
+
+import java.util.LinkedList;
+
+/**
+ * Classe che rappresenta l'istruzione PENDOWN
+ */
+public final class PendownInstruction extends AbstractInstruction<TwoDimEnvironment> {
+    public PendownInstruction(TwoDimEnvironment environment) {
+        super(0, environment);
+    }
+
+    @Override
+    public void accept(LinkedList<String> instruction) {
+        getEnvironment().getCursor().setPlot(true);
+    }
+}
