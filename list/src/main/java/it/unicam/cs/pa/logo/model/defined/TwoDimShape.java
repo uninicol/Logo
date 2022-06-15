@@ -1,4 +1,7 @@
-package it.unicam.cs.pa.logo.model;
+package it.unicam.cs.pa.logo.model.defined;
+
+import it.unicam.cs.pa.logo.model.Segment;
+import it.unicam.cs.pa.logo.model.Shape;
 
 import java.awt.*;
 import java.util.LinkedList;

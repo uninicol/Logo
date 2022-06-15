@@ -1,6 +1,6 @@
-package it.unicam.cs.pa.logo;
+package it.unicam.cs.pa.logo.model;
 
-import it.unicam.cs.pa.logo.model.TwoDimEnvironment;
+import it.unicam.cs.pa.logo.model.defined.TwoDimEnvironment;
 import org.junit.jupiter.api.BeforeEach;
 
 

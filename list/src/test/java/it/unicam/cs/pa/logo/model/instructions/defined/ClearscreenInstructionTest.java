@@ -1,11 +1,12 @@
-package it.unicam.cs.pa.logo.instructions.defined;
+package it.unicam.cs.pa.logo.model.instructions.defined;
 
-import it.unicam.cs.pa.logo.model.TwoDimEnvironment;
+import it.unicam.cs.pa.logo.model.defined.TwoDimEnvironment;
 import it.unicam.cs.pa.logo.model.instructions.TwoDimInstructionFactory;
 import it.unicam.cs.pa.logo.model.instructions.defined.ClearscreenInstruction;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import java.io.IOException;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -23,7 +24,7 @@ class ClearscreenInstructionTest {
     }
 
     @Test
-    void clearScreen() {
+    void clearScreen() throws IOException {
         TwoDimInstructionFactory factory = new TwoDimInstructionFactory(env);
         factory.execute(new LinkedList<>(List.of("FORWARD", "50")));
         assertFalse(env.getShapes().isEmpty());

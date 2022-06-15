@@ -1,9 +1,12 @@
 package it.unicam.cs.pa.logo.model.instructions;
 
+import it.unicam.cs.pa.logo.io.InstructionReader;
+import it.unicam.cs.pa.logo.io.InstructionWriter;
 import it.unicam.cs.pa.logo.model.Coordinate;
 import it.unicam.cs.pa.logo.model.Direction;
 import it.unicam.cs.pa.logo.model.Environment;
 
+import java.io.IOException;
 import java.util.Objects;
 
 /**
@@ -11,12 +14,14 @@ import java.util.Objects;
  *
  * @param <E> l'ambiente su cui l'istruzione opera
  */
-public abstract class AbstractInstruction<E extends Environment<? extends Coordinate<?>, ? extends Direction<?>>>
+public abstract class AbstractInstruction<E extends Environment<? extends Coordinate, ? extends Direction>>
         implements Instruction<E> {
+
+    //public static final InstructionReader<? extends AbstractInstruction<E>> LOADER = AbstractInstruction::fromString;
+
     private final E environment;
     private final int numAttributes;
     private int countRequestedAttributes = 0;
-
 
     @Override
     public int getCountRequestedAttributes() {

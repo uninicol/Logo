@@ -1,5 +1,9 @@
-package it.unicam.cs.pa.logo.model;
+package it.unicam.cs.pa.logo.model.defined;
 
+import it.unicam.cs.pa.logo.model.Drawer;
+import it.unicam.cs.pa.logo.model.Segment;
+
+import java.awt.*;
 import java.util.function.Function;
 
 /**
@@ -23,10 +27,11 @@ public class TwoDimDrawer implements Drawer<TwoDimEnvironment, TwoDimCoordinate,
     }
 
     @Override
-    public void drawLine(Function<Integer, Integer> function, int distance) {
+    public void drawLine(Function<Integer, Integer> function, int distance, Color color) {
         Segment<TwoDimCoordinate> segment = new TwoDimSegment(
                 environment.getCursor().getPosition(),
                 getCoordinateFromDistance(distance),
+                color,
                 function,
                 environment.getCursor().getSize());
         if (environment.getCursor().isPlot()) {
@@ -38,14 +43,26 @@ public class TwoDimDrawer implements Drawer<TwoDimEnvironment, TwoDimCoordinate,
     }
 
     /**
-     * Prende come parametro la distanza e utilizza una retta "default" passante per due punti
+     * Traccia una linea retta tra due punti
      *
-     * @param distance la distanza da percorrere
+     * @param lenght la distanza da percorrere
      */
-    public void drawLine(int distance) {
+    public void drawLine(int lenght) {
         Segment<TwoDimCoordinate> segment = new TwoDimSegment(
                 new TwoDimCoordinate(0, 0), new TwoDimCoordinate(0, 0));
-        drawLine(segment.getFunction(), distance);//utilizza la retta
+        drawLine(segment.getFunction(), lenght, Color.BLACK);//utilizza la retta
+    }
+
+    /**
+     * Traccia una linea retta tra due punti
+     *
+     * @param lenght la lunghezza della retta
+     * @param color  il colore della retta
+     */
+    public void drawLine(int lenght, Color color) {
+        Segment<TwoDimCoordinate> segment = new TwoDimSegment(
+                new TwoDimCoordinate(0, 0), new TwoDimCoordinate(0, 0));
+        drawLine(segment.getFunction(), lenght, color);//utilizza la retta
     }
 
     /**
@@ -85,17 +102,33 @@ public class TwoDimDrawer implements Drawer<TwoDimEnvironment, TwoDimCoordinate,
      * @return le coordinate corrette
      */
     public TwoDimCoordinate checkCoordinate(int x, int y, int angle, int distance) {
-        int distanceDifference = 0;
-        if (x > environment.getLength())
-            distanceDifference = (int) ((x - environment.getLength()) / Math.cos(Math.toRadians(angle)));
-        else if (x < 0)
-            distanceDifference = (int) (Math.abs(x) / Math.cos(Math.toRadians(angle)));
-        else if (y > environment.getHeight())
-            if (angle == 270) distanceDifference = y - environment.getHeight();
-            else distanceDifference = (int) ((y - environment.getHeight()) / Math.cos(Math.toRadians(angle)));
-        else if (y < 0)
-            if (angle == 90) distanceDifference = Math.abs(y);
-            else distanceDifference = (int) (Math.abs(y) / Math.cos(Math.toRadians(angle)));
+        int distanceDifference = getDistanceDifference(x, y, angle);
         return getCoordinateFromDistance(distance - Math.abs(distanceDifference));
     }
+
+    private int getDistanceDifference(int x, int y, int angle) {
+        int distanceDifference = checkX(x, angle);
+        if (distanceDifference != 0)
+            return distanceDifference;
+        else return checkY(y, angle);
+    }
+
+    private int checkX(int x, int angle) {
+        if (x > environment.getLength())
+            return (int) ((x - environment.getLength()) / Math.cos(Math.toRadians(angle)));
+        else if (x < 0)
+            return (int) (Math.abs(x) / Math.cos(Math.toRadians(angle)));
+        return 0;
+    }
+
+    private int checkY(int y, int angle) {
+        if (y > environment.getHeight())
+            if (angle == 270) return y - environment.getHeight();
+            else return (int) ((y - environment.getHeight()) / Math.cos(Math.toRadians(angle)));
+        else if (y < 0)
+            if (angle == 90) return Math.abs(y);
+            else return (int) (Math.abs(y) / Math.cos(Math.toRadians(angle)));
+        return 0;
+    }
+
 }

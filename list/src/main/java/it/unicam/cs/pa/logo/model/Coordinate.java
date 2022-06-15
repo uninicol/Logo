@@ -4,7 +4,7 @@ package it.unicam.cs.pa.logo.model;
 /**
  * Classe usata per modellare un punto di <code>Environment</code>
  */
-public interface Coordinate<C extends Coordinate<C>> {
+public interface Coordinate {
 
     /**
      * Restituisce il punto dell'asse X
@@ -19,12 +19,4 @@ public interface Coordinate<C extends Coordinate<C>> {
      * @return il punto dell'asse Y
      */
     int getY();
-
-    /**
-     * Restituisce la distaza tra un due punti
-     *
-     * @param c1 la coordinata di arrivo
-     * @return la distanza tra i due punti
-     */
-    int getDistanceFrom(C c1);
 }

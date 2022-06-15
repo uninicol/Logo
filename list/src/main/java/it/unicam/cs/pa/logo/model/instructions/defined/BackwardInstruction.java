@@ -1,7 +1,8 @@
 package it.unicam.cs.pa.logo.model.instructions.defined;
 
-import it.unicam.cs.pa.logo.model.TwoDimDrawer;
-import it.unicam.cs.pa.logo.model.TwoDimEnvironment;
+import it.unicam.cs.pa.logo.io.InstructionWriter;
+import it.unicam.cs.pa.logo.model.defined.TwoDimDrawer;
+import it.unicam.cs.pa.logo.model.defined.TwoDimEnvironment;
 import it.unicam.cs.pa.logo.model.instructions.AbstractInstruction;
 
 import java.util.LinkedList;

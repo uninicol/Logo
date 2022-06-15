@@ -1,8 +1,8 @@
-package it.unicam.cs.pa.logo;
+package it.unicam.cs.pa.logo.model;
 
-import it.unicam.cs.pa.logo.model.TwoDimCoordinate;
-import it.unicam.cs.pa.logo.model.TwoDimSegment;
-import it.unicam.cs.pa.logo.model.TwoDimShape;
+import it.unicam.cs.pa.logo.model.defined.TwoDimCoordinate;
+import it.unicam.cs.pa.logo.model.defined.TwoDimSegment;
+import it.unicam.cs.pa.logo.model.defined.TwoDimShape;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertTrue;

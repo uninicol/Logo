@@ -3,6 +3,8 @@ package it.unicam.cs.pa.logo.io;
 import it.unicam.cs.pa.logo.model.Coordinate;
 import it.unicam.cs.pa.logo.model.Direction;
 import it.unicam.cs.pa.logo.model.Environment;
+import it.unicam.cs.pa.logo.model.defined.TwoDimCoordinate;
+import it.unicam.cs.pa.logo.model.defined.TwoDimDirection;
 
 import java.io.File;
 import java.io.IOException;
@@ -16,7 +18,9 @@ import java.nio.file.Path;
  * @param <D> la direzione
  */
 @FunctionalInterface
-public interface EnvironmentWriter<C extends Coordinate<C>, D extends Direction<D>> {
+public interface EnvironmentWriter<C extends Coordinate, D extends Direction> {
+
+    //static String stringOf(Environment<TwoDimCoordinate, TwoDimDirection> field);
 
     /**
      * Restituisce la stringa che rappresenta l'ambiente dato
@@ -26,9 +30,7 @@ public interface EnvironmentWriter<C extends Coordinate<C>, D extends Direction<
      */
     String stringOf(Environment<C, D> field);
 
-
     /**
-     * Writes the given field in the file referenced by the given path.
      * Scrive l'ambiente dato in un file con riferimento al path dato
      *
      * @param path  il path dove l'ambiente è salvato
@@ -40,7 +42,6 @@ public interface EnvironmentWriter<C extends Coordinate<C>, D extends Direction<
     }
 
     /**
-     * Writes the given field in the given file.
      * Scrive l'ambiente dato in un dato file
      *
      * @param file  il file dove l'ambiente è salvato

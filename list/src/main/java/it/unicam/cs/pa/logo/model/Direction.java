@@ -3,7 +3,7 @@ package it.unicam.cs.pa.logo.model;
 /**
  * Rappresenta la direzione del cursore nel piano
  */
-public interface Direction<D extends Direction<D>> {
+public interface Direction {
 
     /**
      * Restituisce il valore della direzione
@@ -11,11 +11,4 @@ public interface Direction<D extends Direction<D>> {
      * @return il valore della direzione
      */
     Integer getValue();
-
-    /**
-     * Restituisce la direzione di default
-     *
-     * @return la direzione di default
-     */
-    D defaultDirection();
 }

@@ -1,7 +1,9 @@
 package it.unicam.cs.pa.logo.model.instructions;
 
-import it.unicam.cs.pa.logo.model.TwoDimEnvironment;
+import it.unicam.cs.pa.logo.model.defined.TwoDimEnvironment;
 import it.unicam.cs.pa.logo.model.instructions.defined.*;
+
+import java.io.IOException;
 
 /**
  * Factory usata per interpretare ed eseguire istruzioni che operano in un ambiente bidimensionale
@@ -13,7 +15,7 @@ public class TwoDimInstructionFactory extends InstructionFactory<TwoDimEnvironme
     }
 
     @Override
-    public Instruction<TwoDimEnvironment> createInstruction(String instructionName, TwoDimEnvironment environment) {
+    public Instruction<TwoDimEnvironment> createInstruction(String instructionName, TwoDimEnvironment environment) throws IOException {
         return nameMatch(instructionName, environment);
     }
 
@@ -24,7 +26,7 @@ public class TwoDimInstructionFactory extends InstructionFactory<TwoDimEnvironme
      * @param environment     l'environment su cui opera il comando
      * @return la classe corrispondente al nome del comando
      */
-    private Instruction<TwoDimEnvironment> nameMatch(String instructionName, TwoDimEnvironment environment) {
+    private Instruction<TwoDimEnvironment> nameMatch(String instructionName, TwoDimEnvironment environment) throws IOException {
         return switch (instructionName) {
             case "FORWARD" -> new ForwardInstruction(environment);
             case "BACKWARD" -> new BackwardInstruction(environment);
@@ -38,8 +40,8 @@ public class TwoDimInstructionFactory extends InstructionFactory<TwoDimEnvironme
             case "SETFILLCOLOR" -> new SetfillcolorInstruction(environment);
             case "SETSCREENCOLOR" -> new SetscreencolorInstruction(environment);
             case "SETPENSIZE" -> new SetpensizeInstruction(environment);
-            case "RIPETI" -> new RepeatInstruction(environment);
-            default -> throw new IllegalArgumentException("Comando non trovato");
+            case "REPEAT" -> new RepeatInstruction(environment);
+            default -> throw new IOException("Comando non trovato");
         };
     }
 }

@@ -4,6 +4,7 @@ import it.unicam.cs.pa.logo.model.Coordinate;
 import it.unicam.cs.pa.logo.model.Direction;
 import it.unicam.cs.pa.logo.model.Environment;
 
+import java.io.IOException;
 import java.util.LinkedList;
 import java.util.Objects;
 import java.util.function.Consumer;
@@ -13,7 +14,7 @@ import java.util.function.Consumer;
  *
  * @param <E> l'ambiente
  */
-public interface Instruction<E extends Environment<? extends Coordinate<?>, ? extends Direction<?>>>
+public interface Instruction<E extends Environment<? extends Coordinate, ? extends Direction>>
         extends Consumer<LinkedList<String>> {
 
     /**

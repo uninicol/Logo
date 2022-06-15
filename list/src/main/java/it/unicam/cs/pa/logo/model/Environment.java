@@ -8,7 +8,19 @@ import java.util.List;
  *
  * @param <C> le coordinate usate dal piano
  */
-public interface Environment<C extends Coordinate<C>, D extends Direction<D>> {
+public interface Environment<C extends Coordinate, D extends Direction> {
+
+    /**
+     * Restituisce la lunghezza dell'ambiente
+     * @return la lunghezza dell'ambiente
+     */
+    int getLength();
+
+    /**
+     * Restituisce l'altezza dell'ambiente
+     * @return l'altezza dell'ambiente
+     */
+    int getHeight();
     /**
      * Restituisce una collezione di tutti i segmenti nell'ambiente
      *

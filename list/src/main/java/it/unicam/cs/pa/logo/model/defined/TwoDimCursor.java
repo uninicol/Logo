@@ -1,4 +1,6 @@
-package it.unicam.cs.pa.logo.model;
+package it.unicam.cs.pa.logo.model.defined;
+
+import it.unicam.cs.pa.logo.model.Cursor;
 
 import java.awt.*;
 import java.util.Objects;

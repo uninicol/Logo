@@ -1,7 +1,7 @@
-package it.unicam.cs.pa.logo.instructions.defined;
+package it.unicam.cs.pa.logo.model.instructions.defined;
 
-import it.unicam.cs.pa.logo.model.TwoDimCoordinate;
-import it.unicam.cs.pa.logo.model.TwoDimEnvironment;
+import it.unicam.cs.pa.logo.model.defined.TwoDimCoordinate;
+import it.unicam.cs.pa.logo.model.defined.TwoDimEnvironment;
 import it.unicam.cs.pa.logo.model.instructions.defined.ForwardInstruction;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;

@@ -1,4 +1,8 @@
-package it.unicam.cs.pa.logo.model;
+package it.unicam.cs.pa.logo.model.defined;
+
+import it.unicam.cs.pa.logo.io.EnvironmentWriter;
+import it.unicam.cs.pa.logo.model.Environment;
+import it.unicam.cs.pa.logo.model.Shape;
 
 import java.awt.*;
 import java.util.ArrayList;
@@ -8,12 +12,14 @@ import java.util.List;
  * Rappresenta un ambiente a due dimensioni
  */
 public class TwoDimEnvironment implements Environment<TwoDimCoordinate, TwoDimDirection> {
+
+    //public static final EnvironmentWriter<TwoDimCoordinate, TwoDimDirection> WRITER = EnvironmentWriter::stringOf;
     private final int length;
     private final int height;
     /**
      * La lista di segmenti disegnati
      */
-    private final List<Shape<TwoDimCoordinate>> shapes;
+    private final List<it.unicam.cs.pa.logo.model.Shape<TwoDimCoordinate>> shapes;
     private Color backgroundColor = Color.WHITE;
     private final TwoDimCursor cursor;
 

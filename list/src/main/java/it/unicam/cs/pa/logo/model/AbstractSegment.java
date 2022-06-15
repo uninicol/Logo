@@ -1,5 +1,6 @@
 package it.unicam.cs.pa.logo.model;
 
+import java.awt.*;
 import java.util.function.Function;
 
 /**
@@ -7,24 +8,32 @@ import java.util.function.Function;
  *
  * @param <C> le coordinate che definiranno il segmento
  */
-public abstract class AbstractSegment<C extends Coordinate<C>> implements Segment<C> {
+public abstract class AbstractSegment<C extends Coordinate> implements Segment<C> {
     private final C startPoint;
     private final C endPoint;
     private final int size;
+    private final Color color;
     private final Function<Integer, Integer> function;
 
-    protected AbstractSegment(C startPoint, C endPoint, Function<Integer, Integer> function) {
+    protected AbstractSegment(C startPoint, C endPoint, Color color, Function<Integer, Integer> function) {
         this.startPoint = startPoint;
         this.endPoint = endPoint;
+        this.color = color;
         this.function = function;
         this.size = 1;
     }
 
-    protected AbstractSegment(C startPoint, C endPoint, Function<Integer, Integer> function, int size) {
+    protected AbstractSegment(C startPoint, C endPoint, Color color, Function<Integer, Integer> function, int size) {
         this.startPoint = startPoint;
         this.endPoint = endPoint;
+        this.color = color;
         this.function = function;
         this.size = size;
+    }
+
+    @Override
+    public Color getColor() {
+        return color;
     }
 
     @Override

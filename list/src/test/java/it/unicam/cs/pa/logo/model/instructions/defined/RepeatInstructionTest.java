@@ -1,7 +1,7 @@
-package it.unicam.cs.pa.logo.instructions.defined;
+package it.unicam.cs.pa.logo.model.instructions.defined;
 
-import it.unicam.cs.pa.logo.model.TwoDimCoordinate;
-import it.unicam.cs.pa.logo.model.TwoDimEnvironment;
+import it.unicam.cs.pa.logo.model.defined.TwoDimCoordinate;
+import it.unicam.cs.pa.logo.model.defined.TwoDimEnvironment;
 import it.unicam.cs.pa.logo.model.instructions.defined.RepeatInstruction;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -30,8 +30,15 @@ public class RepeatInstructionTest {
     }
 
     @Test
-    public void commandWithoutParenthesis() {
+    public void commandWithoutParenthesisTest() {
         assertThrows(IllegalArgumentException.class, () ->
                 command.accept(new LinkedList<>(List.of("3", "[", "FORWARD", "50"))));
+    }
+
+    @Test
+    public void executeDrawSquareTest() {
+        String square = "4 [ FORWARD 50 RIGHT 90 ]";
+        command.accept(new LinkedList<>(List.of(square.split(" "))));
+        assertEquals(new TwoDimCoordinate(500, 500), env.getCursor().getPosition());
     }
 }
