@@ -9,7 +9,6 @@ import java.util.LinkedList;
  * Classe che rappresenta l'istruzione BACKWARD, sposta il cursore indietro rispetto la sua direzione
  */
 public final class BackwardInstruction extends AbstractInstruction {
-
     public BackwardInstruction() {
         super(1);
     }
@@ -18,5 +17,10 @@ public final class BackwardInstruction extends AbstractInstruction {
     public Environment apply(Environment environment, LinkedList<String> script) {
         int length = -getAttribute(script);
         return environment.getDrawer().drawLine(length);
+    }
+
+    @Override
+    public String stringOf(Environment environment) {
+        return "Spostato il cursore nella posizione" + environment.getCursor().getPosition();
     }
 }

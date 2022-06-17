@@ -26,4 +26,12 @@ public final class SetpencolorInstruction extends AbstractInstruction {
         );
         return environment;
     }
+
+    @Override
+    public String stringOf(Environment environment) {
+        return "Impostato il colore della penna in"
+                + environment.getCursor().getLineColor().getRed() + " "
+                + environment.getCursor().getLineColor().getGreen() + " "
+                + environment.getCursor().getLineColor().getBlue();
+    }
 }

@@ -20,4 +20,9 @@ public final class ForwardInstruction extends AbstractInstruction {
         //determino il punto di arrivo con dovuti limiti
         return environment.getDrawer().drawLine(length);
     }
+
+    @Override
+    public String stringOf(Environment environment) {
+        return "Spostato il cursore in posizione" + environment.getCursor().getPosition();
+    }
 }

@@ -18,4 +18,9 @@ public final class HomeInstruction extends AbstractInstruction {
         environment.getCursor().move(environment.getHome());
         return environment;
     }
+
+    @Override
+    public String stringOf(Environment environment) {
+        return "Spostato il cursore nella posizione di home" + environment.getCursor().getPosition();
+    }
 }

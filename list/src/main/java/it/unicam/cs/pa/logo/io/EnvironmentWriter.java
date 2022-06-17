@@ -1,7 +1,5 @@
 package it.unicam.cs.pa.logo.io;
 
-import it.unicam.cs.pa.logo.model.Coordinate;
-import it.unicam.cs.pa.logo.model.Direction;
 import it.unicam.cs.pa.logo.model.Environment;
 
 import java.io.File;
@@ -11,12 +9,9 @@ import java.nio.file.Path;
 
 /**
  * Questa è un'interfaccia funzionale usata per scrivere l'ambiente in una stringa
- *
- * @param <C> le coordinate
- * @param <D> la direzione
  */
 @FunctionalInterface
-public interface EnvironmentWriter<C extends Coordinate, D extends Direction> {
+public interface EnvironmentWriter {
 
     //static String stringOf(Environment<TwoDimCoordinate, TwoDimDirection> field);
 
@@ -26,7 +21,7 @@ public interface EnvironmentWriter<C extends Coordinate, D extends Direction> {
      * @param field un ambiente.
      * @return la stringa che rappresenta l'ambiente.
      */
-    String stringOf(Environment<C, D> field);
+    String stringOf(Environment field);
 
     /**
      * Scrive l'ambiente dato in un file con riferimento al path dato
@@ -35,7 +30,7 @@ public interface EnvironmentWriter<C extends Coordinate, D extends Direction> {
      * @param field l'ambiente da scrivere
      * @throws IOException se si verifica un errore di I/O durante la scrittura del file.
      */
-    default void writeTo(Path path, Environment<C, D> field) throws IOException {
+    default void writeTo(Path path, Environment field) throws IOException {
         Files.write(path, stringOf(field).getBytes());
     }
 
@@ -46,7 +41,7 @@ public interface EnvironmentWriter<C extends Coordinate, D extends Direction> {
      * @param field l'ambiente da scrivere
      * @throws IOException se si verifica un errore di I/O durante la scrittura del file.
      */
-    default void writeTo(File file, Environment<C, D> field) throws IOException {
+    default void writeTo(File file, Environment field) throws IOException {
         writeTo(file.toPath(), field);
     }
 }

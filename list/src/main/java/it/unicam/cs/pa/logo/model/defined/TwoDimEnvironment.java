@@ -26,7 +26,7 @@ public class TwoDimEnvironment implements Environment {
         this.height = height;
         this.shapes = new ArrayList<>();
         this.cursor = new TwoDimCursor(getHome(), new TwoDimDirection());
-        this.drawer = new TwoDimDrawer();
+        this.drawer = new TwoDimDrawer(this);
     }
 
     @Override

@@ -3,18 +3,31 @@ package it.unicam.cs.pa.logo.io;
 import it.unicam.cs.pa.logo.model.Environment;
 import it.unicam.cs.pa.logo.model.Segment;
 import it.unicam.cs.pa.logo.model.Shape;
-import it.unicam.cs.pa.logo.model.defined.TwoDimCoordinate;
-import it.unicam.cs.pa.logo.model.defined.TwoDimDirection;
 
 import java.awt.*;
 
 /**
  * Classe usata per rappresentare un'environment di due dimensioni in una stringa
  */
-public class TwoDimEnvWriter implements EnvironmentWriter<TwoDimCoordinate, TwoDimDirection> {
-/*
+public class TwoDimEnvWriter implements EnvironmentWriter {
+
+    /*
+        @Override
+        public static String stringOf(Environment<TwoDimCoordinate, TwoDimDirection> field) {
+            String str = "SIZE " + field.getLength() + " "
+                    + field.getHeight() + " "
+                    + stringOf(field.getBackgroundColor()) + "\n"
+                    + field.getShapes().stream()
+                    .map(this::stringOf)
+                    .toList();
+            str = str.replaceAll("\\[", "")
+                    .replaceAll("]", "")
+                    .replaceAll(", ", "");
+            return str;
+        }
+     */
     @Override
-    public static String stringOf(Environment<TwoDimCoordinate, TwoDimDirection> field) {
+    public String stringOf(Environment field) {
         String str = "SIZE " + field.getLength() + " "
                 + field.getHeight() + " "
                 + stringOf(field.getBackgroundColor()) + "\n"
@@ -27,15 +40,13 @@ public class TwoDimEnvWriter implements EnvironmentWriter<TwoDimCoordinate, TwoD
         return str;
     }
 
- */
-
     /**
      * Restituisce la rappresentazione testuale di una shape
      *
      * @param shape la shape da rappresentare
      * @return la rappresentazione testuale di una shape
      */
-    private String stringOf(Shape<TwoDimCoordinate> shape) {
+    private String stringOf(Shape shape) {
         if (shape.getSegments().size() == 1)
             return stringOfSingleSegment(shape.getSegments().get(0));
         return "POLYGON " + shape.numSegments() + " "
@@ -50,7 +61,7 @@ public class TwoDimEnvWriter implements EnvironmentWriter<TwoDimCoordinate, TwoD
      * @param segment il segmento
      * @return la stringa che rappresenta un segmento
      */
-    private String stringOfSingleSegment(Segment<TwoDimCoordinate> segment) {
+    private String stringOfSingleSegment(Segment segment) {
         return "LINE " + segment.getStartPoint().getX() + " "
                 + segment.getStartPoint().getY() + " "
                 + segment.getEndPoint().getX() + " "
@@ -65,7 +76,7 @@ public class TwoDimEnvWriter implements EnvironmentWriter<TwoDimCoordinate, TwoD
      * @param segment il segmento
      * @return la stringa che rappresenta gli attributi di un segmento
      */
-    private String stringOfSegmentAttributes(Segment<TwoDimCoordinate> segment) {
+    private String stringOfSegmentAttributes(Segment segment) {
         return segment.getStartPoint().getX() + " "
                 + segment.getStartPoint().getY() + " "
                 + stringOf(segment.getColor())
@@ -82,10 +93,5 @@ public class TwoDimEnvWriter implements EnvironmentWriter<TwoDimCoordinate, TwoD
         return color.getRed() + " "
                 + color.getGreen() + " "
                 + color.getBlue() + " ";
-    }
-
-    @Override
-    public String stringOf(Environment<TwoDimCoordinate, TwoDimDirection> field) {
-        return null;
     }
 }

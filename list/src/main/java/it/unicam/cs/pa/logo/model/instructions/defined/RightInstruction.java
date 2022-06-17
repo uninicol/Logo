@@ -20,4 +20,9 @@ public final class RightInstruction extends AbstractInstruction {
         environment.getCursor().getDirection().increase(grade);
         return environment;
     }
+
+    @Override
+    public String stringOf(Environment environment) {
+        return "Ruotato il cursore verso " + environment.getCursor().getDirection().getValue();
+    }
 }

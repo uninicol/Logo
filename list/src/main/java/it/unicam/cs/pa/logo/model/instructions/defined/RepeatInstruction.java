@@ -2,7 +2,6 @@ package it.unicam.cs.pa.logo.model.instructions.defined;
 
 import it.unicam.cs.pa.logo.model.Environment;
 import it.unicam.cs.pa.logo.model.instructions.AbstractInstruction;
-import it.unicam.cs.pa.logo.model.instructions.InstructionExecutor;
 
 import java.util.LinkedList;
 import java.util.List;
@@ -28,11 +27,16 @@ public final class RepeatInstruction extends AbstractInstruction {
                 .collect(Collectors.toCollection(LinkedList::new));
         script.removeAll(toRepeat);
         toRepeat.removeFirstOccurrence("]");
-        InstructionExecutor executor = new InstructionExecutor(environment, script);
+        //InstructionExecutor executor = new InstructionExecutor(environment, script);
         for (int i = 0; i < num; i++) {
             //dato che la lista verrà consumata creo una nuova LinkedList per ogni iterazione
-            executor.execute(new LinkedList<>(toRepeat));
+            //executor.execute(new LinkedList<>(toRepeat));
         }
         return environment;
+    }
+
+    @Override
+    public String stringOf(Environment environment) {
+        return null;
     }
 }

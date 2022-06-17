@@ -4,34 +4,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d470bcfa-26cf-40c7-b95f-2bc7f98722c7" name="Changes" comment="Definizione e sistemazione classi base per MVC pattern">
-      <change afterPath="$PROJECT_DIR$/list/src/main/java/it/unicam/cs/pa/logo/model/instructions/Executor.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/list/src/main/java/it/unicam/cs/pa/logo/model/instructions/InstructionExecutor.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/list/src/main/java/it/unicam/cs/pa/logo/model/instructions/InstructionRegistry.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/list/src/main/java/it/unicam/cs/pa/logo/model/instructions/Registry.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/list/src/main/java/it/unicam/cs/pa/logo/model/instructions/SimpleInstruction.java" afterDir="false" />
+    <list default="true" id="d470bcfa-26cf-40c7-b95f-2bc7f98722c7" name="Changes" comment="Implementato descrizione esecuzione istruzioni">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/list/src/main/java/it/unicam/cs/pa/logo/io/EnvironmentWriter.java" beforeDir="false" afterPath="$PROJECT_DIR$/list/src/main/java/it/unicam/cs/pa/logo/io/EnvironmentWriter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/list/src/main/java/it/unicam/cs/pa/logo/io/TwoDimInstructionReader.java" beforeDir="false" afterPath="$PROJECT_DIR$/list/src/main/java/it/unicam/cs/pa/logo/io/TwoDimInstructionReader.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/list/src/main/java/it/unicam/cs/pa/logo/model/AbstractSegment.java" beforeDir="false" afterPath="$PROJECT_DIR$/list/src/main/java/it/unicam/cs/pa/logo/model/AbstractSegment.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/list/src/main/java/it/unicam/cs/pa/logo/model/Coordinate.java" beforeDir="false" afterPath="$PROJECT_DIR$/list/src/main/java/it/unicam/cs/pa/logo/model/Coordinate.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/list/src/main/java/it/unicam/cs/pa/logo/model/Cursor.java" beforeDir="false" afterPath="$PROJECT_DIR$/list/src/main/java/it/unicam/cs/pa/logo/model/Cursor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/list/src/main/java/it/unicam/cs/pa/logo/model/Direction.java" beforeDir="false" afterPath="$PROJECT_DIR$/list/src/main/java/it/unicam/cs/pa/logo/model/Direction.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/list/src/main/java/it/unicam/cs/pa/logo/model/Drawer.java" beforeDir="false" afterPath="$PROJECT_DIR$/list/src/main/java/it/unicam/cs/pa/logo/model/Drawer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/list/src/main/java/it/unicam/cs/pa/logo/model/Environment.java" beforeDir="false" afterPath="$PROJECT_DIR$/list/src/main/java/it/unicam/cs/pa/logo/model/Environment.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/list/src/main/java/it/unicam/cs/pa/logo/model/Segment.java" beforeDir="false" afterPath="$PROJECT_DIR$/list/src/main/java/it/unicam/cs/pa/logo/model/Segment.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/list/src/main/java/it/unicam/cs/pa/logo/model/Shape.java" beforeDir="false" afterPath="$PROJECT_DIR$/list/src/main/java/it/unicam/cs/pa/logo/model/Shape.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/list/src/main/java/it/unicam/cs/pa/logo/model/defined/TwoDimCoordinate.java" beforeDir="false" afterPath="$PROJECT_DIR$/list/src/main/java/it/unicam/cs/pa/logo/model/defined/TwoDimCoordinate.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/list/src/main/java/it/unicam/cs/pa/logo/model/defined/TwoDimCursor.java" beforeDir="false" afterPath="$PROJECT_DIR$/list/src/main/java/it/unicam/cs/pa/logo/model/defined/TwoDimCursor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/list/src/main/java/it/unicam/cs/pa/logo/model/defined/TwoDimDirection.java" beforeDir="false" afterPath="$PROJECT_DIR$/list/src/main/java/it/unicam/cs/pa/logo/model/defined/TwoDimDirection.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/list/src/main/java/it/unicam/cs/pa/logo/model/defined/TwoDimDrawer.java" beforeDir="false" afterPath="$PROJECT_DIR$/list/src/main/java/it/unicam/cs/pa/logo/model/defined/TwoDimDrawer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/list/src/main/java/it/unicam/cs/pa/logo/io/InstructionReader.java" beforeDir="false" afterPath="$PROJECT_DIR$/list/src/main/java/it/unicam/cs/pa/logo/io/InstructionReader.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/list/src/main/java/it/unicam/cs/pa/logo/io/InstructionWriter.java" beforeDir="false" afterPath="$PROJECT_DIR$/list/src/main/java/it/unicam/cs/pa/logo/io/InstructionWriter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/list/src/main/java/it/unicam/cs/pa/logo/io/TwoDimEnvWriter.java" beforeDir="false" afterPath="$PROJECT_DIR$/list/src/main/java/it/unicam/cs/pa/logo/io/TwoDimEnvWriter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/list/src/main/java/it/unicam/cs/pa/logo/io/TwoDimInstructionReader.java" beforeDir="false" afterPath="$PROJECT_DIR$/list/src/main/java/it/unicam/cs/pa/logo/io/TwoDimInstructionLoader.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/list/src/main/java/it/unicam/cs/pa/logo/model/defined/TwoDimEnvironment.java" beforeDir="false" afterPath="$PROJECT_DIR$/list/src/main/java/it/unicam/cs/pa/logo/model/defined/TwoDimEnvironment.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/list/src/main/java/it/unicam/cs/pa/logo/model/defined/TwoDimSegment.java" beforeDir="false" afterPath="$PROJECT_DIR$/list/src/main/java/it/unicam/cs/pa/logo/model/defined/TwoDimSegment.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/list/src/main/java/it/unicam/cs/pa/logo/model/defined/TwoDimShape.java" beforeDir="false" afterPath="$PROJECT_DIR$/list/src/main/java/it/unicam/cs/pa/logo/model/defined/TwoDimShape.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/list/src/main/java/it/unicam/cs/pa/logo/model/instructions/AbstractInstruction.java" beforeDir="false" afterPath="$PROJECT_DIR$/list/src/main/java/it/unicam/cs/pa/logo/model/instructions/AbstractInstruction.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/list/src/main/java/it/unicam/cs/pa/logo/model/instructions/Instruction.java" beforeDir="false" afterPath="$PROJECT_DIR$/list/src/main/java/it/unicam/cs/pa/logo/model/instructions/Instruction.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/list/src/main/java/it/unicam/cs/pa/logo/model/instructions/InstructionFactory.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/list/src/main/java/it/unicam/cs/pa/logo/model/instructions/TwoDimInstructionFactory.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/list/src/main/java/it/unicam/cs/pa/logo/model/instructions/InstructionExecutor.java" beforeDir="false" afterPath="$PROJECT_DIR$/list/src/main/java/it/unicam/cs/pa/logo/model/instructions/InstructionExecutor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/list/src/main/java/it/unicam/cs/pa/logo/model/instructions/InstructionRegistry.java" beforeDir="false" afterPath="$PROJECT_DIR$/list/src/main/java/it/unicam/cs/pa/logo/model/instructions/InstructionRegistry.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/list/src/main/java/it/unicam/cs/pa/logo/model/instructions/defined/BackwardInstruction.java" beforeDir="false" afterPath="$PROJECT_DIR$/list/src/main/java/it/unicam/cs/pa/logo/model/instructions/defined/BackwardInstruction.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/list/src/main/java/it/unicam/cs/pa/logo/model/instructions/defined/ClearscreenInstruction.java" beforeDir="false" afterPath="$PROJECT_DIR$/list/src/main/java/it/unicam/cs/pa/logo/model/instructions/defined/ClearscreenInstruction.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/list/src/main/java/it/unicam/cs/pa/logo/model/instructions/defined/ForwardInstruction.java" beforeDir="false" afterPath="$PROJECT_DIR$/list/src/main/java/it/unicam/cs/pa/logo/model/instructions/defined/ForwardInstruction.java" afterDir="false" />
@@ -46,10 +29,6 @@
       <change beforePath="$PROJECT_DIR$/list/src/main/java/it/unicam/cs/pa/logo/model/instructions/defined/SetpensizeInstruction.java" beforeDir="false" afterPath="$PROJECT_DIR$/list/src/main/java/it/unicam/cs/pa/logo/model/instructions/defined/SetpensizeInstruction.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/list/src/main/java/it/unicam/cs/pa/logo/model/instructions/defined/SetscreencolorInstruction.java" beforeDir="false" afterPath="$PROJECT_DIR$/list/src/main/java/it/unicam/cs/pa/logo/model/instructions/defined/SetscreencolorInstruction.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/list/src/test/java/it/unicam/cs/pa/logo/io/TwoDimEnvWriterTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/list/src/test/java/it/unicam/cs/pa/logo/io/TwoDimEnvWriterTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/list/src/test/java/it/unicam/cs/pa/logo/model/instructions/defined/BackwardInstructionTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/list/src/test/java/it/unicam/cs/pa/logo/model/instructions/defined/BackwardInstructionTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/list/src/test/java/it/unicam/cs/pa/logo/model/instructions/defined/ClearscreenInstructionTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/list/src/test/java/it/unicam/cs/pa/logo/model/instructions/defined/ClearscreenInstructionTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/list/src/test/java/it/unicam/cs/pa/logo/model/instructions/defined/ForwardInstructionTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/list/src/test/java/it/unicam/cs/pa/logo/model/instructions/defined/ForwardInstructionTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/list/src/test/java/it/unicam/cs/pa/logo/model/instructions/defined/RepeatInstructionTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/list/src/test/java/it/unicam/cs/pa/logo/model/instructions/defined/RepeatInstructionTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -102,9 +81,10 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
     <option name="RESET_MODE" value="HARD" />
+    <option name="SET_USER_NAME_GLOBALLY" value="false" />
   </component>
   <component name="GithubDefaultAccount">
-    <option name="defaultAccountId" value="437b335f-a2e0-4858-8177-ee3a8438309e" />
+    <option name="defaultAccountId" value="b2705b30-86ba-4c9e-9984-46abbd02ff8f" />
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/list/src/main/java/it/unicam/cs/pa/logo/model/Coordinate.java" root0="FORCE_HIGHLIGHTING" />
@@ -123,22 +103,22 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary&quot;: &quot;JUnit5&quot;,
-    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5&quot;: &quot;&quot;,
-    &quot;extract.method.default.visibility&quot;: &quot;private&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/nicki/IdeaProjects/Logo&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
-    &quot;run.code.analysis.last.selected.profile&quot;: &quot;pProject Default&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
+    "extract.method.default.visibility": "private",
+    "last_opened_file_path": "C:/Users/nicki/IdeaProjects/Logo",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.0",
+    "run.code.analysis.last.selected.profile": "pProject Default",
+    "settings.editor.selected.configurable": "org.jetbrains.plugins.github.ui.GithubSettingsConfigurable"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
       <recent name="it.unicam.cs.pa.logo.instructions" />
@@ -399,6 +379,7 @@
       <workItem from="1655370085627" duration="8000" />
       <workItem from="1655389689443" duration="10314000" />
       <workItem from="1655451271734" duration="10337000" />
+      <workItem from="1655472293775" duration="5617000" />
     </task>
     <task id="LOCAL-00001" summary="init commit">
       <created>1652373969498</created>
@@ -568,7 +549,14 @@
       <option name="project" value="LOCAL" />
       <updated>1654953453200</updated>
     </task>
-    <option name="localTasksCounter" value="25" />
+    <task id="LOCAL-00025" summary="Riprogettazione model, modifiche varie su mvc">
+      <created>1655472434512</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1655472434512</updated>
+    </task>
+    <option name="localTasksCounter" value="26" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -583,6 +571,7 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
+    <option name="CHECK_CODE_CLEANUP_BEFORE_PROJECT_COMMIT" value="true" />
     <MESSAGE value="init commit" />
     <MESSAGE value="Progettazione base dei concetti" />
     <MESSAGE value="Ridefinizione responsabilità" />
@@ -603,7 +592,10 @@
     <MESSAGE value="Definito meglio coordinate" />
     <MESSAGE value="Definito meglio Direction" />
     <MESSAGE value="Definizione e sistemazione classi base per MVC pattern" />
-    <option name="LAST_COMMIT_MESSAGE" value="Definizione e sistemazione classi base per MVC pattern" />
+    <MESSAGE value="Riprogettazione model, modifiche varie su mvc" />
+    <option name="LAST_COMMIT_MESSAGE" value="Riprogettazione model, modifiche varie su mvc" />
+    <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
+    <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

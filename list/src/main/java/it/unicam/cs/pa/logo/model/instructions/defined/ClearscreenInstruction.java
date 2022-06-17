@@ -18,4 +18,9 @@ public final class ClearscreenInstruction extends AbstractInstruction {
         environment.clearAll();
         return environment;
     }
+
+    @Override
+    public String stringOf(Environment environment) {
+        return "Cancellate le linee tracciate";
+    }
 }

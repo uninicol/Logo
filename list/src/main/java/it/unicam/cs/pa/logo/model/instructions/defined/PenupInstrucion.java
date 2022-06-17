@@ -18,4 +18,9 @@ public final class PenupInstrucion extends AbstractInstruction {
         environment.getCursor().setPlot(false);
         return environment;
     }
+
+    @Override
+    public String stringOf(Environment environment) {
+        return "Staccata la penna al foglio";
+    }
 }

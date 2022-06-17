@@ -1,9 +1,11 @@
 package it.unicam.cs.pa.logo.model.instructions;
 
+import it.unicam.cs.pa.logo.io.InstructionWriter;
+
 /**
  * Classe astratta che contiene gli attributi di un istruzione
  */
-public abstract class AbstractInstruction implements Instruction {
+public abstract class AbstractInstruction implements Instruction, InstructionWriter {
 
     private final int numOfAttributes;
     private int requestedAttributes;

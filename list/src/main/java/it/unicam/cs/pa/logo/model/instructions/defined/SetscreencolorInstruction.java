@@ -21,4 +21,12 @@ public final class SetscreencolorInstruction extends AbstractInstruction {
         environment.setBackgroundColor(red, green, blue);
         return environment;
     }
+
+    @Override
+    public String stringOf(Environment environment) {
+        return "Impostato il colore di background in "
+                + environment.getBackgroundColor().getRed() + " "
+                + environment.getBackgroundColor().getGreen() + " "
+                + environment.getBackgroundColor().getBlue();
+    }
 }

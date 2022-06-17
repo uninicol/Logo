@@ -18,4 +18,9 @@ public final class SetpensizeInstruction extends AbstractInstruction {
         environment.getCursor().setSize(getAttribute(script));
         return environment;
     }
+
+    @Override
+    public String stringOf(Environment environment) {
+        return "Impostata grandezza del tratto in" + environment.getCursor().getSize();
+    }
 }
