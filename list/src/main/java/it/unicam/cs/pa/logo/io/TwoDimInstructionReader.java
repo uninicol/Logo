@@ -5,7 +5,7 @@ import it.unicam.cs.pa.logo.model.instructions.Instruction;
 
 import java.io.IOException;
 
-public class TwoDimInstructionReader implements InstructionReader<Instruction<TwoDimEnvironment>>{
+public class TwoDimInstructionReader implements InstructionReader<Instruction<TwoDimEnvironment>> {
 
     @Override
     public Instruction<TwoDimEnvironment> parse(String str) throws IOException {

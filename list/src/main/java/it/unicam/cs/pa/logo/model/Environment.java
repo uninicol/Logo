@@ -5,42 +5,43 @@ import java.util.List;
 
 /**
  * Classe usata per rappresentare l'ambiente della tavola di disegno
- *
- * @param <C> le coordinate usate dal piano
  */
-public interface Environment<C extends Coordinate, D extends Direction> {
+public interface Environment {
 
     /**
      * Restituisce la lunghezza dell'ambiente
+     *
      * @return la lunghezza dell'ambiente
      */
     int getLength();
 
     /**
      * Restituisce l'altezza dell'ambiente
+     *
      * @return l'altezza dell'ambiente
      */
     int getHeight();
+
     /**
      * Restituisce una collezione di tutti i segmenti nell'ambiente
      *
      * @return la collezione dei segmenti nell'ambiente
      */
-    List<Shape<C>> getShapes();
+    List<Shape> getShapes();
 
     /**
      * Restituisce il cursore utilizzato
      *
      * @return il cursore
      */
-    Cursor<C, D> getCursor();
+    Cursor getCursor();
 
     /**
      * Restituisce la coordinata del punto home nel piano
      *
      * @return la coordinata del punto home
      */
-    C getHome();
+    Coordinate getHome();
 
     /**
      * Restituice il colore dello sfondo
@@ -68,7 +69,24 @@ public interface Environment<C extends Coordinate, D extends Direction> {
     }
 
     /**
+     * Restituisce il disegnatore
+     *
+     * @return il disegnatore
+     */
+    Drawer getDrawer();
+
+    /**
      * Elimina tutti i tratti disegnati nel piano
      */
-    void clearAll();
+    default void clearAll() {
+        getShapes().clear();
+    }
+
+    /**
+     * Testa se una coordinata è all'interno dell'environment
+     *
+     * @param coordinate la coordinata da testare
+     * @return true se la coordinata è all'interno all'interno dell'environment
+     */
+    boolean contains(Coordinate coordinate);
 }

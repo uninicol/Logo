@@ -1,8 +1,8 @@
 package it.unicam.cs.pa.logo.model.defined;
 
-import it.unicam.cs.pa.logo.io.EnvironmentWriter;
-import it.unicam.cs.pa.logo.model.Environment;
+import it.unicam.cs.pa.logo.model.Cursor;
 import it.unicam.cs.pa.logo.model.Shape;
+import it.unicam.cs.pa.logo.model.*;
 
 import java.awt.*;
 import java.util.ArrayList;
@@ -11,50 +11,56 @@ import java.util.List;
 /**
  * Rappresenta un ambiente a due dimensioni
  */
-public class TwoDimEnvironment implements Environment<TwoDimCoordinate, TwoDimDirection> {
+public class TwoDimEnvironment implements Environment {
 
-    //public static final EnvironmentWriter<TwoDimCoordinate, TwoDimDirection> WRITER = EnvironmentWriter::stringOf;
     private final int length;
     private final int height;
-    /**
-     * La lista di segmenti disegnati
-     */
-    private final List<it.unicam.cs.pa.logo.model.Shape<TwoDimCoordinate>> shapes;
+
+    private final List<Shape> shapes;
     private Color backgroundColor = Color.WHITE;
-    private final TwoDimCursor cursor;
+    private final Cursor cursor;
+    private final Drawer drawer;
 
     public TwoDimEnvironment(int length, int height) {
         this.length = length;
         this.height = height;
         this.shapes = new ArrayList<>();
-        cursor = new TwoDimCursor(getHome(), new TwoDimDirection());
+        this.cursor = new TwoDimCursor(getHome(), new TwoDimDirection());
+        this.drawer = new TwoDimDrawer();
     }
 
-    public int getLength() {
+    @Override
+    public final int getLength() {
         return length;
     }
 
-    public int getHeight() {
+    @Override
+    public final int getHeight() {
         return height;
     }
 
     @Override
-    public Color getBackgroundColor() {
+    public final Color getBackgroundColor() {
         return backgroundColor;
     }
 
     @Override
-    public void setBackgroundColor(Color backgroundColor) {
+    public final void setBackgroundColor(Color backgroundColor) {
         this.backgroundColor = backgroundColor;
     }
 
     @Override
-    public List<Shape<TwoDimCoordinate>> getShapes() {
+    public Drawer getDrawer() {
+        return drawer;
+    }
+
+    @Override
+    public final List<Shape> getShapes() {
         return shapes;
     }
 
     @Override
-    public TwoDimCursor getCursor() {
+    public final Cursor getCursor() {
         return cursor;
     }
 
@@ -66,6 +72,14 @@ public class TwoDimEnvironment implements Environment<TwoDimCoordinate, TwoDimDi
     @Override
     public void clearAll() {
         shapes.clear();
+    }
+
+    @Override
+    public boolean contains(Coordinate coordinate) {
+        return coordinate.getX() >= 0
+                && coordinate.getX() <= getLength()
+                && coordinate.getY() >= 0
+                && coordinate.getY() <= getHeight();
     }
 }
 

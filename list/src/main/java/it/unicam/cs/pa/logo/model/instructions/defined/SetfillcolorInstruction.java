@@ -1,26 +1,30 @@
 package it.unicam.cs.pa.logo.model.instructions.defined;
 
-import it.unicam.cs.pa.logo.model.defined.TwoDimEnvironment;
+import it.unicam.cs.pa.logo.model.Environment;
 import it.unicam.cs.pa.logo.model.instructions.AbstractInstruction;
 
 import java.awt.*;
 import java.util.LinkedList;
 
 /**
- * Classe che rappresenta l'istruzione SETFILLCOLOR
+ * Classe che rappresenta l'istruzione SETFILLCOLOR, imposta il colore del riempimento di un’area chiusa
  */
-public final class SetfillcolorInstruction extends AbstractInstruction<TwoDimEnvironment> {
+public final class SetfillcolorInstruction extends AbstractInstruction {
 
-    public SetfillcolorInstruction(TwoDimEnvironment environment) {
-        super(3, environment);
+    public SetfillcolorInstruction() {
+        super(3);
     }
 
     @Override
-    public void accept(LinkedList<String> instruction) {
-        getEnvironment().getCursor().setLineColor(
+    public Environment apply(Environment environment, LinkedList<String> script) {
+        int red = getAttribute(script);
+        int green = getAttribute(script);
+        int blue = getAttribute(script);
+        environment.getCursor().setLineColor(
                 new Color(
-                        getAttribute(instruction), getAttribute(instruction), getAttribute(instruction)
+                        red, green, blue
                 )
         );
+        return environment;
     }
 }

@@ -1,58 +1,47 @@
 package it.unicam.cs.pa.logo.model;
 
 import java.awt.*;
-import java.util.function.Function;
 
 /**
  * Classe astratta per rappresentare un segmento base
- *
- * @param <C> le coordinate che definiranno il segmento
  */
-public abstract class AbstractSegment<C extends Coordinate> implements Segment<C> {
-    private final C startPoint;
-    private final C endPoint;
+public abstract class AbstractSegment implements Segment {
+    private final Coordinate startPoint;
+    private final Coordinate endPoint;
     private final int size;
     private final Color color;
-    private final Function<Integer, Integer> function;
 
-    protected AbstractSegment(C startPoint, C endPoint, Color color, Function<Integer, Integer> function) {
+    protected AbstractSegment(Coordinate startPoint, Coordinate endPoint, Color color) {
         this.startPoint = startPoint;
         this.endPoint = endPoint;
         this.color = color;
-        this.function = function;
         this.size = 1;
     }
 
-    protected AbstractSegment(C startPoint, C endPoint, Color color, Function<Integer, Integer> function, int size) {
+    protected AbstractSegment(Coordinate startPoint, Coordinate endPoint, Color color, int size) {
         this.startPoint = startPoint;
         this.endPoint = endPoint;
         this.color = color;
-        this.function = function;
         this.size = size;
     }
 
     @Override
-    public Color getColor() {
+    public final Color getColor() {
         return color;
     }
 
     @Override
-    public C getStartPoint() {
+    public final Coordinate getStartPoint() {
         return startPoint;
     }
 
     @Override
-    public C getEndPoint() {
+    public final Coordinate getEndPoint() {
         return endPoint;
     }
 
     @Override
-    public int getSize() {
+    public final int getSize() {
         return size;
-    }
-
-    @Override
-    public Function<Integer, Integer> getFunction() {
-        return function;
     }
 }

@@ -11,4 +11,20 @@ public interface Direction {
      * @return il valore della direzione
      */
     Integer getValue();
+
+    /**
+     * Incrementa il valore della direzione
+     *
+     * @param num valore da incrementare
+     */
+    void increase(int num);
+
+    /**
+     * Decrementa il valore della direzione
+     *
+     * @param num valore da decrementare
+     */
+    default void decrease(int num) {
+        increase(-num);
+    }
 }

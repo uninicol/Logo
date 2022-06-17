@@ -1,34 +1,25 @@
 package it.unicam.cs.pa.logo.model;
 
-import java.awt.*;
-import java.util.function.Function;
-
 /**
  * Questa interfaccia rappresenta un disegnatore che disegna su un piano ricava punti di un Environment
  */
-public interface Drawer<E extends Environment<C, D>, C extends Coordinate, D extends Direction> {
+public interface Drawer {
 
     /**
-     * Restituisce l'environment su cui disegna
+     * Traccia una linea se la penna è giù
      *
-     * @return l'environment su cui disegna
+     * @param environment l'environment dove tracciare la linea
+     * @param segment     il segmento da disegnare
+     * @return l'environment aggiornato
      */
-    E getEnvironment();
+    Environment drawLine(Segment segment);
 
     /**
-     * Se il cursore è giù traccia una linea altrimenti si sposta
+     * Traccia una linea se la penna è giù
      *
-     * @param function la funzione della linea
-     * @param distance la distanza tra il punto di partenza e il punto di arrivo
-     * @param color    il colore della linea
+     * @param environment l'environment dove tracciare la linea
+     * @param length      la lunghezza del tratto
+     * @return l'environment aggiornato
      */
-    void drawLine(Function<Integer, Integer> function, int distance, Color color);
-
-    /**
-     * Restituisce il punto di arrivo di un cursore percorrendo linearmente per una certa distanza
-     *
-     * @param distance la distanza da percorrere
-     * @return il punto di arrivo
-     */
-    C getCoordinateFromDistance(int distance);
+    Environment drawLine(int length);
 }

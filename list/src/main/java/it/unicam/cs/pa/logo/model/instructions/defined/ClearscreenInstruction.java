@@ -1,20 +1,21 @@
 package it.unicam.cs.pa.logo.model.instructions.defined;
 
-import it.unicam.cs.pa.logo.model.defined.TwoDimEnvironment;
+import it.unicam.cs.pa.logo.model.Environment;
 import it.unicam.cs.pa.logo.model.instructions.AbstractInstruction;
 
 import java.util.LinkedList;
 
 /**
- * Classe che rappresenta l'istruzione CLEARSCREEN
+ * Classe che rappresenta l'istruzione CLEARSCREEN, cancella quanto disegnato
  */
-public final class ClearscreenInstruction extends AbstractInstruction<TwoDimEnvironment> {
-    public ClearscreenInstruction(TwoDimEnvironment environment) {
-        super(0, environment);
+public final class ClearscreenInstruction extends AbstractInstruction {
+    public ClearscreenInstruction() {
+        super(0);
     }
 
     @Override
-    public void accept(LinkedList<String> instruction) {
-        getEnvironment().clearAll();
+    public Environment apply(Environment environment, LinkedList<String> script) {
+        environment.clearAll();
+        return environment;
     }
 }

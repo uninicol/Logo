@@ -1,24 +1,22 @@
 package it.unicam.cs.pa.logo.model.instructions.defined;
 
-import it.unicam.cs.pa.logo.io.InstructionWriter;
-import it.unicam.cs.pa.logo.model.defined.TwoDimDrawer;
-import it.unicam.cs.pa.logo.model.defined.TwoDimEnvironment;
+import it.unicam.cs.pa.logo.model.Environment;
 import it.unicam.cs.pa.logo.model.instructions.AbstractInstruction;
 
 import java.util.LinkedList;
 
 /**
- * Classe che rappresenta l'istruzione BACKWARD
+ * Classe che rappresenta l'istruzione BACKWARD, sposta il cursore indietro rispetto la sua direzione
  */
-public final class BackwardInstruction extends AbstractInstruction<TwoDimEnvironment> {
-    public BackwardInstruction(TwoDimEnvironment environment) {
-        super(1, environment);
+public final class BackwardInstruction extends AbstractInstruction {
+
+    public BackwardInstruction() {
+        super(1);
     }
 
     @Override
-    public void accept(LinkedList<String> instruction) {
-        int distance = -getAttribute(instruction);
-        TwoDimDrawer drawer = new TwoDimDrawer(getEnvironment());
-        drawer.drawLine(distance);
+    public Environment apply(Environment environment, LinkedList<String> script) {
+        int length = -getAttribute(script);
+        return environment.getDrawer().drawLine(length);
     }
 }

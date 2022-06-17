@@ -1,65 +1,87 @@
 package it.unicam.cs.pa.logo.model.instructions;
 
-import it.unicam.cs.pa.logo.model.Coordinate;
-import it.unicam.cs.pa.logo.model.Direction;
 import it.unicam.cs.pa.logo.model.Environment;
 
-import java.io.IOException;
 import java.util.LinkedList;
 import java.util.Objects;
-import java.util.function.Consumer;
 
 /**
  * Questa interfaccia rappresenta un istruzione del linguaggio Logo
- *
- * @param <E> l'ambiente
  */
-public interface Instruction<E extends Environment<? extends Coordinate, ? extends Direction>>
-        extends Consumer<LinkedList<String>> {
+public interface Instruction {
 
     /**
-     * Restituisce il numero di attributi che l'istruzione necessita
+     * Restituisce il numero di attributi che l'istruzione ha bisogno
      *
-     * @return il numero di attributi che l'istruzione necessita
+     * @return il numero di attributi che l'istruzione ha bisogno
      */
     int getRequiredAttributesNumber();
 
     /**
-     * Restituisce il numero di volte che sono stati richiesti gli attributi
-     */
-    int getCountRequestedAttributes();
-
-    /**
-     * Imposta il numero di attributi richiesti
+     * Restituisce il numero di attributi che l'istruzione ha richiesto
      *
-     * @param number il numero di attributi richiesti
+     * @return il numero di attributi che l'istruzione ha richiesto
      */
-    void setCountRequestedAttributes(int number);
+    int getRequestedAttributesNumber();
 
     /**
-     * Incrementa di uno il numero di attributi richiesti
+     * Imposta il numero di attributi che l'istruzione ha richiesto
      */
-    default void incrementCountRequestedAttributes() {
-        setCountRequestedAttributes(getCountRequestedAttributes() + 1);
+    void setRequestedAttributesNumber(int number);
+
+    default int getAttribute(LinkedList<String> script) {
+        if (getRequiredAttributesNumber() == getRequestedAttributesNumber())
+            throw new RuntimeException("richiesti troppi attributi");
+        setRequestedAttributesNumber(getRequestedAttributesNumber() + 1);
+        return Integer.parseInt(Objects.requireNonNull(script.poll()));
     }
 
     /**
-     * Restituisce l'ambiente su cui opera l'istruzione
+     * Restituisce il risultato dell'applicazione dell'istruzione all'environment.
      *
-     * @return l'ambiente su cui opera l'istruzione
+     * @param environment l'environment
+     * @param script      lo script contenente il comando
+     * @return l'environment modificato dall'esecuzione
      */
-    E getEnvironment();
+    Environment apply(Environment environment, LinkedList<String> script);
 
-    /**
-     * Restituisce un attributo dall'istruzione
-     *
-     * @param instructions la coda di istruzioni
-     * @return un attributo dall'istruzione
-     */
-    default Integer getAttribute(LinkedList<String> instructions) {
-        incrementCountRequestedAttributes();
-        if (getCountRequestedAttributes() > getRequiredAttributesNumber())
-            throw new RuntimeException("Richiesti troppi attributi dall'istruzione");
-        return Integer.parseInt(Objects.requireNonNull(instructions.poll()));
-    }
+//
+//    /**
+//     * Restituisce il numero di attributi che l'istruzione necessita
+//     *
+//     * @return il numero di attributi che l'istruzione necessita
+//     */
+//    int getRequiredAttributesNumber();
+//
+//    /**
+//     * Restituisce il numero di volte che sono stati richiesti gli attributi
+//     */
+//    int getCountRequestedAttributes();
+//
+//    /**
+//     * Imposta il numero di attributi richiesti
+//     *
+//     * @param number il numero di attributi richiesti
+//     */
+//    void setCountRequestedAttributes(int number);
+//
+//    /**
+//     * Incrementa di uno il numero di attributi richiesti
+//     */
+//    default void incrementCountRequestedAttributes() {
+//        setCountRequestedAttributes(getCountRequestedAttributes() + 1);
+//    }
+//
+//    /**
+//     * Restituisce un attributo dall'istruzione
+//     *
+//     * @param instructions la coda di istruzioni
+//     * @return un attributo dall'istruzione
+//     */
+//    default Integer getAttribute(LinkedList<String> instructions) {
+//        incrementCountRequestedAttributes();
+//        if (getCountRequestedAttributes() > getRequiredAttributesNumber())
+//            throw new RuntimeException("Richiesti troppi attributi dall'istruzione");
+//        return Integer.parseInt(Objects.requireNonNull(instructions.poll()));
+//    }
 }

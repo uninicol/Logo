@@ -5,31 +5,33 @@ import java.util.List;
 
 /**
  * Rappresenta una serie di segmenti che possono essere chiusi formando un'area chiusa
- *
- * @param <C> le coordinate
  */
-public interface Shape<C extends Coordinate> {
+public interface Shape {
 
     /**
      * Restituisce i segmenti
      *
      * @return i segmenti
      */
-    List<Segment<C>> getSegments();
-
-    /**
-     * Aggiunge un segmento
-     *
-     * @param segment un segmento
-     */
-    void add(Segment<C> segment);
+    List<Segment> getSegments();
 
     /**
      * Restituisce il punto di partenza
      *
      * @return il punto di partenza
      */
-    C getStartPoint();
+    default Coordinate getStartPoint() {
+        return getSegments().get(0).getStartPoint();
+    }
+
+    /**
+     * Restituisce il punto di fine
+     *
+     * @return il punto di fine
+     */
+    default Coordinate getLastPoint() {
+        return getSegments().get(getSegments().size() - 1).getEndPoint();
+    }
 
     /**
      * Restituisce il colore di riempimento
@@ -53,9 +55,18 @@ public interface Shape<C extends Coordinate> {
     boolean isClosed();
 
     /**
+     * Aggiunge un segmento
+     *
+     * @param segment un segmento
+     */
+    void add(Segment segment);
+
+    /**
      * Restituisce il numero di segmenti che compongono l'area
      *
      * @return il numero di segmenti che compongono l'area
      */
-    int numSegments();
+    default int numSegments() {
+        return getSegments().size();
+    }
 }

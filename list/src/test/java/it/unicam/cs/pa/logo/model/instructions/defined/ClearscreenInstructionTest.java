@@ -1,8 +1,6 @@
 package it.unicam.cs.pa.logo.model.instructions.defined;
 
 import it.unicam.cs.pa.logo.model.defined.TwoDimEnvironment;
-import it.unicam.cs.pa.logo.model.instructions.TwoDimInstructionFactory;
-import it.unicam.cs.pa.logo.model.instructions.defined.ClearscreenInstruction;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 

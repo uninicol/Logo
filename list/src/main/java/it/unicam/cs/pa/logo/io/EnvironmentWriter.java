@@ -3,8 +3,6 @@ package it.unicam.cs.pa.logo.io;
 import it.unicam.cs.pa.logo.model.Coordinate;
 import it.unicam.cs.pa.logo.model.Direction;
 import it.unicam.cs.pa.logo.model.Environment;
-import it.unicam.cs.pa.logo.model.defined.TwoDimCoordinate;
-import it.unicam.cs.pa.logo.model.defined.TwoDimDirection;
 
 import java.io.File;
 import java.io.IOException;

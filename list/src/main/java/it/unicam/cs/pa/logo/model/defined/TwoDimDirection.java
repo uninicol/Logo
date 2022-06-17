@@ -16,17 +16,13 @@ public class TwoDimDirection implements Direction {
         this.angle = 0;
     }
 
-    /**
-     * Gira la direzione in senso orario
-     *
-     * @param num i gradi da girare
-     */
-    public void increaseDirection(int num) {
-        angle = (angle + num) % 360;
+    @Override
+    public final Integer getValue() {
+        return angle;
     }
 
     @Override
-    public Integer getValue() {
-        return angle;
+    public void increase(int num) {
+        angle = (angle + num) % 360;
     }
 }

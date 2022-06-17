@@ -1,50 +1,30 @@
 package it.unicam.cs.pa.logo.model.instructions;
 
-import it.unicam.cs.pa.logo.io.InstructionReader;
-import it.unicam.cs.pa.logo.io.InstructionWriter;
-import it.unicam.cs.pa.logo.model.Coordinate;
-import it.unicam.cs.pa.logo.model.Direction;
-import it.unicam.cs.pa.logo.model.Environment;
-
-import java.io.IOException;
-import java.util.Objects;
-
 /**
  * Classe astratta che contiene gli attributi di un istruzione
- *
- * @param <E> l'ambiente su cui l'istruzione opera
  */
-public abstract class AbstractInstruction<E extends Environment<? extends Coordinate, ? extends Direction>>
-        implements Instruction<E> {
+public abstract class AbstractInstruction implements Instruction {
 
-    //public static final InstructionReader<? extends AbstractInstruction<E>> LOADER = AbstractInstruction::fromString;
+    private final int numOfAttributes;
+    private int requestedAttributes;
 
-    private final E environment;
-    private final int numAttributes;
-    private int countRequestedAttributes = 0;
-
-    @Override
-    public int getCountRequestedAttributes() {
-        return countRequestedAttributes;
+    public AbstractInstruction(int numOfAttributes) {
+        this.numOfAttributes = numOfAttributes;
+        this.requestedAttributes = 0;
     }
 
     @Override
-    public void setCountRequestedAttributes(int number) {
-        this.countRequestedAttributes = number;
-    }
-
-    public AbstractInstruction(int numAttributes, E environment) {
-        this.numAttributes = numAttributes;
-        this.environment = Objects.requireNonNull(environment);
+    public final int getRequiredAttributesNumber() {
+        return numOfAttributes;
     }
 
     @Override
-    public int getRequiredAttributesNumber() {
-        return numAttributes;
+    public final int getRequestedAttributesNumber() {
+        return requestedAttributes;
     }
 
     @Override
-    public E getEnvironment() {
-        return environment;
+    public final void setRequestedAttributesNumber(int number) {
+        this.requestedAttributes = number;
     }
 }

@@ -5,35 +5,35 @@ import java.awt.*;
 /**
  * Interfaccia usata per rappresentare un cursore in un piano
  */
-public interface Cursor<C extends Coordinate, D extends Direction> {
+public interface Cursor {
 
     /**
      * Restituisce la posizione corrente del cursore
      *
      * @return la posizione corrente del cursore
      */
-    C getPosition();
+    Coordinate getPosition();
 
     /**
      * Muove il cursore verso una posizione
      *
      * @param position la posizione dove sopostarsi
      */
-    void move(C position);
+    void move(Coordinate position);
 
     /**
      * Restituisce la direzione corrente del cursore
      *
      * @return la direzione corrente del cursore
      */
-    D getDirection();
+    Direction getDirection();
 
     /**
      * Imposta la direzione del cursore
      *
      * @param direction la nuova direzione
      */
-    void setDirection(D direction);
+    void setDirection(Direction direction);
 
     /**
      * Restituisce il colore della prossima linea che verrà tracciata

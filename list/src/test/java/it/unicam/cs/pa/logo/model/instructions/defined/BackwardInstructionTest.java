@@ -2,8 +2,6 @@ package it.unicam.cs.pa.logo.model.instructions.defined;
 
 import it.unicam.cs.pa.logo.model.defined.TwoDimCoordinate;
 import it.unicam.cs.pa.logo.model.defined.TwoDimEnvironment;
-import it.unicam.cs.pa.logo.model.instructions.InstructionFactory;
-import it.unicam.cs.pa.logo.model.instructions.TwoDimInstructionFactory;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -36,7 +34,7 @@ public class BackwardInstructionTest {
     }
 
     @Test
-    public void executeDrawSegmentTest()throws IOException {
+    public void executeDrawSegmentTest() throws IOException {
         LinkedList<String> command = new LinkedList<>(List.of("BACKWARD", "-50"));
         factory.execute(command);
         assertEquals(new TwoDimCoordinate(550, 500), env.getCursor().getPosition());
@@ -45,7 +43,7 @@ public class BackwardInstructionTest {
     }
 
     @Test
-    public void dontDrawOnlyMovesTest()throws IOException {
+    public void dontDrawOnlyMovesTest() throws IOException {
         env.getCursor().setPlot(false);
         LinkedList<String> command = new LinkedList<>(List.of("BACKWARD", "50"));
         factory.execute(command);

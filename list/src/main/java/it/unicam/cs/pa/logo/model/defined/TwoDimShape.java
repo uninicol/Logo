@@ -1,5 +1,6 @@
 package it.unicam.cs.pa.logo.model.defined;
 
+import it.unicam.cs.pa.logo.model.Coordinate;
 import it.unicam.cs.pa.logo.model.Segment;
 import it.unicam.cs.pa.logo.model.Shape;
 
@@ -10,54 +11,43 @@ import java.util.List;
 /**
  * Rappresenta una serie di segmenti bidimensionali che possono diventare un'area chiusa
  */
-public class TwoDimShape implements Shape<TwoDimCoordinate> {
+public class TwoDimShape implements Shape {
 
-    private final List<Segment<TwoDimCoordinate>> segments = new LinkedList<>();
-    /**
-     * punto di partenza dell'area chiusa
-     */
-    private final TwoDimCoordinate startPoint;
+    private final List<Segment> segments = new LinkedList<>();
+    private final Coordinate startPoint;
     private Color backgroundColor = Color.WHITE;
     private boolean isClosed = false;
 
-    public TwoDimShape(Segment<TwoDimCoordinate> segment) {
+    public TwoDimShape(Segment segment) {
         this.segments.add(segment);
-        this.startPoint = segments.get(0).getStartPoint();
+        this.startPoint = segment.getStartPoint();
     }
 
     @Override
-    public List<Segment<TwoDimCoordinate>> getSegments() {
+    public final List<Segment> getSegments() {
         return segments;
     }
 
-    @Override
-    public void add(Segment<TwoDimCoordinate> segment) {
-        segments.add(segment);
-        if (segment.getEndPoint().equals(startPoint)) isClosed = true;
-    }
 
     @Override
-    public TwoDimCoordinate getStartPoint() {
-        return startPoint;
-    }
-
-    @Override
-    public Color getBackgroundColor() {
+    public final Color getBackgroundColor() {
         return backgroundColor;
     }
 
     @Override
-    public void setBackgroundColor(Color color) {
+    public final void setBackgroundColor(Color color) {
         this.backgroundColor = color;
     }
 
     @Override
-    public boolean isClosed() {
+    public final boolean isClosed() {
         return isClosed;
     }
 
     @Override
-    public int numSegments() {
-        return segments.size();
+    public void add(Segment segment) {
+        segments.add(segment);
+        if (segment.getEndPoint().equals(startPoint))
+            isClosed = true;
     }
 }

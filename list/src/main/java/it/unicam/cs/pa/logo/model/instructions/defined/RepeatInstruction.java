@@ -1,42 +1,38 @@
 package it.unicam.cs.pa.logo.model.instructions.defined;
 
-import it.unicam.cs.pa.logo.model.defined.TwoDimEnvironment;
+import it.unicam.cs.pa.logo.model.Environment;
 import it.unicam.cs.pa.logo.model.instructions.AbstractInstruction;
-import it.unicam.cs.pa.logo.model.instructions.TwoDimInstructionFactory;
+import it.unicam.cs.pa.logo.model.instructions.InstructionExecutor;
 
-import java.io.IOException;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.stream.Collectors;
 
 /**
- * Classe che rappresenta l'istruzione REPEAT
+ * Classe che rappresenta l'istruzione REPEAT, ripete la sequenza di comandi
  */
-public final class RepeatInstruction extends AbstractInstruction<TwoDimEnvironment> {
+public final class RepeatInstruction extends AbstractInstruction {
 
-    public RepeatInstruction(TwoDimEnvironment environment) {
-        super(1, environment);
+    public RepeatInstruction() {
+        super(1);
     }
 
     @Override
-    public void accept(LinkedList<String> instruction) {
-        if (!(instruction.containsAll(List.of("[", "]")))) throw new IllegalArgumentException("Mancate parentesi");
-        int num = getAttribute(instruction);
-        instruction.removeFirstOccurrence("["); //elimino la prima parentesi quadrata
+    public Environment apply(Environment environment, LinkedList<String> script) {
+        if (!(script.containsAll(List.of("[", "]")))) throw new IllegalArgumentException("Mancate parentesi");
+        int num = getAttribute(script);
+        script.removeFirstOccurrence("["); //elimino la prima parentesi quadrata
         //creo una lista delle istruzioni da ripetere
-        LinkedList<String> toRepeat = instruction.parallelStream()
+        LinkedList<String> toRepeat = script.parallelStream()
                 .dropWhile(str -> str.equals("]"))
                 .collect(Collectors.toCollection(LinkedList::new));
-        instruction.removeAll(toRepeat);
+        script.removeAll(toRepeat);
         toRepeat.removeFirstOccurrence("]");
-        TwoDimInstructionFactory factory = new TwoDimInstructionFactory(getEnvironment());
+        InstructionExecutor executor = new InstructionExecutor(environment, script);
         for (int i = 0; i < num; i++) {
             //dato che la lista verrà consumata creo una nuova LinkedList per ogni iterazione
-            try {
-                factory.execute(new LinkedList<>(toRepeat));
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
+            executor.execute(new LinkedList<>(toRepeat));
         }
+        return environment;
     }
 }

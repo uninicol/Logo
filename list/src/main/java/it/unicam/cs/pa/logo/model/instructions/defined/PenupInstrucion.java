@@ -1,20 +1,21 @@
 package it.unicam.cs.pa.logo.model.instructions.defined;
 
-import it.unicam.cs.pa.logo.model.defined.TwoDimEnvironment;
+import it.unicam.cs.pa.logo.model.Environment;
 import it.unicam.cs.pa.logo.model.instructions.AbstractInstruction;
 
 import java.util.LinkedList;
 
 /**
- * Classe che rappresenta l'istruzione PENUP
+ * Classe che rappresenta l'istruzione PENUP, stacca la penna dal foglio
  */
-public final class PenupInstrucion extends AbstractInstruction<TwoDimEnvironment> {
-    public PenupInstrucion(TwoDimEnvironment environment) {
-        super(0, environment);
+public final class PenupInstrucion extends AbstractInstruction {
+    public PenupInstrucion() {
+        super(0);
     }
 
     @Override
-    public void accept(LinkedList<String> instruction) {
-        getEnvironment().getCursor().setPlot(false);
+    public Environment apply(Environment environment, LinkedList<String> script) {
+        environment.getCursor().setPlot(false);
+        return environment;
     }
 }

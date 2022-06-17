@@ -1,25 +1,23 @@
 package it.unicam.cs.pa.logo.model.instructions.defined;
 
-import it.unicam.cs.pa.logo.model.defined.TwoDimDrawer;
-import it.unicam.cs.pa.logo.model.defined.TwoDimEnvironment;
+import it.unicam.cs.pa.logo.model.Environment;
 import it.unicam.cs.pa.logo.model.instructions.AbstractInstruction;
 
 import java.util.LinkedList;
 
 /**
- * Classe che rappresenta l'istruzione FORWARD
+ * Classe che rappresenta l'istruzione FORWARD, sposta il cursore in avanti verso la sua direzione
  */
-public final class ForwardInstruction extends AbstractInstruction<TwoDimEnvironment> {
+public final class ForwardInstruction extends AbstractInstruction {
 
-    public ForwardInstruction(TwoDimEnvironment environment) {
-        super(1, environment);
+    public ForwardInstruction() {
+        super(1);
     }
 
     @Override
-    public void accept(LinkedList<String> instruction) {
-        int distance = getAttribute(instruction);
+    public Environment apply(Environment environment, LinkedList<String> script) {
+        int length = getAttribute(script);
         //determino il punto di arrivo con dovuti limiti
-        TwoDimDrawer drawer = new TwoDimDrawer(getEnvironment());
-        drawer.drawLine(distance);
+        return environment.getDrawer().drawLine(length);
     }
 }
