@@ -1,5 +1,7 @@
 package it.unicam.cs.pa.logo.model.instructions;
 
+import java.io.IOException;
+
 /**
  * Questa classe è usata per creare e restituire oggetti di tipo Instruction
  *
@@ -13,7 +15,7 @@ public interface Registry<I extends Instruction> {
      * @param name il nome del comando
      * @return il comando creato
      */
-    I createInstruction(String name);
+    I createInstruction(String name) throws IOException;
 
     /**
      * Restituisce l'istruzione associato al nome

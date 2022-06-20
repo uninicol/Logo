@@ -11,21 +11,6 @@ import java.awt.*;
  */
 public class TwoDimEnvWriter implements EnvironmentWriter {
 
-    /*
-        @Override
-        public static String stringOf(Environment<TwoDimCoordinate, TwoDimDirection> field) {
-            String str = "SIZE " + field.getLength() + " "
-                    + field.getHeight() + " "
-                    + stringOf(field.getBackgroundColor()) + "\n"
-                    + field.getShapes().stream()
-                    .map(this::stringOf)
-                    .toList();
-            str = str.replaceAll("\\[", "")
-                    .replaceAll("]", "")
-                    .replaceAll(", ", "");
-            return str;
-        }
-     */
     @Override
     public String stringOf(Environment field) {
         String str = "SIZE " + field.getLength() + " "

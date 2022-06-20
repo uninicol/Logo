@@ -1,12 +1,12 @@
 package it.unicam.cs.pa.logo.io;
 
 import it.unicam.cs.pa.logo.model.defined.TwoDimEnvironment;
+import it.unicam.cs.pa.logo.model.instructions.InstructionExecutor;
+import it.unicam.cs.pa.logo.model.instructions.InstructionRegistry;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import java.io.IOException;
-import java.util.LinkedList;
-import java.util.List;
 
 class TwoDimEnvWriterTest {
 
@@ -14,21 +14,21 @@ class TwoDimEnvWriterTest {
 
     TwoDimEnvWriter writer;
 
-    InstructionFactory<TwoDimEnvironment> factory;
+    InstructionRegistry registry= InstructionRegistry.getTwoDimRegistrySet();
+
+    TwoDimEnvWriterTest() throws IOException {
+    }
 
     @BeforeEach
     void begin() {
         env = new TwoDimEnvironment(1000, 1000);
         //writer = new TwoDimEnvWriter(locationWriter);
-        factory = new TwoDimInstructionFactory(env);
     }
 
     @Test
-    void stringOf() throws IOException {
+    void stringOf()  {
         String command = "REPEAT 4 [ FORWARD 50 RIGHT 90 ]";
-        LinkedList<String> list = new LinkedList<>(List.of(command.split(" ")));
-        factory.execute(list);
-        String result = "";
+        new InstructionExecutor(registry, env ,command);
         System.out.println(writer.stringOf(env));
     }
 }

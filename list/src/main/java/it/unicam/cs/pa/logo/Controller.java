@@ -2,8 +2,6 @@ package it.unicam.cs.pa.logo;
 
 import it.unicam.cs.pa.logo.io.EnvironmentWriter;
 import it.unicam.cs.pa.logo.io.TwoDimEnvWriter;
-import it.unicam.cs.pa.logo.model.Coordinate;
-import it.unicam.cs.pa.logo.model.Direction;
 import it.unicam.cs.pa.logo.model.Environment;
 import it.unicam.cs.pa.logo.model.defined.TwoDimCoordinate;
 import it.unicam.cs.pa.logo.model.defined.TwoDimDirection;
@@ -11,28 +9,27 @@ import it.unicam.cs.pa.logo.model.defined.TwoDimEnvironment;
 
 import java.io.File;
 import java.io.IOException;
-import java.util.function.Supplier;
 
 /**
  * This class is used to control the activities around a GOL execution.
  */
-public class Controller<C extends Coordinate, D extends Direction> {
+public class Controller {
 
-    private final EnvironmentWriter<C, D> writer;
+    private final EnvironmentWriter writer;
     //private final EnvironmentLoader<S, C> loader;
 
-    private final Supplier<Environment<C, D>> environmentBuilder;
+    //private final Supplier<Environment> environmentBuilder;
 
     //private final Rule<S> rules;
 
-    private Environment<C, D> currentField;
+    private final Environment currentField;
 
     //private LinkedList<Environment<S, C>> history;
 
-    public static Controller<TwoDimCoordinate, TwoDimDirection> getTwoDimController() {
-        return new Controller<>(new TwoDimEnvWriter(),
+    public static Controller getTwoDimController(int length, int height) {
+        return new Controller(new TwoDimEnvWriter(),
                 //new ConwayFieldLoader<>(GridCoordinates.LOADER),
-                Environment::new);
+                new TwoDimEnvironment(length, height));
     }
 
     /**
@@ -40,12 +37,12 @@ public class Controller<C extends Coordinate, D extends Direction> {
      * schemata from files, and rules to compute execution.
      *
      * @param writer             writer used to save fields on files.
-     * @param environmentBuilder builder used to instantiate the environment.
+     * @param environment builder used to instantiate the environment.
      */
-    public Controller(EnvironmentWriter<C, D> writer, Supplier<Environment<C, D>> environmentBuilder) {
+    public Controller(EnvironmentWriter writer, Environment environment) {
         this.writer = writer;
-        this.environmentBuilder = environmentBuilder;
-        this.currentField = environmentBuilder.get();
+        //this.environmentBuilder = environmentBuilder;
+        this.currentField = environment;
     }
 
     /**
@@ -58,14 +55,7 @@ public class Controller<C extends Coordinate, D extends Direction> {
         writer.writeTo(file, this.currentField);
     }
 
-    /**
-     * This method is used to reset the state of this controller.
-     */
-    public void reset() {
-        this.currentField = environmentBuilder.get();
-    }
-
     public void clear() {
-        this.currentField = environmentBuilder.get();
+        this.currentField.clearAll();
     }
 }

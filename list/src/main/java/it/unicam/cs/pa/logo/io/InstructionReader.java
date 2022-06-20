@@ -18,5 +18,5 @@ public interface InstructionReader<I extends Instruction> {
      * @return l'istruzione associata alla stringa data
      * @throws IOException se la stringa non è corretta
      */
-    Instruction parse(Registry<I> registry, String str) throws IOException;
+    I parse(String str) throws IOException;
 }

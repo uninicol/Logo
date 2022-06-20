@@ -2,31 +2,46 @@ package it.unicam.cs.pa.logo.model.instructions;
 
 import it.unicam.cs.pa.logo.model.Environment;
 
+import java.io.IOException;
 import java.util.LinkedList;
+import java.util.List;
+import java.util.Objects;
 
-public class InstructionExecutor implements Executor {
+public final class InstructionExecutor {
 
-    private final Registry<Instruction> registry;
+    private final Registry<AbstractInstruction> registry;
 
-    private final Environment environment;
+    private Environment environment;
 
     private final LinkedList<String> script;
 
-    public InstructionExecutor(Registry<Instruction> registry, Environment environment, LinkedList<String> script) {
-        this.registry = registry;
-        this.environment = environment;
-        this.script = script;
+    public InstructionExecutor(Registry<AbstractInstruction> registry, Environment environment, String script) {
+        this.registry = Objects.requireNonNull(registry);
+        this.environment = Objects.requireNonNull(environment);
+        Objects.requireNonNull(script);
+        this.script = new LinkedList<>(List.of(script.split(" ")));
     }
 
-    @Override
-    public Environment execute(String command) {
-        return registry.get(command).apply(environment, script);
+    public InstructionExecutor(Registry<AbstractInstruction> registry, Environment environment, LinkedList<String> script) {
+        this.registry = Objects.requireNonNull(registry);
+        this.environment = Objects.requireNonNull(environment);
+        this.script = Objects.requireNonNull(script);
     }
 
-    @Override
-    public Environment execute(LinkedList<String> script) {
-        while (!script.isEmpty())
-            execute(script.poll());
+//    public <E> InstructionExecutor(TwoDimRegistry twoDimRegistry, Environment environment, LinkedList<E> es) {
+//
+//    }
+
+    public Environment executeScript() throws IOException {
+        while (!script.isEmpty()) {
+            String command=script.peek();
+            this.environment = execute(script.poll());
+            registry.get(command).stringOf(this.environment);
+        }
         return environment;
+    }
+
+    private Environment execute(String command) throws IOException {
+        return registry.get(command).apply(environment, script);
     }
 }

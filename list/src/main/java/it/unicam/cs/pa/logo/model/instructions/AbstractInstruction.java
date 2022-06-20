@@ -1,6 +1,7 @@
 package it.unicam.cs.pa.logo.model.instructions;
 
 import it.unicam.cs.pa.logo.io.InstructionWriter;
+import it.unicam.cs.pa.logo.model.Environment;
 
 /**
  * Classe astratta che contiene gli attributi di un istruzione

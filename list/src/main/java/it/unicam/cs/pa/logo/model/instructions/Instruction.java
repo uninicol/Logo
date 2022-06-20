@@ -1,7 +1,9 @@
 package it.unicam.cs.pa.logo.model.instructions;
 
+import it.unicam.cs.pa.logo.io.InstructionWriter;
 import it.unicam.cs.pa.logo.model.Environment;
 
+import java.io.IOException;
 import java.util.LinkedList;
 import java.util.Objects;
 
@@ -43,7 +45,7 @@ public interface Instruction {
      * @param script      lo script contenente il comando
      * @return l'environment modificato dall'esecuzione
      */
-    Environment apply(Environment environment, LinkedList<String> script);
+    Environment apply(Environment environment, LinkedList<String> script) throws IOException;
 
 //
 //    /**

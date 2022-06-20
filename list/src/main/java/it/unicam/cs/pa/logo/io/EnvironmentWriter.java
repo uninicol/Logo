@@ -13,8 +13,6 @@ import java.nio.file.Path;
 @FunctionalInterface
 public interface EnvironmentWriter {
 
-    //static String stringOf(Environment<TwoDimCoordinate, TwoDimDirection> field);
-
     /**
      * Restituisce la stringa che rappresenta l'ambiente dato
      *

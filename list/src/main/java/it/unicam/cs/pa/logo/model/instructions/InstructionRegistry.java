@@ -1,48 +1,54 @@
 package it.unicam.cs.pa.logo.model.instructions;
 
 import it.unicam.cs.pa.logo.io.InstructionReader;
+import it.unicam.cs.pa.logo.io.TwoDimInstructionLoader;
 
+import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.function.Function;
 
-public abstract class InstructionRegistry implements Registry<Instruction> {
+/**
+ * Registro per contenere il set di istruzioni che andremo ad utilizzare
+ */
+public class InstructionRegistry implements Registry<AbstractInstruction> {
 
-    private static final InstructionReader<Instruction> READER = InstructionRegistry::fromString;
+    //private abstract final InstructionReader<AbstractInstruction> READER = InstructionRegistry::fromString;
 
-    private static Instruction fromString(Registry<Instruction> registry, String str) {
-        return registry.get(str);
-    }
+    private final Map<String, AbstractInstruction> instructionMap = new HashMap<>();
+    private final InstructionReader<AbstractInstruction> factoryFunction;
 
-    private final Map<String, Instruction> instructionMap = new HashMap<>();
-    private final Function<String, Instruction> factoryFunction;
-
-    public InstructionRegistry(Function<String, Instruction> factoryFunction) {
-        this.factoryFunction = factoryFunction;//TODO sostituire con la funzione che interpreta i comandi
-        createInstruction("FORWARD");
-        createInstruction("BACKWARD");
-        createInstruction("LEFT");
-        createInstruction("RIGHT");
-        createInstruction("CLEARSCREEN");
-        createInstruction("HOME");
-        createInstruction("PENUP");
-        createInstruction("PENDOWN");
-        createInstruction("SETPENCOLOR");
-        createInstruction("SETFILLCOLOR");
-        createInstruction("SETSCREENCOLOR");
-        createInstruction("SETPENSIZE");
-        createInstruction("REPEAT");
+    public InstructionRegistry(InstructionReader<AbstractInstruction> factoryFunction) {
+        this.factoryFunction = factoryFunction;
     }
 
     @Override
-    public Instruction createInstruction(String name) {
-        Instruction instruction = factoryFunction.apply(name);
+    public AbstractInstruction createInstruction(String name) throws IOException {
+        AbstractInstruction instruction = factoryFunction.parse(name);
         instructionMap.put(name, instruction);
         return instruction;
     }
 
     @Override
-    public Instruction get(String name) {
+    public AbstractInstruction get(String name) {
         return instructionMap.get(name);
+    }
+
+    public static InstructionRegistry getTwoDimRegistrySet() throws IOException {
+        InstructionRegistry registry =new InstructionRegistry(name -> new TwoDimInstructionLoader().parse(name));
+        registry.createInstruction("BACKWARD");
+        registry.createInstruction("CLEARSCREEN");
+        registry.createInstruction("FORWARD");
+        registry.createInstruction("HOME");
+        registry.createInstruction("LEFT");
+        registry.createInstruction("PENDOWN");
+        registry.createInstruction("PENUP");
+        registry.createInstruction("REPEAT");
+        registry.createInstruction("RIGHT");
+        registry.createInstruction("SETFILLCOLOR");
+        registry.createInstruction("SETPENCOLOR");
+        registry.createInstruction("SETPENSIZE");
+        registry.createInstruction("SETSCREENCOLOR");
+        return registry;
     }
 }

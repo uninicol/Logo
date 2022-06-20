@@ -21,56 +21,56 @@ class TwoDimDrawerTest {
 
     @Test
     void drawLineRight() {
-        env.getCursor().getDirection().increaseDirection(0);
+        env.getCursor().getDirection().increase(0);
         drawer.drawLine(500);
         assertEquals(new TwoDimCoordinate(200, 100), env.getCursor().getPosition());
     }
 
     @Test
     void drawLineDownRight() {
-        env.getCursor().getDirection().increaseDirection(45);
+        env.getCursor().getDirection().increase(45);
         drawer.drawLine(500);
         assertEquals(new TwoDimCoordinate(200, 1), env.getCursor().getPosition());
     }
 
     @Test
     void drawLineDown() {
-        env.getCursor().getDirection().increaseDirection(90);
+        env.getCursor().getDirection().increase(90);
         drawer.drawLine(500);
         assertEquals(new TwoDimCoordinate(100, 0), env.getCursor().getPosition());
     }
 
     @Test
     void drawLineDownLeft() {
-        env.getCursor().getDirection().increaseDirection(135);
+        env.getCursor().getDirection().increase(135);
         drawer.drawLine(500);
         assertEquals(new TwoDimCoordinate(0, 0), env.getCursor().getPosition());
     }
 
     @Test
     void drawLineLeft() {
-        env.getCursor().getDirection().increaseDirection(180);
+        env.getCursor().getDirection().increase(180);
         drawer.drawLine(500);
         assertEquals(new TwoDimCoordinate(0, 100), env.getCursor().getPosition());
     }
 
     @Test
     void drawLineUpLeft() {
-        env.getCursor().getDirection().increaseDirection(225);
+        env.getCursor().getDirection().increase(225);
         drawer.drawLine(500);
         assertEquals(new TwoDimCoordinate(1, 200), env.getCursor().getPosition());
     }
 
     @Test
     void drawLineUp() {
-        env.getCursor().getDirection().increaseDirection(270);
+        env.getCursor().getDirection().increase(270);
         drawer.drawLine(500);
         assertEquals(new TwoDimCoordinate(100, 200), env.getCursor().getPosition());
     }
 
     @Test
     void drawLineUpRight() {
-        env.getCursor().getDirection().increaseDirection(315);
+        env.getCursor().getDirection().increase(315);
         drawer.drawLine(500);
         assertEquals(new TwoDimCoordinate(200, 200), env.getCursor().getPosition());
     }
