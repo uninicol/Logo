@@ -6,27 +6,11 @@
   <component name="ChangeListManager">
     <list default="true" id="d470bcfa-26cf-40c7-b95f-2bc7f98722c7" name="Changes" comment="Base brutta MVC pattern">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/list/src/main/java/it/unicam/cs/pa/logo/Controller.txt" beforeDir="false" afterPath="$PROJECT_DIR$/list/src/main/java/it/unicam/cs/pa/logo/Controller.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/list/src/main/java/it/unicam/cs/pa/logo/io/EnvironmentWriter.java" beforeDir="false" afterPath="$PROJECT_DIR$/list/src/main/java/it/unicam/cs/pa/logo/io/EnvironmentWriter.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/list/src/main/java/it/unicam/cs/pa/logo/io/InstructionReader.java" beforeDir="false" afterPath="$PROJECT_DIR$/list/src/main/java/it/unicam/cs/pa/logo/io/InstructionReader.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/list/src/main/java/it/unicam/cs/pa/logo/io/TwoDimEnvWriter.java" beforeDir="false" afterPath="$PROJECT_DIR$/list/src/main/java/it/unicam/cs/pa/logo/io/TwoDimEnvWriter.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/list/src/main/java/it/unicam/cs/pa/logo/io/TwoDimInstructionLoader.java" beforeDir="false" afterPath="$PROJECT_DIR$/list/src/main/java/it/unicam/cs/pa/logo/io/TwoDimInstructionLoader.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/list/src/main/java/it/unicam/cs/pa/logo/model/instructions/AbstractInstruction.java" beforeDir="false" afterPath="$PROJECT_DIR$/list/src/main/java/it/unicam/cs/pa/logo/model/instructions/AbstractInstruction.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/list/src/main/java/it/unicam/cs/pa/logo/model/instructions/Executor.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/list/src/main/java/it/unicam/cs/pa/logo/model/instructions/Instruction.java" beforeDir="false" afterPath="$PROJECT_DIR$/list/src/main/java/it/unicam/cs/pa/logo/model/instructions/Instruction.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/list/src/main/java/it/unicam/cs/pa/logo/model/instructions/InstructionExecutor.java" beforeDir="false" afterPath="$PROJECT_DIR$/list/src/main/java/it/unicam/cs/pa/logo/model/instructions/InstructionExecutor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/list/src/main/java/it/unicam/cs/pa/logo/model/defined/TwoDimDrawer.java" beforeDir="false" afterPath="$PROJECT_DIR$/list/src/main/java/it/unicam/cs/pa/logo/model/defined/TwoDimDrawer.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/list/src/main/java/it/unicam/cs/pa/logo/model/instructions/InstructionRegistry.java" beforeDir="false" afterPath="$PROJECT_DIR$/list/src/main/java/it/unicam/cs/pa/logo/model/instructions/InstructionRegistry.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/list/src/main/java/it/unicam/cs/pa/logo/model/instructions/Registry.java" beforeDir="false" afterPath="$PROJECT_DIR$/list/src/main/java/it/unicam/cs/pa/logo/model/instructions/Registry.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/list/src/main/java/it/unicam/cs/pa/logo/model/instructions/defined/HomeInstruction.java" beforeDir="false" afterPath="$PROJECT_DIR$/list/src/main/java/it/unicam/cs/pa/logo/model/instructions/defined/HomeInstruction.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/list/src/main/java/it/unicam/cs/pa/logo/model/instructions/defined/RepeatInstruction.java" beforeDir="false" afterPath="$PROJECT_DIR$/list/src/main/java/it/unicam/cs/pa/logo/model/instructions/defined/RepeatInstruction.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/list/src/test/java/it/unicam/cs/pa/logo/io/TwoDimEnvWriterTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/list/src/test/java/it/unicam/cs/pa/logo/io/TwoDimEnvWriterTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/list/src/test/java/it/unicam/cs/pa/logo/model/TwoDimDrawerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/list/src/test/java/it/unicam/cs/pa/logo/model/TwoDimDrawerTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/list/src/test/java/it/unicam/cs/pa/logo/model/TwoDimEnvironmentTest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/list/src/test/java/it/unicam/cs/pa/logo/model/instructions/defined/BackwardInstructionTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/list/src/test/java/it/unicam/cs/pa/logo/model/instructions/defined/BackwardInstructionTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/list/src/test/java/it/unicam/cs/pa/logo/model/instructions/defined/ClearscreenInstructionTest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/list/src/test/java/it/unicam/cs/pa/logo/model/instructions/defined/ForwardInstructionTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/list/src/test/java/it/unicam/cs/pa/logo/model/instructions/defined/ForwardInstructionTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/list/src/test/java/it/unicam/cs/pa/logo/model/instructions/defined/RepeatInstructionTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/list/src/test/java/it/unicam/cs/pa/logo/model/instructions/defined/RepeatInstructionTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/list/src/test/java/it/unicam/cs/pa/logo/model/instructions/defined/RightInstructionTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/list/src/test/java/it/unicam/cs/pa/logo/model/instructions/defined/RightInstructionTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -136,34 +120,7 @@
       <recent name="it.unicam.cs.pa.logo.instructions.defined" />
     </key>
   </component>
-  <component name="RunManager" selected="Gradle.Logo [test]">
-    <configuration name="BackwardInstructionTest.dontDrawOnlyMovesTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
-      <selectedOptions>
-        <option name="coverage.include" />
-        <option name="coverage" />
-      </selectedOptions>
-      <ExternalSystemSettings>
-        <option name="executionName" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$" />
-        <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" value="" />
-        <option name="taskDescriptions">
-          <list />
-        </option>
-        <option name="taskNames">
-          <list>
-            <option value=":list:test" />
-            <option value="--tests" />
-            <option value="&quot;it.unicam.cs.pa.logo.model.instructions.defined.BackwardInstructionTest.dontDrawOnlyMovesTest&quot;" />
-          </list>
-        </option>
-        <option name="vmOptions" />
-      </ExternalSystemSettings>
-      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
-      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
-      <DebugAllEnabled>false</DebugAllEnabled>
-      <method v="2" />
-    </configuration>
+  <component name="RunManager" selected="Gradle.TwoDimDrawerTest.drawLineRight">
     <configuration name="BackwardInstructionTest.executeSimpleDrawSegmentTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <selectedOptions>
         <option name="coverage.include" />
@@ -269,6 +226,33 @@
       <DebugAllEnabled>false</DebugAllEnabled>
       <method v="2" />
     </configuration>
+    <configuration name="TwoDimDrawerTest.drawLineRight" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <selectedOptions>
+        <option name="coverage.include" />
+        <option name="coverage" />
+      </selectedOptions>
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":list:test" />
+            <option value="--tests" />
+            <option value="&quot;it.unicam.cs.pa.logo.model.TwoDimDrawerTest.drawLineRight&quot;" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <method v="2" />
+    </configuration>
     <configuration default="true" type="GradleRunConfiguration" factoryName="Gradle">
       <selectedOptions>
         <option name="coverage.include" />
@@ -293,19 +277,19 @@
       <method v="2" />
     </configuration>
     <list>
+      <item itemvalue="Gradle.TwoDimDrawerTest.drawLineRight" />
       <item itemvalue="Gradle.ForwardInstructionTest.executeDrawSegmentTest" />
-      <item itemvalue="Gradle.BackwardInstructionTest.dontDrawOnlyMovesTest" />
       <item itemvalue="Gradle.BackwardInstructionTest.executeSimpleDrawSegmentTest" />
       <item itemvalue="Gradle.RightInstructionTest.drawRightTest" />
       <item itemvalue="Gradle.Logo [test]" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Gradle.TwoDimDrawerTest.drawLineRight" />
         <item itemvalue="Gradle.Logo [test]" />
         <item itemvalue="Gradle.ForwardInstructionTest.executeDrawSegmentTest" />
         <item itemvalue="Gradle.RightInstructionTest.drawRightTest" />
         <item itemvalue="Gradle.BackwardInstructionTest.executeSimpleDrawSegmentTest" />
-        <item itemvalue="Gradle.BackwardInstructionTest.dontDrawOnlyMovesTest" />
       </list>
     </recent_temporary>
   </component>
@@ -377,6 +361,8 @@
       <workItem from="1655389689443" duration="10314000" />
       <workItem from="1655451271734" duration="10337000" />
       <workItem from="1655711663811" duration="4363000" />
+      <workItem from="1655719460609" duration="1228000" />
+      <workItem from="1655732348841" duration="1514000" />
     </task>
     <task id="LOCAL-00001" summary="init commit">
       <created>1652373969498</created>
@@ -606,12 +592,17 @@
           <line>31</line>
           <option name="timeStamp" value="30" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/list/src/main/java/it/unicam/cs/pa/logo/model/defined/TwoDimDrawer.java</url>
+          <line>158</line>
+          <option name="timeStamp" value="33" />
+        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/Logo$DrawerClassTest_drawLine.ic" NAME="DrawerClassTest.drawLine Coverage Results" MODIFIED="1653648312247" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
     <SUITE FILE_PATH="coverage/Logo$Logo__test_.ic" NAME="Logo [test] Coverage Results" MODIFIED="1653808883760" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
     <SUITE FILE_PATH="coverage/Logo$DrawerClassTest__1_.ic" NAME="DrawerClassTest (1) Coverage Results" MODIFIED="1653747693908" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
-    <SUITE FILE_PATH="coverage/Logo$DrawerClassTest_drawLine.ic" NAME="DrawerClassTest.drawLine Coverage Results" MODIFIED="1653648312247" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
   </component>
 </project>

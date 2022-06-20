@@ -16,7 +16,6 @@ public interface InstructionReader<I extends Instruction> {
      *
      * @param str una stringa contenente un'istruzione
      * @return l'istruzione associata alla stringa data
-     * @throws IOException se la stringa non è corretta
      */
-    I parse(String str) throws IOException;
+    I parse(String str);
 }

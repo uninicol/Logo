@@ -12,12 +12,12 @@ import it.unicam.cs.pa.logo.model.Direction;
 public record TwoDimCoordinate(int xAxis, int yAxis) implements Coordinate {
 
     @Override
-    public final int getX() {
+    public int getX() {
         return xAxis;
     }
 
     @Override
-    public final int getY() {
+    public int getY() {
         return yAxis;
     }
 
