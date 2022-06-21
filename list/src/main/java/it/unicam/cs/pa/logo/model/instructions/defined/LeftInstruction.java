@@ -22,6 +22,6 @@ public final class LeftInstruction extends AbstractInstruction {
 
     @Override
     public String stringOf(Environment environment) {
-        return "Ruotato il cursore nella direzione" + environment.getCursor().getDirection().getValue();
+        return "ruotato il cursore nella direzione" + environment.getCursor().getDirection().getValue();
     }
 }

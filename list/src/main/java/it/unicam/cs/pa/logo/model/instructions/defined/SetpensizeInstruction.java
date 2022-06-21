@@ -21,6 +21,6 @@ public final class SetpensizeInstruction extends AbstractInstruction {
 
     @Override
     public String stringOf(Environment environment) {
-        return "Impostata grandezza del tratto in" + environment.getCursor().getSize();
+        return "impostato la grandezza del tratto in " + environment.getCursor().getSize();
     }
 }

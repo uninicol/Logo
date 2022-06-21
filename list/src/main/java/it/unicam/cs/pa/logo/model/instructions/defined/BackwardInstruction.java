@@ -1,5 +1,7 @@
 package it.unicam.cs.pa.logo.model.instructions.defined;
 
+import it.unicam.cs.pa.logo.model.Coordinate;
+import it.unicam.cs.pa.logo.model.Cursor;
 import it.unicam.cs.pa.logo.model.Environment;
 import it.unicam.cs.pa.logo.model.instructions.AbstractInstruction;
 
@@ -21,6 +23,7 @@ public final class BackwardInstruction extends AbstractInstruction {
 
     @Override
     public String stringOf(Environment environment) {
-        return "Spostato il cursore nella posizione" + environment.getCursor().getPosition();
+        Coordinate coordinate=environment.getCursor().getPosition();
+        return String.format("spostato il cursore nella posizione x:%d y:%d", coordinate.getX(), coordinate.getY());
     }
 }

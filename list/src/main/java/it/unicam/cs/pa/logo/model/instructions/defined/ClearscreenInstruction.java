@@ -21,6 +21,6 @@ public final class ClearscreenInstruction extends AbstractInstruction {
 
     @Override
     public String stringOf(Environment environment) {
-        return "Cancellate le linee tracciate";
+        return "cancellato le linee tracciate";
     }
 }

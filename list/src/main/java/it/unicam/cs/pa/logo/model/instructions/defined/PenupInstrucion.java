@@ -21,6 +21,6 @@ public final class PenupInstrucion extends AbstractInstruction {
 
     @Override
     public String stringOf(Environment environment) {
-        return "Staccata la penna al foglio";
+        return "staccato la penna al foglio";
     }
 }

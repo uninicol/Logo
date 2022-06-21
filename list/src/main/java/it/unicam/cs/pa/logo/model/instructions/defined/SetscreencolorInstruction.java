@@ -3,6 +3,7 @@ package it.unicam.cs.pa.logo.model.instructions.defined;
 import it.unicam.cs.pa.logo.model.Environment;
 import it.unicam.cs.pa.logo.model.instructions.AbstractInstruction;
 
+import java.awt.*;
 import java.util.LinkedList;
 
 /**
@@ -24,9 +25,10 @@ public final class SetscreencolorInstruction extends AbstractInstruction {
 
     @Override
     public String stringOf(Environment environment) {
-        return "Impostato il colore di background in "
-                + environment.getBackgroundColor().getRed() + " "
-                + environment.getBackgroundColor().getGreen() + " "
-                + environment.getBackgroundColor().getBlue();
+        Color color = environment.getBackgroundColor();
+        return String.format("impostato il colore di background in r:%d g:%d b:%d",
+                color.getRed(),
+                color.getGreen(),
+                color.getBlue());
     }
 }

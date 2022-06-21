@@ -49,6 +49,6 @@ public final class RepeatInstruction extends AbstractInstruction {
 
     @Override
     public String stringOf(Environment environment) {
-        return "";
+        return "ripetuto";
     }
 }

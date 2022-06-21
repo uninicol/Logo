@@ -23,6 +23,6 @@ public final class RightInstruction extends AbstractInstruction {
 
     @Override
     public String stringOf(Environment environment) {
-        return "Ruotato il cursore verso " + environment.getCursor().getDirection().getValue();
+        return "ruotato il cursore verso " + environment.getCursor().getDirection().getValue();
     }
 }
