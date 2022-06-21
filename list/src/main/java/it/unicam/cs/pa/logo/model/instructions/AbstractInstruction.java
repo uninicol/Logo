@@ -2,6 +2,8 @@ package it.unicam.cs.pa.logo.model.instructions;
 
 import it.unicam.cs.pa.logo.io.InstructionWriter;
 
+import java.io.IOException;
+
 /**
  * Classe astratta che contiene gli attributi di un istruzione
  */
@@ -11,7 +13,9 @@ public abstract class AbstractInstruction implements Instruction, InstructionWri
         while (!script.isEmpty()) {
             String command = script.poll();
             if (command.equals("]")) break;
-            environment = registry.get(command).apply(environment, script);
+            Instruction instruction = registry.get(command);
+            if (instruction == null) throw new IOException();
+            environment = instruction.apply(environment, script);
             System.out.println(command + " ha " + registry.get(command).stringOf(environment));
         }
         return environment;

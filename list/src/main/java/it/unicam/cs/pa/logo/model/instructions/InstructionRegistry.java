@@ -1,7 +1,6 @@
 package it.unicam.cs.pa.logo.model.instructions;
 
 import it.unicam.cs.pa.logo.io.InstructionReader;
-import it.unicam.cs.pa.logo.io.InstructionWriter;
 import it.unicam.cs.pa.logo.io.TwoDimInstructionLoader;
 
 import java.util.HashMap;

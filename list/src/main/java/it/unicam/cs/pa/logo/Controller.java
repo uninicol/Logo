@@ -2,7 +2,6 @@ package it.unicam.cs.pa.logo;
 
 import it.unicam.cs.pa.logo.io.EnvironmentWriter;
 import it.unicam.cs.pa.logo.io.TwoDimEnvWriter;
-import it.unicam.cs.pa.logo.io.TwoDimInstructionLoader;
 import it.unicam.cs.pa.logo.model.Environment;
 import it.unicam.cs.pa.logo.model.defined.TwoDimEnvironment;
 import it.unicam.cs.pa.logo.model.instructions.AbstractInstruction;
@@ -12,34 +11,32 @@ import it.unicam.cs.pa.logo.model.instructions.Registry;
 
 import java.io.File;
 import java.io.IOException;
+import java.nio.file.Files;
 import java.util.LinkedList;
 import java.util.List;
 
 /**
- * This class is used to control the activities around a GOL execution.
+ * Questa classe è usata per controllare le attività intorno a un'esecuzione LOGO
  */
 public class Controller {
 
     private final EnvironmentWriter writer;
     private final Registry<AbstractInstruction> registry;
     private final Executor<AbstractInstruction> executor = AbstractInstruction.EXECUTOR;
-
     private final Environment currentField;
-
-    //private LinkedList<Environment<S, C>> history;
 
     public static Controller getTwoDimController(int length, int height) {
         return new Controller(new TwoDimEnvWriter(),
                 new TwoDimEnvironment(length, height),
-                new InstructionRegistry(TwoDimInstructionLoader.READER));
+                InstructionRegistry.getTwoDimRegistrySet());
     }
 
     /**
-     * Creates a new controller that will used the given writer, to save and export fields, loader, to read
-     * schemata from files, and rules to compute execution.
-     *
-     * @param writer      writer used to save fields on files.
-     * @param environment builder used to instantiate the environment.
+     * Crea un controller che userà uno scrittore per esportare un ambiente, l'ambiente su cui avverrà la computazione,
+     * un registro contenente il set d'istruzioni che possono essere eseguiti
+     * @param writer lo scrittore
+     * @param environment l'environment
+     * @param registry il registro
      */
     public Controller(EnvironmentWriter writer, Environment environment, Registry<AbstractInstruction> registry) {
         this.writer = writer;
@@ -48,17 +45,24 @@ public class Controller {
     }
 
     /**
-     * Writes the handled environment to the given file.
+     * Scrive l'environment su un dato file
      *
-     * @param file file on which we can save the environment.
-     * @throws IOException if an I/O error occurs while writing the data.
+     * @param file  dove verrà salvato l'environment
+     * @throws IOException se avviene un errore IO
      */
     public void save(File file) throws IOException {
         writer.writeTo(file, this.currentField);
     }
 
-    public void clear() {
-        this.currentField.clearAll();
+    /**
+     * Legge un file contenente uno script LOGO
+     *
+     * @param file il file contenente lo script
+     * @return lo script
+     * @throws IOException se avviene un errore IO
+     */
+    public String read(File file) throws IOException {
+        return Files.readString(file.toPath());
     }
 
     /**

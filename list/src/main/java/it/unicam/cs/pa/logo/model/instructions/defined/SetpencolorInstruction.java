@@ -29,7 +29,7 @@ public final class SetpencolorInstruction extends AbstractInstruction {
 
     @Override
     public String stringOf(Environment environment) {
-        Color color =environment.getCursor().getLineColor();
+        Color color = environment.getCursor().getLineColor();
         return String.format("impostato il colore della penna in r:%d g:%d b:%d",
                 color.getRed(),
                 color.getGreen(),

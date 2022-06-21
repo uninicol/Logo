@@ -5,21 +5,22 @@ import it.unicam.cs.pa.logo.Controller;
 import java.io.IOException;
 import java.util.Scanner;
 
+/**
+ * Questa classe descrive la modalitò di esecuzione passo passo
+ */
 public class StepByStepExecution {
 
-    public void execute(Scanner scanner) {
+    public void execute(Controller controller, Scanner scanner) {
         System.out.println("Hai scelto l'esecuzione passo passo, separare ogni parola da uno spazio\nScrivere EXIT per terminare");
-        System.out.println("prima di iniziare inserire lunghezza e altezza della tavola da disegno");
-        Controller controller = App.getController(scanner);
-        String command;
-        do {
-            command = scanner.nextLine();
+        while (true) {
+            String command = scanner.next();
+            if (command.equalsIgnoreCase("EXIT")) break;
             try {
                 controller.computeScript(command);
             } catch (IOException e) {
                 System.out.println("Impossibile eseguire il comando " + command);
             }
-        } while (command.toUpperCase().equals("EXIT"));
+        }
         System.out.println("Computazione conclusa");
     }
 }

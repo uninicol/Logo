@@ -30,7 +30,7 @@ public final class SetfillcolorInstruction extends AbstractInstruction {
 
     @Override
     public String stringOf(Environment environment) {
-        Color color =environment.getCursor().getAreaColor();
+        Color color = environment.getCursor().getAreaColor();
         return String.format("impostato il colore di riempimento dell'area chiusa in r:%d g:%d b:%d",
                 color.getRed(),
                 color.getGreen(),

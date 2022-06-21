@@ -3,8 +3,6 @@ package it.unicam.cs.pa.logo.io;
 import it.unicam.cs.pa.logo.model.instructions.AbstractInstruction;
 import it.unicam.cs.pa.logo.model.instructions.defined.*;
 
-import java.io.IOException;
-
 public class TwoDimInstructionLoader {
     public static InstructionReader<AbstractInstruction> READER = (str -> switch (str) {
         case "BACKWARD" -> new BackwardInstruction();
@@ -20,13 +18,7 @@ public class TwoDimInstructionLoader {
         case "SETPENSIZE" -> new SetpensizeInstruction();
         case "REPEAT" -> new RepeatInstruction();
         case "FORWARD" -> new ForwardInstruction();
-        default -> {
-            try {
-                throw new IOException("Comando non presente");
-            } catch (IOException e) {
-                throw new RuntimeException(e);
-            }
-        }
+        default -> null;
     }
     );
 }

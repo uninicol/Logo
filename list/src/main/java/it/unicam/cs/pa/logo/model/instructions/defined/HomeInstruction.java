@@ -24,7 +24,7 @@ public final class HomeInstruction extends AbstractInstruction {
 
     @Override
     public String stringOf(Environment environment) {
-        Coordinate coordinate=environment.getCursor().getPosition();
+        Coordinate coordinate = environment.getCursor().getPosition();
         return String.format("spostato il cursore nella posizione di home x:%d y:%d", coordinate.getX(), coordinate.getY());
     }
 }

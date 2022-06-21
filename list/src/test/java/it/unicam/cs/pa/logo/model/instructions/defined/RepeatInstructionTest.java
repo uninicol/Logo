@@ -34,9 +34,9 @@ public class RepeatInstructionTest {
     @Test
     public void commandWithoutParenthesisTest() {
         assertThrows(IllegalArgumentException.class, () -> {
-            String command = "REPEAT 3 [ FORWARD 50";
-            AbstractInstruction.EXECUTOR.execute(registry, env, new LinkedList<>(List.of(command.split(" "))));
-        }
+                    String command = "REPEAT 3 [ FORWARD 50";
+                    AbstractInstruction.EXECUTOR.execute(registry, env, new LinkedList<>(List.of(command.split(" "))));
+                }
         );
     }
 
@@ -56,7 +56,7 @@ public class RepeatInstructionTest {
 
     @Test
     public void innerRepeatInstruction() throws IOException {
-        String script="REPEAT 4 [ REPEAT 50 [ FORWARD 1 ] ]";
+        String script = "REPEAT 4 [ REPEAT 50 [ FORWARD 1 ] ]";
         AbstractInstruction.EXECUTOR.execute(registry, env, new LinkedList<>(List.of(script.split(" "))));
         assertEquals(new TwoDimCoordinate(700, 500), env.getCursor().getPosition());
     }

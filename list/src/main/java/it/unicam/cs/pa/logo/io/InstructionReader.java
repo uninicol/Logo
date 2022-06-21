@@ -1,9 +1,6 @@
 package it.unicam.cs.pa.logo.io;
 
 import it.unicam.cs.pa.logo.model.instructions.Instruction;
-import it.unicam.cs.pa.logo.model.instructions.Registry;
-
-import java.io.IOException;
 
 /**
  * Questa interfaccia è usata per trasformare una stringa in un istruzione

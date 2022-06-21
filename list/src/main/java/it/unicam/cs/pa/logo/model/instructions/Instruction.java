@@ -1,6 +1,5 @@
 package it.unicam.cs.pa.logo.model.instructions;
 
-import it.unicam.cs.pa.logo.io.InstructionWriter;
 import it.unicam.cs.pa.logo.model.Environment;
 
 import java.io.IOException;
@@ -46,7 +45,6 @@ public interface Instruction {
      * @return l'environment modificato dall'esecuzione
      */
     Environment apply(Environment environment, LinkedList<String> script) throws IOException;
-
 
 
 //

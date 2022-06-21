@@ -12,7 +12,6 @@ import java.util.LinkedList;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertTrue;
 
 class TwoDimEnvWriterTest {
 
@@ -20,7 +19,7 @@ class TwoDimEnvWriterTest {
 
     TwoDimEnvWriter writer;
 
-    InstructionRegistry registry= InstructionRegistry.getTwoDimRegistrySet();
+    InstructionRegistry registry = InstructionRegistry.getTwoDimRegistrySet();
 
     @BeforeEach
     void begin() {
@@ -32,6 +31,6 @@ class TwoDimEnvWriterTest {
     void stringOf() throws IOException {
         String command = "REPEAT 4 [ FORWARD 50 RIGHT 90 ] FORWARD 50";
         AbstractInstruction.EXECUTOR.execute(registry, env, new LinkedList<>(List.of(command.split(" "))));
-        assertEquals(new TwoDimCoordinate(550,500), env.getCursor().getPosition());
+        assertEquals(new TwoDimCoordinate(550, 500), env.getCursor().getPosition());
     }
 }

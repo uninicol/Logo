@@ -35,7 +35,7 @@ public class BackwardInstructionTest {
     @Test
     public void executeDrawSegmentTest() throws IOException {
         String command = "BACKWARD -50";
-        LinkedList<String> script=new LinkedList<>(List.of(command.split(" ")));
+        LinkedList<String> script = new LinkedList<>(List.of(command.split(" ")));
         AbstractInstruction.EXECUTOR.execute(registry, env, script);
         assertEquals(new TwoDimCoordinate(550, 500), env.getCursor().getPosition());
         assertEquals(1, env.getShapes().size());
