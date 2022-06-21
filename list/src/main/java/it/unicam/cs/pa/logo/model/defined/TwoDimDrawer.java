@@ -47,7 +47,7 @@ public class TwoDimDrawer implements Drawer {
 
     public TwoDimCoordinate checkCoordinate(int x, int y, int angle, int distance) {
         int distanceDifference = getDistanceDifference(x, y, angle);
-        return getCoordinateFromDistance(distance - Math.abs(distanceDifference));
+        return getCoordinateFromDistance(Math.abs(distance - Math.abs(distanceDifference)));
     }
 
     private void draw(Segment segment) {

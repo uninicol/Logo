@@ -48,14 +48,14 @@ public class RepeatInstructionTest {
     }
 
     @Test
-    public void executeCommandAfterRepeat() throws IOException {
+    public void executeCommandAfterRepeatTest() throws IOException {
         String square = "REPEAT 4 [ FORWARD 50 RIGHT 90 ] FORWARD 50";
         AbstractInstruction.EXECUTOR.execute(registry, env, new LinkedList<>(List.of(square.split(" "))));
         assertEquals(new TwoDimCoordinate(550, 500), env.getCursor().getPosition());
     }
 
     @Test
-    public void innerRepeatInstruction() throws IOException {
+    public void innerRepeatInstructionTest() throws IOException {
         String script = "REPEAT 4 [ REPEAT 50 [ FORWARD 1 ] ]";
         AbstractInstruction.EXECUTOR.execute(registry, env, new LinkedList<>(List.of(script.split(" "))));
         assertEquals(new TwoDimCoordinate(700, 500), env.getCursor().getPosition());
