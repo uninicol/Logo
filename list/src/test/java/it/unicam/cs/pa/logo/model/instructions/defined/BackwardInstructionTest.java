@@ -2,12 +2,14 @@ package it.unicam.cs.pa.logo.model.instructions.defined;
 
 import it.unicam.cs.pa.logo.model.defined.TwoDimCoordinate;
 import it.unicam.cs.pa.logo.model.defined.TwoDimEnvironment;
-import it.unicam.cs.pa.logo.model.instructions.InstructionExecutor;
+import it.unicam.cs.pa.logo.model.instructions.AbstractInstruction;
 import it.unicam.cs.pa.logo.model.instructions.InstructionRegistry;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import java.io.IOException;
+import java.util.LinkedList;
+import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
@@ -16,10 +18,6 @@ public class BackwardInstructionTest {
 
     TwoDimEnvironment env;
     InstructionRegistry registry = InstructionRegistry.getTwoDimRegistrySet();
-    InstructionExecutor executor;
-
-    public BackwardInstructionTest() throws IOException {
-    }
 
     @BeforeEach
     void build() {
@@ -29,8 +27,7 @@ public class BackwardInstructionTest {
     @Test
     public void executeSimpleDrawSegmentTest() throws IOException {
         String command = "BACKWARD 50";
-        executor = new InstructionExecutor(registry, env, command);
-        executor.executeScript();
+        AbstractInstruction.EXECUTOR.execute(registry, env, new LinkedList<>(List.of(command.split(" "))));
         assertEquals(new TwoDimCoordinate(450, 500), env.getCursor().getPosition());
         assertEquals(1, env.getShapes().size());
     }
@@ -38,8 +35,8 @@ public class BackwardInstructionTest {
     @Test
     public void executeDrawSegmentTest() throws IOException {
         String command = "BACKWARD -50";
-        executor = new InstructionExecutor(registry, env, command);
-        executor.executeScript();
+        LinkedList<String> script=new LinkedList<>(List.of(command.split(" ")));
+        AbstractInstruction.EXECUTOR.execute(registry, env, script);
         assertEquals(new TwoDimCoordinate(550, 500), env.getCursor().getPosition());
         assertEquals(1, env.getShapes().size());
     }
@@ -48,8 +45,7 @@ public class BackwardInstructionTest {
     public void dontDrawOnlyMovesTest() throws IOException {
         env.getCursor().setPlot(false);
         String command = "BACKWARD 50";
-        executor = new InstructionExecutor(registry, env, command);
-        executor.executeScript();
+        AbstractInstruction.EXECUTOR.execute(registry, env, new LinkedList<>(List.of(command.split(" "))));
         assertEquals(new TwoDimCoordinate(450, 500), env.getCursor().getPosition());
         assertTrue(env.getShapes().isEmpty());
     }

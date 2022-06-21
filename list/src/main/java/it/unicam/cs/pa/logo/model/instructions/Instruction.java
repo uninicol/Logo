@@ -47,6 +47,8 @@ public interface Instruction {
      */
     Environment apply(Environment environment, LinkedList<String> script) throws IOException;
 
+
+
 //
 //    /**
 //     * Restituisce il numero di attributi che l'istruzione necessita

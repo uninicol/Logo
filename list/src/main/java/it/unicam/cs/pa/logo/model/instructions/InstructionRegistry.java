@@ -1,6 +1,7 @@
 package it.unicam.cs.pa.logo.model.instructions;
 
 import it.unicam.cs.pa.logo.io.InstructionReader;
+import it.unicam.cs.pa.logo.io.InstructionWriter;
 import it.unicam.cs.pa.logo.io.TwoDimInstructionLoader;
 
 import java.util.HashMap;
@@ -31,6 +32,11 @@ public class InstructionRegistry implements Registry<AbstractInstruction> {
         return instructionMap.get(name);
     }
 
+    /**
+     * Inserisce nel registry il set di istruzioni LOGO
+     *
+     * @return il registro con i comandi
+     */
     public static InstructionRegistry getTwoDimRegistrySet() {
         InstructionRegistry registry = new InstructionRegistry(TwoDimInstructionLoader.READER);
         List<String> instructions = List.of("BACKWARD", "CLEARSCREEN", "FORWARD", "HOME", "LEFT", "PENDOWN", "PENUP",

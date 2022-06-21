@@ -2,7 +2,6 @@ package it.unicam.cs.pa.logo.model.instructions.defined;
 
 import it.unicam.cs.pa.logo.model.Environment;
 import it.unicam.cs.pa.logo.model.instructions.AbstractInstruction;
-import it.unicam.cs.pa.logo.model.instructions.InstructionExecutor;
 import it.unicam.cs.pa.logo.model.instructions.InstructionRegistry;
 
 import java.io.IOException;
@@ -26,20 +25,26 @@ public final class RepeatInstruction extends AbstractInstruction {
         script.removeFirstOccurrence("["); //elimino la prima parentesi quadrata
         //creo una lista delle istruzioni da ripetere
         LinkedList<String> toRepeat = getScriptToRepeat(script);
-        script.removeAll(toRepeat);
-        toRepeat.removeFirstOccurrence("]");
+        removeToRepeatScript(script, toRepeat);
         for (int i = 0; i < num; i++) {
             //dato che la lista verrà consumata creo una nuova LinkedList per ogni iterazione
-            new InstructionExecutor(InstructionRegistry.getTwoDimRegistrySet(), environment, new LinkedList<>(toRepeat))
-                    .executeScript();
+            AbstractInstruction.EXECUTOR.execute(InstructionRegistry.getTwoDimRegistrySet(), environment, new LinkedList<>(toRepeat));
         }
         return environment;
     }
 
     private LinkedList<String> getScriptToRepeat(LinkedList<String> script) {
-        return script.parallelStream()
-                .dropWhile(str -> str.equals("]"))
+        LinkedList<String> repeat = script.stream()
+                .takeWhile(str -> !str.equals("]"))
                 .collect(Collectors.toCollection(LinkedList::new));
+        repeat.add("]");
+        return repeat;
+    }
+
+    private void removeToRepeatScript(LinkedList<String> script, LinkedList<String> toRepeat) {
+        for (int i = 0; i < toRepeat.size(); i++) {
+            script.poll();
+        }
     }
 
     @Override
