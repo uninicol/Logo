@@ -11,12 +11,12 @@ import java.util.function.Function;
 /**
  * Registro per contenere il set di istruzioni che andremo ad utilizzare
  */
-public class InstructionRegistry implements Registry<AbstractInstruction> {
+public class InstructionRegistry implements Registry<Instruction> {
 
-    private static InstructionReader<AbstractInstruction> factoryFunction;
-    private final Map<String, Function<String, AbstractInstruction>> instructionMap = new HashMap<>();
+    private static InstructionReader<Instruction> factoryFunction;
+    private final Map<String, Function<String, Instruction>> instructionMap = new HashMap<>();
 
-    public InstructionRegistry(InstructionReader<AbstractInstruction> factoryFunction) {
+    public InstructionRegistry(InstructionReader<Instruction> factoryFunction) {
         InstructionRegistry.factoryFunction = factoryFunction;
     }
 
@@ -34,14 +34,14 @@ public class InstructionRegistry implements Registry<AbstractInstruction> {
     }
 
     @Override
-    public Function<String, AbstractInstruction> createInstruction(String name) {
-        Function<String, AbstractInstruction> instruction = factoryFunction.parse(name);
+    public Function<String, Instruction> createInstruction(String name) {
+        Function<String, Instruction> instruction = factoryFunction.parse(name);
         instructionMap.put(name, instruction);
         return instruction;
     }
 
     @Override
-    public Function<String, AbstractInstruction> get(String name) {
+    public Function<String, Instruction> get(String name) {
         return instructionMap.get(name);
     }
 }

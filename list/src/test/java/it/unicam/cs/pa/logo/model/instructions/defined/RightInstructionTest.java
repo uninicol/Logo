@@ -2,7 +2,7 @@ package it.unicam.cs.pa.logo.model.instructions.defined;
 
 import it.unicam.cs.pa.logo.model.defined.TwoDimCoordinate;
 import it.unicam.cs.pa.logo.model.defined.TwoDimEnvironment;
-import it.unicam.cs.pa.logo.model.instructions.AbstractInstruction;
+import it.unicam.cs.pa.logo.model.instructions.Instruction;
 import it.unicam.cs.pa.logo.model.instructions.InstructionRegistry;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -25,28 +25,28 @@ class RightInstructionTest {
     @Test
     void drawRightTest() throws IOException {
         String script = "RIGHT 0 FORWARD 50";
-        AbstractInstruction.EXECUTOR.execute(registry, env, new LinkedList<>(List.of(script.split(" "))));
+        Instruction.EXECUTOR.execute(registry, env, new LinkedList<>(List.of(script.split(" "))));
         assertEquals(new TwoDimCoordinate(550, 500), env.getCursor().getPosition());
     }
 
     @Test
     void drawDownTest() throws IOException {
         String script = "RIGHT 90 FORWARD 50";
-        AbstractInstruction.EXECUTOR.execute(registry, env, new LinkedList<>(List.of(script.split(" "))));
+        Instruction.EXECUTOR.execute(registry, env, new LinkedList<>(List.of(script.split(" "))));
         assertEquals(new TwoDimCoordinate(500, 450), env.getCursor().getPosition());
     }
 
     @Test
     void drawLeftTest() throws IOException {
         String script = "RIGHT 180 FORWARD 50";
-        AbstractInstruction.EXECUTOR.execute(registry, env, new LinkedList<>(List.of(script.split(" "))));
+        Instruction.EXECUTOR.execute(registry, env, new LinkedList<>(List.of(script.split(" "))));
         assertEquals(new TwoDimCoordinate(450, 500), env.getCursor().getPosition());
     }
 
     @Test
     void drawUpTest() throws IOException {
         String script = "RIGHT 270 FORWARD 50";
-        AbstractInstruction.EXECUTOR.execute(registry, env, new LinkedList<>(List.of(script.split(" "))));
+        Instruction.EXECUTOR.execute(registry, env, new LinkedList<>(List.of(script.split(" "))));
         assertEquals(new TwoDimCoordinate(500, 550), env.getCursor().getPosition());
     }
 }

@@ -2,14 +2,14 @@ package it.unicam.cs.pa.logo.model.instructions.defined;
 
 import it.unicam.cs.pa.logo.model.Coordinate;
 import it.unicam.cs.pa.logo.model.Environment;
-import it.unicam.cs.pa.logo.model.instructions.AbstractInstruction;
+import it.unicam.cs.pa.logo.model.instructions.Instruction;
 
 import java.util.LinkedList;
 
 /**
  * Classe che rappresenta l'istruzione HOME, muove il cursore nella posizione di home
  */
-public final class HomeInstruction extends AbstractInstruction {
+public final class HomeInstruction extends Instruction {
 
 
     public HomeInstruction() {

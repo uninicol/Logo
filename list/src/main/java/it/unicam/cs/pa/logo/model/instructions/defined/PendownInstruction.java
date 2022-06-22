@@ -1,14 +1,14 @@
 package it.unicam.cs.pa.logo.model.instructions.defined;
 
 import it.unicam.cs.pa.logo.model.Environment;
-import it.unicam.cs.pa.logo.model.instructions.AbstractInstruction;
+import it.unicam.cs.pa.logo.model.instructions.Instruction;
 
 import java.util.LinkedList;
 
 /**
  * Classe che rappresenta l'istruzione PENDOWN, attacca la penna al foglio
  */
-public final class PendownInstruction extends AbstractInstruction {
+public final class PendownInstruction extends Instruction {
     public PendownInstruction() {
         super(0);
     }

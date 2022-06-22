@@ -1,14 +1,14 @@
 package it.unicam.cs.pa.logo.model.instructions.defined;
 
 import it.unicam.cs.pa.logo.model.Environment;
-import it.unicam.cs.pa.logo.model.instructions.AbstractInstruction;
+import it.unicam.cs.pa.logo.model.instructions.Instruction;
 
 import java.util.LinkedList;
 
 /**
  * Classe che rappresenta l'istruzione LEFT, ruota il cursore in senso antiorario
  */
-public final class LeftInstruction extends AbstractInstruction {
+public final class LeftInstruction extends Instruction {
     public LeftInstruction() {
         super(1);
     }

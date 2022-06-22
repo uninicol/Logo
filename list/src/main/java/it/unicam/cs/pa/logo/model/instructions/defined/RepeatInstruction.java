@@ -1,7 +1,7 @@
 package it.unicam.cs.pa.logo.model.instructions.defined;
 
 import it.unicam.cs.pa.logo.model.Environment;
-import it.unicam.cs.pa.logo.model.instructions.AbstractInstruction;
+import it.unicam.cs.pa.logo.model.instructions.Instruction;
 import it.unicam.cs.pa.logo.model.instructions.InstructionRegistry;
 
 import java.io.IOException;
@@ -12,7 +12,7 @@ import java.util.stream.Collectors;
 /**
  * Classe che rappresenta l'istruzione REPEAT, ripete la sequenza di comandi
  */
-public final class RepeatInstruction extends AbstractInstruction {
+public final class RepeatInstruction extends Instruction {
 
     public RepeatInstruction() {
         super(1);
@@ -28,7 +28,7 @@ public final class RepeatInstruction extends AbstractInstruction {
         removeToRepeatScript(script, toRepeat);
         for (int i = 0; i < num; i++) {
             //dato che la lista verrà consumata creo una nuova LinkedList per ogni iterazione
-            AbstractInstruction.EXECUTOR.execute(InstructionRegistry.getTwoDimRegistrySet(), environment, new LinkedList<>(toRepeat));
+            Instruction.EXECUTOR.execute(InstructionRegistry.getTwoDimRegistrySet(), environment, new LinkedList<>(toRepeat));
         }
         return environment;
     }

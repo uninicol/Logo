@@ -1,7 +1,7 @@
 package it.unicam.cs.pa.logo.model.instructions.defined;
 
 import it.unicam.cs.pa.logo.model.Environment;
-import it.unicam.cs.pa.logo.model.instructions.AbstractInstruction;
+import it.unicam.cs.pa.logo.model.instructions.Instruction;
 
 import java.awt.*;
 import java.util.LinkedList;
@@ -9,7 +9,7 @@ import java.util.LinkedList;
 /**
  * Classe che rappresenta l'istruzione SETPENCOLOR, imposta il colore della penna
  */
-public final class SetpencolorInstruction extends AbstractInstruction {
+public final class SetpencolorInstruction extends Instruction {
     public SetpencolorInstruction() {
         super(3);
     }

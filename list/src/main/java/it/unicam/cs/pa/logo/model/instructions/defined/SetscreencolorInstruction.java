@@ -1,7 +1,7 @@
 package it.unicam.cs.pa.logo.model.instructions.defined;
 
 import it.unicam.cs.pa.logo.model.Environment;
-import it.unicam.cs.pa.logo.model.instructions.AbstractInstruction;
+import it.unicam.cs.pa.logo.model.instructions.Instruction;
 
 import java.awt.*;
 import java.util.LinkedList;
@@ -9,7 +9,7 @@ import java.util.LinkedList;
 /**
  * Classe che rappresenta l'istruzione SETSCREENCOLOR, imposta il colore di background dell’area di disegno
  */
-public final class SetscreencolorInstruction extends AbstractInstruction {
+public final class SetscreencolorInstruction extends Instruction {
     public SetscreencolorInstruction() {
         super(3);
     }

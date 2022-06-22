@@ -2,14 +2,14 @@ package it.unicam.cs.pa.logo.model.instructions.defined;
 
 import it.unicam.cs.pa.logo.model.Coordinate;
 import it.unicam.cs.pa.logo.model.Environment;
-import it.unicam.cs.pa.logo.model.instructions.AbstractInstruction;
+import it.unicam.cs.pa.logo.model.instructions.Instruction;
 
 import java.util.LinkedList;
 
 /**
  * Classe che rappresenta l'istruzione FORWARD, sposta il cursore in avanti verso la sua direzione
  */
-public final class ForwardInstruction extends AbstractInstruction {
+public final class ForwardInstruction extends Instruction {
 
     public ForwardInstruction() {
         super(1);

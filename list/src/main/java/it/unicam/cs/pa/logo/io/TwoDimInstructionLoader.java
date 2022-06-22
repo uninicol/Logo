@@ -1,10 +1,10 @@
 package it.unicam.cs.pa.logo.io;
 
-import it.unicam.cs.pa.logo.model.instructions.AbstractInstruction;
+import it.unicam.cs.pa.logo.model.instructions.Instruction;
 import it.unicam.cs.pa.logo.model.instructions.defined.*;
 
 public class TwoDimInstructionLoader {
-    public static InstructionReader<AbstractInstruction> READER = (str -> switch (str) {
+    public static InstructionReader<Instruction> READER = (str -> switch (str) {
         case "BACKWARD" -> (name) -> new BackwardInstruction();
         case "LEFT" -> (name) -> new LeftInstruction();
         case "RIGHT" -> (name) -> new RightInstruction();

@@ -1,14 +1,14 @@
 package it.unicam.cs.pa.logo.model.instructions.defined;
 
 import it.unicam.cs.pa.logo.model.Environment;
-import it.unicam.cs.pa.logo.model.instructions.AbstractInstruction;
+import it.unicam.cs.pa.logo.model.instructions.Instruction;
 
 import java.util.LinkedList;
 
 /**
  * Classe che rappresenta l'istruzione PENUP, stacca la penna dal foglio
  */
-public final class PenupInstrucion extends AbstractInstruction {
+public final class PenupInstrucion extends Instruction {
     public PenupInstrucion() {
         super(0);
     }

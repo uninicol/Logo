@@ -4,7 +4,7 @@ import it.unicam.cs.pa.logo.io.EnvironmentWriter;
 import it.unicam.cs.pa.logo.io.TwoDimEnvWriter;
 import it.unicam.cs.pa.logo.model.Environment;
 import it.unicam.cs.pa.logo.model.defined.TwoDimEnvironment;
-import it.unicam.cs.pa.logo.model.instructions.AbstractInstruction;
+import it.unicam.cs.pa.logo.model.instructions.Instruction;
 import it.unicam.cs.pa.logo.model.instructions.Executor;
 import it.unicam.cs.pa.logo.model.instructions.InstructionRegistry;
 import it.unicam.cs.pa.logo.model.instructions.Registry;
@@ -21,8 +21,8 @@ import java.util.List;
 public class Controller {
 
     private final EnvironmentWriter writer;
-    private final Registry<AbstractInstruction> registry;
-    private final Executor<AbstractInstruction> executor = AbstractInstruction.EXECUTOR;
+    private final Registry<Instruction> registry;
+    private final Executor<Instruction> executor = Instruction.EXECUTOR;
     private final Environment currentField;
 
     /**
@@ -33,7 +33,7 @@ public class Controller {
      * @param environment l'environment
      * @param registry    il registro
      */
-    public Controller(EnvironmentWriter writer, Environment environment, Registry<AbstractInstruction> registry) {
+    public Controller(EnvironmentWriter writer, Environment environment, Registry<Instruction> registry) {
         this.writer = writer;
         this.currentField = environment;
         this.registry = registry;

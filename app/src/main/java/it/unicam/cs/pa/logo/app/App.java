@@ -17,9 +17,9 @@ public class App {
         System.out.println("prima di iniziare inserire lunghezza e altezza della tavola da disegno");
         Controller controller = getController(scanner);
         printBoard();
-        switch (scanner.nextInt()) {
-            case 1 -> new StepByStepExecution().execute(controller, scanner);
-            case 2 -> new FileExecution().execute(controller, scanner);
+        switch (scanner.next()) {
+            case "1" -> new StepByStepExecution().execute(controller, scanner);
+            case "2" -> new FileExecution().execute(controller, scanner);
         }
         System.out.println("Salvare su file l'esecuzione? S/n");
         if (scanner.next().equals("S")) {
@@ -38,10 +38,12 @@ public class App {
     }
 
     Controller getController(Scanner scanner) {
-        System.out.print("Lunghezza:");
-        int lunghezza = scanner.nextInt();
-        System.out.print("Altezza:");
-        int altezza = scanner.nextInt();
-        return Controller.getTwoDimController(lunghezza, altezza);
+        //TODO: scanner.nextInt() eseguito con gradle run non prende nulla e lancia eccezione, per ora faccio environment fisso grande 1000x1000
+//        System.out.print("Lunghezza:");
+//        int lunghezza = scanner.nextInt();
+//        System.out.println("\n\n##" + lunghezza + "##\n\n");
+//        System.out.print("Altezza:");
+//        int altezza = scanner.nextInt();
+        return Controller.getTwoDimController(1000, 1000);
     }
 }

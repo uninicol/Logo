@@ -2,7 +2,7 @@ package it.unicam.cs.pa.logo.model.instructions.defined;
 
 import it.unicam.cs.pa.logo.model.defined.TwoDimCoordinate;
 import it.unicam.cs.pa.logo.model.defined.TwoDimEnvironment;
-import it.unicam.cs.pa.logo.model.instructions.AbstractInstruction;
+import it.unicam.cs.pa.logo.model.instructions.Instruction;
 import it.unicam.cs.pa.logo.model.instructions.InstructionRegistry;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -27,7 +27,7 @@ public class RepeatInstructionTest {
     @Test
     public void executeDrawSegmentTest() throws IOException {
         String command = "REPEAT 3 [ FORWARD 50 ]";
-        AbstractInstruction.EXECUTOR.execute(registry, env, new LinkedList<>(List.of(command.split(" "))));
+        Instruction.EXECUTOR.execute(registry, env, new LinkedList<>(List.of(command.split(" "))));
         assertEquals(new TwoDimCoordinate(650, 500), env.getCursor().getPosition());
     }
 
@@ -35,7 +35,7 @@ public class RepeatInstructionTest {
     public void commandWithoutParenthesisTest() {
         assertThrows(IllegalArgumentException.class, () -> {
                     String command = "REPEAT 3 [ FORWARD 50";
-                    AbstractInstruction.EXECUTOR.execute(registry, env, new LinkedList<>(List.of(command.split(" "))));
+                    Instruction.EXECUTOR.execute(registry, env, new LinkedList<>(List.of(command.split(" "))));
                 }
         );
     }
@@ -43,21 +43,21 @@ public class RepeatInstructionTest {
     @Test
     public void executeDrawSquareTest() throws IOException {
         String square = "REPEAT 4 [ FORWARD 50 RIGHT 90 ]";
-        AbstractInstruction.EXECUTOR.execute(registry, env, new LinkedList<>(List.of(square.split(" "))));
+        Instruction.EXECUTOR.execute(registry, env, new LinkedList<>(List.of(square.split(" "))));
         assertEquals(new TwoDimCoordinate(500, 500), env.getCursor().getPosition());
     }
 
     @Test
     public void executeCommandAfterRepeatTest() throws IOException {
         String square = "REPEAT 4 [ FORWARD 50 RIGHT 90 ] FORWARD 50";
-        AbstractInstruction.EXECUTOR.execute(registry, env, new LinkedList<>(List.of(square.split(" "))));
+        Instruction.EXECUTOR.execute(registry, env, new LinkedList<>(List.of(square.split(" "))));
         assertEquals(new TwoDimCoordinate(550, 500), env.getCursor().getPosition());
     }
 
     @Test
     public void innerRepeatInstructionTest() throws IOException {
         String script = "REPEAT 4 [ REPEAT 50 [ FORWARD 1 ] ]";
-        AbstractInstruction.EXECUTOR.execute(registry, env, new LinkedList<>(List.of(script.split(" "))));
+        Instruction.EXECUTOR.execute(registry, env, new LinkedList<>(List.of(script.split(" "))));
         assertEquals(new TwoDimCoordinate(700, 500), env.getCursor().getPosition());
     }
 }

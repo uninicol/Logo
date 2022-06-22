@@ -2,14 +2,14 @@ package it.unicam.cs.pa.logo.model.instructions.defined;
 
 import it.unicam.cs.pa.logo.model.Coordinate;
 import it.unicam.cs.pa.logo.model.Environment;
-import it.unicam.cs.pa.logo.model.instructions.AbstractInstruction;
+import it.unicam.cs.pa.logo.model.instructions.Instruction;
 
 import java.util.LinkedList;
 
 /**
  * Classe che rappresenta l'istruzione BACKWARD, sposta il cursore indietro rispetto la sua direzione
  */
-public final class BackwardInstruction extends AbstractInstruction {
+public final class BackwardInstruction extends Instruction {
     public BackwardInstruction() {
         super(1);
     }
