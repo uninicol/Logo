@@ -62,8 +62,8 @@ public class Controller {
      * @return lo script
      * @throws IOException se avviene un errore IO
      */
-    public String read(File file) throws IOException {
-        return Files.readString(file.toPath());
+    public List<String> read(File file) throws IOException {
+        return Files.readAllLines(file.toPath());
     }
 
     /**
