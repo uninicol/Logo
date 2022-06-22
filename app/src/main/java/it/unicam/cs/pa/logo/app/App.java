@@ -17,8 +17,7 @@ public class App {
         System.out.println("prima di iniziare inserire lunghezza e altezza della tavola da disegno");
         Controller controller = getController(scanner);
         printBoard();
-        int scelta = scanner.nextInt();
-        switch (scelta) {
+        switch (scanner.nextInt()) {
             case 1 -> new StepByStepExecution().execute(controller, scanner);
             case 2 -> new FileExecution().execute(controller, scanner);
         }

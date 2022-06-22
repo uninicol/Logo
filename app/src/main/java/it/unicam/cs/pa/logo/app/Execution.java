@@ -12,8 +12,9 @@ public interface Execution {
 
     /**
      * Esegue una computazione di un programma LOGO
+     *
      * @param controller il controller
-     * @param scanner lo scanner per leggere i dati
+     * @param scanner    lo scanner per leggere i dati
      */
     void execute(Controller controller, Scanner scanner);
 }

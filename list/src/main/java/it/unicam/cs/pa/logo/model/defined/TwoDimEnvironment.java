@@ -16,9 +16,9 @@ public class TwoDimEnvironment implements Environment {
     private final int length;
     private final int height;
     private final List<Shape> shapes;
-    private Color backgroundColor = Color.WHITE;
     private final Cursor cursor;
     private final Drawer drawer;
+    private Color backgroundColor = Color.WHITE;
 
     public TwoDimEnvironment(int length, int height) {
         this.length = length;

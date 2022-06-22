@@ -16,7 +16,7 @@ public interface Registry<I extends Instruction> {
      * @param name il nome del comando
      * @return la funzione di creazione di un'istruzione
      */
-    Function<String,I> createInstruction(String name) throws IOException;
+    Function<String, I> createInstruction(String name) throws IOException;
 
     /**
      * Restituisce la funzione che crea l'istruzione
@@ -24,14 +24,15 @@ public interface Registry<I extends Instruction> {
      * @param name il nome dell'istruzione
      * @return la funzione di creazione di un'istruzione
      */
-    Function<String,I> get(String name);
+    Function<String, I> get(String name);
 
     /**
      * Restituisce l'istruzione associato al nome
+     *
      * @param name il nome dell'istruzione
      * @return l'istruzione
      */
-    default I getInstruction(String name){
+    default I getInstruction(String name) {
         return get(name).apply(name);
     }
 }

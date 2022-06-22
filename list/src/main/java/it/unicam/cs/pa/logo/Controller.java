@@ -25,18 +25,13 @@ public class Controller {
     private final Executor<AbstractInstruction> executor = AbstractInstruction.EXECUTOR;
     private final Environment currentField;
 
-    public static Controller getTwoDimController(int length, int height) {
-        return new Controller(new TwoDimEnvWriter(),
-                new TwoDimEnvironment(length, height),
-                InstructionRegistry.getTwoDimRegistrySet());
-    }
-
     /**
      * Crea un controller che userà uno scrittore per esportare un ambiente, l'ambiente su cui avverrà la computazione,
      * un registro contenente il set d'istruzioni che possono essere eseguiti
-     * @param writer lo scrittore
+     *
+     * @param writer      lo scrittore
      * @param environment l'environment
-     * @param registry il registro
+     * @param registry    il registro
      */
     public Controller(EnvironmentWriter writer, Environment environment, Registry<AbstractInstruction> registry) {
         this.writer = writer;
@@ -44,10 +39,16 @@ public class Controller {
         this.registry = registry;
     }
 
+    public static Controller getTwoDimController(int length, int height) {
+        return new Controller(new TwoDimEnvWriter(),
+                new TwoDimEnvironment(length, height),
+                InstructionRegistry.getTwoDimRegistrySet());
+    }
+
     /**
      * Scrive l'environment su un dato file
      *
-     * @param file  dove verrà salvato l'environment
+     * @param file dove verrà salvato l'environment
      * @throws IOException se avviene un errore IO
      */
     public void save(File file) throws IOException {

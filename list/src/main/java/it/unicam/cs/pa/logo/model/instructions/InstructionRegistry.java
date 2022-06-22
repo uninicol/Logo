@@ -6,7 +6,6 @@ import it.unicam.cs.pa.logo.io.TwoDimInstructionLoader;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.function.Consumer;
 import java.util.function.Function;
 
 /**
@@ -14,23 +13,11 @@ import java.util.function.Function;
  */
 public class InstructionRegistry implements Registry<AbstractInstruction> {
 
-    private final Map<String, Function<String, AbstractInstruction>> instructionMap = new HashMap<>();
     private static InstructionReader<AbstractInstruction> factoryFunction;
+    private final Map<String, Function<String, AbstractInstruction>> instructionMap = new HashMap<>();
 
     public InstructionRegistry(InstructionReader<AbstractInstruction> factoryFunction) {
         InstructionRegistry.factoryFunction = factoryFunction;
-    }
-
-    @Override
-    public Function<String,AbstractInstruction> createInstruction(String name) {
-        Function<String, AbstractInstruction> instruction = factoryFunction.parse(name);
-        instructionMap.put(name, instruction);
-        return instruction;
-    }
-
-    @Override
-    public Function<String,AbstractInstruction> get(String name) {
-        return instructionMap.get(name);
     }
 
     /**
@@ -44,5 +31,17 @@ public class InstructionRegistry implements Registry<AbstractInstruction> {
                 "REPEAT", "RIGHT", "SETFILLCOLOR", "SETPENCOLOR", "SETPENSIZE", "SETSCREENCOLOR");
         instructions.forEach(registry::createInstruction);
         return registry;
+    }
+
+    @Override
+    public Function<String, AbstractInstruction> createInstruction(String name) {
+        Function<String, AbstractInstruction> instruction = factoryFunction.parse(name);
+        instructionMap.put(name, instruction);
+        return instruction;
+    }
+
+    @Override
+    public Function<String, AbstractInstruction> get(String name) {
+        return instructionMap.get(name);
     }
 }
