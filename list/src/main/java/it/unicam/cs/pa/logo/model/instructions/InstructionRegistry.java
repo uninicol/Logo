@@ -6,13 +6,15 @@ import it.unicam.cs.pa.logo.io.TwoDimInstructionLoader;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.function.Consumer;
+import java.util.function.Function;
 
 /**
  * Registro per contenere il set di istruzioni che andremo ad utilizzare
  */
 public class InstructionRegistry implements Registry<AbstractInstruction> {
 
-    private final Map<String, AbstractInstruction> instructionMap = new HashMap<>();
+    private final Map<String, Function<String, AbstractInstruction>> instructionMap = new HashMap<>();
     private static InstructionReader<AbstractInstruction> factoryFunction;
 
     public InstructionRegistry(InstructionReader<AbstractInstruction> factoryFunction) {
@@ -20,14 +22,14 @@ public class InstructionRegistry implements Registry<AbstractInstruction> {
     }
 
     @Override
-    public AbstractInstruction createInstruction(String name) {
-        AbstractInstruction instruction = factoryFunction.parse(name);
+    public Function<String,AbstractInstruction> createInstruction(String name) {
+        Function<String, AbstractInstruction> instruction = factoryFunction.parse(name);
         instructionMap.put(name, instruction);
         return instruction;
     }
 
     @Override
-    public AbstractInstruction get(String name) {
+    public Function<String,AbstractInstruction> get(String name) {
         return instructionMap.get(name);
     }
 

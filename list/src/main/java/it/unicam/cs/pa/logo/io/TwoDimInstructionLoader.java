@@ -5,19 +5,19 @@ import it.unicam.cs.pa.logo.model.instructions.defined.*;
 
 public class TwoDimInstructionLoader {
     public static InstructionReader<AbstractInstruction> READER = (str -> switch (str) {
-        case "BACKWARD" -> new BackwardInstruction();
-        case "LEFT" -> new LeftInstruction();
-        case "RIGHT" -> new RightInstruction();
-        case "CLEARSCREEN" -> new ClearscreenInstruction();
-        case "HOME" -> new HomeInstruction();
-        case "PENUP" -> new PenupInstrucion();
-        case "PENDOWN" -> new PendownInstruction();
-        case "SETPENCOLOR" -> new SetpencolorInstruction();
-        case "SETFILLCOLOR" -> new SetfillcolorInstruction();
-        case "SETSCREENCOLOR" -> new SetscreencolorInstruction();
-        case "SETPENSIZE" -> new SetpensizeInstruction();
-        case "REPEAT" -> new RepeatInstruction();
-        case "FORWARD" -> new ForwardInstruction();
+        case "BACKWARD" -> (name) -> new BackwardInstruction();
+        case "LEFT" -> (name) -> new LeftInstruction();
+        case "RIGHT" -> (name) -> new RightInstruction();
+        case "CLEARSCREEN" -> (name) -> new ClearscreenInstruction();
+        case "HOME" -> (name) -> new HomeInstruction();
+        case "PENUP" -> (name) -> new PenupInstrucion();
+        case "PENDOWN" -> (name) -> new PendownInstruction();
+        case "SETPENCOLOR" -> (name) -> new SetpencolorInstruction();
+        case "SETFILLCOLOR" -> (name) -> new SetfillcolorInstruction();
+        case "SETSCREENCOLOR" -> (name) -> new SetscreencolorInstruction();
+        case "SETPENSIZE" -> (name) -> new SetpensizeInstruction();
+        case "REPEAT" -> (name) -> new RepeatInstruction();
+        case "FORWARD" -> (name) -> new ForwardInstruction();
         default -> null;
     }
     );

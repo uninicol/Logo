@@ -23,8 +23,11 @@ public class App {
             case 2 -> new FileExecution().execute(controller, scanner);
         }
         System.out.println("Salvare su file l'esecuzione? S/n");
-        if (scanner.next().equals("S"))
-            controller.save(new File("output.logo"));
+        if (scanner.next().equals("S")) {
+            File file = new File("output.logo");
+            controller.save(file);
+            System.out.println("File salvato su " + file.toPath());
+        }
         scanner.close();
     }
 

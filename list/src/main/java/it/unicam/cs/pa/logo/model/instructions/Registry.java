@@ -1,6 +1,7 @@
 package it.unicam.cs.pa.logo.model.instructions;
 
 import java.io.IOException;
+import java.util.function.Function;
 
 /**
  * Questa classe è usata per creare e restituire oggetti di tipo Instruction
@@ -10,18 +11,27 @@ import java.io.IOException;
 public interface Registry<I extends Instruction> {
 
     /**
-     * Crea una nuova istruzione
+     * Crea una nuova funzione di creazione di un'istruzione
      *
      * @param name il nome del comando
-     * @return il comando creato
+     * @return la funzione di creazione di un'istruzione
      */
-    I createInstruction(String name) throws IOException;
+    Function<String,I> createInstruction(String name) throws IOException;
+
+    /**
+     * Restituisce la funzione che crea l'istruzione
+     *
+     * @param name il nome dell'istruzione
+     * @return la funzione di creazione di un'istruzione
+     */
+    Function<String,I> get(String name);
 
     /**
      * Restituisce l'istruzione associato al nome
-     *
      * @param name il nome dell'istruzione
      * @return l'istruzione
      */
-    I get(String name);
+    default I getInstruction(String name){
+        return get(name).apply(name);
+    }
 }

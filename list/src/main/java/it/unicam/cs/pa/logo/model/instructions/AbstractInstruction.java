@@ -13,10 +13,10 @@ public abstract class AbstractInstruction implements Instruction, InstructionWri
         while (!script.isEmpty()) {
             String command = script.poll();
             if (command.equals("]")) break;
-            Instruction instruction = registry.get(command);
+            Instruction instruction = registry.getInstruction(command);
             if (instruction == null) throw new IOException();
             environment = instruction.apply(environment, script);
-            System.out.println(command + " ha " + registry.get(command).stringOf(environment));
+            System.out.println(command + " ha " + registry.getInstruction(command).stringOf(environment));
         }
         return environment;
     };
