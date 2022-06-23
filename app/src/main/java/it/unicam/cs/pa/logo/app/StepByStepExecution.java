@@ -2,6 +2,7 @@ package it.unicam.cs.pa.logo.app;
 
 import it.unicam.cs.pa.logo.Controller;
 
+import java.io.BufferedReader;
 import java.io.IOException;
 import java.util.Scanner;
 
@@ -10,10 +11,10 @@ import java.util.Scanner;
  */
 public class StepByStepExecution {
 
-    public void execute(Controller controller, Scanner scanner) {
+    public void execute(Controller controller, BufferedReader br) throws IOException {
         System.out.println("Hai scelto l'esecuzione passo passo, separare ogni parola da uno spazio\nScrivere EXIT per terminare");
         while (true) {
-            String command = scanner.next();
+            String command = br.readLine();
             if (command.equalsIgnoreCase("EXIT")) break;
             try {
                 controller.computeScript(command);

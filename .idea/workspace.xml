@@ -4,11 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d470bcfa-26cf-40c7-b95f-2bc7f98722c7" name="Changes" comment="ora puo leggere un file su piu righe">
-      <change afterPath="$PROJECT_DIR$/list/src/test/java/it/unicam/cs/pa/logo/model/ShapeTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
+    <list default="true" id="d470bcfa-26cf-40c7-b95f-2bc7f98722c7" name="Changes" comment="Eliminato interfaccia Instruction e &quot;convertita&quot; in classe astratta">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/it/unicam/cs/pa/logo/app/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/it/unicam/cs/pa/logo/app/App.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/it/unicam/cs/pa/logo/app/FileExecution.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/it/unicam/cs/pa/logo/app/FileExecution.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/it/unicam/cs/pa/logo/app/StepByStepExecution.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/it/unicam/cs/pa/logo/app/StepByStepExecution.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/list/src/main/java/it/unicam/cs/pa/logo/model/instructions/Instruction.java" beforeDir="false" afterPath="$PROJECT_DIR$/list/src/main/java/it/unicam/cs/pa/logo/model/instructions/Instruction.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -88,24 +89,24 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_ADD_EXTERNAL_FILES": "true",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
-    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
-    "extract.method.default.visibility": "private",
-    "jdk.selected.JAVA_MODULE": "17",
-    "last_opened_file_path": "C:/Users/nicki/IdeaProjects/Logo",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.0",
-    "run.code.analysis.last.selected.profile": "pProject Default",
-    "settings.editor.selected.configurable": "reference.settingsdialog.project.gradle"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary&quot;: &quot;JUnit5&quot;,
+    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5&quot;: &quot;&quot;,
+    &quot;extract.method.default.visibility&quot;: &quot;private&quot;,
+    &quot;jdk.selected.JAVA_MODULE&quot;: &quot;17&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/nicki/IdeaProjects/Logo&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
+    &quot;run.code.analysis.last.selected.profile&quot;: &quot;pProject Default&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settingsdialog.project.gradle&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
       <recent name="it.unicam.cs.pa.logo.instructions" />
@@ -370,6 +371,11 @@
       <workItem from="1655818067171" duration="3809000" />
       <workItem from="1655843824142" duration="20000" />
       <workItem from="1655887183094" duration="9062000" />
+      <workItem from="1655912963947" duration="966000" />
+      <workItem from="1655914056318" duration="450000" />
+      <workItem from="1655927415167" duration="114000" />
+      <workItem from="1655969765681" duration="4291000" />
+      <workItem from="1655975721666" duration="595000" />
     </task>
     <task id="LOCAL-00001" summary="init commit">
       <created>1652373969498</created>
@@ -574,7 +580,14 @@
       <option name="project" value="LOCAL" />
       <updated>1655890608680</updated>
     </task>
-    <option name="localTasksCounter" value="30" />
+    <task id="LOCAL-00030" summary="Eliminato interfaccia Instruction e &quot;convertita&quot; in classe astratta">
+      <created>1655913902361</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1655913902361</updated>
+    </task>
+    <option name="localTasksCounter" value="31" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -589,7 +602,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="init commit" />
     <MESSAGE value="Progettazione base dei concetti" />
     <MESSAGE value="Ridefinizione responsabilità" />
     <MESSAGE value="Aggiunti commenti mancanti" />
@@ -614,7 +626,8 @@
     <MESSAGE value="migliorato stringOf delle istruzioni" />
     <MESSAGE value="base App" />
     <MESSAGE value="ora puo leggere un file su piu righe" />
-    <option name="LAST_COMMIT_MESSAGE" value="ora puo leggere un file su piu righe" />
+    <MESSAGE value="Eliminato interfaccia Instruction e &quot;convertita&quot; in classe astratta" />
+    <option name="LAST_COMMIT_MESSAGE" value="Eliminato interfaccia Instruction e &quot;convertita&quot; in classe astratta" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -625,8 +638,8 @@
           <option name="timeStamp" value="26" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/list/src/main/java/it/unicam/cs/pa/logo/model/instructions/AbstractInstruction.java</url>
-          <line>17</line>
+          <url>file://$PROJECT_DIR$/list/src/main/java/it/unicam/cs/pa/logo/model/instructions/Instruction.java</url>
+          <line>20</line>
           <option name="timeStamp" value="52" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
@@ -643,11 +656,6 @@
           <url>jar://$USER_HOME$/.jdks/openjdk-17.0.2/lib/src.zip!/java.base/java/nio/file/Files.java</url>
           <line>3511</line>
           <option name="timeStamp" value="56" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/it/unicam/cs/pa/logo/app/App.java</url>
-          <line>42</line>
-          <option name="timeStamp" value="57" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
