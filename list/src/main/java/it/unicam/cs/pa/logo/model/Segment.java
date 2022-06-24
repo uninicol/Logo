@@ -34,11 +34,4 @@ public interface Segment {
      * @return il colore del segmento
      */
     Color getColor();
-//
-//    /**
-//     * Restituisce la funzione che rappresenta la linea
-//     *
-//     * @return la funzione che rappresenta la linea
-//     */
-//    Function<Integer, Integer> getFunction();
 }

@@ -20,11 +20,8 @@ public final class SetfillcolorInstruction extends Instruction {
         int red = getAttribute(script);
         int green = getAttribute(script);
         int blue = getAttribute(script);
-        environment.getCursor().setLineColor(
-                new Color(
-                        red, green, blue
-                )
-        );
+        Color color = new Color(red, green, blue);
+        environment.getCursor().setAreaColor(color);
         return environment;
     }
 

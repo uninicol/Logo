@@ -23,6 +23,10 @@ public class TwoDimDrawer implements Drawer {
         if (environment.getCursor().isPlot())
             draw(segment);
         environment.getCursor().move(segment.getEndPoint());
+        if (environment.getShapes().isEmpty()) return environment;
+        Shape lastShape = environment.getShapes().get(environment.getShapes().size() - 1);
+        if (lastShape.isClosed())
+            lastShape.setBackgroundColor(environment.getCursor().getAreaColor());
         return environment;
     }
 

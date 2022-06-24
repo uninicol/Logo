@@ -43,5 +43,12 @@ public interface Coordinate {
         return distance(c1.getX(), c1.getY());
     }
 
-    Coordinate getCoordinateFromDistance(int distance, Direction environment);
+    /**
+     * Restituisce le coordinate distanti verso una direzione
+     *
+     * @param distance  la distanza
+     * @param direction la direzione
+     * @return le coordinate distanti verso una direzione
+     */
+    Coordinate getCoordinateFromDistance(int distance, Direction direction);
 }

@@ -15,8 +15,8 @@ public final class LeftInstruction extends Instruction {
 
     @Override
     public Environment apply(Environment environment, LinkedList<String> script) {
-        int grade = -getAttribute(script);
-        environment.getCursor().getDirection().increase(grade);
+        int grade = getAttribute(script);
+        environment.getCursor().getDirection().decrease(grade);
         return environment;
     }
 

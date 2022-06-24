@@ -46,7 +46,7 @@ public abstract class Instruction implements InstructionWriter {
      *
      * @return il numero di attributi che l'istruzione ha bisogno
      */
-    public final int getRequiredAttributesNumber() {
+    protected final int getRequiredAttributesNumber() {
         return numOfAttributes;
     }
 
@@ -55,18 +55,18 @@ public abstract class Instruction implements InstructionWriter {
      *
      * @return il numero di attributi che l'istruzione ha richiesto
      */
-    public final int getRequestedAttributesNumber() {
+    protected final int getRequestedAttributesNumber() {
         return requestedAttributes;
     }
 
     /**
      * Imposta il numero di attributi che l'istruzione ha richiesto
      */
-    public final void setRequestedAttributesNumber(int number) {
+    protected final void setRequestedAttributesNumber(int number) {
         this.requestedAttributes = number;
     }
 
-    public final int getAttribute(LinkedList<String> script) {
+    protected final int getAttribute(LinkedList<String> script) {
         if (getRequiredAttributesNumber() == getRequestedAttributesNumber())
             throw new RuntimeException("richiesti troppi attributi");
         setRequestedAttributesNumber(getRequestedAttributesNumber() + 1);

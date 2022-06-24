@@ -8,7 +8,6 @@ public interface Drawer {
     /**
      * Traccia una linea se la penna è giù
      *
-     * @param environment l'environment dove tracciare la linea
      * @param segment     il segmento da disegnare
      * @return l'environment aggiornato
      */
@@ -17,7 +16,6 @@ public interface Drawer {
     /**
      * Traccia una linea se la penna è giù
      *
-     * @param environment l'environment dove tracciare la linea
      * @param length      la lunghezza del tratto
      * @return l'environment aggiornato
      */

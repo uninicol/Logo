@@ -69,11 +69,6 @@ public class TwoDimEnvironment implements Environment {
     }
 
     @Override
-    public void clearAll() {
-        shapes.clear();
-    }
-
-    @Override
     public boolean contains(Coordinate coordinate) {
         return coordinate.getX() >= 0
                 && coordinate.getX() <= getLength()
