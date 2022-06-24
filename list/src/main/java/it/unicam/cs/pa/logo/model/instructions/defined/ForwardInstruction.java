@@ -1,7 +1,9 @@
 package it.unicam.cs.pa.logo.model.instructions.defined;
 
 import it.unicam.cs.pa.logo.model.Coordinate;
+import it.unicam.cs.pa.logo.model.Drawer;
 import it.unicam.cs.pa.logo.model.Environment;
+import it.unicam.cs.pa.logo.model.defined.TwoDimDrawer;
 import it.unicam.cs.pa.logo.model.instructions.Instruction;
 
 import java.util.LinkedList;
@@ -18,8 +20,8 @@ public final class ForwardInstruction extends Instruction {
     @Override
     public Environment apply(Environment environment, LinkedList<String> script) {
         int length = getAttribute(script);
-        //determino il punto di arrivo con dovuti limiti
-        return environment.getDrawer().drawLine(length);
+        //determino il punto di arrivo con dovuti limitiz
+        return new TwoDimDrawer().drawLine(environment,length);
     }
 
     @Override

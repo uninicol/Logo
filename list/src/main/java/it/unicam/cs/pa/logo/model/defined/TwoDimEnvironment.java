@@ -17,7 +17,6 @@ public class TwoDimEnvironment implements Environment {
     private final int height;
     private final List<Shape> shapes;
     private final Cursor cursor;
-    private final Drawer drawer;
     private Color backgroundColor = Color.WHITE;
 
     public TwoDimEnvironment(int length, int height) {
@@ -25,7 +24,6 @@ public class TwoDimEnvironment implements Environment {
         this.height = height;
         this.shapes = new ArrayList<>();
         this.cursor = new TwoDimCursor(getHome(), new TwoDimDirection());
-        this.drawer = new TwoDimDrawer(this);
     }
 
     @Override
@@ -46,11 +44,6 @@ public class TwoDimEnvironment implements Environment {
     @Override
     public final void setBackgroundColor(Color backgroundColor) {
         this.backgroundColor = backgroundColor;
-    }
-
-    @Override
-    public Drawer getDrawer() {
-        return drawer;
     }
 
     @Override

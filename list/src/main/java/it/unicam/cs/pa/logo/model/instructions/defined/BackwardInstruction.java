@@ -2,6 +2,7 @@ package it.unicam.cs.pa.logo.model.instructions.defined;
 
 import it.unicam.cs.pa.logo.model.Coordinate;
 import it.unicam.cs.pa.logo.model.Environment;
+import it.unicam.cs.pa.logo.model.defined.TwoDimDrawer;
 import it.unicam.cs.pa.logo.model.instructions.Instruction;
 
 import java.util.LinkedList;
@@ -17,7 +18,7 @@ public final class BackwardInstruction extends Instruction {
     @Override
     public Environment apply(Environment environment, LinkedList<String> script) {
         int length = -getAttribute(script);
-        return environment.getDrawer().drawLine(length);
+        return new TwoDimDrawer().drawLine(environment,length);
     }
 
     @Override

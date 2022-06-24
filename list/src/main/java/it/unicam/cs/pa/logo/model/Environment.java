@@ -69,13 +69,6 @@ public interface Environment {
     }
 
     /**
-     * Restituisce il disegnatore
-     *
-     * @return il disegnatore
-     */
-    Drawer getDrawer();
-
-    /**
      * Elimina tutti i tratti disegnati nel piano
      */
     default void clearAll() {

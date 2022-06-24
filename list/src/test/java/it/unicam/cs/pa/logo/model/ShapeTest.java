@@ -14,16 +14,16 @@ class ShapeTest {
     @BeforeEach
     void build (){
         environment=new TwoDimEnvironment(1000,1000);
-        drawer=new TwoDimDrawer(environment);
+        drawer=new TwoDimDrawer();
     }
 
     @Test
     void drawSegmentTest(){
-        drawer.drawLine(90);
+        drawer.drawLine(environment, 90);
         environment.getCursor().setPlot(false);
-        drawer.drawLine(90);
+        drawer.drawLine(environment,90);
         environment.getCursor().setPlot(true);
-        drawer.drawLine(90);
+        drawer.drawLine(environment,90);
        assertEquals(2, environment.getShapes().size());
     }
 }
