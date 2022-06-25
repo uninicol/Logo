@@ -16,7 +16,7 @@ import java.util.LinkedList;
 import java.util.List;
 
 /**
- * Questa classe è usata per controllare le attività intorno a un'esecuzione LOGO
+ * Questa classe è usata per controllare le attività di un'esecuzione LOGO
  */
 public class Controller {
 
@@ -39,6 +39,12 @@ public class Controller {
         this.registry = registry;
     }
 
+    /**
+     * Restituisce un controller di un environment bidimensionale
+     * @param length la lunghezza dell'environment
+     * @param height l'altezza dell'environment
+     * @return un controller di un environment bidimensionale
+     */
     public static Controller getTwoDimController(int length, int height) {
         return new Controller(new TwoDimEnvWriter(),
                 new TwoDimEnvironment(length, height),

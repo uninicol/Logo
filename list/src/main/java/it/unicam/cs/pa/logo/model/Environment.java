@@ -76,7 +76,7 @@ public interface Environment {
     }
 
     /**
-     * Testa se una coordinata è all'interno dell'environment
+     * Verifica se una coordinata è all'interno dell'environment
      *
      * @param coordinate la coordinata da testare
      * @return true se la coordinata è all'interno all'interno dell'environment

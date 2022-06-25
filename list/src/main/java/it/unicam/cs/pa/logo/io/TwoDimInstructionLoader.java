@@ -3,7 +3,14 @@ package it.unicam.cs.pa.logo.io;
 import it.unicam.cs.pa.logo.model.instructions.Instruction;
 import it.unicam.cs.pa.logo.model.instructions.defined.*;
 
+/**
+ * Questa classe contiene metodi che contengono dei set di istruzioni
+ */
 public class TwoDimInstructionLoader {
+
+    /**
+     * Lista di funzioni che creano un istruzione del linguaggio LOGO
+     */
     public static InstructionReader<Instruction> READER = (str -> switch (str) {
         case "BACKWARD" -> (name) -> new BackwardInstruction();
         case "LEFT" -> (name) -> new LeftInstruction();

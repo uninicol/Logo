@@ -12,6 +12,9 @@ import java.util.Objects;
  */
 public abstract class Instruction implements InstructionWriter {
 
+    /**
+     * Esegue uno script di istruzioni LOGO
+     */
     public static final Executor<Instruction> EXECUTOR = (registry, environment, script) -> {
         while (!script.isEmpty()) {
             String command = script.poll();

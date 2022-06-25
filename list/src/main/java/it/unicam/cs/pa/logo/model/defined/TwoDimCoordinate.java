@@ -30,11 +30,6 @@ public record TwoDimCoordinate(int xAxis, int yAxis) implements Coordinate {
         int y = (int) Math.ceil(
                 getY() + distance * Math.sin(Math.toRadians(angle) * -1)
         );
-        /*
-        if (!(x < 0 || x > environment.getLength()) && !(y < 0 || y > environment.getHeight()))
-            return new TwoDimCoordinate(x, y);
-        else return checkCoordinate(x, y, angle, distance);
-         */
         return new TwoDimCoordinate(x, y);
     }
 }

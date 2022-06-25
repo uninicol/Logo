@@ -34,7 +34,7 @@ public interface Coordinate {
     }
 
     /**
-     * la distanza tra due punti
+     * Restituisce la distanza tra due punti
      *
      * @param c1 la coordinata
      * @return la distanza tra due punti
