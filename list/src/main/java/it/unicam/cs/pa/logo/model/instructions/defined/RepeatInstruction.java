@@ -7,6 +7,7 @@ import it.unicam.cs.pa.logo.model.instructions.InstructionRegistry;
 import java.io.IOException;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Queue;
 import java.util.stream.Collectors;
 
 /**
@@ -19,12 +20,13 @@ public final class RepeatInstruction extends Instruction {
     }
 
     @Override
-    public Environment apply(Environment environment, LinkedList<String> script) throws IOException {
+    public Environment apply(Environment environment, Queue<String> script) throws IOException {
         if (!(script.containsAll(List.of("[", "]")))) throw new IllegalArgumentException("Mancate parentesi");
         int num = getAttribute(script);
-        script.removeFirstOccurrence("["); //elimino la prima parentesi quadrata
+        script.remove("[");
+        //script.removeFirstOccurrence("["); //elimino la prima parentesi quadrata
         //creo una lista delle istruzioni da ripetere
-        LinkedList<String> toRepeat = getScriptToRepeat(script);
+        Queue<String> toRepeat = getScriptToRepeat(script);
         removeToRepeatScript(script, toRepeat);
         for (int i = 0; i < num; i++) {
             //dato che la lista verrà consumata creo una nuova LinkedList per ogni iterazione
@@ -33,7 +35,7 @@ public final class RepeatInstruction extends Instruction {
         return environment;
     }
 
-    private LinkedList<String> getScriptToRepeat(LinkedList<String> script) {
+    private Queue<String> getScriptToRepeat(Queue<String> script) {
         LinkedList<String> repeat = script.stream()
                 .takeWhile(str -> !str.equals("]"))
                 .collect(Collectors.toCollection(LinkedList::new));
@@ -41,14 +43,13 @@ public final class RepeatInstruction extends Instruction {
         return repeat;
     }
 
-    private void removeToRepeatScript(LinkedList<String> script, LinkedList<String> toRepeat) {
-        for (int i = 0; i < toRepeat.size(); i++) {
+    private void removeToRepeatScript(Queue<String> script, Queue<String> toRepeat) {
+        for (int i = 0; i < toRepeat.size(); i++)
             script.poll();
-        }
     }
 
     @Override
     public String stringOf(Environment environment) {
-        return "ripetuto";
+        return "ripetute precedenti righe";
     }
 }

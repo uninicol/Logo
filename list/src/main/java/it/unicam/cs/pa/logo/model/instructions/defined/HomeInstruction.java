@@ -4,7 +4,7 @@ import it.unicam.cs.pa.logo.model.Coordinate;
 import it.unicam.cs.pa.logo.model.Environment;
 import it.unicam.cs.pa.logo.model.instructions.Instruction;
 
-import java.util.LinkedList;
+import java.util.Queue;
 
 /**
  * Classe che rappresenta l'istruzione HOME, muove il cursore nella posizione di home
@@ -17,7 +17,7 @@ public final class HomeInstruction extends Instruction {
     }
 
     @Override
-    public Environment apply(Environment environment, LinkedList<String> script) {
+    public Environment apply(Environment environment, Queue<String> script) {
         environment.getCursor().move(environment.getHome());
         return environment;
     }

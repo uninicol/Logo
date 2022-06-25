@@ -3,7 +3,7 @@ package it.unicam.cs.pa.logo.model.instructions.defined;
 import it.unicam.cs.pa.logo.model.Environment;
 import it.unicam.cs.pa.logo.model.instructions.Instruction;
 
-import java.util.LinkedList;
+import java.util.Queue;
 
 /**
  * Classe che rappresenta l'istruzione PENDOWN, attacca la penna al foglio
@@ -14,7 +14,7 @@ public final class PendownInstruction extends Instruction {
     }
 
     @Override
-    public Environment apply(Environment environment, LinkedList<String> script) {
+    public Environment apply(Environment environment, Queue<String> script) {
         environment.getCursor().setPlot(true);
         return environment;
     }

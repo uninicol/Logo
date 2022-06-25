@@ -6,6 +6,7 @@ import it.unicam.cs.pa.logo.model.Environment;
 import java.io.IOException;
 import java.util.LinkedList;
 import java.util.Objects;
+import java.util.Queue;
 
 /**
  * Classe astratta che rappresenta un'istruzione
@@ -42,7 +43,7 @@ public abstract class Instruction implements InstructionWriter {
      * @param script      lo script contenente il comando
      * @return l'environment modificato dall'esecuzione
      */
-    public abstract Environment apply(Environment environment, LinkedList<String> script) throws IOException;
+    public abstract Environment apply(Environment environment, Queue<String> script) throws IOException;
 
     /**
      * Restituisce il numero di attributi che l'istruzione ha bisogno
@@ -69,7 +70,7 @@ public abstract class Instruction implements InstructionWriter {
         this.requestedAttributes = number;
     }
 
-    protected final int getAttribute(LinkedList<String> script) {
+    protected final int getAttribute(Queue<String> script) {
         if (getRequiredAttributesNumber() == getRequestedAttributesNumber())
             throw new RuntimeException("richiesti troppi attributi");
         setRequestedAttributesNumber(getRequestedAttributesNumber() + 1);

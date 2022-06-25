@@ -5,7 +5,7 @@ import it.unicam.cs.pa.logo.model.Environment;
 import it.unicam.cs.pa.logo.model.defined.TwoDimDrawer;
 import it.unicam.cs.pa.logo.model.instructions.Instruction;
 
-import java.util.LinkedList;
+import java.util.Queue;
 
 /**
  * Classe che rappresenta l'istruzione BACKWARD, sposta il cursore indietro rispetto la sua direzione
@@ -16,7 +16,7 @@ public final class BackwardInstruction extends Instruction {
     }
 
     @Override
-    public Environment apply(Environment environment, LinkedList<String> script) {
+    public Environment apply(Environment environment, Queue<String> script) {
         int length = -getAttribute(script);
         return new TwoDimDrawer().drawLine(environment,length);
     }

@@ -3,7 +3,7 @@ package it.unicam.cs.pa.logo.model.instructions.defined;
 import it.unicam.cs.pa.logo.model.Environment;
 import it.unicam.cs.pa.logo.model.instructions.Instruction;
 
-import java.util.LinkedList;
+import java.util.Queue;
 
 /**
  * Classe che rappresenta l'istruzione PENUP, stacca la penna dal foglio
@@ -14,7 +14,7 @@ public final class PenupInstrucion extends Instruction {
     }
 
     @Override
-    public Environment apply(Environment environment, LinkedList<String> script) {
+    public Environment apply(Environment environment, Queue<String> script) {
         environment.getCursor().setPlot(false);
         return environment;
     }

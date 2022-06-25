@@ -4,7 +4,7 @@ import it.unicam.cs.pa.logo.model.Environment;
 import it.unicam.cs.pa.logo.model.instructions.Instruction;
 
 import java.awt.*;
-import java.util.LinkedList;
+import java.util.Queue;
 
 /**
  * Classe che rappresenta l'istruzione SETFILLCOLOR, imposta il colore del riempimento di un’area chiusa
@@ -16,7 +16,7 @@ public final class SetfillcolorInstruction extends Instruction {
     }
 
     @Override
-    public Environment apply(Environment environment, LinkedList<String> script) {
+    public Environment apply(Environment environment, Queue<String> script) {
         int red = getAttribute(script);
         int green = getAttribute(script);
         int blue = getAttribute(script);
