@@ -1,9 +1,6 @@
 package it.unicam.cs.pa.logo.model.defined;
 
-import it.unicam.cs.pa.logo.model.Drawer;
-import it.unicam.cs.pa.logo.model.Environment;
-import it.unicam.cs.pa.logo.model.Segment;
-import it.unicam.cs.pa.logo.model.Shape;
+import it.unicam.cs.pa.logo.model.*;
 
 import java.util.List;
 
@@ -30,24 +27,41 @@ public class TwoDimDrawer implements Drawer {
         return drawLine(environment, segment);
     }
 
-    public TwoDimCoordinate getCoordinateFromDistance(Environment environment, int distance) {
-        int angle = environment.getCursor().getDirection().getValue();
-        int x = (int) Math.ceil(
-                environment.getCursor().getPosition().getX() + distance * Math.cos(Math.toRadians(angle))
-        );
-        int y = (int) Math.ceil(
-                environment.getCursor().getPosition().getY() + distance * Math.sin(Math.toRadians(angle) * -1)
-        );
-        if (!(x < 0 || x > environment.getLength()) && !(y < 0 || y > environment.getHeight()))
-            return new TwoDimCoordinate(x, y);
-        else return checkCoordinate(environment, x, y, angle, distance);
+    /**
+     * Restituisce le coordinate distanti verso una direzione
+     *
+     * @param environment l'environment dove sono contenute le coordinate
+     * @param distance    la distanza tra le due coordinate
+     * @return le coordinate distanti verso una direzione
+     */
+    public Coordinate getCoordinateFromDistance(Environment environment, int distance) {
+        Coordinate coordinate = environment.getCursor().getPosition().getCoordinateFromDistance(distance, environment.getCursor().getDirection());
+        if (environment.contains(coordinate))
+            return new TwoDimCoordinate(coordinate.getX(), coordinate.getY());
+        else
+            return checkCoordinate(
+                    environment, coordinate, distance);
     }
 
-    public TwoDimCoordinate checkCoordinate(Environment environment, int x, int y, int angle, int distance) {
-        int distanceDifference = getDistanceDifference(environment, x, y, angle);
+    /**
+     * Verifica se le coordinate ottenute sono all'interno dell'environment
+     *
+     * @param environment l'environment
+     * @param coordinate  le coordinate da verificare
+     * @param distance    la distanza tra la coordinata di partenza e di fine
+     * @return la coordinata all'interno dell'environment
+     */
+    public Coordinate checkCoordinate(Environment environment, Coordinate coordinate, int distance) {
+        int distanceDifference = getDistanceDifference(environment, coordinate);
         return getCoordinateFromDistance(environment, Math.abs(distance - Math.abs(distanceDifference)));
     }
 
+    /**
+     * Disegna sull'environment il segmento
+     *
+     * @param environment l'environment che verrà disegnato
+     * @param segment     il segmento da disegnare
+     */
     private void draw(Environment environment, Segment segment) {
         List<Shape> shapes = environment.getShapes();
         if (shapes.isEmpty()) {
@@ -62,29 +76,55 @@ public class TwoDimDrawer implements Drawer {
             shapes.add(new TwoDimShape(segment));
     }
 
+    /**
+     * Verifica se l'ultimo segmento che è stato disegnato è collegato a quello che andremo a disegnare
+     *
+     * @param env l'environment
+     * @return true se il segmento è collegato, false altrimenti
+     */
     private boolean isLastLineDrawn(Environment env) {
         return env.getCursor().getPosition()
                 .equals(env.getShapes().get(env.getShapes().size() - 1).getLastPoint());
     }
 
+    /**
+     * Verifica se il segmento è all'interno dell'environment
+     *
+     * @param environment l'environment
+     * @param segment     il segmento
+     * @param length      la lunghezza del segmento
+     */
     private void checkSegment(Environment environment, Segment segment, int length) {
         int x = segment.getEndPoint().getX();
         int y = segment.getEndPoint().getY();
-        if (x < 0
-                || x > environment.getLength()
-                || y < 0
-                || y > environment.getHeight())
-            checkCoordinate(environment, x, y, environment.getCursor().getDirection().getValue(), length);
+        Coordinate coordinate = new TwoDimCoordinate(x, y);
+        if (!environment.contains(coordinate))
+            checkCoordinate(environment, coordinate, length);
     }
 
-    private int getDistanceDifference(Environment environment, int x, int y, int angle) {
-        int distanceDifference = checkX(environment, x, angle);
+    /**
+     * Restituisce la lunghezza tra la coordinata e il bordo dell'environment
+     *
+     * @param environment l'environment
+     * @param coordinate  le coordinate fuori dall'environment
+     * @return la differenza tra il punto fuori e quello all'interno dell'environment
+     */
+    private int getDistanceDifference(Environment environment, Coordinate coordinate) {
+        int distanceDifference = checkX(environment, coordinate.getX());
         if (distanceDifference != 0)
             return distanceDifference;
-        else return checkY(environment, y, angle);
+        else return checkY(environment, coordinate.getY());
     }
 
-    private int checkX(Environment environment, int x, int angle) {
+    /**
+     * Controlla se il punto x è all'interno dell'environment
+     *
+     * @param environment l'environment
+     * @param x           il punto x
+     * @return il punto x all'interno dell'environment
+     */
+    private int checkX(Environment environment, int x) {
+        int angle = environment.getCursor().getDirection().getValue();
         if (x > environment.getLength())
             return (int) ((x - environment.getLength()) / Math.cos(Math.toRadians(angle)));
         else if (x < 0)
@@ -92,7 +132,15 @@ public class TwoDimDrawer implements Drawer {
         return 0;
     }
 
-    private int checkY(Environment environment, int y, int angle) {
+    /**
+     * Controlla se il punto y è all'interno dell'environment
+     *
+     * @param environment l'environment
+     * @param y           il punto y
+     * @return il punto y all'interno dell'environment
+     */
+    private int checkY(Environment environment, int y) {
+        int angle = environment.getCursor().getDirection().getValue();
         if (y > environment.getHeight())
             if (angle == 270) return y - environment.getHeight();
             else return (int) ((y - environment.getHeight()) / Math.cos(Math.toRadians(angle)));
