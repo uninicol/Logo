@@ -1,6 +1,8 @@
 package it.unicam.cs.pa.logo.app;
 
 import it.unicam.cs.pa.logo.Controller;
+import it.unicam.cs.pa.logo.model.defined.Environment;
+import it.unicam.cs.pa.logo.model.instructions.Instruction;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -15,11 +17,12 @@ public class App {
     public void run(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         System.out.println("--------------LOGO--------------");
-        Controller controller = getController(br, args);
+        Controller<Instruction<Environment>, Environment> controller = getController(br, args);
         printBoard();
         switch (Integer.parseInt(br.readLine())) {
-            case 1 -> new StepByStepExecution().execute(controller, br);
-            case 2 -> new FileExecution().execute(controller, br);
+            case 1 -> new StepByStepExecution<>().execute(controller, br);
+            case 2 -> new FileExecution<>().execute(controller, br);
+            default -> throw new IOException("Input errato");
         }
         System.out.println("Salvare su file l'esecuzione? S/n");
         if (br.readLine().equals("S")) {
@@ -37,7 +40,7 @@ public class App {
         System.out.println("2) esegui un programma logo su un file");
     }
 
-    Controller getController(BufferedReader br, String[] args) throws IOException {
+    Controller<Instruction<Environment>, Environment> getController(BufferedReader br, String[] args) throws IOException {
         if (args.length == 2) {
             int lunghezza = Integer.parseInt(args[0]), altezza = Integer.parseInt(args[1]);
             System.out.printf("Useremo una tavola da disegno di lunghezza %d e altezza %d%n", lunghezza, altezza);

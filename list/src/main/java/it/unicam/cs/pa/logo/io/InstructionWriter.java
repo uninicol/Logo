@@ -1,6 +1,6 @@
 package it.unicam.cs.pa.logo.io;
 
-import it.unicam.cs.pa.logo.model.Environment;
+import it.unicam.cs.pa.logo.model.defined.Environment;
 
 /**
  * Questa interfaccia è usata per trasformare un'istruzione in una stringa

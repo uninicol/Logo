@@ -1,8 +1,8 @@
 package it.unicam.cs.pa.logo.io;
 
-import it.unicam.cs.pa.logo.model.Environment;
 import it.unicam.cs.pa.logo.model.Segment;
 import it.unicam.cs.pa.logo.model.Shape;
+import it.unicam.cs.pa.logo.model.defined.Environment;
 
 import java.awt.*;
 
@@ -13,7 +13,7 @@ public class TwoDimEnvWriter implements EnvironmentWriter {
 
     @Override
     public String stringOf(Environment field) {
-        String str = "SIZE " + field.getLength() + " "
+        String str = "SIZE " + field.getWidth() + " "
                 + field.getHeight() + " "
                 + stringOf(field.getBackgroundColor()) + "\n"
                 + field.getShapes().stream()

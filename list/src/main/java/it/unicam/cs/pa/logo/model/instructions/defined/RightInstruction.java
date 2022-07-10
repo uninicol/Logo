@@ -1,6 +1,6 @@
 package it.unicam.cs.pa.logo.model.instructions.defined;
 
-import it.unicam.cs.pa.logo.model.Environment;
+import it.unicam.cs.pa.logo.model.defined.Environment;
 import it.unicam.cs.pa.logo.model.instructions.Instruction;
 
 import java.util.Queue;
@@ -8,17 +8,17 @@ import java.util.Queue;
 /**
  * Classe che rappresenta l'istruzione RIGHT, ruota il cursore in senso orario
  */
-public final class RightInstruction extends Instruction {
+public final class RightInstruction extends Instruction<Environment> {
 
-    public RightInstruction() {
-        super(1);
+    public RightInstruction(Environment environment) {
+        super(environment, 1);
     }
 
     @Override
-    public Environment apply(Environment environment, Queue<String> script) {
+    public Environment apply(Queue<String> script) {
         int grade = getAttribute(script);
-        environment.getCursor().getDirection().increase(grade);
-        return environment;
+        getEnvironment().getCursor().getDirection().increase(grade);
+        return getEnvironment();
     }
 
     @Override

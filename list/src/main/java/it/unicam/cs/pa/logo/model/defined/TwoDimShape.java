@@ -1,6 +1,5 @@
 package it.unicam.cs.pa.logo.model.defined;
 
-import it.unicam.cs.pa.logo.model.Coordinate;
 import it.unicam.cs.pa.logo.model.Segment;
 import it.unicam.cs.pa.logo.model.Shape;
 
@@ -14,7 +13,7 @@ import java.util.List;
 public class TwoDimShape implements Shape {
 
     private final List<Segment> segments = new LinkedList<>();
-    private final Coordinate startPoint;
+    private final Point startPoint;
     private Color backgroundColor = Color.WHITE;
     private boolean isClosed = false;
 

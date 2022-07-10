@@ -1,52 +1,54 @@
 package it.unicam.cs.pa.logo.model.instructions.defined;
 
-import it.unicam.cs.pa.logo.model.defined.TwoDimCoordinate;
-import it.unicam.cs.pa.logo.model.defined.TwoDimEnvironment;
+import it.unicam.cs.pa.logo.io.InstructionLoader;
+import it.unicam.cs.pa.logo.io.InstructionReader;
+import it.unicam.cs.pa.logo.model.defined.Cursor;
+import it.unicam.cs.pa.logo.model.defined.Direction360;
+import it.unicam.cs.pa.logo.model.defined.Environment;
 import it.unicam.cs.pa.logo.model.instructions.Instruction;
-import it.unicam.cs.pa.logo.model.instructions.InstructionRegistry;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import java.io.IOException;
+import java.awt.*;
 import java.util.LinkedList;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class RightInstructionTest {
-    TwoDimEnvironment env;
-    InstructionRegistry registry = InstructionRegistry.getTwoDimRegistrySet();
+    Environment env;
+    InstructionReader<Instruction<Environment>, Environment> registry = InstructionLoader.DEFAULT_LOGO_READER;
 
     @BeforeEach
     void build() {
-        env = new TwoDimEnvironment(1000, 1000);
+        env = new Environment(1000, 1000, new Cursor(new Point(500, 500), new Direction360()));
     }
 
     @Test
-    void drawRightTest() throws IOException {
+    void drawRightTest() {
         String script = "RIGHT 0 FORWARD 50";
         Instruction.EXECUTOR.execute(registry, env, new LinkedList<>(List.of(script.split(" "))));
-        assertEquals(new TwoDimCoordinate(550, 500), env.getCursor().getPosition());
+        assertEquals(new Point(550, 500), env.getCursor().getPosition());
     }
 
     @Test
-    void drawDownTest() throws IOException {
+    void drawDownTest() {
         String script = "RIGHT 90 FORWARD 50";
         Instruction.EXECUTOR.execute(registry, env, new LinkedList<>(List.of(script.split(" "))));
-        assertEquals(new TwoDimCoordinate(500, 450), env.getCursor().getPosition());
+        assertEquals(new Point(500, 450), env.getCursor().getPosition());
     }
 
     @Test
-    void drawLeftTest() throws IOException {
+    void drawLeftTest() {
         String script = "RIGHT 180 FORWARD 50";
         Instruction.EXECUTOR.execute(registry, env, new LinkedList<>(List.of(script.split(" "))));
-        assertEquals(new TwoDimCoordinate(450, 500), env.getCursor().getPosition());
+        assertEquals(new Point(450, 500), env.getCursor().getPosition());
     }
 
     @Test
-    void drawUpTest() throws IOException {
+    void drawUpTest() {
         String script = "RIGHT 270 FORWARD 50";
         Instruction.EXECUTOR.execute(registry, env, new LinkedList<>(List.of(script.split(" "))));
-        assertEquals(new TwoDimCoordinate(500, 550), env.getCursor().getPosition());
+        assertEquals(new Point(500, 550), env.getCursor().getPosition());
     }
 }

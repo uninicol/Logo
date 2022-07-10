@@ -10,7 +10,7 @@ public interface Direction {
      *
      * @return il valore della direzione
      */
-    Integer getValue();
+    double getValue();
 
     /**
      * Incrementa il valore della direzione

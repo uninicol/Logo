@@ -1,6 +1,5 @@
 package it.unicam.cs.pa.logo.model.instructions;
 
-import java.io.IOException;
 import java.util.function.Function;
 
 /**
@@ -8,7 +7,7 @@ import java.util.function.Function;
  *
  * @param <I>
  */
-public interface Registry<I extends Instruction> {
+public interface Registry<I extends Instruction<?>> {
 
     /**
      * Crea una nuova funzione di creazione di un'istruzione
@@ -16,7 +15,7 @@ public interface Registry<I extends Instruction> {
      * @param name il nome del comando
      * @return la funzione di creazione di un'istruzione
      */
-    Function<String, I> createInstruction(String name) throws IOException;
+    Function<String, I> createInstruction(String name);
 
     /**
      * Restituisce la funzione che crea l'istruzione

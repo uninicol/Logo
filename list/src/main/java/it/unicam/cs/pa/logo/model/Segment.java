@@ -12,14 +12,14 @@ public interface Segment {
      *
      * @return il punto di partenza
      */
-    Coordinate getStartPoint();
+    Point getStartPoint();
 
     /**
      * Ritorna il punto di arrivo di un segmento
      *
      * @return il punto di arrivo
      */
-    Coordinate getEndPoint();
+    Point getEndPoint();
 
     /**
      * Restituisce lo spessore del segmento

@@ -1,6 +1,6 @@
 package it.unicam.cs.pa.logo.model.instructions.defined;
 
-import it.unicam.cs.pa.logo.model.Environment;
+import it.unicam.cs.pa.logo.model.defined.Environment;
 import it.unicam.cs.pa.logo.model.instructions.Instruction;
 
 import java.awt.*;
@@ -9,18 +9,18 @@ import java.util.Queue;
 /**
  * Classe che rappresenta l'istruzione SETSCREENCOLOR, imposta il colore di background dell’area di disegno
  */
-public final class SetscreencolorInstruction extends Instruction {
-    public SetscreencolorInstruction() {
-        super(3);
+public final class SetscreencolorInstruction extends Instruction<Environment> {
+    public SetscreencolorInstruction(Environment environment) {
+        super(environment, 3);
     }
 
     @Override
-    public Environment apply(Environment environment, Queue<String> script) {
+    public Environment apply(Queue<String> script) {
         int red = getAttribute(script);
         int green = getAttribute(script);
         int blue = getAttribute(script);
-        environment.setBackgroundColor(red, green, blue);
-        return environment;
+        getEnvironment().setBackgroundColor(new Color(red, green, blue));
+        return getEnvironment();
     }
 
     @Override

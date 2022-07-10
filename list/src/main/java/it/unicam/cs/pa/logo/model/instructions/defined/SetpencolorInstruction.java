@@ -1,6 +1,6 @@
 package it.unicam.cs.pa.logo.model.instructions.defined;
 
-import it.unicam.cs.pa.logo.model.Environment;
+import it.unicam.cs.pa.logo.model.defined.Environment;
 import it.unicam.cs.pa.logo.model.instructions.Instruction;
 
 import java.awt.*;
@@ -9,22 +9,22 @@ import java.util.Queue;
 /**
  * Classe che rappresenta l'istruzione SETPENCOLOR, imposta il colore della penna
  */
-public final class SetpencolorInstruction extends Instruction {
-    public SetpencolorInstruction() {
-        super(3);
+public final class SetpencolorInstruction extends Instruction<Environment> {
+    public SetpencolorInstruction(Environment environment) {
+        super(environment, 3);
     }
 
     @Override
-    public Environment apply(Environment environment, Queue<String> script) {
+    public Environment apply(Queue<String> script) {
         int red = getAttribute(script);
         int green = getAttribute(script);
         int blue = getAttribute(script);
-        environment.getCursor().setLineColor(
+        getEnvironment().getCursor().setLineColor(
                 new Color(
                         red, green, blue
                 )
         );
-        return environment;
+        return getEnvironment();
     }
 
     @Override

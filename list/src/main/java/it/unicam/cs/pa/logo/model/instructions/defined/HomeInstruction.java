@@ -1,30 +1,29 @@
 package it.unicam.cs.pa.logo.model.instructions.defined;
 
-import it.unicam.cs.pa.logo.model.Coordinate;
-import it.unicam.cs.pa.logo.model.Environment;
+import it.unicam.cs.pa.logo.model.defined.Environment;
 import it.unicam.cs.pa.logo.model.instructions.Instruction;
 
+import java.awt.*;
 import java.util.Queue;
 
 /**
  * Classe che rappresenta l'istruzione HOME, muove il cursore nella posizione di home
  */
-public final class HomeInstruction extends Instruction {
+public final class HomeInstruction extends Instruction<Environment> {
 
-
-    public HomeInstruction() {
-        super(0);
+    public HomeInstruction(Environment environment) {
+        super(environment, 0);
     }
 
     @Override
-    public Environment apply(Environment environment, Queue<String> script) {
-        environment.getCursor().move(environment.getHome());
-        return environment;
+    public Environment apply(Queue<String> script) {
+        getEnvironment().getCursor().move(getEnvironment().getHome());
+        return getEnvironment();
     }
 
     @Override
     public String stringOf(Environment environment) {
-        Coordinate coordinate = environment.getCursor().getPosition();
-        return String.format("spostato il cursore nella posizione di home x:%d y:%d", coordinate.getX(), coordinate.getY());
+        Point Point = environment.getCursor().getPosition();
+        return String.format("spostato il cursore nella posizione di home x:%f y:%f", Point.getX(), Point.getY());
     }
 }

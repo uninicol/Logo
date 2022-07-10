@@ -20,7 +20,7 @@ public interface Shape {
      *
      * @return il punto di partenza
      */
-    default Coordinate getStartPoint() {
+    default Point getStartPoint() {
         return getSegments().get(0).getStartPoint();
     }
 
@@ -29,7 +29,7 @@ public interface Shape {
      *
      * @return il punto di fine
      */
-    default Coordinate getLastPoint() {
+    default Point getLastPoint() {
         return getSegments().get(getSegments().size() - 1).getEndPoint();
     }
 

@@ -1,11 +1,12 @@
 package it.unicam.cs.pa.logo.model.instructions;
 
-import it.unicam.cs.pa.logo.model.Environment;
+import it.unicam.cs.pa.logo.io.InstructionReader;
+import it.unicam.cs.pa.logo.model.defined.Environment;
 
-import java.io.IOException;
-import java.util.LinkedList;
+import java.util.Queue;
 
-public interface Executor<I extends Instruction> {
+public interface Executor<I extends Instruction<E>, E extends Environment> {
+
     /**
      * Esegue uno script di comandi definiti sul registro in un environment
      *
@@ -14,5 +15,5 @@ public interface Executor<I extends Instruction> {
      * @param script      lo script da eseguire
      * @return l'environment aggiornato
      */
-    Environment execute(Registry<I> registry, Environment environment, LinkedList<String> script) throws IOException;
+    Environment execute(InstructionReader<I, E> registry, E environment, Queue<String> script);
 }

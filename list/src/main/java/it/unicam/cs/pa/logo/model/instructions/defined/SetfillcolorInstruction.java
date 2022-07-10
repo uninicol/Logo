@@ -1,6 +1,6 @@
 package it.unicam.cs.pa.logo.model.instructions.defined;
 
-import it.unicam.cs.pa.logo.model.Environment;
+import it.unicam.cs.pa.logo.model.defined.Environment;
 import it.unicam.cs.pa.logo.model.instructions.Instruction;
 
 import java.awt.*;
@@ -9,20 +9,20 @@ import java.util.Queue;
 /**
  * Classe che rappresenta l'istruzione SETFILLCOLOR, imposta il colore del riempimento di un’area chiusa
  */
-public final class SetfillcolorInstruction extends Instruction {
+public final class SetfillcolorInstruction extends Instruction<Environment> {
 
-    public SetfillcolorInstruction() {
-        super(3);
+    public SetfillcolorInstruction(Environment environment) {
+        super(environment, 3);
     }
 
     @Override
-    public Environment apply(Environment environment, Queue<String> script) {
+    public Environment apply(Queue<String> script) {
         int red = getAttribute(script);
         int green = getAttribute(script);
         int blue = getAttribute(script);
         Color color = new Color(red, green, blue);
-        environment.getCursor().setAreaColor(color);
-        return environment;
+        getEnvironment().getCursor().setAreaColor(color);
+        return getEnvironment();
     }
 
     @Override

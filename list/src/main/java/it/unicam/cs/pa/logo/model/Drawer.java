@@ -1,9 +1,11 @@
 package it.unicam.cs.pa.logo.model;
 
+import it.unicam.cs.pa.logo.model.defined.Environment;
+
 /**
  * Questa interfaccia rappresenta un disegnatore che disegna su un piano ricava punti di un Environment
  */
-public interface Drawer {
+public interface Drawer<E extends Environment> {
 
     /**
      * Traccia una linea se la penna è giù
@@ -12,7 +14,7 @@ public interface Drawer {
      * @param environment l'environment su cui disegnare
      * @return l'environment aggiornato
      */
-    Environment drawLine(Environment environment, Segment segment);
+    E drawLine(E environment, Segment segment);
 
     /**
      * Traccia una linea se la penna è giù
@@ -21,5 +23,5 @@ public interface Drawer {
      * @param environment l'environment su cui disegnare
      * @return l'environment aggiornato
      */
-    Environment drawLine(Environment environment, int length);
+    E drawLine(E environment, int length);
 }
