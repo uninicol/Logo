@@ -29,7 +29,7 @@ public class SimpleDrawer implements Drawer<Environment<it.unicam.cs.pa.logo.mod
     @Override
     public Environment<it.unicam.cs.pa.logo.model.Cursor> drawLine(Environment<it.unicam.cs.pa.logo.model.Cursor> environment, int length) {
         Segment segment =
-                new Segment(environment.getCursor().getPosition(), getPointFromDistance(environment, length), Color.WHITE);
+                new Segment(environment.getCursor().getPosition(), getPointFromDistance(environment, length));
         return drawLine(environment, segment);
     }
 

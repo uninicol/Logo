@@ -51,9 +51,9 @@ class ShapeTest {
     @Test
     void isClosedTest() {
         Shape shape = new Shape(Color.WHITE);
-        shape.addSegment(new Segment(new Point(50, 50), new Point(60, 50), Color.WHITE));
-        shape.addSegment(new Segment(new Point(60, 50), new Point(50, 60), Color.WHITE));
-        shape.addSegment(new Segment(new Point(50, 60), new Point(50, 50), Color.WHITE));
+        shape.addSegment(new Segment(new Point(50, 50), new Point(60, 50)));
+        shape.addSegment(new Segment(new Point(60, 50), new Point(50, 60)));
+        shape.addSegment(new Segment(new Point(50, 60), new Point(50, 50)));
         assertTrue(shape.isClosed());
     }
 

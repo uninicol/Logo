@@ -24,10 +24,16 @@ public class Segment extends Line2D.Double {
         this.color = color;
     }
 
+    public Segment(Point2D p1, Point2D p2, int size) {
+        super(p1, p2);
+        this.size = Math.max(size, 1);
+        this.color = Color.BLACK;
+    }
+
     public Segment(Point2D p1, Point2D p2) {
         super(p1, p2);
         this.size = 1;
-        this.color = Color.WHITE;
+        this.color = Color.BLACK;
     }
 
     /**
