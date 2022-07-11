@@ -1,7 +1,9 @@
 package it.unicam.cs.pa.logo.model;
 
 import it.unicam.cs.pa.logo.model.defined.Cursor;
-import it.unicam.cs.pa.logo.model.defined.*;
+import it.unicam.cs.pa.logo.model.defined.Direction360;
+import it.unicam.cs.pa.logo.model.defined.Environment;
+import it.unicam.cs.pa.logo.model.defined.SimpleDrawer;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 

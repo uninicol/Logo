@@ -4,7 +4,6 @@ import it.unicam.cs.pa.logo.model.defined.Environment;
 import it.unicam.cs.pa.logo.model.defined.SimpleDrawer;
 import it.unicam.cs.pa.logo.model.instructions.Instruction;
 
-import java.awt.*;
 import java.awt.geom.Point2D;
 import java.util.Queue;
 
@@ -27,6 +26,6 @@ public final class ForwardInstruction extends Instruction<Environment> {
     @Override
     public String stringOf(Environment environment) {
         Point2D Point = environment.getCursor().getPosition();
-        return String.format("spostato il cursore nella posizione x:%f y:%f", Point.getX(), Point.getY());
+        return String.format("spostato il cursore nella posizione x:%.0f y:%.0f", Point.getX(), Point.getY());
     }
 }

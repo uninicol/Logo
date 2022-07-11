@@ -13,8 +13,8 @@ public class SimpleEnvWriter implements EnvironmentWriter {
 
     @Override
     public String stringOf(Environment field) {
-        String str = "SIZE " + field.getWidth() + " "
-                + field.getHeight() + " "
+        String str = "SIZE " + (int) field.getWidth() + " "
+                + (int) field.getHeight() + " "
                 + stringOf(field.getBackgroundColor()) + "\n"
                 + field.getShapes().stream()
                 .map(this::stringOf)
@@ -47,10 +47,10 @@ public class SimpleEnvWriter implements EnvironmentWriter {
      * @return la stringa che rappresenta un segmento
      */
     private String stringOfSingleSegment(Segment segment) {
-        return "LINE " + segment.getX1() + " "
-                + segment.getY1() + " "
-                + segment.getX2() + " "
-                + segment.getY2() + " "
+        return "LINE " + (int) segment.getX1() + " "
+                + (int) segment.getY1() + " "
+                + (int) segment.getX2() + " "
+                + (int) segment.getY2() + " "
                 + stringOf(segment.getColor())
                 + segment.getSize() + "\n";
     }
@@ -62,8 +62,8 @@ public class SimpleEnvWriter implements EnvironmentWriter {
      * @return la stringa che rappresenta gli attributi di un segmento
      */
     private String stringOfSegmentAttributes(Segment segment) {
-        return segment.getX1() + " "
-                + segment.getY1() + " "
+        return (int) segment.getX1() + " "
+                + (int) segment.getY1() + " "
                 + stringOf(segment.getColor())
                 + segment.getSize() + "\n";
     }
