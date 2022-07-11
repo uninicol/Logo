@@ -1,6 +1,7 @@
 package it.unicam.cs.pa.logo.io;
 
-import it.unicam.cs.pa.logo.model.defined.Environment;
+import it.unicam.cs.pa.logo.model.Cursor;
+import it.unicam.cs.pa.logo.model.Environment;
 
 /**
  * Questa interfaccia è usata per trasformare un'istruzione in una stringa
@@ -14,5 +15,5 @@ public interface InstructionWriter {
      * @param environment l'environment su cui l'istruzione ha operato
      * @return la stringa che rappresenta l'istruzione
      */
-    String stringOf(Environment environment);
+    String stringOf(Environment<Cursor> environment);
 }

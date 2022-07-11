@@ -1,13 +1,14 @@
 package it.unicam.cs.pa.logo.io;
 
-import it.unicam.cs.pa.logo.model.defined.Environment;
+import it.unicam.cs.pa.logo.model.Cursor;
+import it.unicam.cs.pa.logo.model.Environment;
 import it.unicam.cs.pa.logo.model.instructions.Instruction;
 
 /**
  * Questa interfaccia è usata per trasformare una stringa in un istruzione
  */
 @FunctionalInterface
-public interface InstructionReader<I extends Instruction<E>, E extends Environment> {
+public interface InstructionReader<I extends Instruction<E>, E extends Environment<Cursor>> {
 
     /**
      * Restituisce l'istruzione associato alla stringa data

@@ -1,6 +1,7 @@
 package it.unicam.cs.pa.logo.model.instructions.defined;
 
-import it.unicam.cs.pa.logo.model.defined.Environment;
+import it.unicam.cs.pa.logo.model.Cursor;
+import it.unicam.cs.pa.logo.model.Environment;
 import it.unicam.cs.pa.logo.model.instructions.Instruction;
 
 import java.util.Queue;
@@ -8,19 +9,19 @@ import java.util.Queue;
 /**
  * Classe che rappresenta l'istruzione PENDOWN, attacca la penna al foglio
  */
-public final class PendownInstruction extends Instruction<Environment> {
-    public PendownInstruction(Environment environment) {
+public final class PendownInstruction extends Instruction<Environment<Cursor>> {
+    public PendownInstruction(Environment<Cursor> environment) {
         super(environment, 0);
     }
 
     @Override
-    public Environment apply(Queue<String> script) {
+    public Environment<Cursor> apply(Queue<String> script) {
         getEnvironment().getCursor().setPlot(true);
         return getEnvironment();
     }
 
     @Override
-    public String stringOf(Environment environment) {
+    public String stringOf(Environment<Cursor> environment) {
         return "attaccato la  penna al foglio";
     }
 }

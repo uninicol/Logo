@@ -1,6 +1,7 @@
 package it.unicam.cs.pa.logo.io;
 
-import it.unicam.cs.pa.logo.model.defined.Environment;
+import it.unicam.cs.pa.logo.model.Cursor;
+import it.unicam.cs.pa.logo.model.Environment;
 import it.unicam.cs.pa.logo.model.instructions.Instruction;
 import it.unicam.cs.pa.logo.model.instructions.defined.*;
 
@@ -12,7 +13,7 @@ public class InstructionLoader {
     /**
      * Lista di funzioni che creano un istruzione del linguaggio LOGO
      */
-    public static InstructionReader<Instruction<Environment>, Environment> DEFAULT_LOGO_READER = ((str, env) ->
+    public static InstructionReader<Instruction<Environment<Cursor>>, Environment<Cursor>> DEFAULT_LOGO_READER = ((str, env) ->
             switch (str) {
                 case "BACKWARD" -> new BackwardInstruction(env);
                 case "LEFT" -> new LeftInstruction(env);

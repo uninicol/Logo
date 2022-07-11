@@ -1,7 +1,8 @@
 package it.unicam.cs.pa.logo.app;
 
 import it.unicam.cs.pa.logo.Controller;
-import it.unicam.cs.pa.logo.model.defined.Environment;
+import it.unicam.cs.pa.logo.model.Cursor;
+import it.unicam.cs.pa.logo.model.Environment;
 import it.unicam.cs.pa.logo.model.instructions.Instruction;
 
 import java.io.BufferedReader;
@@ -10,7 +11,7 @@ import java.io.IOException;
 /**
  * Questa classe descrive la modalitò di esecuzione passo passo
  */
-public class StepByStepExecution<I extends Instruction<E>, E extends Environment> {
+public class StepByStepExecution<I extends Instruction<E>, E extends Environment<Cursor>> {
 
     public void execute(Controller<I, E> controller, BufferedReader br) throws IOException {
         System.out.println("Hai scelto l'esecuzione passo passo, separare ogni parola da uno spazio\nScrivere EXIT per terminare");

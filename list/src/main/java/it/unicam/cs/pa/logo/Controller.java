@@ -4,9 +4,9 @@ import it.unicam.cs.pa.logo.io.EnvironmentWriter;
 import it.unicam.cs.pa.logo.io.InstructionLoader;
 import it.unicam.cs.pa.logo.io.InstructionReader;
 import it.unicam.cs.pa.logo.io.SimpleEnvWriter;
-import it.unicam.cs.pa.logo.model.defined.Cursor;
+import it.unicam.cs.pa.logo.model.Cursor;
 import it.unicam.cs.pa.logo.model.defined.Direction360;
-import it.unicam.cs.pa.logo.model.defined.Environment;
+import it.unicam.cs.pa.logo.model.Environment;
 import it.unicam.cs.pa.logo.model.instructions.Executor;
 import it.unicam.cs.pa.logo.model.instructions.Instruction;
 
@@ -23,7 +23,7 @@ import java.util.stream.Collectors;
 /**
  * Questa classe è usata per controllare le attività di un'esecuzione LOGO
  */
-public class Controller<I extends Instruction<E>, E extends Environment> {
+public class Controller<I extends Instruction<E>, E extends Environment<Cursor>> {
 
     private final EnvironmentWriter writer;
     private final InstructionReader<I, E> registry;
@@ -54,9 +54,9 @@ public class Controller<I extends Instruction<E>, E extends Environment> {
      * @param height l'altezza dell'environment
      * @return un controller di un environment bidimensionale
      */
-    public static Controller<Instruction<Environment>, Environment> getTwoDimController(int length, int height) {
+    public static Controller<Instruction<Environment<Cursor>>, Environment<Cursor>> getTwoDimController(int length, int height) {
         return new Controller<>(new SimpleEnvWriter(),
-                new Environment(length, height, new Cursor(new Point(length / 2, height / 2), new Direction360())),
+                new Environment<>(length, height, new Cursor(new Point(length / 2, height / 2), new Direction360())),
                 InstructionLoader.DEFAULT_LOGO_READER, Instruction.EXECUTOR);
     }
 

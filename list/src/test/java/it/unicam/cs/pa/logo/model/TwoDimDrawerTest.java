@@ -1,8 +1,6 @@
 package it.unicam.cs.pa.logo.model;
 
-import it.unicam.cs.pa.logo.model.defined.Cursor;
 import it.unicam.cs.pa.logo.model.defined.Direction360;
-import it.unicam.cs.pa.logo.model.defined.Environment;
 import it.unicam.cs.pa.logo.model.defined.SimpleDrawer;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -13,12 +11,12 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class TwoDimDrawerTest {
 
-    Environment env;
+    Environment<Cursor> env;
     SimpleDrawer drawer;
 
     @BeforeEach
     void build() {
-        env = new Environment(200, 200, new Cursor(new Point(100, 100), new Direction360()));
+        env = new Environment<>(200, 200, new Cursor(new Point(100, 100), new Direction360()));
         drawer = new SimpleDrawer();
     }
 

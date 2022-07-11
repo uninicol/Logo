@@ -2,9 +2,9 @@ package it.unicam.cs.pa.logo.model.instructions.defined;
 
 import it.unicam.cs.pa.logo.io.InstructionLoader;
 import it.unicam.cs.pa.logo.io.InstructionReader;
-import it.unicam.cs.pa.logo.model.defined.Cursor;
+import it.unicam.cs.pa.logo.model.Cursor;
 import it.unicam.cs.pa.logo.model.defined.Direction360;
-import it.unicam.cs.pa.logo.model.defined.Environment;
+import it.unicam.cs.pa.logo.model.Environment;
 import it.unicam.cs.pa.logo.model.instructions.Instruction;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -18,12 +18,12 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class BackwardInstructionTest {
 
-    Environment env;
-    InstructionReader<Instruction<Environment>, Environment> registry = InstructionLoader.DEFAULT_LOGO_READER;
+    Environment<Cursor> env;
+    InstructionReader<Instruction<Environment<Cursor>>, Environment<Cursor>> registry = InstructionLoader.DEFAULT_LOGO_READER;
 
     @BeforeEach
     void build() {
-        env = new Environment(1000, 1000, new Cursor(new Point(500, 500), new Direction360()));
+        env = new Environment<>(1000, 1000, new Cursor(new Point(500, 500), new Direction360()));
     }
 
     @Test

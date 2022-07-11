@@ -1,8 +1,8 @@
 package it.unicam.cs.pa.logo.io;
 
-import it.unicam.cs.pa.logo.model.defined.Cursor;
+import it.unicam.cs.pa.logo.model.Cursor;
 import it.unicam.cs.pa.logo.model.defined.Direction360;
-import it.unicam.cs.pa.logo.model.defined.Environment;
+import it.unicam.cs.pa.logo.model.Environment;
 import it.unicam.cs.pa.logo.model.instructions.Instruction;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -15,15 +15,15 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class TwoDimEnvWriterTest {
 
-    Environment env;
+    Environment<Cursor> env;
 
     SimpleEnvWriter writer;
 
-    InstructionReader<Instruction<Environment>, Environment> registry = InstructionLoader.DEFAULT_LOGO_READER;
+    InstructionReader<Instruction<Environment<Cursor>>, Environment<Cursor>> registry = InstructionLoader.DEFAULT_LOGO_READER;
 
     @BeforeEach
     void begin() {
-        env = new Environment(1000, 1000, new Cursor(new Point(500, 500), new Direction360()));
+        env = new Environment<>(1000, 1000, new Cursor(new Point(500, 500), new Direction360()));
         //writer = new TwoDimEnvWriter(locationWriter);
     }
 

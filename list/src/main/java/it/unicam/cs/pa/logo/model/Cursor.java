@@ -1,4 +1,4 @@
-package it.unicam.cs.pa.logo.model.defined;
+package it.unicam.cs.pa.logo.model;
 
 import it.unicam.cs.pa.logo.model.Direction;
 

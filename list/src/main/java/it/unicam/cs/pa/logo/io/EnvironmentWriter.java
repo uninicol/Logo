@@ -1,6 +1,7 @@
 package it.unicam.cs.pa.logo.io;
 
-import it.unicam.cs.pa.logo.model.defined.Environment;
+import it.unicam.cs.pa.logo.model.Cursor;
+import it.unicam.cs.pa.logo.model.Environment;
 
 import java.io.File;
 import java.io.IOException;
@@ -19,7 +20,7 @@ public interface EnvironmentWriter {
      * @param field un ambiente.
      * @return la stringa che rappresenta l'ambiente.
      */
-    String stringOf(Environment field);
+    String stringOf(Environment<Cursor> field);
 
     /**
      * Scrive l'ambiente dato in un file con riferimento al path dato
@@ -28,7 +29,7 @@ public interface EnvironmentWriter {
      * @param field l'ambiente da scrivere
      * @throws IOException se si verifica un errore di I/O durante la scrittura del file.
      */
-    default void writeTo(Path path, Environment field) throws IOException {
+    default void writeTo(Path path, Environment<Cursor> field) throws IOException {
         Files.write(path, stringOf(field).getBytes());
     }
 
@@ -39,7 +40,7 @@ public interface EnvironmentWriter {
      * @param field l'ambiente da scrivere
      * @throws IOException se si verifica un errore di I/O durante la scrittura del file.
      */
-    default void writeTo(File file, Environment field) throws IOException {
+    default void writeTo(File file, Environment<Cursor> field) throws IOException {
         writeTo(file.toPath(), field);
     }
 }

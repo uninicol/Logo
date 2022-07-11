@@ -1,23 +1,22 @@
-package it.unicam.cs.pa.logo.model.defined;
-
-import it.unicam.cs.pa.logo.model.Shape;
+package it.unicam.cs.pa.logo.model;
 
 import java.awt.*;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 /**
  * Rappresenta un ambiente a due dimensioni
  */
-public class Environment extends Rectangle {
+public class Environment<C extends Cursor> extends Rectangle {
 
-    private final Cursor cursor;
+    private final C cursor;
     private final List<Shape> shapes;
     private Color backgroundColor = Color.WHITE;
 
-    public Environment(int width, int height, Cursor cursor) {
+    public Environment(int width, int height, C cursor) {
         super(width, height, width, height);
-        this.cursor = cursor;
+        this.cursor = Objects.requireNonNull(cursor);
         this.shapes = new ArrayList<>();
     }
 
@@ -26,7 +25,7 @@ public class Environment extends Rectangle {
      *
      * @return il cursore
      */
-    public Cursor getCursor() {
+    public C getCursor() {
         return cursor;
     }
 

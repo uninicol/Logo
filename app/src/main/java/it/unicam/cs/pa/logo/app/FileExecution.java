@@ -1,7 +1,8 @@
 package it.unicam.cs.pa.logo.app;
 
 import it.unicam.cs.pa.logo.Controller;
-import it.unicam.cs.pa.logo.model.defined.Environment;
+import it.unicam.cs.pa.logo.model.Cursor;
+import it.unicam.cs.pa.logo.model.Environment;
 import it.unicam.cs.pa.logo.model.instructions.Instruction;
 
 import java.io.BufferedReader;
@@ -12,7 +13,7 @@ import java.util.List;
 /**
  * Questa classe descrive la modalitò di esecuzione tramite file
  */
-public class FileExecution<I extends Instruction<E>, E extends Environment> {
+public class FileExecution<I extends Instruction<E>, E extends Environment<Cursor>> {
 
     public void execute(Controller<I, E> controller, BufferedReader br) throws IOException {
         System.out.println("Hai scelto l'esecuzione da un file\nInserire nome del file (deve essere nella stessa cartella del programma)");
