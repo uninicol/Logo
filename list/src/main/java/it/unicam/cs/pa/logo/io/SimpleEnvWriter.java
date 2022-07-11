@@ -9,7 +9,7 @@ import java.awt.*;
 /**
  * Classe usata per rappresentare un'environment di due dimensioni in una stringa
  */
-public class TwoDimEnvWriter implements EnvironmentWriter {
+public class SimpleEnvWriter implements EnvironmentWriter {
 
     @Override
     public String stringOf(Environment field) {
@@ -32,9 +32,9 @@ public class TwoDimEnvWriter implements EnvironmentWriter {
      * @return la rappresentazione testuale di una shape
      */
     private String stringOf(Shape shape) {
-        if (shape.getSegments().size() == 1)
+        if (shape.size() == 1)
             return stringOfSingleSegment(shape.getSegments().get(0));
-        return "POLYGON " + shape.numSegments() + " "
+        return "POLYGON " + shape.size() + " "
                 + stringOf(shape.getBackgroundColor()) + "\n"
                 + shape.getSegments().stream()
                 .map(this::stringOfSegmentAttributes).toList();
@@ -47,10 +47,10 @@ public class TwoDimEnvWriter implements EnvironmentWriter {
      * @return la stringa che rappresenta un segmento
      */
     private String stringOfSingleSegment(Segment segment) {
-        return "LINE " + segment.getStartPoint().getX() + " "
-                + segment.getStartPoint().getY() + " "
-                + segment.getEndPoint().getX() + " "
-                + segment.getEndPoint().getY() + " "
+        return "LINE " + segment.getX1() + " "
+                + segment.getY1() + " "
+                + segment.getX2() + " "
+                + segment.getY2() + " "
                 + stringOf(segment.getColor())
                 + segment.getSize() + "\n";
     }
@@ -62,8 +62,8 @@ public class TwoDimEnvWriter implements EnvironmentWriter {
      * @return la stringa che rappresenta gli attributi di un segmento
      */
     private String stringOfSegmentAttributes(Segment segment) {
-        return segment.getStartPoint().getX() + " "
-                + segment.getStartPoint().getY() + " "
+        return segment.getX1() + " "
+                + segment.getY1() + " "
                 + stringOf(segment.getColor())
                 + segment.getSize() + "\n";
     }

@@ -6,6 +6,7 @@ import it.unicam.cs.pa.logo.model.Segment;
 import it.unicam.cs.pa.logo.model.Shape;
 
 import java.awt.*;
+import java.awt.geom.Point2D;
 import java.util.List;
 
 /**
@@ -14,10 +15,10 @@ import java.util.List;
 public class SimpleDrawer implements Drawer<Environment> {
 //    @Override
 //    public Environment drawLine(Environment environment, Segment segment) {
-//        checkSegment(environment, segment, segment.getStartPoint().distance(segment.getEndPoint()));
+//        checkSegment(environment, segment, segment.getP1().distance(segment.getP2()));
 //        if (environment.getCursor().isPlot())
 //            draw(environment, segment);
-//        environment.getCursor().move(segment.getEndPoint());
+//        environment.getCursor().move(segment.getP2());
 //        if (environment.getShapes().isEmpty()) return environment;
 //        Shape lastShape = environment.getShapes().get(environment.getShapes().size() - 1);
 //        if (lastShape.isClosed())
@@ -27,7 +28,7 @@ public class SimpleDrawer implements Drawer<Environment> {
 //
 //    @Override
 //    public Environment drawLine(Environment environment, int length) {
-//        Segment segment = new TwoDimSegment(environment.getCursor().getPosition(), getPointFromDistance(environment, length));
+//        Segment segment = new Segment(environment.getCursor().getPosition(), getPointFromDistance(environment, length));
 //        return drawLine(environment, segment);
 //    }
 //
@@ -80,15 +81,15 @@ public class SimpleDrawer implements Drawer<Environment> {
 //    private void draw(Environment environment, Segment segment) {
 //        List<Shape> shapes = environment.getShapes();
 //        if (shapes.isEmpty()) {
-//            shapes.add(new TwoDimShape(segment));
-//            environment.getCursor().move(segment.getEndPoint());
+//            shapes.add(new Shape(segment));
+//            environment.getCursor().move(segment.getP2());
 //            return;
 //        }
 //        Shape lastShape = shapes.get(shapes.size() - 1);
 //        if (isLastLineDrawn(environment)) //l'ultimo segmento è stato tracciato
 //            lastShape.add(segment);
 //        else
-//            shapes.add(new TwoDimShape(segment));
+//            shapes.add(new Shape(segment));
 //    }
 //
 //    /**
@@ -110,8 +111,8 @@ public class SimpleDrawer implements Drawer<Environment> {
 //     * @param length      la lunghezza del segmento
 //     */
 //    private void checkSegment(Environment environment, Segment segment, double length) {
-//        int x = (int) segment.getEndPoint().getX();
-//        int y = (int) segment.getEndPoint().getY();
+//        int x = (int) segment.getP2().getX();
+//        int y = (int) segment.getP2().getY();
 //        Point Point = new Point(x, y);
 //        if (!environment.contains(Point))
 //            checkPoint(environment, Point, length);
@@ -167,10 +168,10 @@ public class SimpleDrawer implements Drawer<Environment> {
 
     @Override
     public Environment drawLine(Environment environment, Segment segment) {
-        checkSegment(environment, segment, segment.getStartPoint().distance(segment.getEndPoint()));
+        checkSegment(environment, segment, segment.getP1().distance(segment.getP2()));
         if (environment.getCursor().isPlot())
             draw(environment, segment);
-        environment.getCursor().move(segment.getEndPoint());
+        environment.getCursor().move(segment.getP2());
         if (environment.getShapes().isEmpty()) return environment;
         Shape lastShape = environment.getShapes().get(environment.getShapes().size() - 1);
         if (lastShape.isClosed())
@@ -180,7 +181,8 @@ public class SimpleDrawer implements Drawer<Environment> {
 
     @Override
     public Environment drawLine(Environment environment, int length) {
-        Segment segment = new TwoDimSegment(environment.getCursor().getPosition(), getPointFromDistance(environment, length));
+        Segment segment =
+                new Segment(environment.getCursor().getPosition(), getPointFromDistance(environment, length), Color.WHITE);
         return drawLine(environment, segment);
     }
 
@@ -207,7 +209,7 @@ public class SimpleDrawer implements Drawer<Environment> {
      * @param direction la direzione
      * @return le coordinate distanti verso una direzione
      */
-    private Point getPointFromDistance(Point start, double distance, Direction direction) {
+    private Point getPointFromDistance(Point2D start, double distance, Direction direction) {
         double angle = direction.getValue();
         double x = Math.ceil(
                 start.getX() + distance * Math.cos(Math.toRadians(angle))
@@ -240,15 +242,15 @@ public class SimpleDrawer implements Drawer<Environment> {
     private void draw(Environment environment, Segment segment) {
         List<Shape> shapes = environment.getShapes();
         if (shapes.isEmpty()) {
-            shapes.add(new TwoDimShape(segment));
-            environment.getCursor().move(segment.getEndPoint());
+            shapes.add(new Shape(segment, Color.WHITE));
+            environment.getCursor().move(segment.getP2());
             return;
         }
         Shape lastShape = shapes.get(shapes.size() - 1);
         if (isLastLineDrawn(environment)) //l'ultimo segmento è stato tracciato
-            lastShape.add(segment);
+            lastShape.addSegment(segment);
         else
-            shapes.add(new TwoDimShape(segment));
+            shapes.add(new Shape(segment, Color.WHITE));
     }
 
     /**
@@ -258,8 +260,10 @@ public class SimpleDrawer implements Drawer<Environment> {
      * @return true se il segmento è collegato, false altrimenti
      */
     private boolean isLastLineDrawn(Environment env) {
+        Shape lastShape = env.getShapes().get(env.getShapes().size() - 1);
+        Point2D lastPoint = lastShape.getSegments().get(lastShape.size() - 1).getP2();
         return env.getCursor().getPosition()
-                .equals(env.getShapes().get(env.getShapes().size() - 1).getLastPoint());
+                .equals(lastPoint);
     }
 
     /**
@@ -270,8 +274,8 @@ public class SimpleDrawer implements Drawer<Environment> {
      * @param length      la lunghezza del segmento
      */
     private void checkSegment(Environment environment, Segment segment, double length) {
-        int x = segment.getEndPoint().x;
-        int y = segment.getEndPoint().y;
+        int x = (int) segment.getP2().getX();
+        int y = (int) segment.getP2().getY();
         Point point = new Point(x, y);
         if (!(environment.contains(point)))
             checkPoint(environment, point, length);

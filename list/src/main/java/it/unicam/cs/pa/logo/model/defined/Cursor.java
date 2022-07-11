@@ -3,6 +3,7 @@ package it.unicam.cs.pa.logo.model.defined;
 import it.unicam.cs.pa.logo.model.Direction;
 
 import java.awt.*;
+import java.awt.geom.Point2D;
 import java.util.Objects;
 
 /**
@@ -11,7 +12,7 @@ import java.util.Objects;
 public class Cursor {
 
     private int size = 1;
-    private Point position;
+    private Point2D position;
     private Direction direction;
     private Color lineColor = Color.BLACK;
     private Color areaColor = Color.WHITE;
@@ -27,7 +28,7 @@ public class Cursor {
      *
      * @return la posizione corrente del cursore
      */
-    public final Point getPosition() {
+    public final Point2D getPosition() {
         return position;
     }
 
@@ -36,7 +37,7 @@ public class Cursor {
      *
      * @param position la posizione dove sopostarsi
      */
-    public void move(Point position) {
+    public void move(Point2D position) {
         this.position = position;
     }
 

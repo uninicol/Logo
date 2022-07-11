@@ -3,7 +3,7 @@ package it.unicam.cs.pa.logo;
 import it.unicam.cs.pa.logo.io.EnvironmentWriter;
 import it.unicam.cs.pa.logo.io.InstructionLoader;
 import it.unicam.cs.pa.logo.io.InstructionReader;
-import it.unicam.cs.pa.logo.io.TwoDimEnvWriter;
+import it.unicam.cs.pa.logo.io.SimpleEnvWriter;
 import it.unicam.cs.pa.logo.model.defined.Cursor;
 import it.unicam.cs.pa.logo.model.defined.Direction360;
 import it.unicam.cs.pa.logo.model.defined.Environment;
@@ -55,7 +55,7 @@ public class Controller<I extends Instruction<E>, E extends Environment> {
      * @return un controller di un environment bidimensionale
      */
     public static Controller<Instruction<Environment>, Environment> getTwoDimController(int length, int height) {
-        return new Controller<>(new TwoDimEnvWriter(),
+        return new Controller<>(new SimpleEnvWriter(),
                 new Environment(length, height, new Cursor(new Point(length / 2, height / 2), new Direction360())),
                 InstructionLoader.DEFAULT_LOGO_READER, Instruction.EXECUTOR);
     }

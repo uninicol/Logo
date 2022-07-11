@@ -17,7 +17,7 @@ class TwoDimEnvWriterTest {
 
     Environment env;
 
-    TwoDimEnvWriter writer;
+    SimpleEnvWriter writer;
 
     InstructionReader<Instruction<Environment>, Environment> registry = InstructionLoader.DEFAULT_LOGO_READER;
 

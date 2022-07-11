@@ -1,36 +1,31 @@
 package it.unicam.cs.pa.logo.model;
 
 import java.awt.*;
+import java.awt.geom.Point2D;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
  * Rappresenta una serie di segmenti che possono essere chiusi formando un'area chiusa
  */
-public interface Shape {
+public class Shape {
 
-    /**
-     * Restituisce i segmenti
-     *
-     * @return i segmenti
-     */
-    List<Segment> getSegments();
+    private final List<Segment> segments;
+    private Color color;
 
-    /**
-     * Restituisce il punto di partenza
-     *
-     * @return il punto di partenza
-     */
-    default Point getStartPoint() {
-        return getSegments().get(0).getStartPoint();
+    public Shape(List<Segment> segments, Color color) {
+        this.segments = segments;
+        this.color = color;
     }
 
-    /**
-     * Restituisce il punto di fine
-     *
-     * @return il punto di fine
-     */
-    default Point getLastPoint() {
-        return getSegments().get(getSegments().size() - 1).getEndPoint();
+    public Shape(Color color) {
+        this.segments = new ArrayList<>();
+        this.color = color;
+    }
+
+    public Shape(Segment segment, Color color) {
+        this.segments = new ArrayList<>(List.of(segment));
+        this.color = color;
     }
 
     /**
@@ -38,35 +33,54 @@ public interface Shape {
      *
      * @return il colore di riempimento
      */
-    Color getBackgroundColor();
+    public Color getBackgroundColor() {
+        return color;
+    }
 
     /**
      * Imposta il colore di riempimento
      *
      * @param color il colore di riempimento
      */
-    void setBackgroundColor(Color color);
+    public void setBackgroundColor(Color color) {
+        this.color = color;
+    }
 
     /**
      * Restituisce true se l'area è chiusa, false altrimenti
      *
      * @return true se l'area è chiusa, false altrimenti
      */
-    boolean isClosed();
+    public boolean isClosed() {
+        Point2D firstPoint = segments.get(0).getP1();
+        Point2D lastPoint = segments.get(segments.size() - 1).getP2();
+        return firstPoint.equals(lastPoint);
+    }
 
     /**
-     * Aggiunge un segmento
+     * Aggiunge un segmento al poligono
      *
-     * @param segment un segmento
+     * @param segment il segmento da inserire
      */
-    void add(Segment segment);
+    public void addSegment(Segment segment) {
+        segments.add(segment);
+    }
 
     /**
-     * Restituisce il numero di segmenti che compongono l'area
+     * Restituisce la lista di segmenti di cui il poligono è composto
      *
-     * @return il numero di segmenti che compongono l'area
+     * @return la lista di segmenti di cui il poligono è composto
      */
-    default int numSegments() {
-        return getSegments().size();
+    public List<Segment> getSegments() {
+        return segments;
+    }
+
+    /**
+     * Restituisce il numero di segmenti di cui il poligono è composto
+     *
+     * @return il numero di segmenti di cui il poligono è composto
+     */
+    public int size() {
+        return segments.size();
     }
 }
