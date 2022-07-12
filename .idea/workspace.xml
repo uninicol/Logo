@@ -4,12 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d470bcfa-26cf-40c7-b95f-2bc7f98722c7" name="Changes" comment="Eliminato interfaccia Instruction e &quot;convertita&quot; in classe astratta">
+    <list default="true" id="d470bcfa-26cf-40c7-b95f-2bc7f98722c7" name="Changes" comment="Aggiunte generalizzazioni di Environment">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/it/unicam/cs/pa/logo/app/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/it/unicam/cs/pa/logo/app/App.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/it/unicam/cs/pa/logo/app/FileExecution.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/it/unicam/cs/pa/logo/app/FileExecution.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/it/unicam/cs/pa/logo/app/StepByStepExecution.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/it/unicam/cs/pa/logo/app/StepByStepExecution.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/list/src/main/java/it/unicam/cs/pa/logo/model/instructions/Instruction.java" beforeDir="false" afterPath="$PROJECT_DIR$/list/src/main/java/it/unicam/cs/pa/logo/model/instructions/Instruction.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -58,10 +54,10 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Record" />
-        <option value="Class" />
         <option value="Interface" />
         <option value="JUnit5 Test Class" />
+        <option value="Record" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -73,8 +69,6 @@
     <option name="defaultAccountId" value="437b335f-a2e0-4858-8177-ee3a8438309e" />
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/list/src/main/java/it/unicam/cs/pa/logo/model/Coordinate.java" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/list/src/main/java/it/unicam/cs/pa/logo/model/Environment.java" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/list/src/main/java/it/unicam/cs/pa/logo/model/Segment.java" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
@@ -104,7 +98,7 @@
     &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
     &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
     &quot;run.code.analysis.last.selected.profile&quot;: &quot;pProject Default&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settingsdialog.project.gradle&quot;
+    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settings.project.maven.runner&quot;
   }
 }</component>
   <component name="RecentsManager">
@@ -134,13 +128,13 @@
       <recent name="it.unicam.cs.pa.logo.instructions.defined" />
     </key>
   </component>
-  <component name="RunManager" selected="Gradle.Logo [run]">
-    <configuration name="it.unicam.cs.pa.logo.app.App (1)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="it.unicam.cs.pa.logo.app.App" />
-      <module name="Logo.app.main" />
+  <component name="RunManager" selected="Gradle.Logo [test]">
+    <configuration name="BackwardInstruction" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="it.unicam.cs.pa.logo.model.instructions.defined.BackwardInstruction" />
+      <module name="Logo.list.main" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="it.unicam.cs.pa.logo.app.*" />
+          <option name="PATTERN" value="it.unicam.cs.pa.logo.model.instructions.defined.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -148,9 +142,15 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="it.unicam.cs.pa.logo.app.App" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="it.unicam.cs.pa.logo.app.App" />
-      <module name="Logo.app" />
+    <configuration name="ForwardInstruction" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="it.unicam.cs.pa.logo.model.instructions.defined.ForwardInstruction" />
+      <module name="Logo.list.main" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="it.unicam.cs.pa.logo.model.instructions.defined.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -204,14 +204,14 @@
       <DebugAllEnabled>false</DebugAllEnabled>
       <method v="2" />
     </configuration>
-    <configuration name="Logo:app [clean]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="ShapeTest.add" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <selectedOptions>
         <option name="coverage.include" />
         <option name="coverage" />
       </selectedOptions>
       <ExternalSystemSettings>
         <option name="executionName" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$/app" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
         <option name="externalSystemIdString" value="GRADLE" />
         <option name="scriptParameters" value="" />
         <option name="taskDescriptions">
@@ -219,24 +219,26 @@
         </option>
         <option name="taskNames">
           <list>
-            <option value="clean" />
+            <option value=":list:test" />
+            <option value="--tests" />
+            <option value="&quot;it.unicam.cs.pa.logo.model.ShapeTest.add&quot;" />
           </list>
         </option>
         <option name="vmOptions" />
       </ExternalSystemSettings>
-      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
       <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
       <DebugAllEnabled>false</DebugAllEnabled>
       <method v="2" />
     </configuration>
-    <configuration name="Logo:app [run]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="TwoDimDrawerTest.testRectangle2" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <selectedOptions>
         <option name="coverage.include" />
         <option name="coverage" />
       </selectedOptions>
       <ExternalSystemSettings>
         <option name="executionName" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$/app" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
         <option name="externalSystemIdString" value="GRADLE" />
         <option name="scriptParameters" value="" />
         <option name="taskDescriptions">
@@ -244,12 +246,14 @@
         </option>
         <option name="taskNames">
           <list>
-            <option value="run" />
+            <option value=":list:test" />
+            <option value="--tests" />
+            <option value="&quot;it.unicam.cs.pa.logo.model.TwoDimDrawerTest.testRectangle2&quot;" />
           </list>
         </option>
         <option name="vmOptions" />
       </ExternalSystemSettings>
-      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
       <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
       <DebugAllEnabled>false</DebugAllEnabled>
       <method v="2" />
@@ -278,20 +282,20 @@
       <method v="2" />
     </configuration>
     <list>
-      <item itemvalue="Application.it.unicam.cs.pa.logo.app.App (1)" />
-      <item itemvalue="Application.it.unicam.cs.pa.logo.app.App" />
+      <item itemvalue="Application.BackwardInstruction" />
+      <item itemvalue="Application.ForwardInstruction" />
       <item itemvalue="Gradle.Logo [run]" />
-      <item itemvalue="Gradle.Logo:app [clean]" />
-      <item itemvalue="Gradle.Logo:app [run]" />
+      <item itemvalue="Gradle.ShapeTest.add" />
+      <item itemvalue="Gradle.TwoDimDrawerTest.testRectangle2" />
       <item itemvalue="Gradle.Logo [test]" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Gradle.Logo:app [clean]" />
-        <item itemvalue="Gradle.Logo:app [run]" />
         <item itemvalue="Gradle.Logo [test]" />
-        <item itemvalue="Application.it.unicam.cs.pa.logo.app.App (1)" />
-        <item itemvalue="Application.it.unicam.cs.pa.logo.app.App" />
+        <item itemvalue="Application.ForwardInstruction" />
+        <item itemvalue="Application.BackwardInstruction" />
+        <item itemvalue="Gradle.ShapeTest.add" />
+        <item itemvalue="Gradle.TwoDimDrawerTest.testRectangle2" />
       </list>
     </recent_temporary>
   </component>
@@ -375,7 +379,27 @@
       <workItem from="1655914056318" duration="450000" />
       <workItem from="1655927415167" duration="114000" />
       <workItem from="1655969765681" duration="4291000" />
-      <workItem from="1655975721666" duration="595000" />
+      <workItem from="1655975721666" duration="1748000" />
+      <workItem from="1655999118879" duration="246000" />
+      <workItem from="1656090057213" duration="3009000" />
+      <workItem from="1656149399090" duration="2951000" />
+      <workItem from="1656152402099" duration="172000" />
+      <workItem from="1656166929497" duration="209000" />
+      <workItem from="1656173522922" duration="2979000" />
+      <workItem from="1656239363881" duration="38000" />
+      <workItem from="1656250036466" duration="20000" />
+      <workItem from="1656278077245" duration="226000" />
+      <workItem from="1656320751787" duration="9000" />
+      <workItem from="1656326669204" duration="615000" />
+      <workItem from="1657285796679" duration="240000" />
+      <workItem from="1657286066487" duration="9482000" />
+      <workItem from="1657349924165" duration="9400000" />
+      <workItem from="1657437941185" duration="11989000" />
+      <workItem from="1657487809206" duration="11000" />
+      <workItem from="1657522199456" duration="8731000" />
+      <workItem from="1657532554798" duration="3465000" />
+      <workItem from="1657557410396" duration="423000" />
+      <workItem from="1657613641430" duration="5208000" />
     </task>
     <task id="LOCAL-00001" summary="init commit">
       <created>1652373969498</created>
@@ -587,7 +611,98 @@
       <option name="project" value="LOCAL" />
       <updated>1655913902361</updated>
     </task>
-    <option name="localTasksCounter" value="31" />
+    <task id="LOCAL-00031" summary="Corretto input su gradle run">
+      <created>1655977042675</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1655977042675</updated>
+    </task>
+    <task id="LOCAL-00032" summary="bho">
+      <created>1656090274180</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1656090274180</updated>
+    </task>
+    <task id="LOCAL-00033" summary="Ridotto accoppiamento tra Environment e Drawer">
+      <created>1656092953118</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1656092953118</updated>
+    </task>
+    <task id="LOCAL-00034" summary="Corretti code smell di richiesta troppi parametri">
+      <created>1656152319790</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1656152319790</updated>
+    </task>
+    <task id="LOCAL-00035" summary="Aggiunti Javadoc mancanti">
+      <created>1656152350499</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1656152350499</updated>
+    </task>
+    <task id="LOCAL-00036" summary="Aggiunto test mancante">
+      <created>1656174322099</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1656174322099</updated>
+    </task>
+    <task id="LOCAL-00037" summary="Modificata superclasse da LinkedList a Queue">
+      <created>1656174354216</created>
+      <option name="number" value="00037" />
+      <option name="presentableId" value="LOCAL-00037" />
+      <option name="project" value="LOCAL" />
+      <updated>1656174354216</updated>
+    </task>
+    <task id="LOCAL-00038" summary="Ristrutturazione">
+      <created>1657451009624</created>
+      <option name="number" value="00038" />
+      <option name="presentableId" value="LOCAL-00038" />
+      <option name="project" value="LOCAL" />
+      <updated>1657451009624</updated>
+    </task>
+    <task id="LOCAL-00039" summary="Modificato Shape e Segment">
+      <created>1657531401944</created>
+      <option name="number" value="00039" />
+      <option name="presentableId" value="LOCAL-00039" />
+      <option name="project" value="LOCAL" />
+      <updated>1657531401944</updated>
+    </task>
+    <task id="LOCAL-00040" summary="corretto output">
+      <created>1657533793022</created>
+      <option name="number" value="00040" />
+      <option name="presentableId" value="LOCAL-00040" />
+      <option name="project" value="LOCAL" />
+      <updated>1657533793022</updated>
+    </task>
+    <task id="LOCAL-00041" summary="generalizzato Environment con generic di Cursor">
+      <created>1657535971711</created>
+      <option name="number" value="00041" />
+      <option name="presentableId" value="LOCAL-00041" />
+      <option name="project" value="LOCAL" />
+      <updated>1657535971711</updated>
+    </task>
+    <task id="LOCAL-00042" summary="semplificato e amplificato costruttori di Segment">
+      <created>1657557624754</created>
+      <option name="number" value="00042" />
+      <option name="presentableId" value="LOCAL-00042" />
+      <option name="project" value="LOCAL" />
+      <updated>1657557624754</updated>
+    </task>
+    <task id="LOCAL-00043" summary="Aggiunte generalizzazioni di Environment">
+      <created>1657618324516</created>
+      <option name="number" value="00043" />
+      <option name="presentableId" value="LOCAL-00043" />
+      <option name="project" value="LOCAL" />
+      <updated>1657618324516</updated>
+    </task>
+    <option name="localTasksCounter" value="44" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -602,19 +717,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Progettazione base dei concetti" />
-    <MESSAGE value="Ridefinizione responsabilità" />
-    <MESSAGE value="Aggiunti commenti mancanti" />
-    <MESSAGE value="Implementazione interprete e istruzioni" />
-    <MESSAGE value="Implementazione metodi e strutturazione classi" />
-    <MESSAGE value="Implementazione istruzioni, factory e test" />
-    <MESSAGE value="Cambiato il tipo di parametro passato per Instruction.execute da List a Deque" />
-    <MESSAGE value="Spostato getCoordinateFromDistance in AbstractCursor e modifiche varie" />
-    <MESSAGE value="Riprogettazione interfacce e aggiunta Shape" />
-    <MESSAGE value="implementata interfaccia Drawer" />
-    <MESSAGE value="Sistemato il disegnatore Drawer" />
-    <MESSAGE value="Aggiunti JavaDoc mancanti" />
-    <MESSAGE value="Corretto il comando" />
     <MESSAGE value="Spostato test nella cartella corretta" />
     <MESSAGE value="corretto checkcoordinate e fatto test" />
     <MESSAGE value="Modificato comportamento coordinate: assumiamo che le coordinate abbiano due dimensioni" />
@@ -627,29 +729,32 @@
     <MESSAGE value="base App" />
     <MESSAGE value="ora puo leggere un file su piu righe" />
     <MESSAGE value="Eliminato interfaccia Instruction e &quot;convertita&quot; in classe astratta" />
-    <option name="LAST_COMMIT_MESSAGE" value="Eliminato interfaccia Instruction e &quot;convertita&quot; in classe astratta" />
+    <MESSAGE value="Corretto input su gradle run" />
+    <MESSAGE value="bho" />
+    <MESSAGE value="Ridotto accoppiamento tra Environment e Drawer" />
+    <MESSAGE value="Corretti code smell di richiesta troppi parametri" />
+    <MESSAGE value="Aggiunti Javadoc mancanti" />
+    <MESSAGE value="Aggiunto test mancante" />
+    <MESSAGE value="Modificata superclasse da LinkedList a Queue" />
+    <MESSAGE value="Ristrutturazione" />
+    <MESSAGE value="Modificato Shape e Segment" />
+    <MESSAGE value="corretto output" />
+    <MESSAGE value="generalizzato Environment con generic di Cursor" />
+    <MESSAGE value="semplificato e amplificato costruttori di Segment" />
+    <MESSAGE value="Aggiunte generalizzazioni di Environment" />
+    <option name="LAST_COMMIT_MESSAGE" value="Aggiunte generalizzazioni di Environment" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/list/src/test/java/it/unicam/cs/pa/logo/model/instructions/defined/BackwardInstructionTest.java</url>
-          <line>38</line>
+          <line>40</line>
           <option name="timeStamp" value="26" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/list/src/main/java/it/unicam/cs/pa/logo/model/instructions/Instruction.java</url>
-          <line>20</line>
-          <option name="timeStamp" value="52" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/list/src/main/java/it/unicam/cs/pa/logo/io/EnvironmentWriter.java</url>
-          <line>31</line>
-          <option name="timeStamp" value="54" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/it/unicam/cs/pa/logo/app/App.java</url>
-          <line>25</line>
+          <line>28</line>
           <option name="timeStamp" value="55" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
@@ -657,11 +762,31 @@
           <line>3511</line>
           <option name="timeStamp" value="56" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/list/src/test/java/it/unicam/cs/pa/logo/model/TwoDimDrawerTest.java</url>
+          <line>25</line>
+          <option name="timeStamp" value="57" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/list/src/test/java/it/unicam/cs/pa/logo/model/TwoDimDrawerTest.java</url>
+          <line>60</line>
+          <option name="timeStamp" value="59" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/list/src/test/java/it/unicam/cs/pa/logo/model/ShapeTest.java</url>
+          <line>56</line>
+          <option name="timeStamp" value="60" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/list/src/main/java/it/unicam/cs/pa/logo/model/Drawer.java</url>
+          <line>5</line>
+          <option name="timeStamp" value="61" />
+        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/Logo$Logo__test_.ic" NAME="Logo [test] Coverage Results" MODIFIED="1653808883760" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/Logo$Logo__test_.ic" NAME="Logo [test] Coverage Results" MODIFIED="1657531421831" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="true" />
     <SUITE FILE_PATH="coverage/Logo$DrawerClassTest__1_.ic" NAME="DrawerClassTest (1) Coverage Results" MODIFIED="1653747693908" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
     <SUITE FILE_PATH="coverage/Logo$DrawerClassTest_drawLine.ic" NAME="DrawerClassTest.drawLine Coverage Results" MODIFIED="1653648312247" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
   </component>
