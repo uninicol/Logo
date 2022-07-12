@@ -5,7 +5,7 @@ import java.awt.geom.Line2D;
 import java.awt.geom.Point2D;
 
 /**
- * Classe usata per rappresentare una linea su un piano avente un punto di partenza ed un punto di arrivo
+ * Classe usata per rappresentare una linea su un piano
  */
 public class Segment extends Line2D.Double {
 
@@ -41,7 +41,7 @@ public class Segment extends Line2D.Double {
      *
      * @return lo spessore del segmento
      */
-    public int getSize() {
+    public final int getSize() {
         return size;
     }
 
@@ -50,7 +50,7 @@ public class Segment extends Line2D.Double {
      *
      * @return il colore del segmento
      */
-    public Color getColor() {
+    public final Color getColor() {
         return color;
     }
 }

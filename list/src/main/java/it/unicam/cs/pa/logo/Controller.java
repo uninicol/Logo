@@ -5,8 +5,8 @@ import it.unicam.cs.pa.logo.io.InstructionLoader;
 import it.unicam.cs.pa.logo.io.InstructionReader;
 import it.unicam.cs.pa.logo.io.SimpleEnvWriter;
 import it.unicam.cs.pa.logo.model.Cursor;
-import it.unicam.cs.pa.logo.model.defined.Direction360;
 import it.unicam.cs.pa.logo.model.Environment;
+import it.unicam.cs.pa.logo.model.defined.Direction360;
 import it.unicam.cs.pa.logo.model.instructions.Executor;
 import it.unicam.cs.pa.logo.model.instructions.Instruction;
 
@@ -23,9 +23,9 @@ import java.util.stream.Collectors;
 /**
  * Questa classe è usata per controllare le attività di un'esecuzione LOGO
  */
-public class Controller<I extends Instruction<E>, E extends Environment<Cursor>> {
+public class Controller<I extends Instruction<E>, E extends Environment<?>> {
 
-    private final EnvironmentWriter writer;
+    private final EnvironmentWriter<E> writer;
     private final InstructionReader<I, E> registry;
     private final Executor<I, E> executor;
     private final E currentField;
@@ -39,7 +39,7 @@ public class Controller<I extends Instruction<E>, E extends Environment<Cursor>>
      * @param registry    il registro
      * @param executor    l'esecutore
      */
-    public Controller(EnvironmentWriter writer, E environment,
+    public Controller(EnvironmentWriter<E> writer, E environment,
                       InstructionReader<I, E> registry, Executor<I, E> executor) {
         this.writer = writer;
         this.currentField = environment;
@@ -54,9 +54,9 @@ public class Controller<I extends Instruction<E>, E extends Environment<Cursor>>
      * @param height l'altezza dell'environment
      * @return un controller di un environment bidimensionale
      */
-    public static Controller<Instruction<Environment<Cursor>>, Environment<Cursor>> getTwoDimController(int length, int height) {
-        return new Controller<>(new SimpleEnvWriter(),
-                new Environment<>(length, height, new Cursor(new Point(length / 2, height / 2), new Direction360())),
+    public static Controller<Instruction<Environment<?>>, Environment<?>> getTwoDimController(int length, int height) {
+        return new Controller<>(new SimpleEnvWriter<>(),
+                new Environment<>(length, height, new Cursor<>(new Point(length / 2, height / 2), new Direction360())),
                 InstructionLoader.DEFAULT_LOGO_READER, Instruction.EXECUTOR);
     }
 

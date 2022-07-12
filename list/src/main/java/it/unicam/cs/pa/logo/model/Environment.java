@@ -8,7 +8,7 @@ import java.util.Objects;
 /**
  * Rappresenta un ambiente a due dimensioni
  */
-public class Environment<C extends Cursor> extends Rectangle {
+public class Environment<C extends Cursor<?>> extends Rectangle {
 
     private final C cursor;
     private final List<Shape> shapes;

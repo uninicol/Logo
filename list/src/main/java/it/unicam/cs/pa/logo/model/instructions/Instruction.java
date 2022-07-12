@@ -1,7 +1,6 @@
 package it.unicam.cs.pa.logo.model.instructions;
 
 import it.unicam.cs.pa.logo.io.InstructionWriter;
-import it.unicam.cs.pa.logo.model.Cursor;
 import it.unicam.cs.pa.logo.model.Environment;
 
 import java.util.Objects;
@@ -10,12 +9,12 @@ import java.util.Queue;
 /**
  * Classe astratta che rappresenta un'istruzione
  */
-public abstract class Instruction<E extends Environment<Cursor>> implements InstructionWriter {
+public abstract class Instruction<E extends Environment<?>> implements InstructionWriter<Environment<?>> {
 
     /**
      * Esegue uno script di istruzioni LOGO
      */
-    public static final Executor<Instruction<Environment<Cursor>>, Environment<Cursor>> EXECUTOR = (registry, environment, script) -> {
+    public static final Executor<Instruction<Environment<?>>, Environment<?>> EXECUTOR = (registry, environment, script) -> {
         Invoker<Instruction<?>> invoker = new Invoker<>();
         while (!script.isEmpty()) {
             String command = script.poll();

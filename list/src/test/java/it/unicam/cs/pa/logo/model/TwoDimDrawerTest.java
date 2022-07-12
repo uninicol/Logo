@@ -11,12 +11,12 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class TwoDimDrawerTest {
 
-    Environment<Cursor> env;
+    Environment<?> env;
     SimpleDrawer drawer;
 
     @BeforeEach
     void build() {
-        env = new Environment<>(200, 200, new Cursor(new Point(100, 100), new Direction360()));
+        env = new Environment<>(200, 200, new Cursor<>(new Point(100, 100), new Direction360()));
         drawer = new SimpleDrawer();
     }
 

@@ -1,7 +1,5 @@
 package it.unicam.cs.pa.logo.model;
 
-import it.unicam.cs.pa.logo.model.Direction;
-
 import java.awt.*;
 import java.awt.geom.Point2D;
 import java.util.Objects;
@@ -9,16 +7,16 @@ import java.util.Objects;
 /**
  * Rappresenta un cursore in un piano a due dimensioni
  */
-public class Cursor {
+public class Cursor<D extends Direction> {
 
     private int size = 1;
     private Point2D position;
-    private Direction direction;
+    private D direction;
     private Color lineColor = Color.BLACK;
     private Color areaColor = Color.WHITE;
     private boolean plot = true;
 
-    public Cursor(Point position, Direction direction) {
+    public Cursor(Point position, D direction) {
         this.position = Objects.requireNonNull(position);
         this.direction = Objects.requireNonNull(direction);
     }
@@ -46,7 +44,7 @@ public class Cursor {
      *
      * @return la direzione corrente del cursore
      */
-    public final Direction getDirection() {
+    public final D getDirection() {
         return direction;
     }
 
@@ -55,7 +53,7 @@ public class Cursor {
      *
      * @param direction la nuova direzione
      */
-    public final void setDirection(Direction direction) {
+    public final void setDirection(D direction) {
         this.direction = direction;
     }
 

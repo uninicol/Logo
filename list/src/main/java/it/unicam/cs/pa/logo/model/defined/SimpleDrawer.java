@@ -1,8 +1,7 @@
 package it.unicam.cs.pa.logo.model.defined;
 
-import it.unicam.cs.pa.logo.model.*;
-import it.unicam.cs.pa.logo.model.Cursor;
 import it.unicam.cs.pa.logo.model.Shape;
+import it.unicam.cs.pa.logo.model.*;
 
 import java.awt.*;
 import java.awt.geom.Point2D;
@@ -11,10 +10,10 @@ import java.util.List;
 /**
  * Questa classe rappresenta un disegnatore che disegna su un piano bidimensionale
  */
-public class SimpleDrawer implements Drawer<Environment<it.unicam.cs.pa.logo.model.Cursor>> {
+public class SimpleDrawer implements Drawer<Environment<?>> {
 
     @Override
-    public Environment<it.unicam.cs.pa.logo.model.Cursor> drawLine(Environment<it.unicam.cs.pa.logo.model.Cursor> environment, Segment segment) {
+    public Environment<?> drawLine(Environment<?> environment, Segment segment) {
         checkSegment(environment, segment, segment.getP1().distance(segment.getP2()));
         if (environment.getCursor().isPlot())
             draw(environment, segment);
@@ -27,7 +26,7 @@ public class SimpleDrawer implements Drawer<Environment<it.unicam.cs.pa.logo.mod
     }
 
     @Override
-    public Environment<it.unicam.cs.pa.logo.model.Cursor> drawLine(Environment<it.unicam.cs.pa.logo.model.Cursor> environment, int length) {
+    public Environment<?> drawLine(Environment<?> environment, int length) {
         Segment segment =
                 new Segment(environment.getCursor().getPosition(), getPointFromDistance(environment, length));
         return drawLine(environment, segment);
@@ -40,7 +39,7 @@ public class SimpleDrawer implements Drawer<Environment<it.unicam.cs.pa.logo.mod
      * @param distance    la distanza tra le due Point
      * @return le Point distanti verso una direzione
      */
-    private Point getPointFromDistance(Environment<it.unicam.cs.pa.logo.model.Cursor> environment, double distance) {
+    private Point getPointFromDistance(Environment<?> environment, double distance) {
         Point point =
                 getPointFromDistance(environment.getCursor().getPosition(), distance, environment.getCursor().getDirection());
         if (environment.contains(point))
@@ -75,7 +74,7 @@ public class SimpleDrawer implements Drawer<Environment<it.unicam.cs.pa.logo.mod
      * @param distance    la distanza tra la coordinata di partenza e di fine
      * @return la coordinata all'interno dell'environment
      */
-    private Point checkPoint(Environment<it.unicam.cs.pa.logo.model.Cursor> environment, Point point, double distance) {
+    private Point checkPoint(Environment<?> environment, Point point, double distance) {
         double distanceDifference = getDistanceDifference(environment, point);
         return getPointFromDistance(environment, Math.abs(distance - Math.abs(distanceDifference)));
     }
@@ -86,7 +85,7 @@ public class SimpleDrawer implements Drawer<Environment<it.unicam.cs.pa.logo.mod
      * @param environment l'environment che verrà disegnato
      * @param segment     il segmento da disegnare
      */
-    private void draw(Environment<it.unicam.cs.pa.logo.model.Cursor> environment, Segment segment) {
+    private void draw(Environment<?> environment, Segment segment) {
         List<Shape> shapes = environment.getShapes();
         if (shapes.isEmpty()) {
             shapes.add(new Shape(segment, Color.WHITE));
@@ -106,7 +105,7 @@ public class SimpleDrawer implements Drawer<Environment<it.unicam.cs.pa.logo.mod
      * @param env l'environment
      * @return true se il segmento è collegato, false altrimenti
      */
-    private boolean isLastLineDrawn(Environment<it.unicam.cs.pa.logo.model.Cursor> env) {
+    private boolean isLastLineDrawn(Environment<?> env) {
         Shape lastShape = env.getShapes().get(env.getShapes().size() - 1);
         Point2D lastPoint = lastShape.getSegments().get(lastShape.size() - 1).getP2();
         return env.getCursor().getPosition()
@@ -120,7 +119,7 @@ public class SimpleDrawer implements Drawer<Environment<it.unicam.cs.pa.logo.mod
      * @param segment     il segmento
      * @param length      la lunghezza del segmento
      */
-    private void checkSegment(Environment<it.unicam.cs.pa.logo.model.Cursor> environment, Segment segment, double length) {
+    private void checkSegment(Environment<?> environment, Segment segment, double length) {
         int x = (int) segment.getP2().getX();
         int y = (int) segment.getP2().getY();
         Point point = new Point(x, y);
@@ -135,7 +134,7 @@ public class SimpleDrawer implements Drawer<Environment<it.unicam.cs.pa.logo.mod
      * @param point       le point fuori dall'environment
      * @return la differenza tra il punto fuori e quello all'interno dell'environment
      */
-    private double getDistanceDifference(Environment<it.unicam.cs.pa.logo.model.Cursor> environment, Point point) {
+    private double getDistanceDifference(Environment<?> environment, Point point) {
         double distanceDifference = checkX(environment, point.getX());
         if (distanceDifference != 0)
             return distanceDifference;
@@ -149,7 +148,7 @@ public class SimpleDrawer implements Drawer<Environment<it.unicam.cs.pa.logo.mod
      * @param x           il punto x
      * @return il punto x all'interno dell'environment
      */
-    private double checkX(Environment<it.unicam.cs.pa.logo.model.Cursor> environment, double x) {
+    private double checkX(Environment<?> environment, double x) {
         double angle = environment.getCursor().getDirection().getValue();
         if (x > environment.getWidth())
             return ((x - environment.getWidth()) / Math.cos(Math.toRadians(angle)));
@@ -165,7 +164,7 @@ public class SimpleDrawer implements Drawer<Environment<it.unicam.cs.pa.logo.mod
      * @param y           il punto y
      * @return il punto y all'interno dell'environment
      */
-    private double checkY(Environment<Cursor> environment, double y) {
+    private double checkY(Environment<?> environment, double y) {
         double angle = environment.getCursor().getDirection().getValue();
         if (y > environment.getHeight())
             if (angle == 270) return y - environment.getHeight();

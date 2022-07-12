@@ -1,19 +1,18 @@
 package it.unicam.cs.pa.logo.io;
 
+import it.unicam.cs.pa.logo.model.Environment;
 import it.unicam.cs.pa.logo.model.Segment;
 import it.unicam.cs.pa.logo.model.Shape;
-import it.unicam.cs.pa.logo.model.Cursor;
-import it.unicam.cs.pa.logo.model.Environment;
 
 import java.awt.*;
 
 /**
  * Classe usata per rappresentare un'environment di due dimensioni in una stringa
  */
-public class SimpleEnvWriter implements EnvironmentWriter {
+public class SimpleEnvWriter<E extends Environment<?>> implements EnvironmentWriter<E> {
 
     @Override
-    public String stringOf(Environment<Cursor> field) {
+    public String stringOf(E field) {
         String str = "SIZE " + (int) field.getWidth() + " "
                 + (int) field.getHeight() + " "
                 + stringOf(field.getBackgroundColor()) + "\n"

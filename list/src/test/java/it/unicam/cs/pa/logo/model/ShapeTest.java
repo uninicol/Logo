@@ -12,12 +12,12 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 class ShapeTest {
 
-    Environment<Cursor> environment;
-    Drawer<Environment<Cursor>> drawer;
+    Environment<?> environment;
+    Drawer<Environment<?>> drawer;
 
     @BeforeEach
     void build() {
-        environment = new Environment<>(1000, 1000, new Cursor(new Point(500, 500), new Direction360()));
+        environment = new Environment<>(1000, 1000, new Cursor<>(new Point(500, 500), new Direction360()));
         drawer = new SimpleDrawer();
     }
 

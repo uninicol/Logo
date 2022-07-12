@@ -1,7 +1,6 @@
 package it.unicam.cs.pa.logo.app;
 
 import it.unicam.cs.pa.logo.Controller;
-import it.unicam.cs.pa.logo.model.Cursor;
 import it.unicam.cs.pa.logo.model.Environment;
 import it.unicam.cs.pa.logo.model.instructions.Instruction;
 
@@ -18,7 +17,7 @@ public class App {
     public void run(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         System.out.println("--------------LOGO--------------");
-        Controller<Instruction<Environment<Cursor>>, Environment<Cursor>> controller = getController(br, args);
+        Controller<Instruction<Environment<?>>, Environment<?>> controller = getController(br, args);
         printBoard();
         switch (Integer.parseInt(br.readLine())) {
             case 1 -> new StepByStepExecution<>().execute(controller, br);
@@ -41,7 +40,7 @@ public class App {
         System.out.println("2) esegui un programma logo su un file");
     }
 
-    Controller<Instruction<Environment<Cursor>>, Environment<Cursor>> getController(BufferedReader br, String[] args) throws IOException {
+    Controller<Instruction<Environment<?>>, Environment<?>> getController(BufferedReader br, String[] args) throws IOException {
         if (args.length == 2) {
             int lunghezza = Integer.parseInt(args[0]), altezza = Integer.parseInt(args[1]);
             System.out.printf("Useremo una tavola da disegno di lunghezza %d e altezza %d%n", lunghezza, altezza);
