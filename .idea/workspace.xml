@@ -4,8 +4,65 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d470bcfa-26cf-40c7-b95f-2bc7f98722c7" name="Changes" comment="Aggiunte generalizzazioni di Environment">
+    <list default="true" id="d470bcfa-26cf-40c7-b95f-2bc7f98722c7" name="Changes" comment="update gitignore">
+      <change afterPath="$PROJECT_DIR$/app/out/production/classes/it/unicam/cs/pa/logo/app/App.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/out/production/classes/it/unicam/cs/pa/logo/app/Execution.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/out/production/classes/it/unicam/cs/pa/logo/app/FileExecution.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/out/production/classes/it/unicam/cs/pa/logo/app/StepByStepExecution.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/buildSrc/out/production/classes/ItUnicamCsPaLogoJavaApplicationConventionsPlugin.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/buildSrc/out/production/classes/ItUnicamCsPaLogoJavaCommonConventionsPlugin.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/buildSrc/out/production/classes/ItUnicamCsPaLogoJavaLibraryConventionsPlugin.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/list/out/production/classes/it/unicam/cs/pa/logo/Controller.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/list/out/production/classes/it/unicam/cs/pa/logo/io/EnvironmentWriter.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/list/out/production/classes/it/unicam/cs/pa/logo/io/InstructionReader.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/list/out/production/classes/it/unicam/cs/pa/logo/io/InstructionWriter.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/list/out/production/classes/it/unicam/cs/pa/logo/io/TwoDimEnvWriter.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/list/out/production/classes/it/unicam/cs/pa/logo/io/TwoDimInstructionLoader.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/list/out/production/classes/it/unicam/cs/pa/logo/model/AbstractSegment.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/list/out/production/classes/it/unicam/cs/pa/logo/model/Coordinate.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/list/out/production/classes/it/unicam/cs/pa/logo/model/Cursor.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/list/out/production/classes/it/unicam/cs/pa/logo/model/Direction.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/list/out/production/classes/it/unicam/cs/pa/logo/model/Drawer.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/list/out/production/classes/it/unicam/cs/pa/logo/model/Environment.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/list/out/production/classes/it/unicam/cs/pa/logo/model/Segment.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/list/out/production/classes/it/unicam/cs/pa/logo/model/Shape.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/list/out/production/classes/it/unicam/cs/pa/logo/model/defined/TwoDimCoordinate.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/list/out/production/classes/it/unicam/cs/pa/logo/model/defined/TwoDimCursor.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/list/out/production/classes/it/unicam/cs/pa/logo/model/defined/TwoDimDirection.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/list/out/production/classes/it/unicam/cs/pa/logo/model/defined/TwoDimDrawer.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/list/out/production/classes/it/unicam/cs/pa/logo/model/defined/TwoDimEnvironment.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/list/out/production/classes/it/unicam/cs/pa/logo/model/defined/TwoDimSegment.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/list/out/production/classes/it/unicam/cs/pa/logo/model/defined/TwoDimShape.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/list/out/production/classes/it/unicam/cs/pa/logo/model/instructions/AbstractInstruction.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/list/out/production/classes/it/unicam/cs/pa/logo/model/instructions/Executor.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/list/out/production/classes/it/unicam/cs/pa/logo/model/instructions/Instruction.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/list/out/production/classes/it/unicam/cs/pa/logo/model/instructions/InstructionRegistry.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/list/out/production/classes/it/unicam/cs/pa/logo/model/instructions/Registry.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/list/out/production/classes/it/unicam/cs/pa/logo/model/instructions/defined/BackwardInstruction.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/list/out/production/classes/it/unicam/cs/pa/logo/model/instructions/defined/ClearscreenInstruction.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/list/out/production/classes/it/unicam/cs/pa/logo/model/instructions/defined/ForwardInstruction.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/list/out/production/classes/it/unicam/cs/pa/logo/model/instructions/defined/HomeInstruction.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/list/out/production/classes/it/unicam/cs/pa/logo/model/instructions/defined/LeftInstruction.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/list/out/production/classes/it/unicam/cs/pa/logo/model/instructions/defined/PendownInstruction.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/list/out/production/classes/it/unicam/cs/pa/logo/model/instructions/defined/PenupInstrucion.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/list/out/production/classes/it/unicam/cs/pa/logo/model/instructions/defined/RepeatInstruction.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/list/out/production/classes/it/unicam/cs/pa/logo/model/instructions/defined/RightInstruction.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/list/out/production/classes/it/unicam/cs/pa/logo/model/instructions/defined/SetfillcolorInstruction.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/list/out/production/classes/it/unicam/cs/pa/logo/model/instructions/defined/SetpencolorInstruction.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/list/out/production/classes/it/unicam/cs/pa/logo/model/instructions/defined/SetpensizeInstruction.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/list/out/production/classes/it/unicam/cs/pa/logo/model/instructions/defined/SetscreencolorInstruction.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/list/out/test/classes/it/unicam/cs/pa/logo/io/TwoDimEnvWriterTest.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/list/out/test/classes/it/unicam/cs/pa/logo/model/ShapeTest.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/list/out/test/classes/it/unicam/cs/pa/logo/model/TwoDimDrawerTest.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/list/out/test/classes/it/unicam/cs/pa/logo/model/TwoDimShapeTest.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/list/out/test/classes/it/unicam/cs/pa/logo/model/instructions/defined/BackwardInstructionTest.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/list/out/test/classes/it/unicam/cs/pa/logo/model/instructions/defined/ForwardInstructionTest.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/list/out/test/classes/it/unicam/cs/pa/logo/model/instructions/defined/RepeatInstructionTest.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/list/out/test/classes/it/unicam/cs/pa/logo/model/instructions/defined/RightInstructionTest.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/input.logo" beforeDir="false" afterPath="$PROJECT_DIR$/app/input.logo" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/output.logo" beforeDir="false" afterPath="$PROJECT_DIR$/app/output.logo" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/list/src/main/java/it/unicam/cs/pa/logo/io/SimpleEnvWriter.java" beforeDir="false" afterPath="$PROJECT_DIR$/list/src/main/java/it/unicam/cs/pa/logo/io/SimpleEnvWriter.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -399,7 +456,8 @@
       <workItem from="1657522199456" duration="8731000" />
       <workItem from="1657532554798" duration="3465000" />
       <workItem from="1657557410396" duration="423000" />
-      <workItem from="1657613641430" duration="5208000" />
+      <workItem from="1657613641430" duration="5363000" />
+      <workItem from="1657619071313" duration="762000" />
     </task>
     <task id="LOCAL-00001" summary="init commit">
       <created>1652373969498</created>
@@ -702,7 +760,35 @@
       <option name="project" value="LOCAL" />
       <updated>1657618324516</updated>
     </task>
-    <option name="localTasksCounter" value="44" />
+    <task id="LOCAL-00044" summary="esempi programmi logo">
+      <created>1657618963660</created>
+      <option name="number" value="00044" />
+      <option name="presentableId" value="LOCAL-00044" />
+      <option name="project" value="LOCAL" />
+      <updated>1657618963660</updated>
+    </task>
+    <task id="LOCAL-00045" summary="esempi programmi logo">
+      <created>1657619091336</created>
+      <option name="number" value="00045" />
+      <option name="presentableId" value="LOCAL-00045" />
+      <option name="project" value="LOCAL" />
+      <updated>1657619091336</updated>
+    </task>
+    <task id="LOCAL-00046" summary="update gitignore">
+      <created>1657619793914</created>
+      <option name="number" value="00046" />
+      <option name="presentableId" value="LOCAL-00046" />
+      <option name="project" value="LOCAL" />
+      <updated>1657619793915</updated>
+    </task>
+    <task id="LOCAL-00047" summary="update gitignore">
+      <created>1657619834793</created>
+      <option name="number" value="00047" />
+      <option name="presentableId" value="LOCAL-00047" />
+      <option name="project" value="LOCAL" />
+      <updated>1657619834793</updated>
+    </task>
+    <option name="localTasksCounter" value="48" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -717,8 +803,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Spostato test nella cartella corretta" />
-    <MESSAGE value="corretto checkcoordinate e fatto test" />
     <MESSAGE value="Modificato comportamento coordinate: assumiamo che le coordinate abbiano due dimensioni" />
     <MESSAGE value="Definito meglio coordinate" />
     <MESSAGE value="Definito meglio Direction" />
@@ -742,7 +826,9 @@
     <MESSAGE value="generalizzato Environment con generic di Cursor" />
     <MESSAGE value="semplificato e amplificato costruttori di Segment" />
     <MESSAGE value="Aggiunte generalizzazioni di Environment" />
-    <option name="LAST_COMMIT_MESSAGE" value="Aggiunte generalizzazioni di Environment" />
+    <MESSAGE value="esempi programmi logo" />
+    <MESSAGE value="update gitignore" />
+    <option name="LAST_COMMIT_MESSAGE" value="update gitignore" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

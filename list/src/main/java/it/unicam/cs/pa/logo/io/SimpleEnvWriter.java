@@ -32,7 +32,7 @@ public class SimpleEnvWriter<E extends Environment<?>> implements EnvironmentWri
      * @return la rappresentazione testuale di una shape
      */
     private String stringOf(Shape shape) {
-        if (shape.size() == 1)
+        if (shape.size() == 1 || !shape.isClosed())
             return stringOfSingleSegment(shape.getSegments().get(0));
         return "POLYGON " + shape.size() + " "
                 + stringOf(shape.getBackgroundColor()) + "\n"
