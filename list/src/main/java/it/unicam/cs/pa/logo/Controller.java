@@ -32,11 +32,11 @@ public class Controller<I extends Instruction<E>, E extends Environment<?>> {
 
     /**
      * Crea un controller che userà uno scrittore per esportare un ambiente, l'ambiente su cui avverrà la computazione,
-     * un registro contenente il set d'istruzioni che possono essere eseguiti
+     * e un set di istruzioni che possono essere eseguiti
      *
      * @param writer      lo scrittore
      * @param environment l'environment
-     * @param registry    il registro
+     * @param registry    il set di istruzioni
      * @param executor    l'esecutore
      */
     public Controller(EnvironmentWriter<E> writer, E environment,
@@ -48,11 +48,11 @@ public class Controller<I extends Instruction<E>, E extends Environment<?>> {
     }
 
     /**
-     * Restituisce un controller di un environment bidimensionale
+     * Restituisce un controller di un environment generico
      *
      * @param length la lunghezza dell'environment
      * @param height l'altezza dell'environment
-     * @return un controller di un environment bidimensionale
+     * @return un controller di un environment generico
      */
     public static Controller<Instruction<Environment<?>>, Environment<?>> getTwoDimController(int length, int height) {
         return new Controller<>(new SimpleEnvWriter<>(),

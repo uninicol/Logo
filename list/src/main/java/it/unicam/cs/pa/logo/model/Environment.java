@@ -1,6 +1,7 @@
 package it.unicam.cs.pa.logo.model;
 
 import java.awt.*;
+import java.awt.geom.Point2D;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
@@ -11,13 +12,13 @@ import java.util.Objects;
 public class Environment<C extends Cursor<?>> extends Rectangle {
 
     private final C cursor;
-    private final List<Shape> shapes;
+    private final List<Polygon> polygons;
     private Color backgroundColor = Color.WHITE;
 
     public Environment(int width, int height, C cursor) {
-        super(width, height, width, height);
+        super(width, height);
         this.cursor = Objects.requireNonNull(cursor);
-        this.shapes = new ArrayList<>();
+        this.polygons = new ArrayList<>();
     }
 
     /**
@@ -52,8 +53,8 @@ public class Environment<C extends Cursor<?>> extends Rectangle {
      *
      * @return la collezione dei segmenti nell'ambiente
      */
-    public final List<Shape> getShapes() {
-        return shapes;
+    public final List<Polygon> getShapes() {
+        return polygons;
     }
 
     /**
@@ -61,7 +62,7 @@ public class Environment<C extends Cursor<?>> extends Rectangle {
      *
      * @return la coordinata del punto home
      */
-    public Point getHome() {
+    public Point2D getHome() {
         return new Point(width / 2, height / 2);
     }
 
@@ -74,8 +75,10 @@ public class Environment<C extends Cursor<?>> extends Rectangle {
 
     @Override
     public boolean contains(int x, int y) {
-        return x >= 0 && x <= width
-                && y >= 0 && y <= height;
+        return x >= 0 &&
+                x <= width &&
+                y >= 0 &&
+                y <= height;
     }
 }
 

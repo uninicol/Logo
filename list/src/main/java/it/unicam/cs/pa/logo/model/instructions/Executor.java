@@ -15,5 +15,5 @@ public interface Executor<I extends Instruction<E>, E extends Environment<?>> {
      * @param script      lo script da eseguire
      * @return l'environment aggiornato
      */
-    Environment<?> execute(InstructionReader<I, E> registry, E environment, Queue<String> script);
+    E execute(InstructionReader<I, E> registry, E environment, Queue<String> script);
 }

@@ -8,7 +8,6 @@ public final class Invoker<I extends Instruction<?>> {
 
     public void setInstruction(I instruction) {
         this.instruction = instruction;
-        this.instruction.setRequestedAttributesNumber(0);
     }
 
     public void executeInstruction(Queue<String> script) {

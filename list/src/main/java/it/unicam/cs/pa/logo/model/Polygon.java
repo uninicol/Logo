@@ -8,22 +8,22 @@ import java.util.List;
 /**
  * Rappresenta una serie di segmenti che possono essere chiusi formando un'area chiusa
  */
-public class Shape {
+public class Polygon implements Closable {
 
     private final List<Segment> segments;
     private Color color;
 
-    public Shape(List<Segment> segments, Color color) {
+    public Polygon(List<Segment> segments, Color color) {
         this.segments = segments;
         this.color = color;
     }
 
-    public Shape(Color color) {
+    public Polygon(Color color) {
         this.segments = new ArrayList<>();
         this.color = color;
     }
 
-    public Shape(Segment segment, Color color) {
+    public Polygon(Segment segment, Color color) {
         this.segments = new ArrayList<>(List.of(segment));
         this.color = color;
     }

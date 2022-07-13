@@ -1,8 +1,8 @@
 package it.unicam.cs.pa.logo.io;
 
 import it.unicam.cs.pa.logo.model.Environment;
+import it.unicam.cs.pa.logo.model.Polygon;
 import it.unicam.cs.pa.logo.model.Segment;
-import it.unicam.cs.pa.logo.model.Shape;
 
 import java.awt.*;
 
@@ -28,15 +28,15 @@ public class SimpleEnvWriter<E extends Environment<?>> implements EnvironmentWri
     /**
      * Restituisce la rappresentazione testuale di una shape
      *
-     * @param shape la shape da rappresentare
+     * @param polygon la shape da rappresentare
      * @return la rappresentazione testuale di una shape
      */
-    private String stringOf(Shape shape) {
-        if (shape.size() == 1 || !shape.isClosed())
-            return stringOfSingleSegment(shape.getSegments().get(0));
-        return "POLYGON " + shape.size() + " "
-                + stringOf(shape.getBackgroundColor()) + "\n"
-                + shape.getSegments().stream()
+    private String stringOf(Polygon polygon) {
+        if (polygon.size() == 1 || !polygon.isClosed())
+            return stringOfSingleSegment(polygon.getSegments().get(0));
+        return "POLYGON " + polygon.size() + " "
+                + stringOf(polygon.getBackgroundColor()) + "\n"
+                + polygon.getSegments().stream()
                 .map(this::stringOfSegmentAttributes).toList();
     }
 

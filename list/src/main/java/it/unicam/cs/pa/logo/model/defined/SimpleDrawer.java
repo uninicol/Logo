@@ -1,6 +1,6 @@
 package it.unicam.cs.pa.logo.model.defined;
 
-import it.unicam.cs.pa.logo.model.Shape;
+import it.unicam.cs.pa.logo.model.Polygon;
 import it.unicam.cs.pa.logo.model.*;
 
 import java.awt.*;
@@ -19,9 +19,9 @@ public class SimpleDrawer implements Drawer<Environment<?>> {
             draw(environment, segment);
         environment.getCursor().move(segment.getP2());
         if (environment.getShapes().isEmpty()) return environment;
-        Shape lastShape = environment.getShapes().get(environment.getShapes().size() - 1);
-        if (lastShape.isClosed())
-            lastShape.setBackgroundColor(environment.getCursor().getAreaColor());
+        Polygon lastPolygon = environment.getShapes().get(environment.getShapes().size() - 1);
+        if (lastPolygon.isClosed())
+            lastPolygon.setBackgroundColor(environment.getCursor().getAreaColor());
         return environment;
     }
 
@@ -86,17 +86,17 @@ public class SimpleDrawer implements Drawer<Environment<?>> {
      * @param segment     il segmento da disegnare
      */
     private void draw(Environment<?> environment, Segment segment) {
-        List<Shape> shapes = environment.getShapes();
-        if (shapes.isEmpty()) {
-            shapes.add(new Shape(segment, Color.WHITE));
+        List<Polygon> polygons = environment.getShapes();
+        if (polygons.isEmpty()) {
+            polygons.add(new Polygon(segment, Color.WHITE));
             environment.getCursor().move(segment.getP2());
             return;
         }
-        Shape lastShape = shapes.get(shapes.size() - 1);
+        Polygon lastPolygon = polygons.get(polygons.size() - 1);
         if (isLastLineDrawn(environment)) //l'ultimo segmento è stato tracciato
-            lastShape.addSegment(segment);
+            lastPolygon.addSegment(segment);
         else
-            shapes.add(new Shape(segment, Color.WHITE));
+            polygons.add(new Polygon(segment, Color.WHITE));
     }
 
     /**
@@ -106,8 +106,8 @@ public class SimpleDrawer implements Drawer<Environment<?>> {
      * @return true se il segmento è collegato, false altrimenti
      */
     private boolean isLastLineDrawn(Environment<?> env) {
-        Shape lastShape = env.getShapes().get(env.getShapes().size() - 1);
-        Point2D lastPoint = lastShape.getSegments().get(lastShape.size() - 1).getP2();
+        Polygon lastPolygon = env.getShapes().get(env.getShapes().size() - 1);
+        Point2D lastPoint = lastPolygon.getSegments().get(lastPolygon.size() - 1).getP2();
         return env.getCursor().getPosition()
                 .equals(lastPoint);
     }

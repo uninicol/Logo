@@ -10,7 +10,7 @@ import java.awt.*;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-class ShapeTest {
+class PolygonTest {
 
     Environment<?> environment;
     Drawer<Environment<?>> drawer;
@@ -50,11 +50,11 @@ class ShapeTest {
 
     @Test
     void isClosedTest() {
-        Shape shape = new Shape(Color.WHITE);
-        shape.addSegment(new Segment(new Point(50, 50), new Point(60, 50)));
-        shape.addSegment(new Segment(new Point(60, 50), new Point(50, 60)));
-        shape.addSegment(new Segment(new Point(50, 60), new Point(50, 50)));
-        assertTrue(shape.isClosed());
+        Polygon polygon = new Polygon(Color.WHITE);
+        polygon.addSegment(new Segment(new Point(50, 50), new Point(60, 50)));
+        polygon.addSegment(new Segment(new Point(60, 50), new Point(50, 60)));
+        polygon.addSegment(new Segment(new Point(50, 60), new Point(50, 50)));
+        assertTrue(polygon.isClosed());
     }
 
 }
