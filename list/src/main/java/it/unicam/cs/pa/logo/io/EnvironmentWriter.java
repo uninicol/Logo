@@ -1,6 +1,8 @@
 package it.unicam.cs.pa.logo.io;
 
 import it.unicam.cs.pa.logo.model.Environment;
+import it.unicam.cs.pa.logo.model.Polygon;
+import it.unicam.cs.pa.logo.model.Segment;
 
 import java.io.File;
 import java.io.IOException;
@@ -10,7 +12,6 @@ import java.nio.file.Path;
 /**
  * Questa è un'interfaccia funzionale usata per scrivere l'ambiente in una stringa
  */
-@FunctionalInterface
 public interface EnvironmentWriter<E extends Environment<?>> {
 
     /**
@@ -20,6 +21,22 @@ public interface EnvironmentWriter<E extends Environment<?>> {
      * @return la stringa che rappresenta l'ambiente.
      */
     String stringOf(E field);
+
+    /**
+     * Restituisce una stringa che rappresenta un poligono
+     *
+     * @param polygon il poligono
+     * @return la stringa che rappresenta un poligono
+     */
+    String stringOf(Polygon polygon);
+
+    /**
+     * Restituisce una stringa che rappresenta un segmento
+     *
+     * @param segment il segmento
+     * @return la stringa che rappresenta un segmento
+     */
+    String stringOf(Segment segment);
 
     /**
      * Scrive l'ambiente dato in un file con riferimento al path dato

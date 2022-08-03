@@ -4,9 +4,10 @@ import it.unicam.cs.pa.logo.io.EnvironmentWriter;
 import it.unicam.cs.pa.logo.io.InstructionLoader;
 import it.unicam.cs.pa.logo.io.InstructionReader;
 import it.unicam.cs.pa.logo.io.SimpleEnvWriter;
-import it.unicam.cs.pa.logo.model.Cursor;
 import it.unicam.cs.pa.logo.model.Environment;
 import it.unicam.cs.pa.logo.model.defined.Direction360;
+import it.unicam.cs.pa.logo.model.defined.SimpleCursor;
+import it.unicam.cs.pa.logo.model.defined.SimpleEnvironment;
 import it.unicam.cs.pa.logo.model.instructions.Executor;
 import it.unicam.cs.pa.logo.model.instructions.Instruction;
 
@@ -14,11 +15,9 @@ import java.awt.*;
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
-import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Queue;
-import java.util.stream.Collectors;
 
 /**
  * Questa classe è usata per controllare le attività di un'esecuzione LOGO
@@ -56,7 +55,8 @@ public class Controller<I extends Instruction<E>, E extends Environment<?>> {
      */
     public static Controller<Instruction<Environment<?>>, Environment<?>> getTwoDimController(int length, int height) {
         return new Controller<>(new SimpleEnvWriter<>(),
-                new Environment<>(length, height, new Cursor<>(new Point(length / 2, height / 2), new Direction360())),
+                new SimpleEnvironment(length, height,
+                        new SimpleCursor(new Point(length / 2, height / 2), new Direction360())),
                 InstructionLoader.DEFAULT_LOGO_READER, Instruction.EXECUTOR);
     }
 
@@ -87,8 +87,18 @@ public class Controller<I extends Instruction<E>, E extends Environment<?>> {
      * @param script lo script da eseguire
      */
     public void computeScript(String script) throws IOException {
-        Queue<String> scriptCommands = Arrays.stream(script.split(" "))
-                .collect(Collectors.toCollection(LinkedList::new));
+        script = script.toUpperCase();
+        Queue<String> scriptCommands = new LinkedList<>(List.of(script.split("\s")));
         executor.execute(registry, currentField, scriptCommands);
+//        while (!script.isEmpty()) {
+//            String command = scriptCommands.poll();
+//            if (command.equals("]")) break;
+//            //registry.parse(command, environment).apply(script);
+//            instructionToExecute = registry.parse(command, currentField);
+//            invoker.setInstruction(instructionToExecute);
+//            invoker.executeInstruction(scriptCommands);
+//            System.out.println(command + " ha " + instructionToExecute.stringOf(currentField));
+//        }
+        //executor.execute(registry, currentField, scriptCommands);
     }
 }

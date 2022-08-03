@@ -1,7 +1,9 @@
 package it.unicam.cs.pa.logo.model;
 
 import it.unicam.cs.pa.logo.model.defined.Direction360;
+import it.unicam.cs.pa.logo.model.defined.SimpleCursor;
 import it.unicam.cs.pa.logo.model.defined.SimpleDrawer;
+import it.unicam.cs.pa.logo.model.defined.SimpleEnvironment;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -17,7 +19,7 @@ class PolygonTest {
 
     @BeforeEach
     void build() {
-        environment = new Environment<>(1000, 1000, new Cursor<>(new Point(500, 500), new Direction360()));
+        environment = new SimpleEnvironment(1000, 1000, new SimpleCursor(new Point(500, 500), new Direction360()));
         drawer = new SimpleDrawer();
     }
 
@@ -28,7 +30,7 @@ class PolygonTest {
         drawer.drawLine(environment, 90);
         environment.getCursor().setPlot(true);
         drawer.drawLine(environment, 90);
-        assertEquals(2, environment.getShapes().size());
+        assertEquals(2, environment.getPolygons().size());
     }
 
     @Test
@@ -40,12 +42,12 @@ class PolygonTest {
         environment.getCursor().setPlot(false);
         Segment s3 = new Segment(new Point(70, 70), new Point(80, 80));
         drawer.drawLine(environment, s3);
-        assertEquals(1, environment.getShapes().size());
-        assertEquals(2, environment.getShapes().get(0).size());
+        assertEquals(1, environment.getPolygons().size());
+        assertEquals(2, environment.getPolygons().get(0).size());
         environment.getCursor().setPlot(true);
         Segment s4 = new Segment(new Point(80, 80), new Point(90, 90));
         drawer.drawLine(environment, s4);
-        assertEquals(2, environment.getShapes().size());
+        assertEquals(2, environment.getPolygons().size());
     }
 
     @Test

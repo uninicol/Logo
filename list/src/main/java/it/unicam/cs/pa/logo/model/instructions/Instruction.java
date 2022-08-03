@@ -3,8 +3,11 @@ package it.unicam.cs.pa.logo.model.instructions;
 import it.unicam.cs.pa.logo.io.InstructionWriter;
 import it.unicam.cs.pa.logo.model.Environment;
 
+import java.util.LinkedList;
 import java.util.Objects;
+import java.util.Optional;
 import java.util.Queue;
+import java.util.stream.Collectors;
 
 /**
  * Classe astratta che rappresenta un'istruzione
@@ -15,14 +18,16 @@ public abstract class Instruction<E extends Environment<?>> implements Instructi
      * Esegue uno script di istruzioni LOGO
      */
     public static final Executor<Instruction<Environment<?>>, Environment<?>> EXECUTOR = (registry, environment, script) -> {
-        Invoker<Instruction<?>> invoker = new Invoker<>();
-        while (!script.isEmpty()) {
-            String command = script.poll();
-            if (command.equals("]")) break;
-            invoker.setInstruction(registry.parse(command, environment));
-            invoker.executeInstruction(script);
-            System.out.println(command + " ha " + registry.parse(command, environment).stringOf(environment));
-        }
+        Queue<String> scriptCopy = new LinkedList<>(script); //creo un clone altrimenti ho ConcurrentModificationException
+        script = script.stream().takeWhile(str -> !str.equals("[")).collect(Collectors.toCollection(LinkedList::new));
+        script.addAll(scriptCopy.stream().dropWhile(str -> !str.equals("]")).toList());
+        script.stream()
+                .map(str -> registry.parse(str, environment))
+                .filter(Optional::isPresent)
+                .forEach(instruction -> {
+                    scriptCopy.poll();
+                    instruction.get().apply(scriptCopy);
+                });
         return environment;
     };
 

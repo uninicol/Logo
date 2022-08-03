@@ -11,11 +11,12 @@ import java.io.InputStreamReader;
 
 public class App {
     public static void main(String[] args) throws IOException {
-        new App().run(args);
+        try (BufferedReader br = new BufferedReader(new InputStreamReader(System.in))) {
+            new App().run(args, br);
+        }
     }
 
-    public void run(String[] args) throws IOException {
-        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+    public void run(String[] args, BufferedReader br) throws IOException {
         System.out.println("--------------LOGO--------------");
         Controller<Instruction<Environment<?>>, Environment<?>> controller = getController(br, args);
         printBoard();
@@ -30,7 +31,6 @@ public class App {
             controller.save(file);
             System.out.println("File salvato su " + file.toPath());
         }
-        br.close();
     }
 
 

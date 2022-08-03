@@ -22,6 +22,6 @@ public final class LeftInstruction extends Instruction<Environment<?>> {
 
     @Override
     public String stringOf(Environment<?> environment) {
-        return "ruotato il cursore nella direzione" + (int) environment.getCursor().getDirection().getValue();
+        return "ruotato il cursore nella direzione " + (int) environment.getCursor().getDirection().getValue();
     }
 }

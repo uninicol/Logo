@@ -16,7 +16,7 @@ public class SimpleEnvWriter<E extends Environment<?>> implements EnvironmentWri
         String str = "SIZE " + (int) field.getWidth() + " "
                 + (int) field.getHeight() + " "
                 + stringOf(field.getBackgroundColor()) + "\n"
-                + field.getShapes().stream()
+                + field.getPolygons().stream()
                 .map(this::stringOf)
                 .toList();
         str = str.replaceAll("\\[", "")
@@ -25,28 +25,20 @@ public class SimpleEnvWriter<E extends Environment<?>> implements EnvironmentWri
         return str;
     }
 
-    /**
-     * Restituisce la rappresentazione testuale di una shape
-     *
-     * @param polygon la shape da rappresentare
-     * @return la rappresentazione testuale di una shape
-     */
-    private String stringOf(Polygon polygon) {
+    @Override
+    public String stringOf(Polygon polygon) {
         if (polygon.size() == 1 || !polygon.isClosed())
-            return stringOfSingleSegment(polygon.getSegments().get(0));
+            return "" + polygon.getSegments().stream()
+                    .map(this::stringOf)
+                    .toList();
         return "POLYGON " + polygon.size() + " "
                 + stringOf(polygon.getBackgroundColor()) + "\n"
                 + polygon.getSegments().stream()
                 .map(this::stringOfSegmentAttributes).toList();
     }
 
-    /**
-     * Restituisce la stringa che rappresenta un segmento
-     *
-     * @param segment il segmento
-     * @return la stringa che rappresenta un segmento
-     */
-    private String stringOfSingleSegment(Segment segment) {
+    @Override
+    public String stringOf(Segment segment) {
         return "LINE " + (int) segment.getX1() + " "
                 + (int) segment.getY1() + " "
                 + (int) segment.getX2() + " "

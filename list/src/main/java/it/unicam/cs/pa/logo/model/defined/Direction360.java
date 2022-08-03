@@ -22,7 +22,7 @@ public class Direction360 implements Direction {
     }
 
     @Override
-    public void increase(int num) {
-        angle = (angle + num) % 360;
+    public void increase(double num) {
+        angle = (int) (angle + num) % 360;
     }
 }

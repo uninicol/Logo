@@ -15,7 +15,7 @@ public class StepByStepExecution<I extends Instruction<E>, E extends Environment
     public void execute(Controller<I, E> controller, BufferedReader br) throws IOException {
         System.out.println("Hai scelto l'esecuzione passo passo, separare ogni parola da uno spazio\nScrivere EXIT per terminare");
         while (true) {
-            String command = br.readLine().toUpperCase();
+            String command = br.readLine();
             if (command.equalsIgnoreCase("EXIT")) break;
             try {
                 controller.computeScript(command);

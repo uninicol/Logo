@@ -17,7 +17,7 @@ public final class HomeInstruction extends Instruction<Environment<?>> {
 
     @Override
     public Environment<?> apply(Queue<String> script) {
-        getEnvironment().getCursor().move(getEnvironment().getHome());
+        getEnvironment().getCursor().moveTo(getEnvironment().getHome());
         return getEnvironment();
     }
 

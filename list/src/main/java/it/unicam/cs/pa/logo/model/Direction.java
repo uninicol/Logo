@@ -17,14 +17,14 @@ public interface Direction {
      *
      * @param num valore da incrementare
      */
-    void increase(int num);
+    void increase(double num);
 
     /**
      * Decrementa il valore della direzione
      *
      * @param num valore da decrementare
      */
-    default void decrease(int num) {
+    default void decrease(double num) {
         increase(-num);
     }
 }

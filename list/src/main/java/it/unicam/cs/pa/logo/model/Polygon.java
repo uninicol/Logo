@@ -13,18 +13,8 @@ public class Polygon implements Closable {
     private final List<Segment> segments;
     private Color color;
 
-    public Polygon(List<Segment> segments, Color color) {
-        this.segments = segments;
-        this.color = color;
-    }
-
     public Polygon(Color color) {
         this.segments = new ArrayList<>();
-        this.color = color;
-    }
-
-    public Polygon(Segment segment, Color color) {
-        this.segments = new ArrayList<>(List.of(segment));
         this.color = color;
     }
 

@@ -2,9 +2,10 @@ package it.unicam.cs.pa.logo.model.instructions.defined;
 
 import it.unicam.cs.pa.logo.io.InstructionLoader;
 import it.unicam.cs.pa.logo.io.InstructionReader;
-import it.unicam.cs.pa.logo.model.Cursor;
 import it.unicam.cs.pa.logo.model.Environment;
 import it.unicam.cs.pa.logo.model.defined.Direction360;
+import it.unicam.cs.pa.logo.model.defined.SimpleCursor;
+import it.unicam.cs.pa.logo.model.defined.SimpleEnvironment;
 import it.unicam.cs.pa.logo.model.instructions.Instruction;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -23,7 +24,7 @@ public class BackwardInstructionTest {
 
     @BeforeEach
     void build() {
-        env = new Environment<>(1000, 1000, new Cursor<>(new Point(500, 500), new Direction360()));
+        env = new SimpleEnvironment(1000, 1000, new SimpleCursor(new Point(500, 500), new Direction360()));
     }
 
     @Test
@@ -31,7 +32,7 @@ public class BackwardInstructionTest {
         String command = "BACKWARD 50";
         Instruction.EXECUTOR.execute(registry, env, new LinkedList<>(List.of(command.split(" "))));
         assertEquals(new Point(450, 500), env.getCursor().getPosition());
-        assertEquals(1, env.getShapes().size());
+        assertEquals(1, env.getPolygons().size());
     }
 
     @Test
@@ -40,7 +41,7 @@ public class BackwardInstructionTest {
         LinkedList<String> script = new LinkedList<>(List.of(command.split(" ")));
         Instruction.EXECUTOR.execute(registry, env, script);
         assertEquals(new Point(550, 500), env.getCursor().getPosition());
-        assertEquals(1, env.getShapes().size());
+        assertEquals(1, env.getPolygons().size());
     }
 
     @Test
@@ -49,6 +50,6 @@ public class BackwardInstructionTest {
         String command = "BACKWARD 50";
         Instruction.EXECUTOR.execute(registry, env, new LinkedList<>(List.of(command.split(" "))));
         assertEquals(new Point(450, 500), env.getCursor().getPosition());
-        assertTrue(env.getShapes().isEmpty());
+        assertTrue(env.getPolygons().isEmpty());
     }
 }

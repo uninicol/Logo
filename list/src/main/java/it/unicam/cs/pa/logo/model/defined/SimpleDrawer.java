@@ -17,9 +17,9 @@ public class SimpleDrawer implements Drawer<Environment<?>> {
         checkSegment(environment, segment, segment.getP1().distance(segment.getP2()));
         if (environment.getCursor().isPlot())
             draw(environment, segment);
-        environment.getCursor().move(segment.getP2());
-        if (environment.getShapes().isEmpty()) return environment;
-        Polygon lastPolygon = environment.getShapes().get(environment.getShapes().size() - 1);
+        environment.getCursor().moveTo(segment.getP2());
+        if (environment.getPolygons().isEmpty()) return environment;
+        Polygon lastPolygon = environment.getPolygons().get(environment.getPolygons().size() - 1);
         if (lastPolygon.isClosed())
             lastPolygon.setBackgroundColor(environment.getCursor().getAreaColor());
         return environment;
@@ -28,7 +28,10 @@ public class SimpleDrawer implements Drawer<Environment<?>> {
     @Override
     public Environment<?> drawLine(Environment<?> environment, int length) {
         Segment segment =
-                new Segment(environment.getCursor().getPosition(), getPointFromDistance(environment, length));
+                new Segment(environment.getCursor().getPosition(),
+                        getPointFromDistance(environment, length),
+                        environment.getCursor().getSize(),
+                        environment.getCursor().getLineColor());
         return drawLine(environment, segment);
     }
 
@@ -86,17 +89,19 @@ public class SimpleDrawer implements Drawer<Environment<?>> {
      * @param segment     il segmento da disegnare
      */
     private void draw(Environment<?> environment, Segment segment) {
-        List<Polygon> polygons = environment.getShapes();
+        List<Polygon> polygons = environment.getPolygons();
+        Polygon polygon = new Polygon(Color.WHITE);
+        polygon.addSegment(segment);
         if (polygons.isEmpty()) {
-            polygons.add(new Polygon(segment, Color.WHITE));
-            environment.getCursor().move(segment.getP2());
+            polygons.add(polygon);
+            environment.getCursor().moveTo(segment.getP2());
             return;
         }
         Polygon lastPolygon = polygons.get(polygons.size() - 1);
         if (isLastLineDrawn(environment)) //l'ultimo segmento è stato tracciato
             lastPolygon.addSegment(segment);
         else
-            polygons.add(new Polygon(segment, Color.WHITE));
+            polygons.add(polygon);
     }
 
     /**
@@ -106,7 +111,7 @@ public class SimpleDrawer implements Drawer<Environment<?>> {
      * @return true se il segmento è collegato, false altrimenti
      */
     private boolean isLastLineDrawn(Environment<?> env) {
-        Polygon lastPolygon = env.getShapes().get(env.getShapes().size() - 1);
+        Polygon lastPolygon = env.getPolygons().get(env.getPolygons().size() - 1);
         Point2D lastPoint = lastPolygon.getSegments().get(lastPolygon.size() - 1).getP2();
         return env.getCursor().getPosition()
                 .equals(lastPoint);

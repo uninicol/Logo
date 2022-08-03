@@ -5,6 +5,7 @@ import it.unicam.cs.pa.logo.model.Environment;
 
 import java.util.Queue;
 
+@FunctionalInterface
 public interface Executor<I extends Instruction<E>, E extends Environment<?>> {
 
     /**

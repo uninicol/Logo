@@ -9,7 +9,7 @@ import java.util.Objects;
 /**
  * Rappresenta un ambiente a due dimensioni
  */
-public class Environment<C extends Cursor<?>> extends Rectangle {
+public abstract class Environment<C extends Cursor<?>> extends Rectangle {
 
     private final C cursor;
     private final List<Polygon> polygons;
@@ -26,7 +26,7 @@ public class Environment<C extends Cursor<?>> extends Rectangle {
      *
      * @return il cursore
      */
-    public C getCursor() {
+    public final C getCursor() {
         return cursor;
     }
 
@@ -53,7 +53,7 @@ public class Environment<C extends Cursor<?>> extends Rectangle {
      *
      * @return la collezione dei segmenti nell'ambiente
      */
-    public final List<Polygon> getShapes() {
+    public final List<Polygon> getPolygons() {
         return polygons;
     }
 
@@ -62,7 +62,7 @@ public class Environment<C extends Cursor<?>> extends Rectangle {
      *
      * @return la coordinata del punto home
      */
-    public Point2D getHome() {
+    public final Point2D getHome() {
         return new Point(width / 2, height / 2);
     }
 
@@ -70,7 +70,7 @@ public class Environment<C extends Cursor<?>> extends Rectangle {
      * Elimina tutti i tratti disegnati nel piano
      */
     public void clearAll() {
-        getShapes().clear();
+        getPolygons().clear();
     }
 
     @Override
