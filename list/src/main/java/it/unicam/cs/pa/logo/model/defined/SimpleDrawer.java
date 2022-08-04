@@ -10,10 +10,10 @@ import java.util.List;
 /**
  * Questa classe rappresenta un disegnatore che disegna su un piano bidimensionale
  */
-public class SimpleDrawer implements Drawer<Environment<?>> {
+public class SimpleDrawer implements Drawer<SimpleEnvironment> {
 
     @Override
-    public Environment<?> drawLine(Environment<?> environment, Segment segment) {
+    public SimpleEnvironment drawLine(SimpleEnvironment environment, Segment segment) {
         checkSegment(environment, segment, segment.getP1().distance(segment.getP2()));
         if (environment.getCursor().isPlot())
             draw(environment, segment);
@@ -25,8 +25,7 @@ public class SimpleDrawer implements Drawer<Environment<?>> {
         return environment;
     }
 
-    @Override
-    public Environment<?> drawLine(Environment<?> environment, int length) {
+    public SimpleEnvironment drawLine(SimpleEnvironment environment, int length) {
         Segment segment =
                 new Segment(environment.getCursor().getPosition(),
                         getPointFromDistance(environment, length),

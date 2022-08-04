@@ -13,13 +13,4 @@ public interface Drawer<E extends Environment<?>> {
      * @return l'environment aggiornato
      */
     E drawLine(E environment, Segment segment);
-
-    /**
-     * Traccia una linea se la penna è giù
-     *
-     * @param length      la lunghezza del tratto
-     * @param environment l'environment su cui disegnare
-     * @return l'environment aggiornato
-     */
-    E drawLine(E environment, int length);
 }

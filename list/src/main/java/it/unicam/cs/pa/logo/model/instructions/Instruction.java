@@ -2,26 +2,28 @@ package it.unicam.cs.pa.logo.model.instructions;
 
 import it.unicam.cs.pa.logo.io.InstructionWriter;
 import it.unicam.cs.pa.logo.model.Environment;
+import it.unicam.cs.pa.logo.model.defined.SimpleEnvironment;
 
 import java.util.LinkedList;
 import java.util.Objects;
 import java.util.Optional;
 import java.util.Queue;
-import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 /**
  * Classe astratta che rappresenta un'istruzione
  */
-public abstract class Instruction<E extends Environment<?>> implements InstructionWriter<Environment<?>> {
+public abstract class Instruction<E extends Environment<?>> implements InstructionWriter<E> {
 
     /**
      * Esegue uno script di istruzioni LOGO
      */
-    public static final Executor<Instruction<Environment<?>>, Environment<?>> EXECUTOR = (registry, environment, script) -> {
-        Queue<String> scriptCopy = new LinkedList<>(script); //creo un clone altrimenti ho ConcurrentModificationException
-        script = script.stream().takeWhile(str -> !str.equals("[")).collect(Collectors.toCollection(LinkedList::new));
-        script.addAll(scriptCopy.stream().dropWhile(str -> !str.equals("]")).toList());
-        script.stream()
+    public static final Executor<Instruction<SimpleEnvironment>, SimpleEnvironment> LOGO_EXECUTOR = (registry, environment, script) -> {
+        Queue<String> scriptCopy = new LinkedList<>(script); //creo un clone altrimenti ho ConcurrentModificationException nello stream
+        Stream.concat(
+                        script.stream().takeWhile(str -> !str.equals("[")),//elimino lo script all'interno delle parentesi
+                        script.stream().dropWhile(str -> !str.equals("]")) //problemi con inner loop
+                )
                 .map(str -> registry.parse(str, environment))
                 .filter(Optional::isPresent)
                 .forEach(instruction -> {

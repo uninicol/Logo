@@ -14,8 +14,8 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 class PolygonTest {
 
-    Environment<?> environment;
-    Drawer<Environment<?>> drawer;
+    SimpleEnvironment environment;
+    Drawer<SimpleEnvironment> drawer;
 
     @BeforeEach
     void build() {
@@ -25,11 +25,11 @@ class PolygonTest {
 
     @Test
     void drawSegmentTest() {
-        drawer.drawLine(environment, 90);
+        drawer.drawLine(environment, new Segment(new Point(10, 10), new Point(20, 20)));
         environment.getCursor().setPlot(false);
-        drawer.drawLine(environment, 90);
+        drawer.drawLine(environment, new Segment(new Point(20, 20), new Point(30, 30)));
         environment.getCursor().setPlot(true);
-        drawer.drawLine(environment, 90);
+        drawer.drawLine(environment, new Segment(new Point(30, 30), new Point(40, 40)));
         assertEquals(2, environment.getPolygons().size());
     }
 

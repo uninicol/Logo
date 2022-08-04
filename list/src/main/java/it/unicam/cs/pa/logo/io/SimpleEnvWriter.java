@@ -1,27 +1,27 @@
 package it.unicam.cs.pa.logo.io;
 
-import it.unicam.cs.pa.logo.model.Environment;
 import it.unicam.cs.pa.logo.model.Polygon;
 import it.unicam.cs.pa.logo.model.Segment;
+import it.unicam.cs.pa.logo.model.defined.SimpleEnvironment;
 
 import java.awt.*;
 
 /**
  * Classe usata per rappresentare un'environment di due dimensioni in una stringa
  */
-public class SimpleEnvWriter<E extends Environment<?>> implements EnvironmentWriter<E> {
+public class SimpleEnvWriter implements EnvironmentWriter<SimpleEnvironment> {
 
     @Override
-    public String stringOf(E field) {
+    public String stringOf(SimpleEnvironment field) {
         String str = "SIZE " + (int) field.getWidth() + " "
                 + (int) field.getHeight() + " "
                 + stringOf(field.getBackgroundColor()) + "\n"
                 + field.getPolygons().stream()
                 .map(this::stringOf)
                 .toList();
-        str = str.replaceAll("\\[", "")
-                .replaceAll("]", "")
-                .replaceAll(", ", "");
+        str = str.replaceAll("\\[|\\]|, ", "");
+        //.replaceAll("]", "")
+        //.replaceAll(", ", "");
         return str;
     }
 

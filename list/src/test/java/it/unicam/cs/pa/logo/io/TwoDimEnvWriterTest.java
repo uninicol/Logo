@@ -1,6 +1,5 @@
 package it.unicam.cs.pa.logo.io;
 
-import it.unicam.cs.pa.logo.model.Environment;
 import it.unicam.cs.pa.logo.model.defined.Direction360;
 import it.unicam.cs.pa.logo.model.defined.SimpleCursor;
 import it.unicam.cs.pa.logo.model.defined.SimpleEnvironment;
@@ -16,8 +15,8 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class TwoDimEnvWriterTest {
 
-    Environment<?> env;
-    InstructionReader<Instruction<Environment<?>>, Environment<?>> registry = InstructionLoader.DEFAULT_LOGO_READER;
+    SimpleEnvironment env;
+    InstructionReader<Instruction<SimpleEnvironment>, SimpleEnvironment> registry = InstructionLoader.DEFAULT_LOGO_READER;
 
     @BeforeEach
     void begin() {
@@ -28,7 +27,7 @@ class TwoDimEnvWriterTest {
     @Test
     void stringOf() {
         String command = "REPEAT 4 [ FORWARD 50 RIGHT 90 ] FORWARD 50";
-        Instruction.EXECUTOR.execute(registry, env, new LinkedList<>(List.of(command.split(" "))));
+        Instruction.LOGO_EXECUTOR.execute(registry, env, new LinkedList<>(List.of(command.split(" "))));
         assertEquals(new Point(550, 500), env.getCursor().getPosition());
     }
 }

@@ -1,27 +1,22 @@
 package it.unicam.cs.pa.logo.app;
 
 import it.unicam.cs.pa.logo.Controller;
-import it.unicam.cs.pa.logo.model.Environment;
-import it.unicam.cs.pa.logo.model.instructions.Instruction;
 
-import java.io.BufferedReader;
 import java.io.IOException;
+
+import static it.unicam.cs.pa.logo.app.App.br;
 
 /**
  * Questa classe descrive la modalitò di esecuzione passo passo
  */
-public class StepByStepExecution<I extends Instruction<E>, E extends Environment<?>> {
+public class StepByStepExecution {
 
-    public void execute(Controller<I, E> controller, BufferedReader br) throws IOException {
+    public void execute(Controller<?, ?> controller) throws IOException {
         System.out.println("Hai scelto l'esecuzione passo passo, separare ogni parola da uno spazio\nScrivere EXIT per terminare");
         while (true) {
             String command = br.readLine();
             if (command.equalsIgnoreCase("EXIT")) break;
-            try {
-                controller.computeScript(command);
-            } catch (IOException e) {
-                System.out.println("Impossibile eseguire il comando " + command);
-            }
+            controller.computeScript(command);
         }
         System.out.println("Computazione conclusa");
     }

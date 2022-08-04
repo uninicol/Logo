@@ -13,7 +13,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class TwoDimDrawerTest {
 
-    Environment<?> env;
+    SimpleEnvironment env;
     SimpleDrawer drawer;
 
     @BeforeEach

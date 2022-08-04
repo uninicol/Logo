@@ -1,6 +1,6 @@
 package it.unicam.cs.pa.logo.model.instructions.defined;
 
-import it.unicam.cs.pa.logo.model.Environment;
+import it.unicam.cs.pa.logo.model.defined.SimpleEnvironment;
 import it.unicam.cs.pa.logo.model.instructions.Instruction;
 
 import java.util.Queue;
@@ -8,19 +8,19 @@ import java.util.Queue;
 /**
  * Classe che rappresenta l'istruzione PENUP, stacca la penna dal foglio
  */
-public final class PenupInstrucion extends Instruction<Environment<?>> {
-    public PenupInstrucion(Environment<?> environment) {
+public final class PenupInstrucion extends Instruction<SimpleEnvironment> {
+    public PenupInstrucion(SimpleEnvironment environment) {
         super(environment, 0);
     }
 
     @Override
-    public Environment<?> apply(Queue<String> script) {
+    public SimpleEnvironment apply(Queue<String> script) {
         getEnvironment().getCursor().setPlot(false);
         return getEnvironment();
     }
 
     @Override
-    public String stringOf(Environment<?> environment) {
+    public String stringOf(SimpleEnvironment environment) {
         return "staccato la penna al foglio";
     }
 }

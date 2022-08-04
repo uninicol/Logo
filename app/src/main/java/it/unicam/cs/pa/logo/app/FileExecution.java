@@ -1,29 +1,22 @@
 package it.unicam.cs.pa.logo.app;
 
 import it.unicam.cs.pa.logo.Controller;
-import it.unicam.cs.pa.logo.model.Environment;
-import it.unicam.cs.pa.logo.model.instructions.Instruction;
 
-import java.io.BufferedReader;
 import java.io.File;
 import java.io.IOException;
 import java.util.List;
 
+import static it.unicam.cs.pa.logo.app.App.br;
+
 /**
  * Questa classe descrive la modalitò di esecuzione tramite file
  */
-public class FileExecution<I extends Instruction<E>, E extends Environment<?>> {
+public class FileExecution {
 
-    public void execute(Controller<I, E> controller, BufferedReader br) throws IOException {
+    public void execute(Controller<?, ?> controller) throws IOException {
         System.out.println("Hai scelto l'esecuzione da un file\nInserire nome del file (deve essere nella stessa cartella del programma)");
         List<String> script = controller.read(new File(br.readLine()));
-        script.forEach((command) -> {
-            try {
-                controller.computeScript(command);
-            } catch (IOException e) {
-                System.out.println("Impossibile eseguire il comando");
-            }
-        });
+        controller.computeScript(String.join(", ", script));
         System.out.println("Computazione conclusa");
     }
 }

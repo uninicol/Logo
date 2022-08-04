@@ -53,11 +53,16 @@ public class Controller<I extends Instruction<E>, E extends Environment<?>> {
      * @param height l'altezza dell'environment
      * @return un controller di un environment generico
      */
-    public static Controller<Instruction<Environment<?>>, Environment<?>> getTwoDimController(int length, int height) {
-        return new Controller<>(new SimpleEnvWriter<>(),
-                new SimpleEnvironment(length, height,
-                        new SimpleCursor(new Point(length / 2, height / 2), new Direction360())),
-                InstructionLoader.DEFAULT_LOGO_READER, Instruction.EXECUTOR);
+    public static Controller<Instruction<SimpleEnvironment>, SimpleEnvironment> getTwoDimController(int length, int height) {
+        return new Controller<>(
+                new SimpleEnvWriter(),
+                new SimpleEnvironment(
+                        length,
+                        height,
+                        new SimpleCursor(new Point(length / 2, height / 2), new Direction360())
+                ),
+                InstructionLoader.DEFAULT_LOGO_READER,
+                Instruction.LOGO_EXECUTOR);
     }
 
     /**
@@ -86,19 +91,9 @@ public class Controller<I extends Instruction<E>, E extends Environment<?>> {
      *
      * @param script lo script da eseguire
      */
-    public void computeScript(String script) throws IOException {
+    public void computeScript(String script) {
         script = script.toUpperCase();
-        Queue<String> scriptCommands = new LinkedList<>(List.of(script.split("\s")));
+        Queue<String> scriptCommands = new LinkedList<>(List.of(script.split("\s|\t|\n")));
         executor.execute(registry, currentField, scriptCommands);
-//        while (!script.isEmpty()) {
-//            String command = scriptCommands.poll();
-//            if (command.equals("]")) break;
-//            //registry.parse(command, environment).apply(script);
-//            instructionToExecute = registry.parse(command, currentField);
-//            invoker.setInstruction(instructionToExecute);
-//            invoker.executeInstruction(scriptCommands);
-//            System.out.println(command + " ha " + instructionToExecute.stringOf(currentField));
-//        }
-        //executor.execute(registry, currentField, scriptCommands);
     }
 }

@@ -2,7 +2,6 @@ package it.unicam.cs.pa.logo.model.instructions.defined;
 
 import it.unicam.cs.pa.logo.io.InstructionLoader;
 import it.unicam.cs.pa.logo.io.InstructionReader;
-import it.unicam.cs.pa.logo.model.Environment;
 import it.unicam.cs.pa.logo.model.defined.Direction360;
 import it.unicam.cs.pa.logo.model.defined.SimpleCursor;
 import it.unicam.cs.pa.logo.model.defined.SimpleEnvironment;
@@ -18,8 +17,8 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class ForwardInstructionTest {
 
-    Environment<?> env;
-    InstructionReader<Instruction<Environment<?>>, Environment<?>> registry = InstructionLoader.DEFAULT_LOGO_READER;
+    SimpleEnvironment env;
+    InstructionReader<Instruction<SimpleEnvironment>, SimpleEnvironment> registry = InstructionLoader.DEFAULT_LOGO_READER;
 
     @BeforeEach
     void build() {
@@ -29,7 +28,7 @@ public class ForwardInstructionTest {
     @Test
     public void executeDrawSegmentTest() {
         String command = "FORWARD 50";
-        Instruction.EXECUTOR.execute(registry, env, new LinkedList<>(List.of(command.split(" "))));
+        Instruction.LOGO_EXECUTOR.execute(registry, env, new LinkedList<>(List.of(command.split(" "))));
         assertEquals(new Point(550, 500), env.getCursor().getPosition());
     }
 }

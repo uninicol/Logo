@@ -1,7 +1,7 @@
 package it.unicam.cs.pa.logo.model.instructions.defined;
 
 import it.unicam.cs.pa.logo.io.InstructionLoader;
-import it.unicam.cs.pa.logo.model.Environment;
+import it.unicam.cs.pa.logo.model.defined.SimpleEnvironment;
 import it.unicam.cs.pa.logo.model.instructions.Instruction;
 
 import java.util.LinkedList;
@@ -12,14 +12,14 @@ import java.util.stream.Collectors;
 /**
  * Classe che rappresenta l'istruzione REPEAT, ripete la sequenza di comandi
  */
-public final class RepeatInstruction extends Instruction<Environment<?>> {
+public final class RepeatInstruction extends Instruction<SimpleEnvironment> {
 
-    public RepeatInstruction(Environment<?> environment) {
+    public RepeatInstruction(SimpleEnvironment environment) {
         super(environment, 1);
     }
 
     @Override
-    public Environment<?> apply(Queue<String> script) {
+    public SimpleEnvironment apply(Queue<String> script) {
         if (!(script.containsAll(List.of("[", "]")))) throw new IllegalArgumentException("Mancate parentesi");
         int num = getAttribute(script);
         script.remove("[");
@@ -28,7 +28,7 @@ public final class RepeatInstruction extends Instruction<Environment<?>> {
         removeToRepeatScript(script, toRepeat);
         for (int i = 0; i < num; i++) {
             //dato che la lista verrà consumata creo una nuova LinkedList per ogni iterazione
-            Instruction.EXECUTOR.execute(InstructionLoader.DEFAULT_LOGO_READER, getEnvironment(), new LinkedList<>(toRepeat));
+            Instruction.LOGO_EXECUTOR.execute(InstructionLoader.DEFAULT_LOGO_READER, getEnvironment(), new LinkedList<>(toRepeat));
         }
         return getEnvironment();
     }
@@ -47,7 +47,7 @@ public final class RepeatInstruction extends Instruction<Environment<?>> {
     }
 
     @Override
-    public String stringOf(Environment<?> environment) {
+    public String stringOf(SimpleEnvironment environment) {
         return "ripetute precedenti righe";
     }
 }

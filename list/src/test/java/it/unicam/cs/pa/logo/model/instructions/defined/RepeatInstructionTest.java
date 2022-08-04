@@ -2,7 +2,6 @@ package it.unicam.cs.pa.logo.model.instructions.defined;
 
 import it.unicam.cs.pa.logo.io.InstructionLoader;
 import it.unicam.cs.pa.logo.io.InstructionReader;
-import it.unicam.cs.pa.logo.model.Environment;
 import it.unicam.cs.pa.logo.model.defined.Direction360;
 import it.unicam.cs.pa.logo.model.defined.SimpleCursor;
 import it.unicam.cs.pa.logo.model.defined.SimpleEnvironment;
@@ -19,8 +18,8 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public class RepeatInstructionTest {
 
-    Environment<?> env;
-    InstructionReader<Instruction<Environment<?>>, Environment<?>> registry = InstructionLoader.DEFAULT_LOGO_READER;
+    SimpleEnvironment env;
+    InstructionReader<Instruction<SimpleEnvironment>, SimpleEnvironment> registry = InstructionLoader.DEFAULT_LOGO_READER;
 
     @BeforeEach
     void build() {
@@ -30,7 +29,7 @@ public class RepeatInstructionTest {
     @Test
     public void executeDrawSegmentTest() {
         String command = "REPEAT 3 [ FORWARD 50 ]";
-        Instruction.EXECUTOR.execute(registry, env, new LinkedList<>(List.of(command.split(" "))));
+        Instruction.LOGO_EXECUTOR.execute(registry, env, new LinkedList<>(List.of(command.split(" "))));
         assertEquals(new Point(650, 500), env.getCursor().getPosition());
     }
 
@@ -38,7 +37,7 @@ public class RepeatInstructionTest {
     public void commandWithoutParenthesisTest() {
         assertThrows(IllegalArgumentException.class, () -> {
                     String command = "REPEAT 3 [ FORWARD 50";
-                    Instruction.EXECUTOR.execute(registry, env, new LinkedList<>(List.of(command.split(" "))));
+                    Instruction.LOGO_EXECUTOR.execute(registry, env, new LinkedList<>(List.of(command.split(" "))));
                 }
         );
     }
@@ -46,21 +45,28 @@ public class RepeatInstructionTest {
     @Test
     public void executeDrawSquareTest() {
         String square = "REPEAT 4 [ FORWARD 50 RIGHT 90 ]";
-        Instruction.EXECUTOR.execute(registry, env, new LinkedList<>(List.of(square.split(" "))));
+        Instruction.LOGO_EXECUTOR.execute(registry, env, new LinkedList<>(List.of(square.split(" "))));
         assertEquals(new Point(500, 500), env.getCursor().getPosition());
     }
 
     @Test
     public void executeCommandAfterRepeatTest() {
         String square = "REPEAT 4 [ FORWARD 50 RIGHT 90 ] FORWARD 50";
-        Instruction.EXECUTOR.execute(registry, env, new LinkedList<>(List.of(square.split(" "))));
+        Instruction.LOGO_EXECUTOR.execute(registry, env, new LinkedList<>(List.of(square.split(" "))));
         assertEquals(new Point(550, 500), env.getCursor().getPosition());
     }
 
     @Test
     public void innerRepeatInstructionTest() {
         String script = "REPEAT 4 [ REPEAT 50 [ FORWARD 1 ] ]";
-        Instruction.EXECUTOR.execute(registry, env, new LinkedList<>(List.of(script.split(" "))));
+        Instruction.LOGO_EXECUTOR.execute(registry, env, new LinkedList<>(List.of(script.split(" "))));
         assertEquals(new Point(700, 500), env.getCursor().getPosition());
+    }
+
+    @Test
+    public void secondInnerRepeatInstructionTest() {
+        String script = "REPEAT 4 [ REPEAT 50 [ FORWARD 1 ] FORWARD 1 ]";
+        Instruction.LOGO_EXECUTOR.execute(registry, env, new LinkedList<>(List.of(script.split(" "))));
+        assertEquals(new Point(704, 500), env.getCursor().getPosition());
     }
 }
