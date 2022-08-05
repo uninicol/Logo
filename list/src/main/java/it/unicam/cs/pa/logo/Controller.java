@@ -93,7 +93,7 @@ public class Controller<I extends Instruction<E>, E extends Environment<?>> {
      */
     public void computeScript(String script) {
         script = script.toUpperCase();
-        Queue<String> scriptCommands = new LinkedList<>(List.of(script.split("\s|\t|\n")));
+        Queue<String> scriptCommands = new LinkedList<>(List.of(script.split("[\s\t\n]")));
         executor.execute(registry, currentField, scriptCommands);
     }
 }
