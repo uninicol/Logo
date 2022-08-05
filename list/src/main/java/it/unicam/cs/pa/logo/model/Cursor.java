@@ -16,8 +16,13 @@ public abstract class Cursor<D extends Direction> {
     private Color areaColor = Color.WHITE;
     private boolean plot = true;
 
-    public Cursor(Point position, D direction) {
+    public Cursor(Point2D position, D direction) {
         this.position = Objects.requireNonNull(position);
+        this.direction = Objects.requireNonNull(direction);
+    }
+
+    public Cursor(D direction) {
+        this.position = new Point();
         this.direction = Objects.requireNonNull(direction);
     }
 

@@ -57,6 +57,6 @@ public class App {
     private void printBoard() {
         System.out.println("Scegli:");
         System.out.println("1) esegui il comando passo passo");
-        System.out.println("2) esegui un programma logo su un file");
+        System.out.println("2) esegui un programma logo da un file");
     }
 }

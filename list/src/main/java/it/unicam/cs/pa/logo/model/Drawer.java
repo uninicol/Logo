@@ -1,16 +1,15 @@
 package it.unicam.cs.pa.logo.model;
 
 /**
- * Questa interfaccia rappresenta un disegnatore che disegna su un piano ricava punti di un Environment
+ * Questa interfaccia rappresenta un disegnatore
  */
-public interface Drawer<E extends Environment<?>> {
+public interface Drawer<T, E> {
 
     /**
-     * Traccia una linea se la penna è giù
+     * Disegna qualcosa su un oggetto
      *
-     * @param segment     il segmento da disegnare
-     * @param environment l'environment su cui disegnare
-     * @return l'environment aggiornato
+     * @param element l'elemento da disegnare
+     * @return l'oggetto con l'elemento disegnato
      */
-    E drawLine(E environment, Segment segment);
+    E draw(T element);
 }

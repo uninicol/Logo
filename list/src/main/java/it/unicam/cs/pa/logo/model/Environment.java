@@ -2,23 +2,35 @@ package it.unicam.cs.pa.logo.model;
 
 import java.awt.*;
 import java.awt.geom.Point2D;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
+import java.util.function.Supplier;
 
 /**
  * Rappresenta un ambiente a due dimensioni
  */
-public abstract class Environment<C extends Cursor<?>> extends Rectangle {
+public abstract class Environment<C extends Cursor<?>> {
 
+    private final int width;
+    private final int height;
     private final C cursor;
     private final List<Polygon> polygons;
     private Color backgroundColor = Color.WHITE;
 
-    public Environment(int width, int height, C cursor) {
-        super(width, height);
+    public Environment(int width, int height, C cursor, Supplier<List<Polygon>> polygonSupplier) {
+        this.width = width;
+        this.height = height;
         this.cursor = Objects.requireNonNull(cursor);
-        this.polygons = new ArrayList<>();
+        this.cursor.moveTo(new Point(width / 2, height / 2));
+        this.polygons = polygonSupplier.get();
+    }
+
+    public int getWidth() {
+        return width;
+    }
+
+    public int getHeight() {
+        return height;
     }
 
     /**
@@ -71,6 +83,30 @@ public abstract class Environment<C extends Cursor<?>> extends Rectangle {
      */
     public void clearAll() {
         getPolygons().clear();
+    }
+
+    /**
+     * Verifica se il punto è all'interno dell'environment
+     *
+     * @param x la coordinata x
+     * @param y la coordinata y
+     * @return true se il punto (x,y) è all'interno dell'environment, false altrimenti
+     */
+    public boolean contains(int x, int y) {
+        return x >= 0 &&
+                x <= width &&
+                y >= 0 &&
+                y <= height;
+    }
+
+    /**
+     * Verifica se il punto è all'interno dell'environment
+     *
+     * @param point il punto
+     * @return true se il punto è all'interno dell'environment, false altrimenti
+     */
+    public boolean contains(Point2D point) {
+        return this.contains((int) point.getX(), (int) point.getY());
     }
 }
 

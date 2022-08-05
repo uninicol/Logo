@@ -13,13 +13,13 @@ public class SimpleEnvWriter implements EnvironmentWriter<SimpleEnvironment> {
 
     @Override
     public String stringOf(SimpleEnvironment field) {
-        String str = "SIZE " + (int) field.getWidth() + " "
-                + (int) field.getHeight() + " "
+        String str = "SIZE " + field.getWidth() + " "
+                +  field.getHeight() + " "
                 + stringOf(field.getBackgroundColor()) + "\n"
                 + field.getPolygons().stream()
                 .map(this::stringOf)
                 .toList();
-        str = str.replaceAll("\\[|\\]|, ", "");
+        str = str.replaceAll("\\[|]|, ", "");
         //.replaceAll("]", "")
         //.replaceAll(", ", "");
         return str;

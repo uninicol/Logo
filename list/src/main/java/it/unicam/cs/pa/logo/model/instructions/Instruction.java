@@ -16,7 +16,7 @@ import java.util.stream.Stream;
 public abstract class Instruction<E extends Environment<?>> implements InstructionWriter<E> {
 
     /**
-     * Esegue uno script di istruzioni LOGO
+     * Esegue uno script d'istruzioni LOGO
      */
     public static final Executor<Instruction<SimpleEnvironment>, SimpleEnvironment> LOGO_EXECUTOR = (registry, environment, script) -> {
         Queue<String> scriptCopy = new LinkedList<>(script); //creo un clone altrimenti ho ConcurrentModificationException nello stream
@@ -35,12 +35,11 @@ public abstract class Instruction<E extends Environment<?>> implements Instructi
 
     private final E environment;
     private final int numOfAttributes;
-    private int requestedAttributes;
+    private int requestedAttributes = 0;
 
     public Instruction(E environment, int numOfAttributes) {
         this.environment = environment;
         this.numOfAttributes = numOfAttributes;
-        this.requestedAttributes = 0;
     }
 
     /**

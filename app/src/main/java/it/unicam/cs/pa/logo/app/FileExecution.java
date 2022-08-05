@@ -16,7 +16,7 @@ public class FileExecution {
     public void execute(Controller<?, ?> controller) throws IOException {
         System.out.println("Hai scelto l'esecuzione da un file\nInserire nome del file (deve essere nella stessa cartella del programma)");
         List<String> script = controller.read(new File(br.readLine()));
-        controller.computeScript(String.join(", ", script));
+        script.forEach(controller::computeScript);
         System.out.println("Computazione conclusa");
     }
 }
