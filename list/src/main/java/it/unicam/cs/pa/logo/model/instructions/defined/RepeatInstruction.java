@@ -35,10 +35,30 @@ public final class RepeatInstruction extends Instruction<SimpleEnvironment> {
 
     private Queue<String> getScriptToRepeat(Queue<String> script) {
         LinkedList<String> repeat = script.stream()
-                .takeWhile(str -> !str.equals("]"))
+                .limit(lastClosedBracketIndex(script))
                 .collect(Collectors.toCollection(LinkedList::new));
         repeat.add("]");
         return repeat;
+    }
+
+    /**
+     * In caso istrutioni REPEAT all'interno del blocco, seleziona l'indice della sua parentesi di chiusura
+     *
+     * @param script lo script
+     * @return l'indice della parentesi chiusa del REPEAT
+     */
+    private int lastClosedBracketIndex(Queue<String> script) {
+        List<Integer> indexes = new LinkedList<>();
+        int openParenthesis = 0;
+        int i = 0;
+        for (String str : script) {
+            if (str.equals("["))
+                openParenthesis++;
+            if (str.equals("]"))
+                indexes.add(i);
+            i++;
+        }
+        return indexes.get(openParenthesis);
     }
 
     private void removeToRepeatScript(Queue<String> script, Queue<String> toRepeat) {
