@@ -19,8 +19,6 @@ public class SimpleEnvWriter implements EnvironmentWriter<SimpleEnvironment> {
                 .map(polygonWriter::stringOf)
                 .toList();
         str = str.replaceAll("\\[|]|, ", "");
-        //.replaceAll("]", "")
-        //.replaceAll(", ", "");
         return str;
     }
 

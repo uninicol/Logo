@@ -22,6 +22,7 @@ public abstract class Instruction<E extends Environment<?>> implements Instructi
         }
         return environment;
     };
+
     private final E environment;
     private final int numOfAttributes;
     private int requestedAttributes = 0;

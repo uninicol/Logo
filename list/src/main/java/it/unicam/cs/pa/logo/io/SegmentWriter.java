@@ -6,10 +6,10 @@ public class SegmentWriter implements EnvironmentWriter<Segment> {
 
     @Override
     public String stringOf(Segment segment) {
-        return "LINE " + (int) segment.getX1() + " "
-                + (int) segment.getY1() + " "
-                + (int) segment.getX2() + " "
-                + (int) segment.getY2() + " "
+        return "LINE " + (int) segment.x1 + " "
+                + (int) segment.y1 + " "
+                + (int) segment.x2 + " "
+                + (int) segment.y2 + " "
                 + new SimpleEnvWriter().stringOf(segment.getColor())
                 + segment.getSize() + "\n";
     }
@@ -21,8 +21,8 @@ public class SegmentWriter implements EnvironmentWriter<Segment> {
      * @return la stringa che rappresenta gli attributi di un segmento
      */
     public String stringOfSegmentAttributes(Segment segment) {
-        return (int) segment.getX1() + " "
-                + (int) segment.getY1() + " "
+        return (int) segment.x1 + " "
+                + (int) segment.y1 + " "
                 + new SimpleEnvWriter().stringOf(segment.getColor())
                 + segment.getSize() + "\n";
     }
