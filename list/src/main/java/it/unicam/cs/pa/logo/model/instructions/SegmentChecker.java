@@ -6,6 +6,10 @@ import it.unicam.cs.pa.logo.model.Segment;
 import java.awt.*;
 import java.awt.geom.Point2D;
 
+
+/**
+ * Verifica se il segmento è correttamente all'interno dell'environment
+ */
 public final class SegmentChecker {
 
     private final Environment<?> environment;
