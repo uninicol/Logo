@@ -18,7 +18,10 @@ public abstract class Instruction<E extends Environment<?>> implements Instructi
     public static final Executor<Instruction<SimpleEnvironment>, SimpleEnvironment> LOGO_EXECUTOR = (registry, environment, script) -> {
         while (!script.isEmpty()) {
             registry.parse(script.poll(), environment)
-                    .ifPresent(instruction -> instruction.apply(script));
+                    .ifPresent(instruction -> {
+                        instruction.apply(script);
+                        System.out.println(instruction.stringOf(environment));
+                    });
         }
         return environment;
     };
