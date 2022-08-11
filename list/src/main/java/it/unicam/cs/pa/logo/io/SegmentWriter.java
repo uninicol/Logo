@@ -23,7 +23,7 @@ public class SegmentWriter implements EnvironmentWriter<Segment> {
     public String stringOfSegmentAttributes(Segment segment) {
         return (int) segment.x1 + " "
                 + (int) segment.y1 + " "
-                + new SimpleEnvWriter().stringOf(segment.getColor())
+                + new SimpleEnvWriter().stringOf(segment.getColor()) + " "
                 + segment.getSize() + "\n";
     }
 }

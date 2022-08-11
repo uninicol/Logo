@@ -10,10 +10,12 @@ public class PolygonWriter implements EnvironmentWriter<Polygon> {
         if (polygon.size() == 1 || !polygon.isClosed())
             return "" + polygon.getSegments().stream()
                     .map(writer::stringOf)
-                    .toList();
+                    .toList()
+                    .toString().replaceAll("\\[|]|, ", "");
         return "POLYGON " + polygon.size() + " "
                 + new SimpleEnvWriter().stringOf(polygon.getBackgroundColor()) + "\n"
                 + polygon.getSegments().stream()
-                .map(writer::stringOfSegmentAttributes).toList();
+                .map(writer::stringOfSegmentAttributes).toList()
+                .toString().replaceAll("\\[|]|, ", "");
     }
 }
