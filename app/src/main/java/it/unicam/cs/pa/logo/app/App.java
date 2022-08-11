@@ -31,9 +31,9 @@ public class App {
      * @return il controller
      */
     private static Controller<Instruction<SimpleEnvironment>, SimpleEnvironment> getController(String[] args) {
-        Optional<Pair<Integer, Integer>> pair = checkArgs(args);
-        if (pair.isPresent())
-            return Controller.getTwoDimController(pair.get().getLeft(), pair.get().getRight());
+        Optional<Pair<Integer, Integer>> envDimension = checkArgs(args);
+        if (envDimension.isPresent())
+            return Controller.getTwoDimController(envDimension.get().getLeft(), envDimension.get().getRight());
         int lunghezza = 0, altezza = 0;
         try {
             System.out.print("Lunghezza:");
@@ -72,7 +72,7 @@ public class App {
         printBoard();
         getStrategy().execute(controller);
         System.out.println("Salvare su file l'esecuzione? S/n");
-        if (br.readLine().equals("S")) {
+        if (br.readLine().equalsIgnoreCase("S")) {
             File file = new File("output.logo");
             controller.save(file);
             System.out.println("File salvato su " + file.toPath());

@@ -21,6 +21,5 @@ public class FileExecution implements Execution<Instruction<SimpleEnvironment>, 
         List<String> script = controller.read(new File(br.readLine()));
         script.forEach(controller::computeScript);
         System.out.println("Computazione conclusa");
-
     }
 }
