@@ -3,14 +3,14 @@ package it.unicam.cs.pa.logo.model;
 /**
  * Rappresenta la direzione del cursore nel piano
  */
-public interface Direction {
+public interface Direction<T extends Number> {
 
     /**
      * Restituisce il valore della direzione
      *
      * @return il valore della direzione
      */
-    double getValue();
+    T getValue();
 
     /**
      * Incrementa il valore della direzione

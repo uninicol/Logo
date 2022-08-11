@@ -5,7 +5,7 @@ import it.unicam.cs.pa.logo.model.Direction;
 /**
  * Rappresenta una direzione in un piano a due dimensioni
  */
-public class Direction360 implements Direction {
+public class Direction360 implements Direction<Integer> {
     private int angle;
 
     public Direction360(int direction) {
@@ -17,7 +17,7 @@ public class Direction360 implements Direction {
     }
 
     @Override
-    public final double getValue() {
+    public final Integer getValue() {
         return angle;
     }
 
