@@ -37,7 +37,7 @@ public final class SegmentChecker {
      * @return il punto x all'interno dell'environment
      */
     private double checkX(Segment segment) {
-        double angle = (double) environment.getCursor().getDirection().getValue();
+        double angle = Double.parseDouble(environment.getCursor().getDirection().getValue().toString());
         if (segment.x2 > environment.getWidth())
             return segment.x2 - ((segment.x2 - environment.getWidth()) / Math.cos(Math.toRadians(angle)));
         else if (segment.getP2().getX() < 0)
@@ -51,7 +51,7 @@ public final class SegmentChecker {
      * @return il punto y all'interno dell'environment
      */
     private double checkY(Segment segment) {
-        double angle = (double) environment.getCursor().getDirection().getValue();
+        double angle = Double.parseDouble(environment.getCursor().getDirection().getValue().toString());
         if (segment.y2 > environment.getHeight())
             if (angle == 270) return segment.y2 - (segment.y2 - environment.getHeight());
             else return segment.y2 - ((segment.y2 - environment.getHeight()) / Math.cos(Math.toRadians(angle)));
