@@ -12,15 +12,6 @@ public class SimpleEnvWriter implements EnvironmentWriter<SimpleEnvironment> {
     @Override
     public String stringOf(SimpleEnvironment field) {
         PolygonWriter polygonWriter = new PolygonWriter();
-
-
-//        String str = "SIZE " + field.getWidth() + " "
-//                + field.getHeight() + " "
-//                + stringOf(field.getBackgroundColor()) + "\n"
-//                + field.getPolygons().stream()
-//                .map(polygonWriter::stringOf)
-//                .toList();
-//        str = str.replaceAll("\\[|]|, ", "");
         return "SIZE " +
                 field.getWidth() + " " +
                 field.getHeight() + " " +

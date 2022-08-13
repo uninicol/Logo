@@ -12,4 +12,8 @@ public class SimpleCursor extends Cursor<Direction360> {
     public SimpleCursor(Direction360 direction) {
         super(direction);
     }
+
+    public SimpleCursor() {
+        super();
+    }
 }

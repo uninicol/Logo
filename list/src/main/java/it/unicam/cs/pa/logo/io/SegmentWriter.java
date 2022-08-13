@@ -10,7 +10,7 @@ public class SegmentWriter implements EnvironmentWriter<Segment> {
                 + (int) segment.y1 + " "
                 + (int) segment.x2 + " "
                 + (int) segment.y2 + " "
-                + new SimpleEnvWriter().stringOf(segment.getColor())
+                + new SimpleEnvWriter().stringOf(segment.getColor()) + " "
                 + segment.getSize() + "\n";
     }
 

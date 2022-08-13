@@ -7,7 +7,7 @@ import java.util.Objects;
 /**
  * Rappresenta un cursore in un piano a due dimensioni
  */
-public abstract class Cursor<D extends Direction> {
+public abstract class Cursor<D extends Direction<?>> {
 
     private int size = 1;
     private Point2D position;
@@ -24,6 +24,10 @@ public abstract class Cursor<D extends Direction> {
     public Cursor(D direction) {
         this.position = new Point();
         this.direction = Objects.requireNonNull(direction);
+    }
+
+    public Cursor() {
+
     }
 
     /**
