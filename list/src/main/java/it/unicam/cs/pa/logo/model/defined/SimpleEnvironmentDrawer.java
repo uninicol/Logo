@@ -3,7 +3,6 @@ package it.unicam.cs.pa.logo.model.defined;
 import it.unicam.cs.pa.logo.model.Drawer;
 import it.unicam.cs.pa.logo.model.Polygon;
 import it.unicam.cs.pa.logo.model.Segment;
-import it.unicam.cs.pa.logo.model.instructions.SegmentChecker;
 
 import java.awt.*;
 import java.awt.geom.Point2D;
@@ -22,7 +21,7 @@ public class SimpleEnvironmentDrawer implements Drawer<Segment, SimpleEnvironmen
 
     @Override
     public SimpleEnvironment draw(Segment segment) {
-        segment = new SegmentChecker(environment).check(segment);
+        segment = new SimpleSegmentChecker().check(segment, environment);
         if (environment.getCursor().isPlot())
             draw(environment, segment);
         environment.getCursor().moveTo(segment.getP2());
