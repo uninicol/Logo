@@ -9,7 +9,7 @@ import java.util.Optional;
  * Questa interfaccia è usata per trasformare una stringa in un istruzione
  */
 @FunctionalInterface
-public interface InstructionReader<I extends Instruction<E>, E extends Environment<?>> {
+public interface InstructionReader<I extends Instruction<? super E>, E extends Environment<?>> {
 
     /**
      * Restituisce l'istruzione associato alla stringa data

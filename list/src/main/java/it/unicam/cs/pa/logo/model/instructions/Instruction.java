@@ -2,7 +2,6 @@ package it.unicam.cs.pa.logo.model.instructions;
 
 import it.unicam.cs.pa.logo.io.InstructionWriter;
 import it.unicam.cs.pa.logo.model.Environment;
-import it.unicam.cs.pa.logo.model.defined.SimpleEnvironment;
 
 import java.util.Objects;
 import java.util.Queue;
@@ -11,20 +10,6 @@ import java.util.Queue;
  * Classe astratta che rappresenta un'istruzione
  */
 public abstract class Instruction<E extends Environment<?>> implements InstructionWriter<E> {
-
-    /**
-     * Esegue uno script d'istruzioni LOGO
-     */
-    public static final Executor<Instruction<SimpleEnvironment>, SimpleEnvironment> LOGO_EXECUTOR = (registry, environment, script) -> {
-        while (!script.isEmpty()) {
-            registry.parse(script.poll(), environment)
-                    .ifPresent(instruction -> {
-                        instruction.apply(script);
-                        System.out.println(instruction.stringOf(environment));
-                    });
-        }
-        return environment;
-    };
 
     private final E environment;
     private final int numOfAttributes;

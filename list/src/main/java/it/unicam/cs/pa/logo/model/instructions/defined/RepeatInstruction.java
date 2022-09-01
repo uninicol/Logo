@@ -3,6 +3,7 @@ package it.unicam.cs.pa.logo.model.instructions.defined;
 import it.unicam.cs.pa.logo.io.InstructionLoader;
 import it.unicam.cs.pa.logo.model.defined.SimpleEnvironment;
 import it.unicam.cs.pa.logo.model.instructions.Instruction;
+import it.unicam.cs.pa.logo.model.instructions.LOGOExecutor;
 
 import java.util.LinkedList;
 import java.util.List;
@@ -28,7 +29,7 @@ public final class RepeatInstruction extends Instruction<SimpleEnvironment> {
         removeToRepeatScript(script, toRepeat);
         for (int i = 0; i < num; i++) {
             //dato che la lista verrà consumata creo una nuova LinkedList per ogni iterazione
-            Instruction.LOGO_EXECUTOR.execute(InstructionLoader.DEFAULT_LOGO_READER, getEnvironment(), new LinkedList<>(toRepeat));
+            LOGOExecutor.LOGO_EXECUTOR.execute(InstructionLoader.DEFAULT_LOGO_READER, getEnvironment(), new LinkedList<>(toRepeat));
         }
         return getEnvironment();
     }

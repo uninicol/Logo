@@ -1,16 +1,10 @@
 package it.unicam.cs.pa.logo.model.instructions;
 
-import it.unicam.cs.pa.logo.io.InstructionReader;
 import it.unicam.cs.pa.logo.model.defined.SimpleEnvironment;
 
-import java.util.Queue;
+public class LOGOExecutor {
 
-public class LOGOExecutor implements Executor<Instruction<SimpleEnvironment>, SimpleEnvironment> {
-
-    //private final List<SimpleEnvironment> updates = new LinkedList<>();
-
-    @Override
-    public SimpleEnvironment execute(InstructionReader<Instruction<SimpleEnvironment>, SimpleEnvironment> registry, SimpleEnvironment environment, Queue<String> script) {
+    public static Executor<Instruction<SimpleEnvironment>, SimpleEnvironment> LOGO_EXECUTOR = ((registry, environment, script) -> {
         while (!script.isEmpty()) {
             registry.parse(script.poll(), environment)
                     .ifPresent(instruction -> {
@@ -19,5 +13,5 @@ public class LOGOExecutor implements Executor<Instruction<SimpleEnvironment>, Si
                     });
         }
         return environment;
-    }
+    });
 }

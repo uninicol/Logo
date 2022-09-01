@@ -10,6 +10,7 @@ import it.unicam.cs.pa.logo.model.defined.SimpleCursor;
 import it.unicam.cs.pa.logo.model.defined.SimpleEnvironment;
 import it.unicam.cs.pa.logo.model.instructions.Executor;
 import it.unicam.cs.pa.logo.model.instructions.Instruction;
+import it.unicam.cs.pa.logo.model.instructions.LOGOExecutor;
 
 import java.awt.*;
 import java.io.File;
@@ -62,7 +63,8 @@ public class Controller<I extends Instruction<E>, E extends Environment<?>> {
                         new SimpleCursor(new Point(length / 2, height / 2), new Direction360())
                 ),
                 InstructionLoader.DEFAULT_LOGO_READER,
-                Instruction.LOGO_EXECUTOR);
+                LOGOExecutor.LOGO_EXECUTOR
+        );
     }
 
     /**
