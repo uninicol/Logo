@@ -18,10 +18,50 @@ public class App {
     public static void main(String[] args) throws IOException {
         try {
             controller = getController(args);
-            new App().run(controller);
+            new App().run();
         } finally {
             br.close();
         }
+    }
+
+    /**
+     * Esegue l'applicazione
+     *
+     * @throws IOException se l'input è errato
+     */
+    public void run() throws IOException {
+        System.out.println("--------------LOGO--------------");
+        printBoard();
+        getExecutionMode().execute(controller);
+        System.out.println("Salvare su file l'esecuzione? S/n");
+        if (br.readLine().equalsIgnoreCase("S")) {
+            File file = new File("output.logo");
+            controller.save(file);
+            System.out.println("File salvato su " + file.toPath());
+        }
+    }
+
+    /**
+     * Stampa le possibili scelte di esecuzione
+     */
+    private void printBoard() {
+        System.out.println("Scegli:");
+        System.out.println("1) esegui il comando passo passo");
+        System.out.println("2) esegui un programma logo da un file");
+    }
+
+    /**
+     * Restituisce la modalità di esecuzione scelta
+     *
+     * @return la modalità di esecuzione scelta
+     * @throws IOException se l'input non è compreso tra le scelte
+     */
+    private Execution<Instruction<SimpleEnvironment>, SimpleEnvironment> getExecutionMode() throws IOException {
+        return switch (Integer.parseInt(br.readLine())) {
+            case 1 -> new StepByStepExecution();
+            case 2 -> new FileExecution();
+            default -> throw new IOException("Input errato");
+        };
     }
 
     /**
@@ -65,31 +105,5 @@ public class App {
             return Optional.of(Pair.of(lunghezza, altezza));
         }
         return Optional.empty();
-    }
-
-    public void run(Controller<Instruction<SimpleEnvironment>, SimpleEnvironment> controller) throws IOException {
-        System.out.println("--------------LOGO--------------");
-        printBoard();
-        getStrategy().execute(controller);
-        System.out.println("Salvare su file l'esecuzione? S/n");
-        if (br.readLine().equalsIgnoreCase("S")) {
-            File file = new File("output.logo");
-            controller.save(file);
-            System.out.println("File salvato su " + file.toPath());
-        }
-    }
-
-    private void printBoard() {
-        System.out.println("Scegli:");
-        System.out.println("1) esegui il comando passo passo");
-        System.out.println("2) esegui un programma logo da un file");
-    }
-
-    private Execution<Instruction<SimpleEnvironment>, SimpleEnvironment> getStrategy() throws IOException {
-        return switch (Integer.parseInt(br.readLine())) {
-            case 1 -> new StepByStepExecution();
-            case 2 -> new FileExecution();
-            default -> throw new IOException("Input errato");
-        };
     }
 }
