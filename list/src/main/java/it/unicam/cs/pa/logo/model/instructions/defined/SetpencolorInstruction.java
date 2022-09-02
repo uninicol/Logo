@@ -9,23 +9,7 @@ import java.util.Queue;
 /**
  * Classe che rappresenta l'istruzione SETPENCOLOR, imposta il colore della penna
  */
-public final class SetpencolorInstruction extends Instruction<SimpleEnvironment> {
-    public SetpencolorInstruction(SimpleEnvironment environment) {
-        super(environment, 3);
-    }
-
-    @Override
-    public SimpleEnvironment apply(Queue<String> script) {
-        int red = getAttribute(script);
-        int green = getAttribute(script);
-        int blue = getAttribute(script);
-        getEnvironment().getCursor().setLineColor(
-                new Color(
-                        red, green, blue
-                )
-        );
-        return getEnvironment();
-    }
+public final class SetpencolorInstruction implements Instruction<SimpleEnvironment> {
 
     @Override
     public String stringOf(SimpleEnvironment environment) {
@@ -34,5 +18,18 @@ public final class SetpencolorInstruction extends Instruction<SimpleEnvironment>
                 color.getRed(),
                 color.getGreen(),
                 color.getBlue());
+    }
+
+    @Override
+    public SimpleEnvironment apply(SimpleEnvironment environment, Queue<String> script) {
+        int red = getIntegerAttribute(script);
+        int green = getIntegerAttribute(script);
+        int blue = getIntegerAttribute(script);
+        environment.getCursor().setLineColor(
+                new Color(
+                        red, green, blue
+                )
+        );
+        return environment;
     }
 }

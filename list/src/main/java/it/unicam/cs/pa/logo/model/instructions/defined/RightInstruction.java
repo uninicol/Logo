@@ -8,21 +8,17 @@ import java.util.Queue;
 /**
  * Classe che rappresenta l'istruzione RIGHT, ruota il cursore in senso orario
  */
-public final class RightInstruction extends Instruction<SimpleEnvironment> {
-
-    public RightInstruction(SimpleEnvironment environment) {
-        super(environment, 1);
-    }
-
-    @Override
-    public SimpleEnvironment apply(Queue<String> script) {
-        int grade = getAttribute(script);
-        getEnvironment().getCursor().getDirection().increase(grade);
-        return getEnvironment();
-    }
+public final class RightInstruction implements Instruction<SimpleEnvironment> {
 
     @Override
     public String stringOf(SimpleEnvironment environment) {
         return "ruotato il cursore verso " + (int) environment.getCursor().getDirection().getValue();
+    }
+
+    @Override
+    public SimpleEnvironment apply(SimpleEnvironment environment, Queue<String> script) {
+        int grade = getIntegerAttribute(script);
+        environment.getCursor().getDirection().increase(grade);
+        return environment;
     }
 }

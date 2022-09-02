@@ -9,20 +9,8 @@ import java.util.Queue;
 /**
  * Classe che rappresenta l'istruzione SETSCREENCOLOR, imposta il colore di background dell’area di disegno
  */
-public final class SetscreencolorInstruction extends Instruction<SimpleEnvironment> {
-    public SetscreencolorInstruction(SimpleEnvironment environment) {
-        super(environment, 3);
-    }
-
-    @Override
-    public SimpleEnvironment apply(Queue<String> script) {
-        int red = getAttribute(script);
-        int green = getAttribute(script);
-        int blue = getAttribute(script);
-        getEnvironment().setBackgroundColor(new Color(red, green, blue));
-        return getEnvironment();
-    }
-
+public final class SetscreencolorInstruction implements Instruction<SimpleEnvironment> {
+    
     @Override
     public String stringOf(SimpleEnvironment environment) {
         Color color = environment.getBackgroundColor();
@@ -30,5 +18,14 @@ public final class SetscreencolorInstruction extends Instruction<SimpleEnvironme
                 color.getRed(),
                 color.getGreen(),
                 color.getBlue());
+    }
+
+    @Override
+    public SimpleEnvironment apply(SimpleEnvironment environment, Queue<String> script) {
+        int red = getIntegerAttribute(script);
+        int green = getIntegerAttribute(script);
+        int blue = getIntegerAttribute(script);
+        environment.setBackgroundColor(new Color(red, green, blue));
+        return environment;
     }
 }

@@ -14,21 +14,21 @@ public class InstructionLoader {
     /**
      * Lista di funzioni che creano un istruzione del linguaggio LOGO
      */
-    public static InstructionReader<Instruction<SimpleEnvironment>, SimpleEnvironment> DEFAULT_LOGO_READER = ((str, env) ->
+    public static InstructionReader<Instruction<SimpleEnvironment>> DEFAULT_LOGO_READER = (str ->
             switch (str) {
-                case "BACKWARD" -> Optional.of(new BackwardInstruction(env));
-                case "LEFT" -> Optional.of(new LeftInstruction(env));
-                case "RIGHT" -> Optional.of(new RightInstruction(env));
-                case "CLEARSCREEN" -> Optional.of(new ClearscreenInstruction(env));
-                case "HOME" -> Optional.of(new HomeInstruction(env));
-                case "PENUP" -> Optional.of(new PenupInstrucion(env));
-                case "PENDOWN" -> Optional.of(new PendownInstruction(env));
-                case "SETPENCOLOR" -> Optional.of(new SetpencolorInstruction(env));
-                case "SETFILLCOLOR" -> Optional.of(new SetfillcolorInstruction(env));
-                case "SETSCREENCOLOR" -> Optional.of(new SetscreencolorInstruction(env));
-                case "SETPENSIZE" -> Optional.of(new SetpensizeInstruction(env));
-                case "REPEAT" -> Optional.of(new RepeatInstruction(env));
-                case "FORWARD" -> Optional.of(new ForwardInstruction(env));
+                case "BACKWARD" -> Optional.of(new BackwardInstruction());
+                case "LEFT" -> Optional.of(new LeftInstruction());
+                case "RIGHT" -> Optional.of(new RightInstruction());
+                case "CLEARSCREEN" -> Optional.of(new ClearscreenInstruction());
+                case "HOME" -> Optional.of(new HomeInstruction());
+                case "PENUP" -> Optional.of(new PenupInstrucion());
+                case "PENDOWN" -> Optional.of(new PendownInstruction());
+                case "SETPENCOLOR" -> Optional.of(new SetpencolorInstruction());
+                case "SETFILLCOLOR" -> Optional.of(new SetfillcolorInstruction());
+                case "SETSCREENCOLOR" -> Optional.of(new SetscreencolorInstruction());
+                case "SETPENSIZE" -> Optional.of(new SetpensizeInstruction());
+                case "REPEAT" -> Optional.of(new RepeatInstruction());
+                case "FORWARD" -> Optional.of(new ForwardInstruction());
                 default -> Optional.empty();
             }
     );

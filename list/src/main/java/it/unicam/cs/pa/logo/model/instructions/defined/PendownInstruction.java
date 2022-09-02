@@ -8,19 +8,16 @@ import java.util.Queue;
 /**
  * Classe che rappresenta l'istruzione PENDOWN, attacca la penna al foglio
  */
-public final class PendownInstruction extends Instruction<SimpleEnvironment> {
-    public PendownInstruction(SimpleEnvironment environment) {
-        super(environment, 0);
-    }
-
-    @Override
-    public SimpleEnvironment apply(Queue<String> script) {
-        getEnvironment().getCursor().setPlot(true);
-        return getEnvironment();
-    }
+public final class PendownInstruction implements Instruction<SimpleEnvironment> {
 
     @Override
     public String stringOf(SimpleEnvironment environment) {
         return "attaccato la  penna al foglio";
+    }
+
+    @Override
+    public SimpleEnvironment apply(SimpleEnvironment environment, Queue<String> script) {
+        environment.getCursor().setPlot(true);
+        return environment;
     }
 }

@@ -9,21 +9,7 @@ import java.util.Queue;
 /**
  * Classe che rappresenta l'istruzione SETFILLCOLOR, imposta il colore del riempimento di un’area chiusa
  */
-public final class SetfillcolorInstruction extends Instruction<SimpleEnvironment> {
-
-    public SetfillcolorInstruction(SimpleEnvironment environment) {
-        super(environment, 3);
-    }
-
-    @Override
-    public SimpleEnvironment apply(Queue<String> script) {
-        int red = getAttribute(script);
-        int green = getAttribute(script);
-        int blue = getAttribute(script);
-        Color color = new Color(red, green, blue);
-        getEnvironment().getCursor().setAreaColor(color);
-        return getEnvironment();
-    }
+public final class SetfillcolorInstruction implements Instruction<SimpleEnvironment> {
 
     @Override
     public String stringOf(SimpleEnvironment environment) {
@@ -32,5 +18,15 @@ public final class SetfillcolorInstruction extends Instruction<SimpleEnvironment
                 color.getRed(),
                 color.getGreen(),
                 color.getBlue());
+    }
+
+    @Override
+    public SimpleEnvironment apply(SimpleEnvironment environment, Queue<String> script) {
+        int red = getIntegerAttribute(script);
+        int green = getIntegerAttribute(script);
+        int blue = getIntegerAttribute(script);
+        Color color = new Color(red, green, blue);
+        environment.getCursor().setAreaColor(color);
+        return environment;
     }
 }

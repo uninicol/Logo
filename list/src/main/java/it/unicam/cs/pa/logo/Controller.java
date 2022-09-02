@@ -26,7 +26,7 @@ import java.util.Queue;
 public class Controller<I extends Instruction<E>, E extends Environment<?>> {
 
     private final EnvironmentWriter<E> writer;
-    private final InstructionReader<I, E> registry;
+    private final InstructionReader<I> registry;
     private final Executor<I, E> executor;
     private final E currentField;
 
@@ -40,7 +40,7 @@ public class Controller<I extends Instruction<E>, E extends Environment<?>> {
      * @param executor    l'esecutore
      */
     public Controller(EnvironmentWriter<E> writer, E environment,
-                      InstructionReader<I, E> registry, Executor<I, E> executor) {
+                      InstructionReader<I> registry, Executor<I, E> executor) {
         this.writer = writer;
         this.currentField = environment;
         this.registry = registry;

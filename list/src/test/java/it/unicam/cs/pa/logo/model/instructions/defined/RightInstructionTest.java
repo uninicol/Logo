@@ -18,7 +18,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class RightInstructionTest {
     SimpleEnvironment env;
-    InstructionReader<Instruction<SimpleEnvironment>, SimpleEnvironment> registry = InstructionLoader.DEFAULT_LOGO_READER;
+    InstructionReader<Instruction<SimpleEnvironment>> registry = InstructionLoader.DEFAULT_LOGO_READER;
 
     @BeforeEach
     void build() {

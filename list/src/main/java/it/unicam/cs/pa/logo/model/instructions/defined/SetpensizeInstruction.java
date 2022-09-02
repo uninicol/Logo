@@ -8,20 +8,16 @@ import java.util.Queue;
 /**
  * Classe che rappresenta l'istruzione SETPENSIZE, indica la grandezza del tratto della penna
  */
-public final class SetpensizeInstruction extends Instruction<SimpleEnvironment> {
-    public SetpensizeInstruction(SimpleEnvironment environment) {
-        super(environment, 1);
-    }
-
-    @Override
-    public SimpleEnvironment apply(Queue<String> script) {
-        getEnvironment().getCursor().setSize(getAttribute(script));
-        return getEnvironment();
-    }
-
+public final class SetpensizeInstruction implements Instruction<SimpleEnvironment> {
 
     @Override
     public String stringOf(SimpleEnvironment environment) {
         return "impostato la grandezza del tratto in " + environment.getCursor().getSize();
+    }
+
+    @Override
+    public SimpleEnvironment apply(SimpleEnvironment environment, Queue<String> script) {
+        environment.getCursor().setSize(getIntegerAttribute(script));
+        return environment;
     }
 }

@@ -7,18 +7,9 @@ import java.util.Objects;
 import java.util.Queue;
 
 /**
- * Classe astratta che rappresenta un'istruzione
+ * Interfaccia che rappresenta un'istruzione
  */
-public abstract class Instruction<E extends Environment<?>> implements InstructionWriter<E> {
-
-    private final E environment;
-    private final int numOfAttributes;
-    private int requestedAttributes = 0;
-
-    public Instruction(E environment, int numOfAttributes) {
-        this.environment = environment;
-        this.numOfAttributes = numOfAttributes;
-    }
+public interface Instruction<E extends Environment<?>> extends InstructionWriter<E> {
 
     /**
      * Restituisce il risultato dell'applicazione dell'istruzione all'environment.
@@ -26,41 +17,15 @@ public abstract class Instruction<E extends Environment<?>> implements Instructi
      * @param script lo script contenente il comando
      * @return l'environment modificato dall'esecuzione
      */
-    public abstract E apply(Queue<String> script);
+    E apply(E environment, Queue<String> script);
 
     /**
-     * Restituisce il numero di attributi che l'istruzione ha bisogno
+     * Restituisce un attributo intero dallo script
      *
-     * @return il numero di attributi che l'istruzione ha bisogno
+     * @param script lo script
+     * @return un attributo intero per l'istruzione
      */
-    public final int getRequiredAttributesNumber() {
-        return numOfAttributes;
-    }
-
-    /**
-     * Restituisce il numero di attributi che l'istruzione ha richiesto
-     *
-     * @return il numero di attributi che l'istruzione ha richiesto
-     */
-    protected final int getRequestedAttributesNumber() {
-        return requestedAttributes;
-    }
-
-    /**
-     * Imposta il numero di attributi che l'istruzione ha richiesto
-     */
-    protected final void setRequestedAttributesNumber(int number) {
-        this.requestedAttributes = number;
-    }
-
-    protected final E getEnvironment() {
-        return environment;
-    }
-
-    protected final int getAttribute(Queue<String> script) {
-        if (getRequiredAttributesNumber() == getRequestedAttributesNumber())
-            throw new RuntimeException("richiesti troppi attributi");
-        setRequestedAttributesNumber(getRequestedAttributesNumber() + 1);
+    default int getIntegerAttribute(Queue<String> script) {
         return Integer.parseInt(Objects.requireNonNull(script.poll()));
     }
 }

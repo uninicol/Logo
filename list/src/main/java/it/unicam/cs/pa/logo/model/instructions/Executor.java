@@ -12,7 +12,7 @@ import java.util.Queue;
  * @param <E> l'environment
  */
 @FunctionalInterface
-public interface Executor<I extends Instruction<? super E>, E extends Environment<?>> {
+public interface Executor<I extends Instruction<E>, E extends Environment<?>> {
 
     /**
      * Esegue uno script di comandi definiti sul registro in un environment
@@ -22,5 +22,5 @@ public interface Executor<I extends Instruction<? super E>, E extends Environmen
      * @param script      lo script da eseguire
      * @return l'environment aggiornato
      */
-    E execute(InstructionReader<I, E> registry, E environment, Queue<String> script);
+    E execute(InstructionReader<I> registry, E environment, Queue<String> script);
 }
